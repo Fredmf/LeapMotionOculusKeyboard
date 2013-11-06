@@ -1,24 +1,21 @@
-﻿Build started 01.11.2013 23:41:25.
-     1>Project "C:\Users\Grin\Desktop\CG\LeapMotionOculusKeyboard\LeapMotionOculusKeyboard\LeapMotionOculusKeyboard.vcxproj" on node 2 (build target(s)).
-     1>PrepareForBuild:
-         Creating directory "C:\Users\Grin\Desktop\CG\LeapMotionOculusKeyboard\Release\".
-       InitializeBuildStatus:
-         Creating "Release\LeapMotionOculusKeyboard.unsuccessfulbuild" because "AlwaysCreate" was specified.
+﻿Build started 06.11.2013 20:21:23.
+     1>Project "E:\GitHub\LeapMotionOculusKeyboard\LeapMotionOculusKeyboard\LeapMotionOculusKeyboard.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Release\LeapMotionOculusKeyboard.unsuccessfulbuild".
        ClCompile:
-         d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\Users\Grin\Desktop\CG\LeapMotionOculusKeyboard\\SFML-2.1\include" /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
-         main.cpp
+         All outputs are up-to-date.
        Link:
-         d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Grin\Desktop\CG\LeapMotionOculusKeyboard\Release\LeapMotionOculusKeyboard.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\Users\Grin\Desktop\CG\LeapMotionOculusKeyboard\\SFML-2.1\lib" "sfml-network.lib" "sfml-system.lib" "sfml-main.lib" "sfml-audio.lib" "sfml-graphics.lib" "sfml-window.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\LeapMotionOculusKeyboard.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Grin\Desktop\CG\LeapMotionOculusKeyboard\Release\LeapMotionOculusKeyboard.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Grin\Desktop\CG\LeapMotionOculusKeyboard\Release\LeapMotionOculusKeyboard.lib" /MACHINE:X86 Release\main.obj
+         d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\GitHub\LeapMotionOculusKeyboard\Release\LeapMotionOculusKeyboard.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"E:\GitHub\LeapMotionOculusKeyboard\\SFML-2.1\lib" /LIBPATH:E:\GitHub\LeapMotionOculusKeyboard\\LeapDeveloperKit_release_win_1.0.8+7665\LeapSDK\lib\x86 Leap.lib "sfml-network.lib" "sfml-system.lib" "sfml-main.lib" "sfml-audio.lib" "sfml-graphics.lib" "sfml-window.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\LeapMotionOculusKeyboard.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\GitHub\LeapMotionOculusKeyboard\Release\LeapMotionOculusKeyboard.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\GitHub\LeapMotionOculusKeyboard\Release\LeapMotionOculusKeyboard.lib" /MACHINE:X86 Release\main.obj
          Generating code
          Finished generating code
-         LeapMotionOculusKeyboard.vcxproj -> C:\Users\Grin\Desktop\CG\LeapMotionOculusKeyboard\Release\LeapMotionOculusKeyboard.exe
+         LeapMotionOculusKeyboard.vcxproj -> E:\GitHub\LeapMotionOculusKeyboard\Release\LeapMotionOculusKeyboard.exe
        Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Grin\Desktop\CG\LeapMotionOculusKeyboard\Release\LeapMotionOculusKeyboard.exe;#1" /manifest Release\LeapMotionOculusKeyboard.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"E:\GitHub\LeapMotionOculusKeyboard\Release\LeapMotionOculusKeyboard.exe;#1" /manifest Release\LeapMotionOculusKeyboard.exe.intermediate.manifest
        FinalizeBuildStatus:
          Deleting file "Release\LeapMotionOculusKeyboard.unsuccessfulbuild".
          Touching "Release\LeapMotionOculusKeyboard.lastbuildstate".
-     1>Done Building Project "C:\Users\Grin\Desktop\CG\LeapMotionOculusKeyboard\LeapMotionOculusKeyboard\LeapMotionOculusKeyboard.vcxproj" (build target(s)).
+     1>Done Building Project "E:\GitHub\LeapMotionOculusKeyboard\LeapMotionOculusKeyboard\LeapMotionOculusKeyboard.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.16
+Time Elapsed 00:00:00.45

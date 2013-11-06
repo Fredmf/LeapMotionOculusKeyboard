@@ -26,7 +26,7 @@
 // Here is a small helper for you ! Have a look.
 #ifdef __APPLE__
 #include "ResourcePath.hpp"
-#elif __WIN32__
+#elif WIN32
 std::string resourcePath(void){
 	return "";
 }

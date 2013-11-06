@@ -36,4 +36,15 @@
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Leap.h">
+      <Filter>Source Files\LeapStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="LeapListener.h">
+      <Filter>Source Files\LeapStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="LeapMath.h">
+      <Filter>Source Files\LeapStuff</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
