@@ -113,5 +113,5 @@ then
 fi
 
 force_remove "$dest/libLeap.dylib"
-copy "LeapDeveloperKit_release_mac_1.0.8+7665/LeapSDK/lib/libLeap.dylib" "$dest/..x/MacOS/libLeap.dylib"
+copy "LeapDeveloperKit_release_mac_1.0.8+7665/LeapSDK/lib/libLeap.dylib" "$dest/../MacOS/libLeap.dylib"
 

@@ -20,7 +20,7 @@
 #include <iostream>
 
 //leap
-#include "Sample.h"
+#include "LeapListener.h"
 //#include <Leap.h>
 
 // Here is a small helper for you ! Have a look.
@@ -35,7 +35,7 @@ std::string resourcePath(void){
 int main(int, char const**)
 {
     //LEAP***************************************
-    SampleListener listener;
+    LeapListener listener;
     Controller controller;
     controller.addListener(listener);
     //LEAP***************************************

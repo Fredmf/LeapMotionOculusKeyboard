@@ -1,5 +1,5 @@
 dependencies: \
-  /Users/fredflugge/Desktop/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/main.cpp \
+  /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/main.cpp \
   /usr/local/include/SFML/Audio.hpp /usr/local/include/SFML/System.hpp \
   /usr/local/include/SFML/Config.hpp \
   /usr/local/include/SFML/System/Clock.hpp \
@@ -73,7 +73,7 @@ dependencies: \
   /usr/local/include/SFML/Graphics/ConvexShape.hpp \
   /usr/local/include/SFML/Graphics/Sprite.hpp \
   /usr/local/include/SFML/Graphics/Text.hpp \
-  /Users/fredflugge/Desktop/LeapMotionOculusKeyboard/LeapDeveloperKit_release_mac_1.0.8+7665/LeapSDK/samples/Sample.h \
-  /Users/fredflugge/Desktop/LeapMotionOculusKeyboard/LeapDeveloperKit_release_mac_1.0.8+7665/LeapSDK/include/Leap.h \
-  /Users/fredflugge/Desktop/LeapMotionOculusKeyboard/LeapDeveloperKit_release_mac_1.0.8+7665/LeapSDK/include/LeapMath.h \
-  /Users/fredflugge/Desktop/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.hpp
+  /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/LeapListener.h \
+  /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/Leap.h \
+  /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/LeapMath.h \
+  /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.hpp

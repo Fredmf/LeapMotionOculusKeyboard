@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EB5E9608-9DA8-42D1-B4B4-6156B6E3169A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LeapMotionOculusKeyboard</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5AD2CB96-33A1-40E5-A6DB-5776A0861515</key>
+		<string>https://github.com/Fredmf/LeapMotionOculusKeyboard.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LeapMotionOculusKeyboard.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5AD2CB96-33A1-40E5-A6DB-5776A0861515</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Fredmf/LeapMotionOculusKeyboard.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5AD2CB96-33A1-40E5-A6DB-5776A0861515</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5AD2CB96-33A1-40E5-A6DB-5776A0861515</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LeapMotionOculusKeyboard</string>
+		</dict>
+	</array>
+</dict>
+</plist>
