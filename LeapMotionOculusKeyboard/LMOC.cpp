@@ -60,12 +60,12 @@ bool LMOC::loadResources(){
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
     
     // Load a sprite to display
-    if (!texture.loadFromFile(resourcePath() + "cute_image.jpg")) {
-		std::cerr << "image not found" << std::endl;
-        return false;
-    }
-    sprite.setTexture(texture);
-    sprite.setScale(((float)window.getSize().x/(float)texture.getSize().x), ((float)window.getSize().y/(float)texture.getSize().y));
+//    if (!texture.loadFromFile(resourcePath() + "cute_image.jpg")) {
+//		std::cerr << "image not found" << std::endl;
+//        return false;
+//    }
+//    sprite.setTexture(texture);
+//    sprite.setScale(((float)window.getSize().x/(float)texture.getSize().x), ((float)window.getSize().y/(float)texture.getSize().y));
     
     // Create a graphical text to display
 //    if (!font.loadFromFile(resourcePath() + "sensation.ttf")) {
@@ -76,11 +76,19 @@ bool LMOC::loadResources(){
 		std::cerr << "font not found" << std::endl;
         return false;
     }
-    text.setColor(sf::Color::Yellow);
-    text.setFont(font);
-    text.setCharacterSize(50);
+//    text.setColor(sf::Color::Black);
+//    text.setFont(font);
+//    text.setCharacterSize(8);
+//    text.setString(s);
+    
     sf::String s = "Hello SFML";
-    text.setString(s);
+    for (int i=0; i<TEXTCNT; i++) {
+        texts[i].setColor(sf::Color::White);
+        texts[i].setFont(font);
+        texts[i].setCharacterSize(8);
+        texts[i].setString(s);
+        texts[i].setPosition(1,(i*(texts[i].getCharacterSize()+1))+1);
+    }
     
     // Load a music to play
     if (!music.openFromFile(resourcePath() + "nice_music.ogg")) {
@@ -97,25 +105,17 @@ void LMOC::renderingThread()
     // the rendering loop
     while (rendering)
     {
-        //noth left here, does not work... :(
-        // Draw the string
+        
+        
+        
+        
+        //post
         window.pushGLStates();
         window.clear();
-        window.draw(sprite);
-        
-        text.setString("Hello World");
-        text.setPosition(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
-        window.draw(text);
-        window.popGLStates();
-        
-        if (listener.isConnected) {
-            std::stringstream mySS;
-            mySS << myFrame.id();
-            sf::String myString = mySS.str();
-            text.setString(myString);
-            text.setPosition(0, 0);
-            window.draw(text);
+        for (int i=0; i<TEXTCNT; i++) {
+            window.draw(texts[i]);
         }
+        window.popGLStates();
         
         // Update the window
         window.display();
@@ -146,6 +146,29 @@ int LMOC::run()
             }
         }
         myFrame = listener.frame;
+        std::stringstream sstext;
+        sstext << "Frame ID: " << myFrame.id();
+        texts[0].setString(sstext.str());
+
+        sstext.str("");sstext.clear();
+        sstext << "Timestamp: " << myFrame.timestamp();
+        texts[1].setString(sstext.str());
+        
+        sstext.str("");sstext.clear();
+        sstext << "Hands Count: " << myFrame.hands().count();
+        texts[2].setString(sstext.str());
+        
+        sstext.str("");sstext.clear();
+        sstext << "Fingers Count: " << myFrame.fingers().count();
+        texts[3].setString(sstext.str());
+        
+        sstext.str("");sstext.clear();
+        sstext << "Tools Count: " << myFrame.tools().count();
+        texts[4].setString(sstext.str());
+        
+        sstext.str("");sstext.clear();
+        sstext << "Gestures Count: " << myFrame.gestures().count();
+        texts[5].setString(sstext.str());
         
     }
     window.close();

@@ -9,6 +9,8 @@
 #ifndef __LeapMotionOculusKeyboard__LMOC__
 #define __LeapMotionOculusKeyboard__LMOC__
 
+#define TEXTCNT 20
+
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -63,20 +65,23 @@ private:
     //resources
 private:
     sf::Image icon;
-private:
-    sf::Texture texture;
-private:
-    sf::Sprite sprite;
+//private:
+//    sf::Texture texture;
+//private:
+//    sf::Sprite sprite;
 private:
     sf::Font font;
 private:
     sf::Music music;
-private:
-    sf::Text text;
+//private:
+//    sf::Text text;
     
 private:
     bool running;
     bool rendering;
+private:
+    sf::Text texts[TEXTCNT];
+    
     
 private:
     Leap::Frame myFrame;

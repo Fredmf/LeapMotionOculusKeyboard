@@ -9,18 +9,6 @@
 #include "LeapListener.h"
 #include <iostream>
 
-enum td{
-    isInit,
-    isConnect,
-    hasFocus,
-    id,
-    timestamp,
-    handsCount,
-    fingersCount,
-    toolsCount,
-    gesturesCount,
-    numberDisplays
-};
 
 void LeapListener::onInit(const Controller& controller) {
     isConnected=false;
