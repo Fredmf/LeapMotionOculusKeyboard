@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4322D174183079600066FF8B /* keyboard.fm in Resources */ = {isa = PBXBuildFile; fileRef = 4322D173183079600066FF8B /* keyboard.fm */; };
+		4322D1791830B6050066FF8B /* minimal.frag in Resources */ = {isa = PBXBuildFile; fileRef = 4322D1751830B5910066FF8B /* minimal.frag */; };
+		4322D17A1830B6050066FF8B /* minimal.vert in Resources */ = {isa = PBXBuildFile; fileRef = 4322D1761830B5910066FF8B /* minimal.vert */; };
+		432F337D18306BD7001016B4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432F337C18306BD7001016B4 /* OpenGL.framework */; };
+		434515571830F38000DCDB95 /* Gbuffer.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 434515531830F36700DCDB95 /* Gbuffer.fsh */; };
+		434515581830F38000DCDB95 /* Gbuffer.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 434515541830F36700DCDB95 /* Gbuffer.vsh */; };
+		434515591830F38000DCDB95 /* Screen.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 4345154F1830F35800DCDB95 /* Screen.fsh */; };
+		4345155A1830F38000DCDB95 /* Screen.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 434515501830F35800DCDB95 /* Screen.vsh */; };
 		434BA85C18303ACD00CA9D3A /* keyboard.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 434BA85818303ACC00CA9D3A /* keyboard.mtl */; };
 		434BA85D18303ACD00CA9D3A /* keyboard.obj in Resources */ = {isa = PBXBuildFile; fileRef = 434BA85918303ACD00CA9D3A /* keyboard.obj */; };
 		434BA85E18303ACD00CA9D3A /* keyboardTex.png in Resources */ = {isa = PBXBuildFile; fileRef = 434BA85A18303ACD00CA9D3A /* keyboardTex.png */; };
@@ -25,6 +33,14 @@
 
 /* Begin PBXFileReference section */
 		431DCF331827C215005094A5 /* libLeap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libLeap.dylib; path = "../LeapDeveloperKit_release_mac_1.0.8+7665/LeapSDK/lib/libLeap.dylib"; sourceTree = "<group>"; };
+		4322D173183079600066FF8B /* keyboard.fm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = keyboard.fm; path = KeyboardModel/keyboard.fm; sourceTree = "<group>"; };
+		4322D1751830B5910066FF8B /* minimal.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = minimal.frag; sourceTree = "<group>"; };
+		4322D1761830B5910066FF8B /* minimal.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = minimal.vert; sourceTree = "<group>"; };
+		432F337C18306BD7001016B4 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		4345154F1830F35800DCDB95 /* Screen.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Screen.fsh; sourceTree = "<group>"; };
+		434515501830F35800DCDB95 /* Screen.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Screen.vsh; sourceTree = "<group>"; };
+		434515531830F36700DCDB95 /* Gbuffer.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Gbuffer.fsh; sourceTree = "<group>"; };
+		434515541830F36700DCDB95 /* Gbuffer.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Gbuffer.vsh; sourceTree = "<group>"; };
 		434BA85818303ACC00CA9D3A /* keyboard.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = keyboard.mtl; path = KeyboardModel/keyboard.mtl; sourceTree = "<group>"; };
 		434BA85918303ACD00CA9D3A /* keyboard.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = keyboard.obj; path = KeyboardModel/keyboard.obj; sourceTree = "<group>"; };
 		434BA85A18303ACD00CA9D3A /* keyboardTex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = keyboardTex.png; path = KeyboardModel/keyboardTex.png; sourceTree = "<group>"; };
@@ -52,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				432F337D18306BD7001016B4 /* OpenGL.framework in Frameworks */,
 				438779FB182AC9C400A39B01 /* libLeap.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +90,7 @@
 		434BA86018303AD800CA9D3A /* KeyboardModel */ = {
 			isa = PBXGroup;
 			children = (
+				4322D173183079600066FF8B /* keyboard.fm */,
 				434BA85818303ACC00CA9D3A /* keyboard.mtl */,
 				434BA85918303ACD00CA9D3A /* keyboard.obj */,
 				434BA85A18303ACD00CA9D3A /* keyboardTex.png */,
@@ -84,6 +102,7 @@
 		43A7E8EC18228B6C00710A8C = {
 			isa = PBXGroup;
 			children = (
+				432F337C18306BD7001016B4 /* OpenGL.framework */,
 				43A7E8F818228B6C00710A8C /* LeapMotionOculusKeyboard */,
 				43A7E8F718228B6C00710A8C /* Products */,
 			);
@@ -119,6 +138,12 @@
 		43A7E90018228B6C00710A8C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				434515531830F36700DCDB95 /* Gbuffer.fsh */,
+				434515541830F36700DCDB95 /* Gbuffer.vsh */,
+				4345154F1830F35800DCDB95 /* Screen.fsh */,
+				434515501830F35800DCDB95 /* Screen.vsh */,
+				4322D1751830B5910066FF8B /* minimal.frag */,
+				4322D1761830B5910066FF8B /* minimal.vert */,
 				434BA86018303AD800CA9D3A /* KeyboardModel */,
 				43DD4EF918302B40005DA23B /* stan0757.ttf */,
 				43A7E90118228B6C00710A8C /* cute_image.jpg */,
@@ -194,11 +219,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				434515571830F38000DCDB95 /* Gbuffer.fsh in Resources */,
+				434515581830F38000DCDB95 /* Gbuffer.vsh in Resources */,
+				434515591830F38000DCDB95 /* Screen.fsh in Resources */,
+				4345155A1830F38000DCDB95 /* Screen.vsh in Resources */,
+				4322D1791830B6050066FF8B /* minimal.frag in Resources */,
+				4322D17A1830B6050066FF8B /* minimal.vert in Resources */,
 				434BA85C18303ACD00CA9D3A /* keyboard.mtl in Resources */,
 				43A7E90818228B6C00710A8C /* icon.png in Resources */,
 				43A7E90618228B6C00710A8C /* sansation.ttf in Resources */,
 				434BA85F18303ACD00CA9D3A /* keyboardTexCaps.png in Resources */,
 				43A7E90418228B6C00710A8C /* nice_music.ogg in Resources */,
+				4322D174183079600066FF8B /* keyboard.fm in Resources */,
 				434BA85E18303ACD00CA9D3A /* keyboardTex.png in Resources */,
 				43DD4EFA18302B40005DA23B /* stan0757.ttf in Resources */,
 				43A7E90218228B6C00710A8C /* cute_image.jpg in Resources */,

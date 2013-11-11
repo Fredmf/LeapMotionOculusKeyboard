@@ -10,6 +10,8 @@
 #define __LeapMotionOculusKeyboard__LMOC__
 
 #define TEXTCNT 20
+#define NUM_VBO 2
+#define BUFFER_OFFSET(i) ((void*)(i))
 
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
@@ -32,7 +34,14 @@ std::string resourcePath(void){
 }
 #endif
 
+
 class LMOC {
+    struct Vertex{
+        float x,y,z;
+        float nx,ny,nz;
+        float u,v;
+    };
+    
 public:
     LMOC();
 public:
@@ -41,7 +50,7 @@ public:
 public:
     int run();
 public:
-    void renderingThread();
+    void renderThread();
 
 private:
     bool loadResources();
@@ -56,17 +65,15 @@ private:
 private:
     sf::ContextSettings settings;
 private:
-    sf::Mutex settingsMu;
-private:
     sf::RenderWindow window;
 private:
-    sf::Mutex windowMu;
+    sf::Shader shaders;
     
     //resources
 private:
     sf::Image icon;
-//private:
-//    sf::Texture texture;
+private:
+    sf::Texture texture;
 //private:
 //    sf::Sprite sprite;
 private:
@@ -81,10 +88,18 @@ private:
     bool rendering;
 private:
     sf::Text texts[TEXTCNT];
+    sf::Mutex textsMu;
     
     
 private:
     Leap::Frame myFrame;
+    
+private:
+    GLuint VBO[NUM_VBO];
+    
+private:
+    std::vector<Vertex> vert_data;
+    std::vector<unsigned int> ind_data;
 };
 #endif /* defined(__LeapMotionOculusKeyboard__LMOC__) */
 

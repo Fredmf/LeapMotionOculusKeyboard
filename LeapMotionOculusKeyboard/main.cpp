@@ -6,7 +6,7 @@
 int main(int, char const**)
 {
     LMOC lmoc;
-    sf::Thread renderThread(&LMOC::renderingThread,&lmoc);
-    renderThread.launch();
+    sf::Thread rThread(&LMOC::renderThread,&lmoc);
+    rThread.launch();
     return lmoc.run();
 }
