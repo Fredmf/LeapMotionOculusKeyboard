@@ -37,9 +37,9 @@ std::string resourcePath(void){
 
 class LMOC {
     struct Vertex{
-        float x,y,z;
-        float nx,ny,nz;
-        float u,v;
+        sf::Vector3f v;
+        sf::Vector3f n;
+        sf::Vector2f t;
     };
     
 public:
@@ -98,8 +98,17 @@ private:
     GLuint VBO[NUM_VBO];
     
 private:
+    std::vector<sf::Vector3f> v_data;
+    std::vector<sf::Vector2f> vt_data;
+    std::vector<sf::Vector3f> vn_data;
+    std::vector<sf::Vector3i> f_data;
+    
     std::vector<Vertex> vert_data;
     std::vector<unsigned int> ind_data;
+    
+private:
+    sf::Vector3f playerPos;
+    float viewanchor;
 };
 #endif /* defined(__LeapMotionOculusKeyboard__LMOC__) */
 

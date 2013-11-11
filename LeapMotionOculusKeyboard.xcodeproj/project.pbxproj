@@ -26,6 +26,8 @@
 		43A7E90418228B6C00710A8C /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 43A7E90318228B6C00710A8C /* nice_music.ogg */; };
 		43A7E90618228B6C00710A8C /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43A7E90518228B6C00710A8C /* sansation.ttf */; };
 		43A7E90818228B6C00710A8C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 43A7E90718228B6C00710A8C /* icon.png */; };
+		43A8BF721831255D004B29A0 /* Cam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 43A8BF701831255D004B29A0 /* Cam.cpp */; };
+		43A8BF7418313795004B29A0 /* keyboardV2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 43A8BF7318313795004B29A0 /* keyboardV2.obj */; };
 		43DD4EF6182F25EA005DA23B /* LMOC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 43DD4EF3182DD923005DA23B /* LMOC.cpp */; };
 		43DD4EF8182F295D005DA23B /* LeapListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 43DD4EF7182F295D005DA23B /* LeapListener.cpp */; };
 		43DD4EFA18302B40005DA23B /* stan0757.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43DD4EF918302B40005DA23B /* stan0757.ttf */; };
@@ -57,6 +59,9 @@
 		43A7E90318228B6C00710A8C /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
 		43A7E90518228B6C00710A8C /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
 		43A7E90718228B6C00710A8C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		43A8BF701831255D004B29A0 /* Cam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cam.cpp; sourceTree = "<group>"; };
+		43A8BF711831255D004B29A0 /* Cam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cam.h; sourceTree = "<group>"; };
+		43A8BF7318313795004B29A0 /* keyboardV2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = keyboardV2.obj; path = KeyboardModel/keyboardV2.obj; sourceTree = "<group>"; };
 		43DD4EF3182DD923005DA23B /* LMOC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LMOC.cpp; sourceTree = "<group>"; };
 		43DD4EF4182DD923005DA23B /* LMOC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMOC.h; sourceTree = "<group>"; };
 		43DD4EF7182F295D005DA23B /* LeapListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LeapListener.cpp; sourceTree = "<group>"; };
@@ -90,6 +95,7 @@
 		434BA86018303AD800CA9D3A /* KeyboardModel */ = {
 			isa = PBXGroup;
 			children = (
+				43A8BF7318313795004B29A0 /* keyboardV2.obj */,
 				4322D173183079600066FF8B /* keyboard.fm */,
 				434BA85818303ACC00CA9D3A /* keyboard.mtl */,
 				434BA85918303ACD00CA9D3A /* keyboard.obj */,
@@ -158,6 +164,8 @@
 		43DD4EF2182DD8E7005DA23B /* System */ = {
 			isa = PBXGroup;
 			children = (
+				43A8BF701831255D004B29A0 /* Cam.cpp */,
+				43A8BF711831255D004B29A0 /* Cam.h */,
 				43A7E8FB18228B6C00710A8C /* ResourcePath.mm */,
 				43A7E8FD18228B6C00710A8C /* ResourcePath.hpp */,
 				43A7E8FE18228B6C00710A8C /* main.cpp */,
@@ -220,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				434515571830F38000DCDB95 /* Gbuffer.fsh in Resources */,
+				43A8BF7418313795004B29A0 /* keyboardV2.obj in Resources */,
 				434515581830F38000DCDB95 /* Gbuffer.vsh in Resources */,
 				434515591830F38000DCDB95 /* Screen.fsh in Resources */,
 				4345155A1830F38000DCDB95 /* Screen.vsh in Resources */,
@@ -265,6 +274,7 @@
 				43DD4EF8182F295D005DA23B /* LeapListener.cpp in Sources */,
 				43A7E8FF18228B6C00710A8C /* main.cpp in Sources */,
 				43A7E8FC18228B6C00710A8C /* ResourcePath.mm in Sources */,
+				43A8BF721831255D004B29A0 /* Cam.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

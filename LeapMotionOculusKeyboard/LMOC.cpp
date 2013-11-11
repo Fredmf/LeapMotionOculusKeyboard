@@ -11,9 +11,14 @@
 #include <sstream>
 #include <fstream>
 #include <sfml/OpenGL.hpp>
+#include "Cam.h"
 
 LMOC::LMOC(){
     // Create the main window
+    viewanchor = 45.0;
+    playerPos.x=0.0;
+    playerPos.y=0.0;
+    playerPos.z=0.0;
     
     settings.depthBits = 24;
     settings.stencilBits = 8;
@@ -108,55 +113,51 @@ bool LMOC::loadResources(){
         return false;
     }
     
-    std::vector<float> v_data;
-    std::vector<float> vt_data;
-    std::vector<float> vn_data;
-    std::vector<unsigned short> f_data;
-    
-    std::ifstream file(resourcePath() + "keyboard.fm");
+    std::ifstream file(resourcePath() + "keyboardV2.obj");
+    if (!file.is_open()) {
+        std::cerr << "MODEL NOT FOUND!" << std::endl;
+    }
     char prefix[50];
-    int vertexCount, texcoordCount, normalCount, faceCount;
-    file >> vertexCount >> texcoordCount >> normalCount >> faceCount;
-    //std::cout << "cv: " << vertexCount << " cvt: " << texcoordCount << " cvn: " << normalCount << " cf: " << faceCount << std::endl;
     while (file.good()) {
         file >> prefix;
         switch (prefix[0]) {
             case 'v': //point normal or texcoord
+            {
                 switch (prefix[1]) {
                     case 't': //texcoord
-                        float u,v;
-                        file >> u >> v;
-                        vt_data.push_back(u);
-                        vt_data.push_back(v);
+                    {
+                        sf::Vector2f vt;
+                        file >> vt.x >> vt.y;
+                        vt_data.push_back(vt);
+                    }
                         break;
                     case 'n': //normal
-                        float xn,yn,zn;
-                        file >> xn >> yn >> zn;
-                        vn_data.push_back(xn);
-                        vn_data.push_back(yn);
-                        vn_data.push_back(zn);
+                    {
+                        sf::Vector3f vn;
+                        file >> vn.x >> vn.y >> vn.z;
+                        vn_data.push_back(vn);
+                    }
                         break;
                     default: //points
-                        float x,y,z;
-                        file >> x >> y >> z;
-                        v_data.push_back(x);
-                        v_data.push_back(y);
-                        v_data.push_back(z);
+                    {
+                        sf::Vector3f v;
+                        file >> v.x >> v.y >> v.z;
+                        v_data.push_back(v);
+                    }
                         break;
                 }
+            }
                 break;
             case 'f':
-                unsigned short av,avt,avn,bv,bvt,bvn,cv,cvt,cvn;
-                file >> av >> avt >> avn >> bv >> bvt >> bvn >> cv >> cvt >> cvn;
-                f_data.push_back(av);
-                f_data.push_back(avt);
-                f_data.push_back(avn);
-                f_data.push_back(bv);
-                f_data.push_back(bvt);
-                f_data.push_back(bvn);
-                f_data.push_back(cv);
-                f_data.push_back(cvt);
-                f_data.push_back(cvn);
+            {
+                sf::Vector3i face;
+                file >> face.x >> face.y >> face.z;
+                f_data.push_back(face);
+                file >> face.x >> face.y >> face.z;
+                f_data.push_back(face);
+                file >> face.x >> face.y >> face.z;
+                f_data.push_back(face);
+            }
                 break;
             default:
                 break;
@@ -165,20 +166,12 @@ bool LMOC::loadResources(){
     file.close();
     for (int i=0; i<f_data.size(); i++) {
         Vertex vert;
-        vert.x=v_data[(f_data[i]-1)*3];
-        vert.y=v_data[(f_data[i]-1)*3+1];
-        vert.z=v_data[(f_data[i]-1)*3+2];
-        vert.u=vt_data[(f_data[i+1]-1)*2];
-        vert.v=vt_data[(f_data[i+1]-1)*2+1];
-        vert.nx=vn_data[(f_data[i+2]-1)*3];
-        vert.ny=vn_data[(f_data[i+2]-1)*3+1];
-        vert.nz=vn_data[(f_data[i+2]-1)*3+2];
-//        std::cout << i << ": " << tmp.x << " " << tmp.y << " " << tmp.z << " "
-//        << tmp.u << " " << tmp.v << " "
-//        << tmp.nx << " " << tmp.ny << " " << tmp.nz << " " << std::endl;
+        vert.v=v_data[f_data[i].x-1];
+        vert.t=vt_data[f_data[i].y-1];
+        vert.n=vn_data[f_data[i].z-1];
         vert_data.push_back(vert);
     }
-    for (unsigned int i=1;i<=vert_data.size();i++){
+    for (unsigned int i=0;i<vert_data.size()*3;i++){
         ind_data.push_back(i);
     }
     
@@ -200,6 +193,34 @@ void LMOC::renderThread()
 
 int LMOC::run()
 {
+    //initgl
+    glEnable(GL_DEPTH_TEST);
+    glDepthMask(GL_TRUE);
+    glEnable(GL_DOUBLE);
+    glEnable(GL_LIGHTING);
+    glEnable(GL_SMOOTH);
+    glEnable(GL_TEXTURE_2D);
+    glDisable(GL_COLOR_MATERIAL);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glClearDepth(1.0f);
+    //glClearColor(0.0f, 0.749f, 1.0f, 1.0f); //Cyan
+    glClearColor(0.0, 0.0, 0.0, 0.0);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    
+    
+
+    
+    Cam Eyes(0,0,120);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    {
+        sf::Vector2u windowSize = window.getSize();
+        gluPerspective(viewanchor,windowSize.x/windowSize.y, 0.1f, 10000.f);
+    }
+    glMatrixMode(GL_MODELVIEW);
+    
+    
     bool firstRun = true;
     while (running)
     {
@@ -218,6 +239,19 @@ int LMOC::run()
                 std::cout << "event sf::Keyboard::Escape" << std::endl;
                 rendering=false;
             }
+            if (event.type == sf::Event::MouseWheelMoved){
+                Eyes.zoomCam(event.mouseWheel.delta);
+            }
+        }
+        
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+            sf::Vector2i mousePos= sf::Mouse::getPosition();
+            Eyes.mouseMove(mousePos.x, mousePos.y);
+            Eyes.setDown(true);
+        }
+        if (!sf::Mouse::isButtonPressed(sf::Mouse::Left) && Eyes.isDown()){
+            Eyes.mouseRelease();
+            Eyes.setDown(false);
         }
         
         
@@ -259,7 +293,14 @@ int LMOC::run()
         //RENDER THREAD HERE**********************************************
         
         window.setActive(true);
-        //window.clear();
+        window.clear();
+        
+
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glMatrixMode(GL_MODELVIEW);
+        glLoadIdentity();
+        gluLookAt(Eyes.getCam().x+playerPos.x, Eyes.getCam().y+playerPos.y, Eyes.getCam().z+playerPos.z, playerPos.x, playerPos.y, playerPos.z, 0.0, 1.0, 0.0);
+        
         sf::Shader::bind(&shaders);
         
         if (firstRun) {
@@ -270,25 +311,25 @@ int LMOC::run()
             glBufferData(GL_ARRAY_BUFFER, vert_data.size()*sizeof(Vertex),&(vert_data[0]),GL_STATIC_DRAW);
             
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
-            glBufferData(GL_ELEMENT_ARRAY_BUFFER, ind_data.size()*sizeof(unsigned short),&(ind_data[0]),GL_STATIC_DRAW);
+            glBufferData(GL_ELEMENT_ARRAY_BUFFER, ind_data.size()*sizeof(unsigned int),&(ind_data[0]),GL_STATIC_DRAW);
             
             firstRun=false;
         }
         
         glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
         glEnableClientState(GL_VERTEX_ARRAY);
-        glVertexPointer(3, GL_FLOAT,sizeof(Vertex), BUFFER_OFFSET(0));
+        glVertexPointer(3, GL_FLOAT,sizeof(Vertex), 0);
         
         glEnableClientState(GL_NORMAL_ARRAY);
-        glNormalPointer(GL_FLOAT, sizeof(Vertex), BUFFER_OFFSET(12));
+        glNormalPointer(GL_FLOAT, sizeof(Vertex), (char*)NULL + 12);
         
         sf::Texture::bind(&texture);
         glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-        glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), BUFFER_OFFSET(12));
+        glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), (char*)NULL + 24);
         
         //draw
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
-        glDrawElements(GL_POINTS, ind_data.size(), GL_UNSIGNED_SHORT, 0);
+        glDrawElements(GL_TRIANGLES, ind_data.size(), GL_UNSIGNED_INT, 0);
         
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -297,8 +338,12 @@ int LMOC::run()
         glDisableClientState(GL_NORMAL_ARRAY);
         glDisableClientState(GL_VERTEX_ARRAY);
         
-        //sf::Shader::bind(NULL);
+        
+        
+        
+        sf::Shader::bind(NULL);
         //post
+        glFlush();
         window.pushGLStates();
         
         textsMu.lock();
