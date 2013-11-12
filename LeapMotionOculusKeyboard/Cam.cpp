@@ -11,21 +11,9 @@
 
 #define PI  3.1415f
 
-Cam::Cam(){
-    
-}
+
 Cam::Cam(float H, float V, float R)
 : h(H), v(V+90.0f),r(R){
-    resetval[0]=h;
-    resetval[1]=v;
-    resetval[2]=r;
-    camCalculate();
-    down = false;
-}
-void Cam::initCam(float H, float V, float R){
-    h=H;
-    v=V;
-    r=R;
     resetval[0]=h;
     resetval[1]=v;
     resetval[2]=r;
