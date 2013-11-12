@@ -20,6 +20,8 @@ LMOC::LMOC(){
     playerPos.x=0.0;
     playerPos.y=0.0;
     playerPos.z=0.0;
+    keyCaps=false;
+    stab = false;
     
     settings.depthBits = 24;
     settings.stencilBits = 8;
@@ -73,7 +75,13 @@ bool LMOC::loadResources(){
         return false;
     }
     timg.flipVertically();
-    texture.loadFromImage(timg);
+    keyboardT.loadFromImage(timg);
+    if (!timg.loadFromFile(resourcePath() + "keyboardTexCaps.png")) {
+        std::cerr << "image not found" << std::endl;
+        return false;
+    }
+    timg.flipVertically();
+    keyboardTCaps.loadFromImage(timg);
 
     if (!font.loadFromFile(resourcePath() + "stan0757.ttf")) {
 		std::cerr << "font not found" << std::endl;
@@ -177,7 +185,9 @@ bool LMOC::loadModel(sf::String path){
 
 void LMOC::textThread(){
     while(rendering){
+        myFrameMu.lock();
     myFrame = listener.frame;
+        myFrameMu.unlock();
     std::stringstream sstext[TEXTCNT];
     sstext[0] << "Frame ID: " << myFrame.id();
     sstext[1] << "Timestamp: " << myFrame.timestamp();
@@ -185,6 +195,7 @@ void LMOC::textThread(){
     sstext[3] << "Fingers Count: " << myFrame.fingers().count();
     sstext[4] << "Tools Count: " << myFrame.tools().count();
     sstext[5] << "Gestures Count: " << myFrame.gestures().count();
+        sstext[8] << "stab: " << stab;
     
     if (myFrame.hands().count()>0) {
         sstext[6] << "Hand 0 sphereRadius: " << myFrame.hands()[0].sphereRadius() << "mm";
@@ -196,6 +207,7 @@ void LMOC::textThread(){
     }
     textsMu.unlock();
     }
+    std::cout << "textThread done" << std::endl;
 }
 
 void LMOC::renderThread()
@@ -231,6 +243,7 @@ void LMOC::renderThread()
     {
         window.setActive(true);
         window.clear();
+        glEnable(GL_LIGHTING);
         
         
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -238,7 +251,11 @@ void LMOC::renderThread()
         glLoadIdentity();
         gluLookAt(Eyes.getCam().x+playerPos.x, Eyes.getCam().y+playerPos.y, Eyes.getCam().z+playerPos.z, playerPos.x, playerPos.y, playerPos.z, 0.0, 1.0, 0.0);
         
-        shaders.setParameter("texture", texture);
+        if (keyCaps) {
+            shaders.setParameter("texture", keyboardTCaps);
+        }else{
+            shaders.setParameter("texture", keyboardT);
+        }
         //shaders.setParameter("texture", sf::Shader::CurrentTexture);
         sf::Shader::bind(&shaders);
         
@@ -261,8 +278,11 @@ void LMOC::renderThread()
         
         glEnableClientState(GL_NORMAL_ARRAY);
         glNormalPointer(GL_FLOAT, sizeof(Vertex), (char*)NULL + 12);
-        
-        sf::Texture::bind(&texture);
+        if (keyCaps) {
+            sf::Texture::bind(&keyboardTCaps);
+        }else{
+            sf::Texture::bind(&keyboardT);
+        }
         glEnableClientState(GL_TEXTURE_COORD_ARRAY);
         glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), (char*)NULL + 24);
         
@@ -277,10 +297,88 @@ void LMOC::renderThread()
         glDisableClientState(GL_NORMAL_ARRAY);
         glDisableClientState(GL_VERTEX_ARRAY);
         
-        
-        
-        
         sf::Shader::bind(NULL);
+        
+        myFrameMu.lock();
+        Leap::Frame renderLeapFrame = myFrame;
+        myFrameMu.unlock();
+        
+        
+        glDisable(GL_LIGHTING);
+        
+        
+        Leap::HandList hList = renderLeapFrame.hands();
+        Leap::FingerList fList = renderLeapFrame.fingers();
+        
+        float scale=16.0f;
+        float yOffset=8;
+        
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_POINT);
+        glVertex3f(0.0f, 0.0f-yOffset, 0.0f);
+        glEnd();
+
+
+        if (fast) {
+            
+        }else{
+        if (stab) {
+            glPointSize(10);
+            glColor3f(0.0, 0.0, 1.0);
+            glBegin(GL_POINTS);
+            for (int i=0; i<hList.count(); i++) {
+                Leap::Vector palmPos = hList[i].stabilizedPalmPosition();
+                glVertex3f(palmPos.x/scale, (palmPos.y/scale)-yOffset, palmPos.z/scale);
+            }
+            glEnd();
+            
+            
+            glPointSize(6);
+            glColor3f(1.0, 1.0, 0.0);
+            glBegin(GL_POINTS);
+            for (int i=0; i<fList.count(); i++) {
+                Leap::Vector finPos = fList[i].stabilizedTipPosition();
+                glVertex3f(finPos.x/scale, (finPos.y/scale)-yOffset, finPos.z/scale);
+            }
+            glEnd();
+        }else{
+            glPointSize(10);
+            glColor3f(0.0, 0.0, 1.0);
+            glBegin(GL_POINTS);
+            for (int i=0; i<hList.count(); i++) {
+                Leap::Vector palmPos = hList[i].palmPosition();
+                glVertex3f(palmPos.x/scale, (palmPos.y/scale)-yOffset, palmPos.z/scale);
+            }
+            glEnd();
+        
+        
+            glPointSize(6);
+            glColor3f(1.0, 1.0, 0.0);
+            glBegin(GL_POINTS);
+            for (int i=0; i<fList.count(); i++) {
+                Leap::Vector finPos = fList[i].tipPosition();
+                glVertex3f(finPos.x/scale, (finPos.y/scale)-yOffset, finPos.z/scale);
+            }
+            glEnd();
+        }
+        }
+        
+        
+        
+        
+        //    // Get the hand's sphere radius and palm position
+        //    currentState << "Hand sphere radius: " << hand.sphereRadius()
+        //              << " mm, palm position: " << hand.palmPosition() << std::endl;
+        //
+        //    // Get the hand's normal vector and direction
+        //    const Vector normal = hand.palmNormal();
+        //    const Vector direction = hand.direction();
+        //
+        //    // Calculate the hand's pitch, roll, and yaw angles
+        //    currentState << "Hand pitch: " << direction.pitch() * RAD_TO_DEG << " degrees, "
+        //              << "roll: " << normal.roll() * RAD_TO_DEG << " degrees, "
+        //              << "yaw: " << direction.yaw() * RAD_TO_DEG << " degrees" << std::endl;
+        
         //post
         glFlush();
         window.pushGLStates();
@@ -321,34 +419,32 @@ int LMOC::run()
                 std::cout << "event sf::Keyboard::Escape" << std::endl;
                 rendering=false;
             }
+            
+            //mouse wheel
             if (event.type == sf::Event::MouseWheelMoved){
                 Eyes.zoomCam(event.mouseWheel.delta);
             }
-            if (event.type == sf::Event::MouseButtonPressed && sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-                sf::Vector2i mousePos= sf::Mouse::getPosition();
-                Eyes.mouseMove(mousePos.x, mousePos.y);
-                Eyes.setDown(true);
+            
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::C) {
+                keyCaps=!keyCaps;
             }
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::S) {
+                stab=!stab;
+            }
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::F) {
+                fast=!fast;
+            }
+        }
+        
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+            sf::Vector2i mousePos= sf::Mouse::getPosition();
+            Eyes.mouseMove(mousePos.x, mousePos.y);
+            Eyes.setDown(true);
         }
         if (!sf::Mouse::isButtonPressed(sf::Mouse::Left) && Eyes.isDown()){
             Eyes.mouseRelease();
             Eyes.setDown(false);
         }
-        
-        //MAYBE NEW THREAD????
-        
-        //    // Get the hand's sphere radius and palm position
-        //    currentState << "Hand sphere radius: " << hand.sphereRadius()
-        //              << " mm, palm position: " << hand.palmPosition() << std::endl;
-        //
-        //    // Get the hand's normal vector and direction
-        //    const Vector normal = hand.palmNormal();
-        //    const Vector direction = hand.direction();
-        //
-        //    // Calculate the hand's pitch, roll, and yaw angles
-        //    currentState << "Hand pitch: " << direction.pitch() * RAD_TO_DEG << " degrees, "
-        //              << "roll: " << normal.roll() * RAD_TO_DEG << " degrees, "
-        //              << "yaw: " << direction.yaw() * RAD_TO_DEG << " degrees" << std::endl;
     }
     window.close();
     

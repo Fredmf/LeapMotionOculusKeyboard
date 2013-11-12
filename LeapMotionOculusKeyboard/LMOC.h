@@ -85,7 +85,11 @@ private:
 private:
     sf::Image icon;
 private:
-    sf::Texture texture;
+    sf::Texture keyboardT;
+    sf::Texture keyboardTCaps;
+    bool keyCaps;
+    bool stab;
+    bool fast;
 //private:
 //    sf::Sprite sprite;
 private:
@@ -105,6 +109,7 @@ private:
     
 private:
     Leap::Frame myFrame;
+    sf::Mutex myFrameMu;
     
 private:
     GLuint VBO[NUM_VBO];
