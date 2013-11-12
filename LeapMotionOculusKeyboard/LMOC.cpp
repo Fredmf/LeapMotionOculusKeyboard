@@ -175,29 +175,6 @@ bool LMOC::loadModel(sf::String path){
     return true;
 }
 
-void LMOC::textThread(){
-    while(rendering){
-    myFrame = listener.frame;
-    std::stringstream sstext[TEXTCNT];
-    sstext[0] << "Frame ID: " << myFrame.id();
-    sstext[1] << "Timestamp: " << myFrame.timestamp();
-    sstext[2] << "Hands Count: " << myFrame.hands().count();
-    sstext[3] << "Fingers Count: " << myFrame.fingers().count();
-    sstext[4] << "Tools Count: " << myFrame.tools().count();
-    sstext[5] << "Gestures Count: " << myFrame.gestures().count();
-    
-    if (myFrame.hands().count()>0) {
-        sstext[6] << "Hand 0 sphereRadius: " << myFrame.hands()[0].sphereRadius() << "mm";
-        sstext[7] << "Hand 0 palmPosition: " << myFrame.hands()[0].palmPosition().x << " " << myFrame.hands()[0].palmPosition().y << " " << myFrame.hands()[0].palmPosition().z;
-    }
-    textsMu.lock();
-    for (int i = 0; i<TEXTCNT; i++) {
-        texts[i].setString(sstext[i].str());
-    }
-    textsMu.unlock();
-    }
-}
-
 void LMOC::renderThread()
 {
     
@@ -221,7 +198,7 @@ void LMOC::renderThread()
     glLoadIdentity();
     {
         sf::Vector2u windowSize = window.getSize();
-        gluPerspective(viewanchor,(float)windowSize.x/(float)windowSize.y, 0.1f, 10000.f);
+        gluPerspective(viewanchor,(float)windowSize.x/windowSize.y, 0.1f, 10000.f);
     }
     glMatrixMode(GL_MODELVIEW);
     
@@ -324,18 +301,32 @@ int LMOC::run()
             if (event.type == sf::Event::MouseWheelMoved){
                 Eyes.zoomCam(event.mouseWheel.delta);
             }
-            if (event.type == sf::Event::MouseButtonPressed && sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-                sf::Vector2i mousePos= sf::Mouse::getPosition();
-                Eyes.mouseMove(mousePos.x, mousePos.y);
-                Eyes.setDown(true);
-            }
+        }
+        
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+            sf::Vector2i mousePos= sf::Mouse::getPosition();
+            Eyes.mouseMove(mousePos.x, mousePos.y);
+            Eyes.setDown(true);
         }
         if (!sf::Mouse::isButtonPressed(sf::Mouse::Left) && Eyes.isDown()){
             Eyes.mouseRelease();
             Eyes.setDown(false);
         }
         
-        //MAYBE NEW THREAD????
+        
+        myFrame = listener.frame;
+        std::stringstream sstext[TEXTCNT];
+        sstext[0] << "Frame ID: " << myFrame.id();
+        sstext[1] << "Timestamp: " << myFrame.timestamp();
+        sstext[2] << "Hands Count: " << myFrame.hands().count();
+        sstext[3] << "Fingers Count: " << myFrame.fingers().count();
+        sstext[4] << "Tools Count: " << myFrame.tools().count();
+        sstext[5] << "Gestures Count: " << myFrame.gestures().count();
+        
+        if (myFrame.hands().count()>0) {
+            sstext[6] << "Hand 0 sphereRadius: " << myFrame.hands()[0].sphereRadius() << "mm";
+            sstext[7] << "Hand 0 palmPosition: " << myFrame.hands()[0].palmPosition().x << " " << myFrame.hands()[0].palmPosition().y << " " << myFrame.hands()[0].palmPosition().z;
+        }
         
         //    // Get the hand's sphere radius and palm position
         //    currentState << "Hand sphere radius: " << hand.sphereRadius()
@@ -349,6 +340,18 @@ int LMOC::run()
         //    currentState << "Hand pitch: " << direction.pitch() * RAD_TO_DEG << " degrees, "
         //              << "roll: " << normal.roll() * RAD_TO_DEG << " degrees, "
         //              << "yaw: " << direction.yaw() * RAD_TO_DEG << " degrees" << std::endl;
+        
+        
+        textsMu.lock();
+        for (int i = 0; i<TEXTCNT; i++) {
+            texts[i].setString(sstext[i].str());
+        }
+        textsMu.unlock();
+        
+        
+        //RENDER THREAD HERE**********************************************
+        
+        
     }
     window.close();
     
