@@ -12,8 +12,10 @@
 class Cam {                            // 3. Person
 public:
     // Konstruktor
+    Cam();
     Cam(float H,float V, float R);
     
+    void initCam(float H,float V, float R);
     // getter
     sf::Vector3f getCam();
     bool isDown(void);

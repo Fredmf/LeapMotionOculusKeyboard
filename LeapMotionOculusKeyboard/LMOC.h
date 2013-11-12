@@ -26,6 +26,9 @@
 #include "LeapListener.h"
 //#include <Leap.h>
 
+
+#include "Cam.h"
+
 #ifdef __APPLE__
 #include "ResourcePath.hpp"
 #elif WIN32
@@ -40,6 +43,11 @@ class LMOC {
         sf::Vector3f v;
         sf::Vector3f n;
         sf::Vector2f t;
+        int objId;
+    };
+    struct Face{
+        sf::Vector3i vertInd;
+        int objId;
     };
     
 public:
@@ -51,9 +59,13 @@ public:
     int run();
 public:
     void renderThread();
+public:
+    void textThread();
 
 private:
     bool loadResources();
+private:
+    bool loadModel(sf::String path);
     
     //leap
 private:
@@ -96,12 +108,13 @@ private:
     
 private:
     GLuint VBO[NUM_VBO];
+    Cam Eyes;
     
 private:
     std::vector<sf::Vector3f> v_data;
     std::vector<sf::Vector2f> vt_data;
     std::vector<sf::Vector3f> vn_data;
-    std::vector<sf::Vector3i> f_data;
+    std::vector<Face> f_data;
     
     std::vector<Vertex> vert_data;
     std::vector<unsigned int> ind_data;
@@ -109,6 +122,8 @@ private:
 private:
     sf::Vector3f playerPos;
     float viewanchor;
+private:
+    int objectCount;
 };
 #endif /* defined(__LeapMotionOculusKeyboard__LMOC__) */
 

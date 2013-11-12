@@ -11,10 +11,11 @@
 #include <sstream>
 #include <fstream>
 #include <sfml/OpenGL.hpp>
-#include "Cam.h"
 
 LMOC::LMOC(){
     // Create the main window
+    Eyes.initCam(0,0,120);
+    objectCount=-1;
     viewanchor = 45.0;
     playerPos.x=0.0;
     playerPos.y=0.0;
@@ -66,32 +67,18 @@ bool LMOC::loadResources(){
     }
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
     
-    if (!texture.loadFromFile(resourcePath() + "keyboardTex.png")) {
+    sf::Image timg;
+    if (!timg.loadFromFile(resourcePath() + "keyboardTex.png")) {
         std::cerr << "image not found" << std::endl;
         return false;
     }
-    
-    // Load a sprite to display
-//    if (!texture.loadFromFile(resourcePath() + "cute_image.jpg")) {
-//		std::cerr << "image not found" << std::endl;
-//        return false;
-//    }
-//    sprite.setTexture(texture);
-//    sprite.setScale(((float)window.getSize().x/(float)texture.getSize().x), ((float)window.getSize().y/(float)texture.getSize().y));
-    
-    // Create a graphical text to display
-//    if (!font.loadFromFile(resourcePath() + "sensation.ttf")) {
-//		std::cerr << "font not found" << std::endl;
-//        return false;
-//    }
+    timg.flipVertically();
+    texture.loadFromImage(timg);
+
     if (!font.loadFromFile(resourcePath() + "stan0757.ttf")) {
 		std::cerr << "font not found" << std::endl;
         return false;
     }
-//    text.setColor(sf::Color::Black);
-//    text.setFont(font);
-//    text.setCharacterSize(8);
-//    text.setString(s);
     
     sf::String s = "Hello SFML";
     for (int i=0; i<TEXTCNT; i++) {
@@ -112,8 +99,14 @@ bool LMOC::loadResources(){
 		std::cerr << "shaders not found" << std::endl;
         return false;
     }
-    
-    std::ifstream file(resourcePath() + "keyboardV2.obj");
+    loadModel(resourcePath() + "keyboard.obj");
+//    loadModel(resourcePath() + "fingertip.obj");
+//    loadModel(resourcePath() + "palm.obj");
+    return true;
+}
+
+bool LMOC::loadModel(sf::String path){
+    std::ifstream file(path);
     if (!file.is_open()) {
         std::cerr << "MODEL NOT FOUND!" << std::endl;
     }
@@ -124,6 +117,9 @@ bool LMOC::loadResources(){
             case 'v': //point normal or texcoord
             {
                 switch (prefix[1]) {
+                    case 'o':
+                        objectCount++;
+                        break;
                     case 't': //texcoord
                     {
                         sf::Vector2f vt;
@@ -150,12 +146,13 @@ bool LMOC::loadResources(){
                 break;
             case 'f':
             {
-                sf::Vector3i face;
-                file >> face.x >> face.y >> face.z;
+                Face face;
+                face.objId=objectCount;
+                file >> face.vertInd.x >> face.vertInd.y >> face.vertInd.z;
                 f_data.push_back(face);
-                file >> face.x >> face.y >> face.z;
+                file >> face.vertInd.x >> face.vertInd.y >> face.vertInd.z;
                 f_data.push_back(face);
-                file >> face.x >> face.y >> face.z;
+                file >> face.vertInd.x >> face.vertInd.y >> face.vertInd.z;
                 f_data.push_back(face);
             }
                 break;
@@ -166,36 +163,45 @@ bool LMOC::loadResources(){
     file.close();
     for (int i=0; i<f_data.size(); i++) {
         Vertex vert;
-        vert.v=v_data[f_data[i].x-1];
-        vert.t=vt_data[f_data[i].y-1];
-        vert.n=vn_data[f_data[i].z-1];
+        vert.objId=f_data[i].objId;
+        vert.v=v_data[f_data[i].vertInd.x-1];
+        vert.t=vt_data[f_data[i].vertInd.y-1];
+        vert.n=vn_data[f_data[i].vertInd.z-1];
         vert_data.push_back(vert);
     }
     for (unsigned int i=0;i<vert_data.size()*3;i++){
         ind_data.push_back(i);
     }
-    
     return true;
 }
 
-void LMOC::renderThread()
-<<<<<<< HEAD
-=======
-{
-    // the rendering loop
-    bool firstRun=true;
-    while (rendering)
-    {
-
-
+void LMOC::textThread(){
+    while(rendering){
+    myFrame = listener.frame;
+    std::stringstream sstext[TEXTCNT];
+    sstext[0] << "Frame ID: " << myFrame.id();
+    sstext[1] << "Timestamp: " << myFrame.timestamp();
+    sstext[2] << "Hands Count: " << myFrame.hands().count();
+    sstext[3] << "Fingers Count: " << myFrame.fingers().count();
+    sstext[4] << "Tools Count: " << myFrame.tools().count();
+    sstext[5] << "Gestures Count: " << myFrame.gestures().count();
+    
+    if (myFrame.hands().count()>0) {
+        sstext[6] << "Hand 0 sphereRadius: " << myFrame.hands()[0].sphereRadius() << "mm";
+        sstext[7] << "Hand 0 palmPosition: " << myFrame.hands()[0].palmPosition().x << " " << myFrame.hands()[0].palmPosition().y << " " << myFrame.hands()[0].palmPosition().z;
     }
-    running=false;
-    std::cout << "renderingThread done"<< std::endl;
+    textsMu.lock();
+    for (int i = 0; i<TEXTCNT; i++) {
+        texts[i].setString(sstext[i].str());
+    }
+    textsMu.unlock();
+    }
 }
 
-int LMOC::run()
->>>>>>> parent of d7256bd... backup
+void LMOC::renderThread()
 {
+    
+    window.setActive(true);
     //initgl
     glEnable(GL_DEPTH_TEST);
     glDepthMask(GL_TRUE);
@@ -211,10 +217,6 @@ int LMOC::run()
     glClearColor(0.0, 0.0, 0.0, 0.0);
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     
-    
-
-    
-    Cam Eyes(0,0,120);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     {
@@ -223,87 +225,21 @@ int LMOC::run()
     }
     glMatrixMode(GL_MODELVIEW);
     
-    
-    bool firstRun = true;
-    while (running)
+    // the rendering loop
+    bool firstRun=true;
+    while (rendering)
     {
-        // Process events
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            // Close window : exit
-            if (event.type == sf::Event::Closed) {
-                std::cout << "event sf::Event::Closed" << std::endl;
-                rendering=false;
-            }
-            
-            // Escape pressed : exit
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
-                std::cout << "event sf::Keyboard::Escape" << std::endl;
-                rendering=false;
-            }
-            if (event.type == sf::Event::MouseWheelMoved){
-                Eyes.zoomCam(event.mouseWheel.delta);
-            }
-        }
-        
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-            sf::Vector2i mousePos= sf::Mouse::getPosition();
-            Eyes.mouseMove(mousePos.x, mousePos.y);
-            Eyes.setDown(true);
-        }
-        if (!sf::Mouse::isButtonPressed(sf::Mouse::Left) && Eyes.isDown()){
-            Eyes.mouseRelease();
-            Eyes.setDown(false);
-        }
-        
-        
-        myFrame = listener.frame;
-        std::stringstream sstext[TEXTCNT];
-        sstext[0] << "Frame ID: " << myFrame.id();
-        sstext[1] << "Timestamp: " << myFrame.timestamp();
-        sstext[2] << "Hands Count: " << myFrame.hands().count();
-        sstext[3] << "Fingers Count: " << myFrame.fingers().count();
-        sstext[4] << "Tools Count: " << myFrame.tools().count();
-        sstext[5] << "Gestures Count: " << myFrame.gestures().count();
-        
-        if (myFrame.hands().count()>0) {
-            sstext[6] << "Hand 0 sphereRadius: " << myFrame.hands()[0].sphereRadius() << "mm";
-            sstext[7] << "Hand 0 palmPosition: " << myFrame.hands()[0].palmPosition().x << " " << myFrame.hands()[0].palmPosition().y << " " << myFrame.hands()[0].palmPosition().z;
-        }
-        
-        //    // Get the hand's sphere radius and palm position
-        //    currentState << "Hand sphere radius: " << hand.sphereRadius()
-        //              << " mm, palm position: " << hand.palmPosition() << std::endl;
-        //
-        //    // Get the hand's normal vector and direction
-        //    const Vector normal = hand.palmNormal();
-        //    const Vector direction = hand.direction();
-        //
-        //    // Calculate the hand's pitch, roll, and yaw angles
-        //    currentState << "Hand pitch: " << direction.pitch() * RAD_TO_DEG << " degrees, "
-        //              << "roll: " << normal.roll() * RAD_TO_DEG << " degrees, "
-        //              << "yaw: " << direction.yaw() * RAD_TO_DEG << " degrees" << std::endl;
-        
-        
-        textsMu.lock();
-        for (int i = 0; i<TEXTCNT; i++) {
-            texts[i].setString(sstext[i].str());
-        }
-        textsMu.unlock();
-        
-        
-        //RENDER THREAD HERE**********************************************
-        
         window.setActive(true);
         window.clear();
         
-
+        
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
         gluLookAt(Eyes.getCam().x+playerPos.x, Eyes.getCam().y+playerPos.y, Eyes.getCam().z+playerPos.z, playerPos.x, playerPos.y, playerPos.z, 0.0, 1.0, 0.0);
         
+        shaders.setParameter("texture", texture);
+        //shaders.setParameter("texture", sf::Shader::CurrentTexture);
         sf::Shader::bind(&shaders);
         
         if (firstRun) {
@@ -359,7 +295,6 @@ int LMOC::run()
         // Update the window
         window.display();
         window.setActive(false);
-<<<<<<< HEAD
 
 
     }
@@ -389,32 +324,18 @@ int LMOC::run()
             if (event.type == sf::Event::MouseWheelMoved){
                 Eyes.zoomCam(event.mouseWheel.delta);
             }
-        }
-        
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-            sf::Vector2i mousePos= sf::Mouse::getPosition();
-            Eyes.mouseMove(mousePos.x, mousePos.y);
-            Eyes.setDown(true);
+            if (event.type == sf::Event::MouseButtonPressed && sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+                sf::Vector2i mousePos= sf::Mouse::getPosition();
+                Eyes.mouseMove(mousePos.x, mousePos.y);
+                Eyes.setDown(true);
+            }
         }
         if (!sf::Mouse::isButtonPressed(sf::Mouse::Left) && Eyes.isDown()){
             Eyes.mouseRelease();
             Eyes.setDown(false);
         }
         
-        
-        myFrame = listener.frame;
-        std::stringstream sstext[TEXTCNT];
-        sstext[0] << "Frame ID: " << myFrame.id();
-        sstext[1] << "Timestamp: " << myFrame.timestamp();
-        sstext[2] << "Hands Count: " << myFrame.hands().count();
-        sstext[3] << "Fingers Count: " << myFrame.fingers().count();
-        sstext[4] << "Tools Count: " << myFrame.tools().count();
-        sstext[5] << "Gestures Count: " << myFrame.gestures().count();
-        
-        if (myFrame.hands().count()>0) {
-            sstext[6] << "Hand 0 sphereRadius: " << myFrame.hands()[0].sphereRadius() << "mm";
-            sstext[7] << "Hand 0 palmPosition: " << myFrame.hands()[0].palmPosition().x << " " << myFrame.hands()[0].palmPosition().y << " " << myFrame.hands()[0].palmPosition().z;
-        }
+        //MAYBE NEW THREAD????
         
         //    // Get the hand's sphere radius and palm position
         //    currentState << "Hand sphere radius: " << hand.sphereRadius()
@@ -428,21 +349,6 @@ int LMOC::run()
         //    currentState << "Hand pitch: " << direction.pitch() * RAD_TO_DEG << " degrees, "
         //              << "roll: " << normal.roll() * RAD_TO_DEG << " degrees, "
         //              << "yaw: " << direction.yaw() * RAD_TO_DEG << " degrees" << std::endl;
-        
-        
-        textsMu.lock();
-        for (int i = 0; i<TEXTCNT; i++) {
-            texts[i].setString(sstext[i].str());
-        }
-        textsMu.unlock();
-        
-        
-        //RENDER THREAD HERE**********************************************
-        
-        
-=======
-        
->>>>>>> parent of d7256bd... backup
     }
     window.close();
     
