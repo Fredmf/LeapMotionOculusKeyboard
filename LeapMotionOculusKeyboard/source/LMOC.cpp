@@ -14,6 +14,30 @@
 
 #include "Matrices.h"
 
+Matrix4 setFrustum(float l, float r, float b, float t, float n, float f)
+{
+    Matrix4 mat;
+    mat[0]  = 2 * n / (r - l);
+    mat[2]  = (r + l) / (r - l);
+    mat[5]  = 2 * n / (t - b);
+    mat[6]  = (t + b) / (t - b);
+    mat[10] = -(f + n) / (f - n);
+    mat[11] = -(2 * f * n) / (f - n);
+    mat[14] = -1;
+    mat[15] = 0;
+    return mat;
+}
+
+Matrix4 setFrustum(float fovY, float aspectRatio, float front, float back)
+{
+    float tangent = tanf(fovY/2 * 3.141593f / 180);   // tangent of half fovY
+    float height = front * tangent;           // half height of near plane
+    float width = height * aspectRatio;       // half width of near plane
+    
+    // params: left, right, bottom, top, near, far
+    return setFrustum(-width, width, -height, height, front, back);
+}
+
 LMOC::LMOC(){
     // Create the main window
     Eyes.initCam(0,0,120);
@@ -130,11 +154,8 @@ bool LMOC::loadResources(){
     }
     
     loadModel(resourcePath() + "keyboard.obj",&keyboardVert_data,&keyboardInd_data);
-    std::cout << "keyok" << std::endl;
     loadModel(resourcePath() + "fingertip.obj",&fingerVert_data,&fingerInd_data);
-    std::cout << "fingerok" << std::endl;
     loadModel(resourcePath() + "palm.obj",&palmVert_data,&palmInd_data);
-    std::cout << "palmok" << std::endl;
     return true;
 }
 
@@ -150,9 +171,7 @@ bool LMOC::loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector
     }
     char prefix[50];
     while (file.good()) {
-        std::cout << "good: " << file.good() << std::endl;
         file >> prefix;
-        std::cout << prefix << std::endl;
         switch (prefix[0]) {
             case 'v': //point normal or texcoord
             {
@@ -160,9 +179,6 @@ bool LMOC::loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector
                     case 'o':
                     {
                         objectCount++;
-                        std::string bla;
-                        file >> bla;
-                        std::cout << bla << std::endl;
                     }
                         break;
                     case 't': //texcoord
@@ -204,11 +220,8 @@ bool LMOC::loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector
             default:
                 break;
         }
-        
-        std::cout << "good: " << file.good() << std::endl;
     }
     file.close();
-    std::cout << v_data.size() << " " << vt_data.size() << " " << vn_data.size() << std::endl;
     for (int i=0; i<f_data.size(); i++) {
         Vertex vert;
         vert.objId=f_data[i].objId;
@@ -237,11 +250,6 @@ void LMOC::textThread(){
         sstext[4] << "Tools Count: " << myFrame.tools().count();
         sstext[5] << "Gestures Count: " << myFrame.gestures().count();
         sstext[8] << "stab: " << stab;
-        
-        if (myFrame.hands().count()>0) {
-            sstext[6] << "Hand 0 sphereRadius: " << myFrame.hands()[0].sphereRadius() << "mm";
-            sstext[7] << "Hand 0 palmPosition: " << myFrame.hands()[0].palmPosition().x << " " << myFrame.hands()[0].palmPosition().y << " " << myFrame.hands()[0].palmPosition().z;
-        }
         textsMu.lock();
         for (int i = 0; i<TEXTCNT; i++) {
             texts[i].setString(sstext[i].str());
@@ -252,231 +260,222 @@ void LMOC::textThread(){
     std::cout << "textThread done" << std::endl;
 }
 
+void LMOC::matrixThread(){ /////////////////////////// TO MUCH OVERHEAD AS A THREAD
+    /////////////////// CALCULATE THE TRANSFORM MATRICES FOR THE HANDS AND FINGERS
+    //    while(rendering){
+    float scale=0.0625f;  //1.0f/16.0f;
+    float yOffset=8;
+    
+    Leap::HandList handList = listener.frame.hands();
+    matrixVectorHands.clear();
+    matrixVectorFingers.clear();
+    //    std::vector<Leap::Matrix> m_matrixVectorHands;
+    //    std::vector<Leap::Matrix> m_matrixVectorFingers;
+    
+    for (int h=0; h<handList.count(); h++) {
+        Leap::Hand leapHand = handList[h];
+        
+        Leap::Vector handXBasis =  leapHand.palmNormal().cross(leapHand.direction()).normalized();
+        Leap::Vector handYBasis = -leapHand.palmNormal();
+        Leap::Vector handZBasis = -leapHand.direction();
+        Leap::Vector handOrigin;
+        if(stab)
+            handOrigin = leapHand.stabilizedPalmPosition();
+        else
+            handOrigin = leapHand.palmPosition();
+        handOrigin *= scale;
+        handOrigin.y -= yOffset;
+        Leap::Matrix handTransform = Leap::Matrix(handXBasis, handYBasis, handZBasis, handOrigin);
+        
+        matrixVectorHands.push_back(handTransform);
+        
+        for( int f = 0; f < leapHand.fingers().count(); f++ )
+        {
+            Leap::Finger leapFinger = leapHand.fingers()[f];
+            //Leap::Vector transformedPosition = handTransform.transformPoint(leapFinger.tipPosition());
+            Leap::Vector transformedDirection = handTransform.transformDirection(leapFinger.direction());
+            
+            Leap::Vector fingerNormal;
+            fingerNormal.x = transformedDirection.x;
+            fingerNormal.y = transformedDirection.z;
+            fingerNormal.z = -transformedDirection.y;
+            fingerNormal.normalized();
+            
+            Leap::Vector fingerXBasis = fingerNormal.cross(transformedDirection).normalized();
+            Leap::Vector fingerYBasis = -fingerNormal;
+            Leap::Vector fingerZBasis = -transformedDirection;
+            Leap::Vector fingerOrigin;
+            if(stab)
+                fingerOrigin = leapFinger.stabilizedTipPosition();
+            else
+                fingerOrigin = leapFinger.tipPosition();
+            fingerOrigin *= scale;
+            fingerOrigin.y -= yOffset;
+            Leap::Matrix fingerTransform = Leap::Matrix(fingerXBasis, fingerYBasis, fingerZBasis, fingerOrigin);
+            matrixVectorFingers.push_back(fingerTransform);
+        }
+    }
+    //MatrixMu.lock();
+    //        matrixVectorHands.swap(m_matrixVectorHands);
+    //        matrixVectorFingers.swap(m_matrixVectorFingers);
+    //MatrixMu.unlock();
+    //    }
+    //    std::cout << "MatrixThread done";
+}
+
+
 void LMOC::renderThread()
 {
-    
-    window.setActive(true);
-    //initgl
+    //////////////////////////////////////////////////// SETUP OPENGL STATES
+    window.setActive();
     glEnable(GL_DEPTH_TEST);
     glDepthMask(GL_TRUE);
     glEnable(GL_DOUBLE);
-    //glEnable(GL_LIGHTING);
     glEnable(GL_SMOOTH);
     glEnable(GL_TEXTURE_2D);
     glDisable(GL_COLOR_MATERIAL);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glClearDepth(1.0f);
-    //glClearColor(0.0f, 0.749f, 1.0f, 1.0f); //Cyan
     glClearColor(0.0, 0.0, 0.0, 0.0);
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-    
-    glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     {
         sf::Vector2u windowSize = window.getSize();
-        gluPerspective(viewanchor,(float)windowSize.x/(float)windowSize.y, 0.1f, 10000.f);
+        
+        ///////// set perspective matrix without the deprecated function gluPerspective
+        //gluPerspective(viewanchor,(float)windowSize.x/(float)windowSize.y, 0.1f, 10000.f);
+        Matrix4 matProject = setFrustum(viewanchor,(float)windowSize.x/(float)windowSize.y, 0.1f, 10000.f);
+        glMatrixMode(GL_PROJECTION);
+        glLoadMatrixf(matProject.getTranspose());
     }
-    glMatrixMode(GL_MODELVIEW);
     
-    // the rendering loop
+    
+    ///////////////////////////////////////////////////////////// SETUP VBO'S
+    
+    glGenBuffers(NUM_VBO, VBO);
+    
+    glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
+    glBufferData(GL_ARRAY_BUFFER, keyboardVert_data.size()*sizeof(Vertex),&(keyboardVert_data[0]),GL_STATIC_DRAW);
+    
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, keyboardInd_data.size()*sizeof(unsigned int),&(keyboardInd_data[0]),GL_STATIC_DRAW);
+    
+    glBindBuffer(GL_ARRAY_BUFFER, VBO[2]);
+    glBufferData(GL_ARRAY_BUFFER, palmVert_data.size()*sizeof(Vertex),&(palmVert_data[0]),GL_STATIC_DRAW);
+    
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[3]);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, palmInd_data.size()*sizeof(unsigned int),&(palmInd_data[0]),GL_STATIC_DRAW);
+    
+    glBindBuffer(GL_ARRAY_BUFFER, VBO[4]);
+    glBufferData(GL_ARRAY_BUFFER, fingerVert_data.size()*sizeof(Vertex),&(fingerVert_data[0]),GL_STATIC_DRAW);
+    
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[5]);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, fingerInd_data.size()*sizeof(unsigned int),&(fingerInd_data[0]),GL_STATIC_DRAW);
+    
+    
+    ///////////////////////////////////////////////////////////// RENDERLOOP
     bool firstRun=true;
     while (rendering)
     {
+        ///////////////////////////////////////////////////////// EX MATRIXTHREAD, TO MUCH OVERHEAD NOW IN RENDERTHREAD
+        matrixThread();
+        
+        ///////////////////////////////////////////////////////// ACTIVATE CONTEXT
+        
         window.setActive(true);
         window.clear();
-        glEnable(GL_LIGHTING);
         
+        ///////////////////////////////////////////////////////// UPDATE CAM
         
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
+        //todo: replace gluLookAt with something not deprecated
         gluLookAt(Eyes.getCam().x+playerPos.x, Eyes.getCam().y+playerPos.y, Eyes.getCam().z+playerPos.z, playerPos.x, playerPos.y, playerPos.z, 0.0, 1.0, 0.0);
         
+        ///////////////////////////////////////////////////////// UPDATE SHADER PARAMETERS
         if (keyCaps) {
             keyboardS.setParameter("texture", keyboardTCaps);
         }else{
             keyboardS.setParameter("texture", keyboardT);
         }
         handS.setParameter("texture", palmT);
-        
         handS.setParameter("edgefalloff", edgefalloff);
         handS.setParameter("intensity", intensity);
         handS.setParameter("ambient", ambient);
         
+        /////////////////////////////////////////////////// Enable States
         
-        //shaders.setParameter("texture", sf::Shader::CurrentTexture);
-        sf::Shader::bind(&keyboardS);
-        
-        if (firstRun) {
-            //********* VBO PREP
-            glGenBuffers(NUM_VBO, VBO);
-            
-            glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
-            glBufferData(GL_ARRAY_BUFFER, keyboardVert_data.size()*sizeof(Vertex),&(keyboardVert_data[0]),GL_STATIC_DRAW);
-            
-            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
-            glBufferData(GL_ELEMENT_ARRAY_BUFFER, keyboardInd_data.size()*sizeof(unsigned int),&(keyboardInd_data[0]),GL_STATIC_DRAW);
-            
-            
-            glBindBuffer(GL_ARRAY_BUFFER, VBO[2]);
-            glBufferData(GL_ARRAY_BUFFER, palmVert_data.size()*sizeof(Vertex),&(palmVert_data[0]),GL_STATIC_DRAW);
-            
-            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[3]);
-            glBufferData(GL_ELEMENT_ARRAY_BUFFER, palmInd_data.size()*sizeof(unsigned int),&(palmInd_data[0]),GL_STATIC_DRAW);
-            
-            glBindBuffer(GL_ARRAY_BUFFER, VBO[4]);
-            glBufferData(GL_ARRAY_BUFFER, fingerVert_data.size()*sizeof(Vertex),&(fingerVert_data[0]),GL_STATIC_DRAW);
-            
-            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[5]);
-            glBufferData(GL_ELEMENT_ARRAY_BUFFER, fingerInd_data.size()*sizeof(unsigned int),&(fingerInd_data[0]),GL_STATIC_DRAW);
-            
-            firstRun=false;
-        }
-        
-        glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
         glEnableClientState(GL_VERTEX_ARRAY);
-        glVertexPointer(3, GL_FLOAT,sizeof(Vertex), 0);
-        
         glEnableClientState(GL_NORMAL_ARRAY);
+        glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+        
+        /////////////////////////////////////////////////// Keyboard
+        
+        sf::Shader::bind(&keyboardS);
+        glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
+        glVertexPointer(3, GL_FLOAT,sizeof(Vertex), 0);
         glNormalPointer(GL_FLOAT, sizeof(Vertex), (char*)NULL + 12);
+        glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), (char*)NULL + 24);
+        
         if (keyCaps) {
             sf::Texture::bind(&keyboardTCaps);
         }else{
             sf::Texture::bind(&keyboardT);
         }
-        glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-        glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), (char*)NULL + 24);
         
-        //draw
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
         glDrawElements(GL_TRIANGLES, keyboardInd_data.size(), GL_UNSIGNED_INT, 0);
         
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-        glBindBuffer(GL_ARRAY_BUFFER, 0);
-        
-        glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-        glDisableClientState(GL_NORMAL_ARRAY);
-        glDisableClientState(GL_VERTEX_ARRAY);
-        
-        sf::Shader::bind(NULL);
-        
-        myFrameMu.lock();
-        Leap::Frame renderLeapFrame = myFrame;
-        myFrameMu.unlock();
-        Leap::HandList hList = renderLeapFrame.hands();
-        Leap::FingerList fList = renderLeapFrame.fingers();
-        float scale=1.0f/16.0f;
-        float yOffset=8;
-        
         //////////////////////////////////////////////////// Haende
-        std::vector<Leap::Matrix> matrixVector;
-        std::vector<Leap::Matrix> matrixVectorF;
-        for( int h = 0; h < hList.count(); h++ )
-        {
-            Leap::Hand leapHand = hList[h];
-
-            Leap::Vector handXBasis =  leapHand.palmNormal().cross(leapHand.direction()).normalized();
-            Leap::Vector handYBasis = -leapHand.palmNormal();
-            Leap::Vector handZBasis = -leapHand.direction();
-            Leap::Vector handOrigin =  leapHand.palmPosition();
-            handOrigin *= scale;
-            handOrigin.y -= yOffset;
-            Leap::Matrix handTransform = Leap::Matrix(handXBasis, handYBasis, handZBasis, handOrigin);
-            
-            for( int f = 0; f < leapHand.fingers().count(); f++ )
-            {
-                Leap::Finger leapFinger = leapHand.fingers()[f];
-                Leap::Vector transformedPosition = handTransform.transformPoint(leapFinger.tipPosition());
-                Leap::Vector transformedDirection = handTransform.transformDirection(leapFinger.direction());
-                
-                Leap::Vector fingerXBasis = leapHand.palmNormal().cross(transformedDirection).normalized();
-                Leap::Vector fingerYBasis = -leapHand.palmNormal();
-                Leap::Vector fingerZBasis = -transformedDirection;
-                Leap::Vector fingerOrigin = leapFinger.tipPosition();
-                fingerOrigin *= scale;
-                fingerOrigin.y -= yOffset;
-                Leap::Matrix fingerTransform = Leap::Matrix(fingerXBasis, fingerYBasis, fingerZBasis, fingerOrigin);
-                matrixVectorF.push_back(fingerTransform);
-            }
-            
-            matrixVector.push_back(handTransform);
-        }
-        
         
         sf::Shader::bind(&handS);
-            glBindBuffer(GL_ARRAY_BUFFER, VBO[2]);
-            glEnableClientState(GL_VERTEX_ARRAY);
-            glVertexPointer(3, GL_FLOAT,sizeof(Vertex), 0);
-            
-            glEnableClientState(GL_NORMAL_ARRAY);
-            glNormalPointer(GL_FLOAT, sizeof(Vertex), (char*)NULL + 12);
-            
-            sf::Texture::bind(&palmT);
-            
-            glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-            glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), (char*)NULL + 24);
-            
-            //draw
-            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[3]);
+        glBindBuffer(GL_ARRAY_BUFFER, VBO[2]);
+        glVertexPointer(3, GL_FLOAT,sizeof(Vertex), 0);
+        glNormalPointer(GL_FLOAT, sizeof(Vertex), (char*)NULL + 12);
+        glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), (char*)NULL + 24);
         
-            for (int i=0; i<matrixVector.size(); i++) {
-                glPushMatrix();
-                glMultMatrixf(matrixVector[i].toArray4x4().m_array);
-                glDrawElements(GL_TRIANGLES, palmInd_data.size(), GL_UNSIGNED_INT, 0);
-                glPopMatrix();
-            }
+        sf::Texture::bind(&palmT);
         
-            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-            glBindBuffer(GL_ARRAY_BUFFER, 0);
-            
-            glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-            glDisableClientState(GL_NORMAL_ARRAY);
-            glDisableClientState(GL_VERTEX_ARRAY);
-            
-            
-       // }
-        sf::Shader::bind(NULL);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[3]);
+        for (int i=0; i<matrixVectorHands.size(); i++) {
+            glPushMatrix();
+            glMultMatrixf(matrixVectorHands[i].toArray4x4().m_array);
+            glDrawElements(GL_TRIANGLES, palmInd_data.size(), GL_UNSIGNED_INT, 0);
+            glPopMatrix();
+        }
         
         //////////////////////////////////////////////////// Finger
         
         handS.setParameter("texture", fingerT);
-        sf::Texture::bind(&fingerT);
+        
         sf::Shader::bind(&handS);
+        glBindBuffer(GL_ARRAY_BUFFER, VBO[4]);
+        glVertexPointer(3, GL_FLOAT,sizeof(Vertex), 0);
+        glNormalPointer(GL_FLOAT, sizeof(Vertex), (char*)NULL + 12);
+        glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), (char*)NULL + 24);
+        
+        sf::Texture::bind(&fingerT);
+        
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[5]);
+        for (int i=0; i<matrixVectorFingers.size(); i++) {
+            glPushMatrix();
+            glMultMatrixf(matrixVectorFingers[i].toArray4x4().m_array);
+            glDrawElements(GL_TRIANGLES, fingerInd_data.size(), GL_UNSIGNED_INT, 0);
+            glPopMatrix();
+        }
+        
+        ////////////////////////////////////////////////////////// disable states,buffers,shaders
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
+        glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+        glDisableClientState(GL_NORMAL_ARRAY);
+        glDisableClientState(GL_VERTEX_ARRAY);
+        sf::Shader::bind(NULL);
         
         
-//
-            glBindBuffer(GL_ARRAY_BUFFER, VBO[4]);
-            glEnableClientState(GL_VERTEX_ARRAY);
-            glVertexPointer(3, GL_FLOAT,sizeof(Vertex), 0);
-            
-            glEnableClientState(GL_NORMAL_ARRAY);
-            glNormalPointer(GL_FLOAT, sizeof(Vertex), (char*)NULL + 12);
-        
-            glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-            glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), (char*)NULL + 24);
-            
-            //draw
-            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[5]);
-            
-        
-            for (int i=0; i<matrixVectorF.size()    ; i++) {
-                glPushMatrix();
-                glMultMatrixf(matrixVectorF[i].toArray4x4().m_array);
-                glDrawElements(GL_TRIANGLES, fingerInd_data.size(), GL_UNSIGNED_INT, 0);
-                glPopMatrix();
-            }
-        
-            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-            glBindBuffer(GL_ARRAY_BUFFER, 0);
-            
-            glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-            glDisableClientState(GL_NORMAL_ARRAY);
-            glDisableClientState(GL_VERTEX_ARRAY);
-            sf::Shader::bind(NULL);
-        
-        
-        //post
+        ////////////////////////////////////////////////////////// SFML POSTPROCESS (Draw Text)
         glFlush();
         window.pushGLStates();
         
@@ -490,15 +489,12 @@ void LMOC::renderThread()
         // Update the window
         window.display();
         window.setActive(false);
-        
-        
     }
     running=false;
     std::cout << "renderingThread done"<< std::endl;
 }
 
-int LMOC::run()
-{
+int LMOC::run(){
     while (running)
     {
         // Process events
@@ -522,17 +518,18 @@ int LMOC::run()
                 Eyes.zoomCam(event.mouseWheel.delta);
             }
             
+            //switch keyboard texture to caps with button C
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::C) {
                 keyCaps=!keyCaps;
             }
+            
+            //switch leap stability with button S
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::S) {
                 stab=!stab;
             }
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::F) {
-                fast=!fast;
-            }
         }
         
+        //rotate 3rd Person cam on mouse left button
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
             sf::Vector2i mousePos= sf::Mouse::getPosition();
             Eyes.mouseMove(mousePos.x, mousePos.y);

@@ -18,6 +18,8 @@
 #include <SFML/Window.hpp>
 #include <SFML/OpenGL.hpp>
 
+#include <LeapMath.h>
+
 #include <string>
 #include <iostream>
 #include <string>
@@ -61,6 +63,8 @@ public:
     void renderThread();
 public:
     void textThread();
+public:
+    void matrixThread();
 
 private:
     bool loadResources();
@@ -81,6 +85,11 @@ private:
 private:
     sf::Shader keyboardS;
     sf::Shader handS;
+    
+private:
+    std::vector<Leap::Matrix> matrixVectorHands;
+    std::vector<Leap::Matrix> matrixVectorFingers;
+    sf::Mutex MatrixMu;
     
     //resources
 private:

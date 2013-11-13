@@ -75,8 +75,8 @@ dependencies: \
   /usr/local/include/SFML/Graphics/Sprite.hpp \
   /usr/local/include/SFML/Graphics/Text.hpp \
   /usr/local/include/SFML/OpenGL.hpp \
+  /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapMath.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Leap.h \
-  /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapMath.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.hpp
