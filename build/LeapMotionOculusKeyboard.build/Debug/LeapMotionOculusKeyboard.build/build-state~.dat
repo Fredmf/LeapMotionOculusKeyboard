@@ -3,19 +3,20 @@ v6
 r1
 cCheck dependencies
 cProcessInfoPlistFile /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/Info.plist /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard-Info.plist
-cCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/main.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/main.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/main.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapListener.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-B97527B250692C93.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-4FF10A33BC00FC90.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/main.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LMOC.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/Cam.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapListener.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-B97527B250692C93.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-4FF10A33BC00FC90.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/main.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/main.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LMOC.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/Cam.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
 cLd /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapMotionOculusKeyboard normal x86_64
 cLd /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard normal i386
-cCreateUniversalBinary /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/MacOS/LeapMotionOculusKeyboard normal x86_64\ i386
-cCpResource LeapMotionOculusKeyboard/icon.png build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/icon.png
-cCpResource LeapMotionOculusKeyboard/sansation.ttf build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/sansation.ttf
-cCpResource LeapMotionOculusKeyboard/nice_music.ogg build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/nice_music.ogg
-cCpResource LeapMotionOculusKeyboard/cute_image.jpg build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/cute_image.jpg
-cPhaseScriptExecution Run\ Script /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Script-43A7E8F418228B6C00710A8C.sh
-cTouch /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app
 
 N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
 c000000005243E79F00000000000000AA
@@ -32,150 +33,377 @@ c00000000526C3F2F00000000000001DB
 t1382825775
 s475
 
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL
+c00000000526C3F34000000000000BB7C
+t1382825780
+s47996
+
 N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard-Info.plist
 c00000000527253EC00000000000002AA
 t1383224300
 s682
 
-N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.mm
+N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.cpp
+c0000000052823C0A00000000000005BF
+t1384266762
+s1471
+
+N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp
+c000000005281A7A200000000000038AB
+t1384228770
+s14507
+
+N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.cpp
+c000000005280212A00000000000013BE
+t1384128810
+s5054
+
+N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.cpp
+c000000005272F21C00000000000005AB
+t1383264796
+s1451
+
+N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.mm
 c00000000527253EC000000000000075C
 t1383224300
 s1884
 
-N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/cute_image.jpg
-c000000005272526E0000000000022E6F
-t1383223918
-s142959
+N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/main.cpp
+c00000000528195B7000000000000013B
+t1384224183
+s315
 
-N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/icon.png
-c000000005272526E000000000000F1E6
-t1383223918
-s61926
-
-N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/main.cpp
-c00000000527253EC000000000000090A
-t1383224300
-s2314
-
-N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/nice_music.ogg
-c000000005272526E00000000000258B0
-t1383223918
-s153776
-
-N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/sansation.ttf
-c000000005272526E00000000000070F0
-t1383223918
-s28912
-
-N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app
-t1383224304
-s102
+N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/Libs/LeapDeveloperKit_release_mac_1.0.8+7665/LeapSDK/lib/libc++/libLeap.dylib
+c0000000052140FB800000000006232E0
+t1377046456
+s6435552
 
 N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/Info.plist
-t1383224304
-s1069
-
-N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/MacOS/LeapMotionOculusKeyboard
-t1383224311
-s63792
+t2
+s0
 
 N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/PkgInfo
-t1383224304
-s8
+t2
+s0
 
-N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/cute_image.jpg
-t1383224311
-s142959
+N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/Cam.o
+t1384268607
+s11020
 
-N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/icon.png
-t1383224311
-s61926
+N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LMOC.o
+t1384268607
+s848496
 
-N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/nice_music.ogg
-t1383224311
-s153776
-
-N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/sansation.ttf
-t1383224311
-s28912
+N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapListener.o
+t1384268603
+s102068
 
 N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard
-t1383224311
-s31024
+t2
+s0
 
 N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard.LinkFileList
-c00000000527253F000000000000001B2
-t1383224304
-s434
+c00000000528243330000000000000537
+t1384268595
+s1335
 
-N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath.o
-t1383224310
-s45872
+N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-4FF10A33BC00FC90.o
+t1384268605
+s34624
+
+N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-B97527B250692C93.o
+t1384268604
+s45888
 
 N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/main.o
-t1383224310
-s384156
+t1384268606
+s466432
+
+N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/Cam.o
+t1384268602
+s11888
+
+N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LMOC.o
+t1384268601
+s876232
+
+N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapListener.o
+t1384268597
+s104092
 
 N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapMotionOculusKeyboard
-t1383224311
-s28116
+t2
+s0
 
 N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapMotionOculusKeyboard.LinkFileList
-c00000000527253F000000000000001B6
-t1383224304
-s438
+c00000000528243330000000000000543
+t1384268595
+s1347
 
-N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath.o
-t1383224308
-s47192
+N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-4FF10A33BC00FC90.o
+t1384268598
+s35088
+
+N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-B97527B250692C93.o
+t1384268598
+s47208
 
 N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/main.o
-t1383224306
-s386660
+t1384268599
+s467380
 
-N/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Script-43A7E8F418228B6C00710A8C.sh
-c00000000527253F000000000000009FB
-t1383224304
-s2555
-
-CBuild AST from /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.mm
+CBuild AST from /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.cpp
 r0
 
-CBuild AST from /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/main.cpp
+CBuild AST from /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp
+r0
+
+CBuild AST from /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.cpp
+r0
+
+CBuild AST from /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.cpp
+r0
+
+CBuild AST from /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.mm
+r0
+
+CBuild AST from /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/main.cpp
 r0
 
 CCheck dependencies
 r0
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependenciesc6dd28708b22b841^24b57c708b22b841^---0#1#1#--18"Check dependencies36"9144A05C-A75A-4321-A347-7BAC4875E569-
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependenciesfc51f8b27a32b841^26732cb37a32b841^---0#1#1#--18"Check dependencies36"DB96B1D5-7A93-4049-8871-E1385DFC045B-
 
-CCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
-s404917108.978048
-e404917110.912016
+CCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/Cam.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s405961406.819607
+e405961407.737978
 r1
 xCompileC
-xbuild/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath.o
-x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.mm
+xbuild/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/Cam.o
+x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.cpp
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.h
+d/usr/local/include/SFML/Window.hpp
+d/usr/local/include/SFML/System.hpp
+d/usr/local/include/SFML/Config.hpp
+d/usr/local/include/SFML/System/Clock.hpp
+d/usr/local/include/SFML/System/Export.hpp
+d/usr/local/include/SFML/System/Time.hpp
+d/usr/local/include/SFML/System/Err.hpp
+d/usr/local/include/SFML/System/InputStream.hpp
+d/usr/local/include/SFML/System/Lock.hpp
+d/usr/local/include/SFML/System/NonCopyable.hpp
+d/usr/local/include/SFML/System/Mutex.hpp
+d/usr/local/include/SFML/System/Sleep.hpp
+d/usr/local/include/SFML/System/String.hpp
+d/usr/local/include/SFML/System/Thread.hpp
+d/usr/local/include/SFML/System/Thread.inl
+d/usr/local/include/SFML/System/ThreadLocal.hpp
+d/usr/local/include/SFML/System/ThreadLocalPtr.hpp
+d/usr/local/include/SFML/System/ThreadLocalPtr.inl
+d/usr/local/include/SFML/System/Utf.hpp
+d/usr/local/include/SFML/System/Utf.inl
+d/usr/local/include/SFML/System/Vector2.hpp
+d/usr/local/include/SFML/System/Vector2.inl
+d/usr/local/include/SFML/System/Vector3.hpp
+d/usr/local/include/SFML/System/Vector3.inl
+d/usr/local/include/SFML/Window/Context.hpp
+d/usr/local/include/SFML/Window/Export.hpp
+d/usr/local/include/SFML/Window/GlResource.hpp
+d/usr/local/include/SFML/Window/ContextSettings.hpp
+d/usr/local/include/SFML/Window/Event.hpp
+d/usr/local/include/SFML/Window/Joystick.hpp
+d/usr/local/include/SFML/Window/Keyboard.hpp
+d/usr/local/include/SFML/Window/Mouse.hpp
+d/usr/local/include/SFML/Window/VideoMode.hpp
+d/usr/local/include/SFML/Window/Window.hpp
+d/usr/local/include/SFML/Window/WindowHandle.hpp
+d/usr/local/include/SFML/Window/WindowStyle.hpp
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection159"Compile /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.cpp208"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/Cam.o LeapMotionOculusKeyboard/source/Cam.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compilerd4f0d1be7a32b841^85ecbcbf7a32b841^---0#0#1#-19%DVTDocumentLocation2@168"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.cpp0000000000000000^3347"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/Cam.o LeapMotionOculusKeyboard/source/Cam.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/LeapMotionOculusKeyboard.hmap -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/include -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources/i386 -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources -F/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -F/Library/Frameworks -MMD -MT dependencies -MF /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/Cam.d --serialize-diagnostics /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/Cam.dia -c /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.cpp -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/Cam.o36"4BB6630F-5F24-42C1-B6FB-160252A90EEC-
+b5EC084ED-26EC-400C-A97E-B2773D68DBF9
+
+CCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LMOC.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s405961405.442572
+e405961407.954830
+r1
+xCompileC
+xbuild/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LMOC.o
+x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.h
+d/usr/local/include/SFML/Audio.hpp
+d/usr/local/include/SFML/System.hpp
+d/usr/local/include/SFML/Config.hpp
+d/usr/local/include/SFML/System/Clock.hpp
+d/usr/local/include/SFML/System/Export.hpp
+d/usr/local/include/SFML/System/Time.hpp
+d/usr/local/include/SFML/System/Err.hpp
+d/usr/local/include/SFML/System/InputStream.hpp
+d/usr/local/include/SFML/System/Lock.hpp
+d/usr/local/include/SFML/System/NonCopyable.hpp
+d/usr/local/include/SFML/System/Mutex.hpp
+d/usr/local/include/SFML/System/Sleep.hpp
+d/usr/local/include/SFML/System/String.hpp
+d/usr/local/include/SFML/System/Thread.hpp
+d/usr/local/include/SFML/System/Thread.inl
+d/usr/local/include/SFML/System/ThreadLocal.hpp
+d/usr/local/include/SFML/System/ThreadLocalPtr.hpp
+d/usr/local/include/SFML/System/ThreadLocalPtr.inl
+d/usr/local/include/SFML/System/Utf.hpp
+d/usr/local/include/SFML/System/Utf.inl
+d/usr/local/include/SFML/System/Vector2.hpp
+d/usr/local/include/SFML/System/Vector2.inl
+d/usr/local/include/SFML/System/Vector3.hpp
+d/usr/local/include/SFML/System/Vector3.inl
+d/usr/local/include/SFML/Audio/Listener.hpp
+d/usr/local/include/SFML/Audio/Export.hpp
+d/usr/local/include/SFML/Audio/Music.hpp
+d/usr/local/include/SFML/Audio/SoundStream.hpp
+d/usr/local/include/SFML/Audio/SoundSource.hpp
+d/usr/local/include/SFML/Audio/Sound.hpp
+d/usr/local/include/SFML/Audio/SoundBuffer.hpp
+d/usr/local/include/SFML/Audio/SoundBufferRecorder.hpp
+d/usr/local/include/SFML/Audio/SoundRecorder.hpp
+d/usr/local/include/SFML/Graphics.hpp
+d/usr/local/include/SFML/Window.hpp
+d/usr/local/include/SFML/Window/Context.hpp
+d/usr/local/include/SFML/Window/Export.hpp
+d/usr/local/include/SFML/Window/GlResource.hpp
+d/usr/local/include/SFML/Window/ContextSettings.hpp
+d/usr/local/include/SFML/Window/Event.hpp
+d/usr/local/include/SFML/Window/Joystick.hpp
+d/usr/local/include/SFML/Window/Keyboard.hpp
+d/usr/local/include/SFML/Window/Mouse.hpp
+d/usr/local/include/SFML/Window/VideoMode.hpp
+d/usr/local/include/SFML/Window/Window.hpp
+d/usr/local/include/SFML/Window/WindowHandle.hpp
+d/usr/local/include/SFML/Window/WindowStyle.hpp
+d/usr/local/include/SFML/Graphics/BlendMode.hpp
+d/usr/local/include/SFML/Graphics/Color.hpp
+d/usr/local/include/SFML/Graphics/Export.hpp
+d/usr/local/include/SFML/Graphics/Font.hpp
+d/usr/local/include/SFML/Graphics/Glyph.hpp
+d/usr/local/include/SFML/Graphics/Rect.hpp
+d/usr/local/include/SFML/Graphics/Rect.inl
+d/usr/local/include/SFML/Graphics/Texture.hpp
+d/usr/local/include/SFML/Graphics/Image.hpp
+d/usr/local/include/SFML/Graphics/RenderStates.hpp
+d/usr/local/include/SFML/Graphics/Transform.hpp
+d/usr/local/include/SFML/Graphics/RenderTexture.hpp
+d/usr/local/include/SFML/Graphics/RenderTarget.hpp
+d/usr/local/include/SFML/Graphics/View.hpp
+d/usr/local/include/SFML/Graphics/PrimitiveType.hpp
+d/usr/local/include/SFML/Graphics/Vertex.hpp
+d/usr/local/include/SFML/Graphics/RenderWindow.hpp
+d/usr/local/include/SFML/Graphics/Shader.hpp
+d/usr/local/include/SFML/Graphics/Shape.hpp
+d/usr/local/include/SFML/Graphics/Drawable.hpp
+d/usr/local/include/SFML/Graphics/Transformable.hpp
+d/usr/local/include/SFML/Graphics/VertexArray.hpp
+d/usr/local/include/SFML/Graphics/CircleShape.hpp
+d/usr/local/include/SFML/Graphics/RectangleShape.hpp
+d/usr/local/include/SFML/Graphics/ConvexShape.hpp
+d/usr/local/include/SFML/Graphics/Sprite.hpp
+d/usr/local/include/SFML/Graphics/Text.hpp
+d/usr/local/include/SFML/OpenGL.hpp
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.h
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Leap.h
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapMath.h
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.h
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.hpp
+o/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp:236:9: warning: 'gluPerspective' is deprecated: first deprecated in OS X 10.9 - "Use GLKMatrix4MakePerspective" [-Wdeprecated-declarations]
+o        gluPerspective(viewanchor,(float)windowSize.x/(float)windowSize.y, 0.1f, 10000.f);
+o        ^
+oIn file included from /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp:9:
+oIn file included from /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.h:19:
+oIn file included from /usr/local/include/SFML/OpenGL.hpp:57:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Headers/glu.h:278:13: note: 'gluPerspective' declared here
+oextern void gluPerspective (GLdouble fovy, GLdouble aspect, GLdouble zNear, GLdouble zFar) OPENGL_DEPRECATED_MSG(10_0, 10_9, "Use GLKMatrix4MakePerspective");
+o            ^
+o/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp:252:9: warning: 'gluLookAt' is deprecated: first deprecated in OS X 10.9 - "Use GLKMatrix4MakeLookAt" [-Wdeprecated-declarations]
+o        gluLookAt(Eyes.getCam().x+playerPos.x, Eyes.getCam().y+playerPos.y, Eyes.getCam().z+playerPos.z, playerPos.x, playerPos.y, playerPos.z, 0.0, 1.0, 0.0);
+o        ^
+oIn file included from /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp:9:
+oIn file included from /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.h:19:
+oIn file included from /usr/local/include/SFML/OpenGL.hpp:57:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Headers/glu.h:265:13: note: 'gluLookAt' declared here
+oextern void gluLookAt (GLdouble eyeX, GLdouble eyeY, GLdouble eyeZ, GLdouble centerX, GLdouble centerY, GLdouble centerZ, GLdouble upX, GLdouble upY, GLdouble upZ) OPENGL_DEPRECATED_MSG(10_0, 10_9, "Use GLKMatrix4MakeLookAt");
+o            ^
+o2 warnings generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection160"Compile /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp210"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LMOC.o LeapMotionOculusKeyboard/source/LMOC.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler6a6a71bd7a32b841^e36ef4bf7a32b841^-2512"/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp:236:9: warning: 'gluPerspective' is deprecated: first deprecated in OS X 10.9 - "Use GLKMatrix4MakePerspective" [-Wdeprecated-declarations]        gluPerspective(viewanchor,(float)windowSize.x/(float)windowSize.y, 0.1f, 10000.f);        ^In file included from /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp:9:In file included from /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.h:19:In file included from /usr/local/include/SFML/OpenGL.hpp:57:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Headers/glu.h:278:13: note: 'gluPerspective' declared hereextern void gluPerspective (GLdouble fovy, GLdouble aspect, GLdouble zNear, GLdouble zFar) OPENGL_DEPRECATED_MSG(10_0, 10_9, "Use GLKMatrix4MakePerspective");            ^/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp:252:9: warning: 'gluLookAt' is deprecated: first deprecated in OS X 10.9 - "Use GLKMatrix4MakeLookAt" [-Wdeprecated-declarations]        gluLookAt(Eyes.getCam().x+playerPos.x, Eyes.getCam().y+playerPos.y, Eyes.getCam().z+playerPos.z, playerPos.x, playerPos.y, playerPos.z, 0.0, 1.0, 0.0);        ^In file included from /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp:9:In file included from /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.h:19:In file included from /usr/local/include/SFML/OpenGL.hpp:57:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Headers/glu.h:265:13: note: 'gluLookAt' declared hereextern void gluLookAt (GLdouble eyeX, GLdouble eyeY, GLdouble eyeZ, GLdouble centerX, GLdouble centerY, GLdouble centerZ, GLdouble upX, GLdouble upY, GLdouble upZ) OPENGL_DEPRECATED_MSG(10_0, 10_9, "Use GLKMatrix4MakeLookAt");            ^2 warnings generated.2(36%IDEClangDiagnosticActivityLogMessage2@95"'gluPerspective' is deprecated: first deprecated in OS X 10.9 - "Use GLKMatrix4MakePerspective"-405961407#18446744073709551615#0#1(2@30"'gluPerspective' declared here-405961407#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@162"file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Headers/glu.h0000000000000000^277#12#277#12#15841#0#14"Semantic Issue--1#27"com.apple.dt.IDE.diagnostic3@169"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp0000000000000000^235#8#235#8#7219#0#12"Deprecations--2@85"'gluLookAt' is deprecated: first deprecated in OS X 10.9 - "Use GLKMatrix4MakeLookAt"-405961407#18446744073709551615#0#1(2@25"'gluLookAt' declared here-405961407#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@162"file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Headers/glu.h0000000000000000^264#12#264#12#14161#0#14"Semantic Issue--1#27"com.apple.dt.IDE.diagnostic3@169"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp0000000000000000^251#8#251#8#7658#0#12"Deprecations--0#0#1#-19%DVTDocumentLocation4@169"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp0000000000000000^3353"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LMOC.o LeapMotionOculusKeyboard/source/LMOC.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/LeapMotionOculusKeyboard.hmap -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/include -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources/i386 -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources -F/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -F/Library/Frameworks -MMD -MT dependencies -MF /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LMOC.d --serialize-diagnostics /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LMOC.dia -c /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LMOC.o36"1DECA13A-32B0-4BBF-8BEA-9DAEB5F0EEF9-
+b5EC084ED-26EC-400C-A97E-B2773D68DBF9
+
+CCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapListener.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s405961402.668631
+e405961403.579828
+r1
+xCompileC
+xbuild/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapListener.o
+x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.cpp
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.h
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Leap.h
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapMath.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection168"Compile /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.cpp226"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapListener.o LeapMotionOculusKeyboard/source/LeapListener.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compilera14cabba7a32b841^c37d94bb7a32b841^---0#0#1#-19%DVTDocumentLocation2@177"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.cpp0000000000000000^3401"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapListener.o LeapMotionOculusKeyboard/source/LeapListener.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/LeapMotionOculusKeyboard.hmap -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/include -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources/i386 -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources -F/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -F/Library/Frameworks -MMD -MT dependencies -MF /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapListener.d --serialize-diagnostics /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapListener.dia -c /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.cpp -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapListener.o36"1917236D-EB24-458C-A7A0-969721DBD537-
+b5EC084ED-26EC-400C-A97E-B2773D68DBF9
+
+CCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-4FF10A33BC00FC90.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s405961404.946497
+e405961405.441159
+r1
+xCompileC
+xbuild/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-4FF10A33BC00FC90.o
+x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.cpp
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection168"Compile /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.cpp243"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-4FF10A33BC00FC90.o LeapMotionOculusKeyboard/source/ResourcePath.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler637af2bc7a32b841^e8f771bd7a32b841^---0#0#1#-19%DVTDocumentLocation2@177"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.cpp0000000000000000^3469"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-4FF10A33BC00FC90.o LeapMotionOculusKeyboard/source/ResourcePath.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/LeapMotionOculusKeyboard.hmap -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/include -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources/i386 -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources -F/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -F/Library/Frameworks -MMD -MT dependencies -MF /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-4FF10A33BC00FC90.d --serialize-diagnostics /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-4FF10A33BC00FC90.dia -c /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.cpp -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-4FF10A33BC00FC90.o36"CB17DF0D-CA14-4D16-955F-2AE90AE4FFEE-
+b5EC084ED-26EC-400C-A97E-B2773D68DBF9
+
+CCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-B97527B250692C93.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s405961403.580312
+e405961404.945936
+r1
+xCompileC
+xbuild/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-B97527B250692C93.o
+x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.mm
 xnormal
 xi386
 xobjective-c++
 xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.mm
-d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.hpp
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection160"Compile /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.mm228"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath.o LeapMotionOculusKeyboard/ResourcePath.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler8d7cfa748b22b841^b37ce9768b22b841^---0#0#1#-19%DVTDocumentLocation2@169"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.mm0000000000000000^3623"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath.o LeapMotionOculusKeyboard/ResourcePath.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/LeapMotionOculusKeyboard.hmap -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/include -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources/i386 -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources -F/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -F/Library/Frameworks -MMD -MT dependencies -MF /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath.d --serialize-diagnostics /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath.dia -c /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.mm -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath.o36"CD3ABFED-F01F-4F5B-A2D5-551E314120B4-
-b4D027B58-9872-4473-9C61-CDF7E3E28827
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.mm
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.hpp
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection167"Compile /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.mm252"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-B97527B250692C93.o LeapMotionOculusKeyboard/source/ResourcePath.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler92af94bb7a32b841^9c33f2bc7a32b841^---0#0#1#-19%DVTDocumentLocation2@176"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.mm0000000000000000^3705"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-B97527B250692C93.o LeapMotionOculusKeyboard/source/ResourcePath.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/LeapMotionOculusKeyboard.hmap -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/include -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources/i386 -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources -F/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -F/Library/Frameworks -MMD -MT dependencies -MF /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-B97527B250692C93.d --serialize-diagnostics /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-B97527B250692C93.dia -c /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.mm -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-B97527B250692C93.o36"E2F565D0-932F-45CF-9AD1-9408D218FD77-
+b5EC084ED-26EC-400C-A97E-B2773D68DBF9
 
-CCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/main.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/main.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
-s404917108.977216
-e404917110.724482
+CCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/main.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/main.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s405961404.947062
+e405961406.819094
 r1
 xCompileC
 xbuild/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/main.o
-x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/main.cpp
+x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/main.cpp
 xnormal
 xi386
 xc++
 xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/main.cpp
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/main.cpp
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.h
 d/usr/local/include/SFML/Audio.hpp
 d/usr/local/include/SFML/System.hpp
 d/usr/local/include/SFML/Config.hpp
@@ -250,38 +478,80 @@ d/usr/local/include/SFML/Graphics/RectangleShape.hpp
 d/usr/local/include/SFML/Graphics/ConvexShape.hpp
 d/usr/local/include/SFML/Graphics/Sprite.hpp
 d/usr/local/include/SFML/Graphics/Text.hpp
-d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.hpp
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection153"Compile /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/main.cpp203"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/main.o LeapMotionOculusKeyboard/main.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compilere84cfa748b22b841^1c78b9768b22b841^---0#0#1#-19%DVTDocumentLocation2@162"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/main.cpp0000000000000000^3339"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/main.o LeapMotionOculusKeyboard/main.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/LeapMotionOculusKeyboard.hmap -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/include -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources/i386 -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources -F/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -F/Library/Frameworks -MMD -MT dependencies -MF /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/main.d --serialize-diagnostics /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/main.dia -c /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/main.cpp -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/main.o36"094EC4FF-9464-4CCF-8AAC-27040108C8AF-
-b4D027B58-9872-4473-9C61-CDF7E3E28827
+d/usr/local/include/SFML/OpenGL.hpp
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.h
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Leap.h
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapMath.h
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.h
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.hpp
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection160"Compile /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/main.cpp210"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/main.o LeapMotionOculusKeyboard/source/main.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler1d8ef2bc7a32b841^18edd1be7a32b841^---0#0#1#-19%DVTDocumentLocation2@169"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/main.cpp0000000000000000^3353"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/main.o LeapMotionOculusKeyboard/source/main.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/LeapMotionOculusKeyboard.hmap -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/include -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources/i386 -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources -F/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -F/Library/Frameworks -MMD -MT dependencies -MF /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/main.d --serialize-diagnostics /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/main.dia -c /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/main.cpp -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/main.o36"7260AF73-9FD6-469E-B341-3FF64C1C6BB2-
+b5EC084ED-26EC-400C-A97E-B2773D68DBF9
 
-CCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
-s404917106.461679
-e404917108.976807
+CCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/Cam.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s405961401.798731
+e405961402.667976
 r1
 xCompileC
-xbuild/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath.o
-x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.mm
-xnormal
-xx86_64
-xobjective-c++
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.mm
-d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.hpp
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection160"Compile /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.mm232"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath.o LeapMotionOculusKeyboard/ResourcePath.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compilerb55076728b22b841^0211fa748b22b841^---0#0#1#-19%DVTDocumentLocation2@169"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.mm0000000000000000^3637"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath.o LeapMotionOculusKeyboard/ResourcePath.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/LeapMotionOculusKeyboard.hmap -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/include -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources/x86_64 -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources -F/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -F/Library/Frameworks -MMD -MT dependencies -MF /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath.d --serialize-diagnostics /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath.dia -c /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.mm -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath.o36"D6F37B13-FA32-4ECE-B369-717B08F8C499-
-b4D027B58-9872-4473-9C61-CDF7E3E28827
-
-CCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/main.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
-s404917104.499491
-e404917106.461050
-r1
-xCompileC
-xbuild/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/main.o
-x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/main.cpp
+xbuild/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/Cam.o
+x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.cpp
 xnormal
 xx86_64
 xc++
 xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/main.cpp
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.cpp
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.h
+d/usr/local/include/SFML/Window.hpp
+d/usr/local/include/SFML/System.hpp
+d/usr/local/include/SFML/Config.hpp
+d/usr/local/include/SFML/System/Clock.hpp
+d/usr/local/include/SFML/System/Export.hpp
+d/usr/local/include/SFML/System/Time.hpp
+d/usr/local/include/SFML/System/Err.hpp
+d/usr/local/include/SFML/System/InputStream.hpp
+d/usr/local/include/SFML/System/Lock.hpp
+d/usr/local/include/SFML/System/NonCopyable.hpp
+d/usr/local/include/SFML/System/Mutex.hpp
+d/usr/local/include/SFML/System/Sleep.hpp
+d/usr/local/include/SFML/System/String.hpp
+d/usr/local/include/SFML/System/Thread.hpp
+d/usr/local/include/SFML/System/Thread.inl
+d/usr/local/include/SFML/System/ThreadLocal.hpp
+d/usr/local/include/SFML/System/ThreadLocalPtr.hpp
+d/usr/local/include/SFML/System/ThreadLocalPtr.inl
+d/usr/local/include/SFML/System/Utf.hpp
+d/usr/local/include/SFML/System/Utf.inl
+d/usr/local/include/SFML/System/Vector2.hpp
+d/usr/local/include/SFML/System/Vector2.inl
+d/usr/local/include/SFML/System/Vector3.hpp
+d/usr/local/include/SFML/System/Vector3.inl
+d/usr/local/include/SFML/Window/Context.hpp
+d/usr/local/include/SFML/Window/Export.hpp
+d/usr/local/include/SFML/Window/GlResource.hpp
+d/usr/local/include/SFML/Window/ContextSettings.hpp
+d/usr/local/include/SFML/Window/Event.hpp
+d/usr/local/include/SFML/Window/Joystick.hpp
+d/usr/local/include/SFML/Window/Keyboard.hpp
+d/usr/local/include/SFML/Window/Mouse.hpp
+d/usr/local/include/SFML/Window/VideoMode.hpp
+d/usr/local/include/SFML/Window/Window.hpp
+d/usr/local/include/SFML/Window/WindowHandle.hpp
+d/usr/local/include/SFML/Window/WindowStyle.hpp
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection159"Compile /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.cpp212"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/Cam.o LeapMotionOculusKeyboard/source/Cam.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compilerfa97ccb97a32b841^d00babba7a32b841^---0#0#1#-19%DVTDocumentLocation2@168"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.cpp0000000000000000^3361"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/Cam.o LeapMotionOculusKeyboard/source/Cam.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/LeapMotionOculusKeyboard.hmap -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/include -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources/x86_64 -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources -F/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -F/Library/Frameworks -MMD -MT dependencies -MF /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/Cam.d --serialize-diagnostics /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/Cam.dia -c /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.cpp -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/Cam.o36"B8BC33F8-5350-4939-89C9-81EF6B42F47E-
+b5EC084ED-26EC-400C-A97E-B2773D68DBF9
+
+CCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LMOC.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s405961399.653803
+e405961401.798155
+r1
+xCompileC
+xbuild/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LMOC.o
+x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.h
 d/usr/local/include/SFML/Audio.hpp
 d/usr/local/include/SFML/System.hpp
 d/usr/local/include/SFML/Config.hpp
@@ -356,83 +626,261 @@ d/usr/local/include/SFML/Graphics/RectangleShape.hpp
 d/usr/local/include/SFML/Graphics/ConvexShape.hpp
 d/usr/local/include/SFML/Graphics/Sprite.hpp
 d/usr/local/include/SFML/Graphics/Text.hpp
-d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ResourcePath.hpp
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection153"Compile /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/main.cpp207"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/main.o LeapMotionOculusKeyboard/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compilerc50180708b22b841^680576728b22b841^---0#0#1#-19%DVTDocumentLocation2@162"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/main.cpp0000000000000000^3353"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/main.o LeapMotionOculusKeyboard/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/LeapMotionOculusKeyboard.hmap -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/include -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources/x86_64 -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources -F/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -F/Library/Frameworks -MMD -MT dependencies -MF /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/main.d --serialize-diagnostics /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/main.dia -c /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/main.cpp -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/main.o36"5CCED1ED-8413-42DF-B1FC-30E3876375A2-
-b4D027B58-9872-4473-9C61-CDF7E3E28827
+d/usr/local/include/SFML/OpenGL.hpp
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.h
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Leap.h
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapMath.h
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.h
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.hpp
+o/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp:236:9: warning: 'gluPerspective' is deprecated: first deprecated in OS X 10.9 - "Use GLKMatrix4MakePerspective" [-Wdeprecated-declarations]
+o        gluPerspective(viewanchor,(float)windowSize.x/(float)windowSize.y, 0.1f, 10000.f);
+o        ^
+oIn file included from /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp:9:
+oIn file included from /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.h:19:
+oIn file included from /usr/local/include/SFML/OpenGL.hpp:57:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Headers/glu.h:278:13: note: 'gluPerspective' declared here
+oextern void gluPerspective (GLdouble fovy, GLdouble aspect, GLdouble zNear, GLdouble zFar) OPENGL_DEPRECATED_MSG(10_0, 10_9, "Use GLKMatrix4MakePerspective");
+o            ^
+o/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp:252:9: warning: 'gluLookAt' is deprecated: first deprecated in OS X 10.9 - "Use GLKMatrix4MakeLookAt" [-Wdeprecated-declarations]
+o        gluLookAt(Eyes.getCam().x+playerPos.x, Eyes.getCam().y+playerPos.y, Eyes.getCam().z+playerPos.z, playerPos.x, playerPos.y, playerPos.z, 0.0, 1.0, 0.0);
+o        ^
+oIn file included from /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp:9:
+oIn file included from /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.h:19:
+oIn file included from /usr/local/include/SFML/OpenGL.hpp:57:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Headers/glu.h:265:13: note: 'gluLookAt' declared here
+oextern void gluLookAt (GLdouble eyeX, GLdouble eyeY, GLdouble eyeZ, GLdouble centerX, GLdouble centerY, GLdouble centerZ, GLdouble upX, GLdouble upY, GLdouble upZ) OPENGL_DEPRECATED_MSG(10_0, 10_9, "Use GLKMatrix4MakeLookAt");
+o            ^
+o2 warnings generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection160"Compile /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp214"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LMOC.o LeapMotionOculusKeyboard/source/LMOC.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler177fa7b77a32b841^8864ccb97a32b841^-2512"/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp:236:9: warning: 'gluPerspective' is deprecated: first deprecated in OS X 10.9 - "Use GLKMatrix4MakePerspective" [-Wdeprecated-declarations]        gluPerspective(viewanchor,(float)windowSize.x/(float)windowSize.y, 0.1f, 10000.f);        ^In file included from /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp:9:In file included from /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.h:19:In file included from /usr/local/include/SFML/OpenGL.hpp:57:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Headers/glu.h:278:13: note: 'gluPerspective' declared hereextern void gluPerspective (GLdouble fovy, GLdouble aspect, GLdouble zNear, GLdouble zFar) OPENGL_DEPRECATED_MSG(10_0, 10_9, "Use GLKMatrix4MakePerspective");            ^/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp:252:9: warning: 'gluLookAt' is deprecated: first deprecated in OS X 10.9 - "Use GLKMatrix4MakeLookAt" [-Wdeprecated-declarations]        gluLookAt(Eyes.getCam().x+playerPos.x, Eyes.getCam().y+playerPos.y, Eyes.getCam().z+playerPos.z, playerPos.x, playerPos.y, playerPos.z, 0.0, 1.0, 0.0);        ^In file included from /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp:9:In file included from /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.h:19:In file included from /usr/local/include/SFML/OpenGL.hpp:57:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Headers/glu.h:265:13: note: 'gluLookAt' declared hereextern void gluLookAt (GLdouble eyeX, GLdouble eyeY, GLdouble eyeZ, GLdouble centerX, GLdouble centerY, GLdouble centerZ, GLdouble upX, GLdouble upY, GLdouble upZ) OPENGL_DEPRECATED_MSG(10_0, 10_9, "Use GLKMatrix4MakeLookAt");            ^2 warnings generated.2(36%IDEClangDiagnosticActivityLogMessage2@95"'gluPerspective' is deprecated: first deprecated in OS X 10.9 - "Use GLKMatrix4MakePerspective"-405961401#18446744073709551615#0#1(2@30"'gluPerspective' declared here-405961401#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@162"file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Headers/glu.h0000000000000000^277#12#277#12#15841#0#14"Semantic Issue--1#27"com.apple.dt.IDE.diagnostic3@169"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp0000000000000000^235#8#235#8#7219#0#12"Deprecations--2@85"'gluLookAt' is deprecated: first deprecated in OS X 10.9 - "Use GLKMatrix4MakeLookAt"-405961401#18446744073709551615#0#1(2@25"'gluLookAt' declared here-405961401#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@162"file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Headers/glu.h0000000000000000^264#12#264#12#14161#0#14"Semantic Issue--1#27"com.apple.dt.IDE.diagnostic3@169"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp0000000000000000^251#8#251#8#7658#0#12"Deprecations--0#0#1#-19%DVTDocumentLocation4@169"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp0000000000000000^3367"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LMOC.o LeapMotionOculusKeyboard/source/LMOC.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/LeapMotionOculusKeyboard.hmap -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/include -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources/x86_64 -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources -F/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -F/Library/Frameworks -MMD -MT dependencies -MF /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LMOC.d --serialize-diagnostics /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LMOC.dia -c /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.cpp -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LMOC.o36"93D6D277-6819-4759-948B-6F911ED2F60E-
+b5EC084ED-26EC-400C-A97E-B2773D68DBF9
 
-CCpResource LeapMotionOculusKeyboard/cute_image.jpg build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/cute_image.jpg
-s404917111.155983
-e404917111.160715
+CCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapListener.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s405961395.130730
+e405961397.686784
 r1
-xCpResource
-xLeapMotionOculusKeyboard/cute_image.jpg
-xbuild/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/cute_image.jpg
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection79"Copy build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/cute_image.jpg125"CpResource LeapMotionOculusKeyboard/cute_image.jpg build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/cute_image.jpgceff27778b22b841^462529778b22b841^---0#0#1#-19%DVTDocumentLocation2@203"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/cute_image.jpg00341c27ddffdf42^819"CpResource LeapMotionOculusKeyboard/cute_image.jpg build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/cute_image.jpg    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/cute_image.jpg /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources36"747C894A-0FA9-49AC-B6B6-D550CD1376C7-
-b4D027B58-9872-4473-9C61-CDF7E3E28827
+xCompileC
+xbuild/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapListener.o
+x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.cpp
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.h
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Leap.h
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapMath.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection168"Compile /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.cpp230"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapListener.o LeapMotionOculusKeyboard/source/LeapListener.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compilera59e21b37a32b841^66beafb57a32b841^---0#0#1#-19%DVTDocumentLocation2@177"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.cpp0000000000000000^3415"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapListener.o LeapMotionOculusKeyboard/source/LeapListener.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/LeapMotionOculusKeyboard.hmap -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/include -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources/x86_64 -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources -F/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -F/Library/Frameworks -MMD -MT dependencies -MF /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapListener.d --serialize-diagnostics /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapListener.dia -c /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.cpp -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapListener.o36"72572AD0-4EA5-4552-B99B-E35490C2BBB9-
+b5EC084ED-26EC-400C-A97E-B2773D68DBF9
 
-CCpResource LeapMotionOculusKeyboard/icon.png build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/icon.png
-s404917111.143278
-e404917111.149147
+CCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-4FF10A33BC00FC90.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s405961397.687171
+e405961398.180555
 r1
-xCpResource
-xLeapMotionOculusKeyboard/icon.png
-xbuild/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/icon.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Copy build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/icon.png113"CpResource LeapMotionOculusKeyboard/icon.png build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/icon.pngfcc524778b22b841^7cb927778b22b841^---0#0#1#-19%DVTDocumentLocation2@197"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/icon.png00341c27ddffdf42^801"CpResource LeapMotionOculusKeyboard/icon.png build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/icon.png    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/icon.png /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources36"3B2A49A1-3CAB-4984-B242-1DAD137BA435-
-b4D027B58-9872-4473-9C61-CDF7E3E28827
+xCompileC
+xbuild/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-4FF10A33BC00FC90.o
+x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.cpp
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection168"Compile /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.cpp247"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-4FF10A33BC00FC90.o LeapMotionOculusKeyboard/source/ResourcePath.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compilerbb0fb0b57a32b841^52482eb67a32b841^---0#0#1#-19%DVTDocumentLocation2@177"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.cpp0000000000000000^3483"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-4FF10A33BC00FC90.o LeapMotionOculusKeyboard/source/ResourcePath.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/LeapMotionOculusKeyboard.hmap -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/include -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources/x86_64 -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources -F/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -F/Library/Frameworks -MMD -MT dependencies -MF /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-4FF10A33BC00FC90.d --serialize-diagnostics /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-4FF10A33BC00FC90.dia -c /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.cpp -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-4FF10A33BC00FC90.o36"DDFC37E5-2487-4646-8402-202184AE90E2-
+b5EC084ED-26EC-400C-A97E-B2773D68DBF9
 
-CCpResource LeapMotionOculusKeyboard/nice_music.ogg build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/nice_music.ogg
-s404917111.152724
-e404917111.155755
+CCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-B97527B250692C93.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s405961395.134083
+e405961398.249726
 r1
-xCpResource
-xLeapMotionOculusKeyboard/nice_music.ogg
-xbuild/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/nice_music.ogg
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection79"Copy build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/nice_music.ogg125"CpResource LeapMotionOculusKeyboard/nice_music.ogg build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/nice_music.ogg882b27778b22b841^060e28778b22b841^---0#0#1#-19%DVTDocumentLocation2@203"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/nice_music.ogg00341c27ddffdf42^819"CpResource LeapMotionOculusKeyboard/nice_music.ogg build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/nice_music.ogg    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/nice_music.ogg /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources36"43C05BA1-EFF7-46F0-AAE4-AE4618338543-
-b4D027B58-9872-4473-9C61-CDF7E3E28827
+xCompileC
+xbuild/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-B97527B250692C93.o
+x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.mm
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.mm
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.hpp
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection167"Compile /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.mm256"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-B97527B250692C93.o LeapMotionOculusKeyboard/source/ResourcePath.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler9a9822b37a32b841^738440b67a32b841^---0#0#1#-19%DVTDocumentLocation2@176"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.mm0000000000000000^3719"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-B97527B250692C93.o LeapMotionOculusKeyboard/source/ResourcePath.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/LeapMotionOculusKeyboard.hmap -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/include -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources/x86_64 -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources -F/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -F/Library/Frameworks -MMD -MT dependencies -MF /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-B97527B250692C93.d --serialize-diagnostics /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-B97527B250692C93.dia -c /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.mm -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-B97527B250692C93.o36"F3818CF7-ED3D-424E-98E9-A6CD2EA6EC71-
+b5EC084ED-26EC-400C-A97E-B2773D68DBF9
 
-CCpResource LeapMotionOculusKeyboard/sansation.ttf build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/sansation.ttf
-s404917111.149375
-e404917111.152546
+CCompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/main.o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s405961398.250932
+e405961399.652299
 r1
-xCpResource
-xLeapMotionOculusKeyboard/sansation.ttf
-xbuild/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/sansation.ttf
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection78"Copy build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/sansation.ttf123"CpResource LeapMotionOculusKeyboard/sansation.ttf build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/sansation.ttf5e6826778b22b841^94bf27778b22b841^---0#0#1#-19%DVTDocumentLocation2@202"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/sansation.ttf00341c27ddffdf42^816"CpResource LeapMotionOculusKeyboard/sansation.ttf build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/sansation.ttf    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/sansation.ttf /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources36"AF51D0F7-6EBF-4F8E-8306-75BC851A050C-
-b4D027B58-9872-4473-9C61-CDF7E3E28827
+xCompileC
+xbuild/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/main.o
+x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/main.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/main.cpp
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LMOC.h
+d/usr/local/include/SFML/Audio.hpp
+d/usr/local/include/SFML/System.hpp
+d/usr/local/include/SFML/Config.hpp
+d/usr/local/include/SFML/System/Clock.hpp
+d/usr/local/include/SFML/System/Export.hpp
+d/usr/local/include/SFML/System/Time.hpp
+d/usr/local/include/SFML/System/Err.hpp
+d/usr/local/include/SFML/System/InputStream.hpp
+d/usr/local/include/SFML/System/Lock.hpp
+d/usr/local/include/SFML/System/NonCopyable.hpp
+d/usr/local/include/SFML/System/Mutex.hpp
+d/usr/local/include/SFML/System/Sleep.hpp
+d/usr/local/include/SFML/System/String.hpp
+d/usr/local/include/SFML/System/Thread.hpp
+d/usr/local/include/SFML/System/Thread.inl
+d/usr/local/include/SFML/System/ThreadLocal.hpp
+d/usr/local/include/SFML/System/ThreadLocalPtr.hpp
+d/usr/local/include/SFML/System/ThreadLocalPtr.inl
+d/usr/local/include/SFML/System/Utf.hpp
+d/usr/local/include/SFML/System/Utf.inl
+d/usr/local/include/SFML/System/Vector2.hpp
+d/usr/local/include/SFML/System/Vector2.inl
+d/usr/local/include/SFML/System/Vector3.hpp
+d/usr/local/include/SFML/System/Vector3.inl
+d/usr/local/include/SFML/Audio/Listener.hpp
+d/usr/local/include/SFML/Audio/Export.hpp
+d/usr/local/include/SFML/Audio/Music.hpp
+d/usr/local/include/SFML/Audio/SoundStream.hpp
+d/usr/local/include/SFML/Audio/SoundSource.hpp
+d/usr/local/include/SFML/Audio/Sound.hpp
+d/usr/local/include/SFML/Audio/SoundBuffer.hpp
+d/usr/local/include/SFML/Audio/SoundBufferRecorder.hpp
+d/usr/local/include/SFML/Audio/SoundRecorder.hpp
+d/usr/local/include/SFML/Graphics.hpp
+d/usr/local/include/SFML/Window.hpp
+d/usr/local/include/SFML/Window/Context.hpp
+d/usr/local/include/SFML/Window/Export.hpp
+d/usr/local/include/SFML/Window/GlResource.hpp
+d/usr/local/include/SFML/Window/ContextSettings.hpp
+d/usr/local/include/SFML/Window/Event.hpp
+d/usr/local/include/SFML/Window/Joystick.hpp
+d/usr/local/include/SFML/Window/Keyboard.hpp
+d/usr/local/include/SFML/Window/Mouse.hpp
+d/usr/local/include/SFML/Window/VideoMode.hpp
+d/usr/local/include/SFML/Window/Window.hpp
+d/usr/local/include/SFML/Window/WindowHandle.hpp
+d/usr/local/include/SFML/Window/WindowStyle.hpp
+d/usr/local/include/SFML/Graphics/BlendMode.hpp
+d/usr/local/include/SFML/Graphics/Color.hpp
+d/usr/local/include/SFML/Graphics/Export.hpp
+d/usr/local/include/SFML/Graphics/Font.hpp
+d/usr/local/include/SFML/Graphics/Glyph.hpp
+d/usr/local/include/SFML/Graphics/Rect.hpp
+d/usr/local/include/SFML/Graphics/Rect.inl
+d/usr/local/include/SFML/Graphics/Texture.hpp
+d/usr/local/include/SFML/Graphics/Image.hpp
+d/usr/local/include/SFML/Graphics/RenderStates.hpp
+d/usr/local/include/SFML/Graphics/Transform.hpp
+d/usr/local/include/SFML/Graphics/RenderTexture.hpp
+d/usr/local/include/SFML/Graphics/RenderTarget.hpp
+d/usr/local/include/SFML/Graphics/View.hpp
+d/usr/local/include/SFML/Graphics/PrimitiveType.hpp
+d/usr/local/include/SFML/Graphics/Vertex.hpp
+d/usr/local/include/SFML/Graphics/RenderWindow.hpp
+d/usr/local/include/SFML/Graphics/Shader.hpp
+d/usr/local/include/SFML/Graphics/Shape.hpp
+d/usr/local/include/SFML/Graphics/Drawable.hpp
+d/usr/local/include/SFML/Graphics/Transformable.hpp
+d/usr/local/include/SFML/Graphics/VertexArray.hpp
+d/usr/local/include/SFML/Graphics/CircleShape.hpp
+d/usr/local/include/SFML/Graphics/RectangleShape.hpp
+d/usr/local/include/SFML/Graphics/ConvexShape.hpp
+d/usr/local/include/SFML/Graphics/Sprite.hpp
+d/usr/local/include/SFML/Graphics/Text.hpp
+d/usr/local/include/SFML/OpenGL.hpp
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.h
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Leap.h
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapMath.h
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.h
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.hpp
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection160"Compile /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/main.cpp214"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/main.o LeapMotionOculusKeyboard/source/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler145c40b67a32b841^8fffa6b77a32b841^---0#0#1#-19%DVTDocumentLocation2@169"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/main.cpp0000000000000000^3367"CompileC build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/main.o LeapMotionOculusKeyboard/source/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/LeapMotionOculusKeyboard.hmap -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/include -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources/x86_64 -I/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources -F/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -F/Library/Frameworks -MMD -MT dependencies -MF /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/main.d --serialize-diagnostics /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/main.dia -c /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/main.cpp -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/main.o36"E03E64FB-0920-4517-AD85-734D81AB764C-
+b5EC084ED-26EC-400C-A97E-B2773D68DBF9
+
+CCpResource LeapMotionOculusKeyboard/assets/Gbuffer.fsh build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/Gbuffer.fsh
+r0
+
+CCpResource LeapMotionOculusKeyboard/assets/Gbuffer.vsh build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/Gbuffer.vsh
+r0
+
+CCpResource LeapMotionOculusKeyboard/assets/Screen.fsh build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/Screen.fsh
+r0
+
+CCpResource LeapMotionOculusKeyboard/assets/Screen.vsh build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/Screen.vsh
+r0
+
+CCpResource LeapMotionOculusKeyboard/assets/cute_image.jpg build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/cute_image.jpg
+r0
+
+CCpResource LeapMotionOculusKeyboard/assets/fingertip.obj build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/fingertip.obj
+r0
+
+CCpResource LeapMotionOculusKeyboard/assets/icon.png build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/icon.png
+r0
+
+CCpResource LeapMotionOculusKeyboard/assets/keyboard.obj build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/keyboard.obj
+r0
+
+CCpResource LeapMotionOculusKeyboard/assets/keyboardTex.png build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/keyboardTex.png
+r0
+
+CCpResource LeapMotionOculusKeyboard/assets/keyboardTexCaps.png build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/keyboardTexCaps.png
+r0
+
+CCpResource LeapMotionOculusKeyboard/assets/minimal.frag build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/minimal.frag
+r0
+
+CCpResource LeapMotionOculusKeyboard/assets/minimal.vert build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/minimal.vert
+r0
+
+CCpResource LeapMotionOculusKeyboard/assets/nice_music.ogg build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/nice_music.ogg
+r0
+
+CCpResource LeapMotionOculusKeyboard/assets/palm.obj build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/palm.obj
+r0
+
+CCpResource LeapMotionOculusKeyboard/assets/sansation.ttf build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/sansation.ttf
+r0
+
+CCpResource LeapMotionOculusKeyboard/assets/stan0757.ttf build/Debug/LeapMotionOculusKeyboard.app/Contents/Resources/stan0757.ttf
+r0
 
 CCreateUniversalBinary /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/MacOS/LeapMotionOculusKeyboard normal x86_64\ i386
-s404917111.132843
-e404917111.142719
-r1
-xCreateUniversalBinary
-x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/MacOS/LeapMotionOculusKeyboard
-xnormal
-xx86_64 i386
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection216"Create universal binary /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/MacOS/LeapMotionOculusKeyboard122"CreateUniversalBinary build/Debug/LeapMotionOculusKeyboard.app/Contents/MacOS/LeapMotionOculusKeyboard normal x86_64\ i386f01822778b22b841^058a24778b22b841^---0#0#1#-19%DVTDocumentLocation2@209"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/MacOS/LeapMotionOculusKeyboard00341c27ddffdf42^941"CreateUniversalBinary build/Debug/LeapMotionOculusKeyboard.app/Contents/MacOS/LeapMotionOculusKeyboard normal x86_64\ i386    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    lipo -create /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapMotionOculusKeyboard /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard -output /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/MacOS/LeapMotionOculusKeyboard36"E0EE44B9-915F-47FE-85BC-4B773A713A72-
-b4D027B58-9872-4473-9C61-CDF7E3E28827
+r0
 
 CLd /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard normal i386
-s404917110.914548
-e404917111.131722
-r1
+s405961407.957293
+e405961408.141794
+r0
 xLd
 x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard
 xnormal
 xi386
 d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard.LinkFileList
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapListener.o
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-B97527B250692C93.o
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-4FF10A33BC00FC90.o
 d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/main.o
-d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath.o
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LMOC.o
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/Cam.o
 d/Library/Frameworks/sfml-system.framework/sfml-system
 d/Library/Frameworks/sfml-window.framework/sfml-window
 d/Library/Frameworks/sfml-graphics.framework/sfml-graphics
 d/Library/Frameworks/sfml-audio.framework/sfml-audio
 d/Library/Frameworks/sfml-network.framework/sfml-network
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/Libs/LeapDeveloperKit_release_mac_1.0.8+7665/LeapSDK/lib/libLeap.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Foundation
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libobjc.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libc++.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libSystem.dylib
 d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.0/lib/darwin/libclang_rt.eprintf.a
 d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.0/lib/darwin/libclang_rt.osx.a
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLU.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcache.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcommonCrypto.dylib
@@ -463,30 +911,42 @@ d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libunc.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libunwind.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libxpc.dylib
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection235"Link /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard133"Ld build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard normal i3864833ea768b22b841^84b921778b22b841^---0#0#1#--1783"Ld build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard normal i386    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv MACOSX_DEPLOYMENT_TARGET 10.9    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -L/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -L/usr/local/lib -F/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -F/Library/Frameworks -filelist /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard.LinkFileList -mmacosx-version-min=10.9 -framework sfml-system -framework sfml-window -framework sfml-graphics -framework sfml-audio -framework sfml-network -stdlib=libc++ -fobjc-link-runtime -Xlinker -dependency_info -Xlinker /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard_dependency_info.dat -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard36"47CCE467-D223-44FB-83FF-1AFA412D29B9-
-b4D027B58-9872-4473-9C61-CDF7E3E28827
+oduplicate symbol __Z12resourcePathv in:
+o    /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-B97527B250692C93.o
+o    /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-4FF10A33BC00FC90.o
+old: 1 duplicate symbol for architecture i386
+oclang: error: linker command failed with exit code 1 (use -v to see invocation)
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection235"Link /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard133"Ld build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard normal i386cc25f5bf7a32b841^a98324c07a32b841^-649"duplicate symbol __Z12resourcePathv in:    /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-B97527B250692C93.o    /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/ResourcePath-4FF10A33BC00FC90.old: 1 duplicate symbol for architecture i386clang: error: linker command failed with exit code 1 (use -v to see invocation)2(21%IDEActivityLogMessage2@40"1 duplicate symbol for architecture i386-405961408#524#45#-0#-23%DVTTextDocumentLocation3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#31"Apple Mach-O Linker (ld) Notice--2@65"Linker command failed with exit code 1 (use -v to see invocation)-405961408#569#80#-2#-3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#30"Apple Mach-O Linker (ld) Error--0#0#1#--1867"Ld build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard normal i386    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv MACOSX_DEPLOYMENT_TARGET 10.9    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -L/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -L/usr/local/lib -LLibs/LeapDeveloperKit_release_mac_1.0.8+7665/LeapSDK/lib -F/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -F/Library/Frameworks -filelist /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard.LinkFileList -mmacosx-version-min=10.9 -framework sfml-system -framework sfml-window -framework sfml-graphics -framework sfml-audio -framework sfml-network -stdlib=libc++ -fobjc-link-runtime -lLeap -framework OpenGL -Xlinker -dependency_info -Xlinker /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard_dependency_info.dat -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard36"D2E93D18-B657-452A-B923-22A0A476BC1D-
+b5EC084ED-26EC-400C-A97E-B2773D68DBF9
 
 CLd /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapMotionOculusKeyboard normal x86_64
-s404917110.914101
-e404917111.129202
-r1
+s405961407.956256
+e405961408.142301
+r0
 xLd
 x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapMotionOculusKeyboard
 xnormal
 xx86_64
 d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapMotionOculusKeyboard.LinkFileList
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapListener.o
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-B97527B250692C93.o
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-4FF10A33BC00FC90.o
 d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/main.o
-d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath.o
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LMOC.o
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/Cam.o
 d/Library/Frameworks/sfml-system.framework/sfml-system
 d/Library/Frameworks/sfml-window.framework/sfml-window
 d/Library/Frameworks/sfml-graphics.framework/sfml-graphics
 d/Library/Frameworks/sfml-audio.framework/sfml-audio
 d/Library/Frameworks/sfml-network.framework/sfml-network
+d/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/Libs/LeapDeveloperKit_release_mac_1.0.8+7665/LeapSDK/lib/libLeap.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Foundation
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libobjc.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libc++.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libSystem.dylib
 d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.0/lib/darwin/libclang_rt.osx.a
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcache.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcommonCrypto.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcompiler_rt.dylib
@@ -517,36 +977,29 @@ d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libunc.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libunwind.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libxpc.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection237"Link /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapMotionOculusKeyboard137"Ld build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapMotionOculusKeyboard normal x86_64e71aea768b22b841^121621778b22b841^---0#0#1#--1795"Ld build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapMotionOculusKeyboard normal x86_64    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv MACOSX_DEPLOYMENT_TARGET 10.9    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -L/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -L/usr/local/lib -F/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -F/Library/Frameworks -filelist /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapMotionOculusKeyboard.LinkFileList -mmacosx-version-min=10.9 -framework sfml-system -framework sfml-window -framework sfml-graphics -framework sfml-audio -framework sfml-network -stdlib=libc++ -fobjc-link-runtime -Xlinker -dependency_info -Xlinker /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapMotionOculusKeyboard_dependency_info.dat -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapMotionOculusKeyboard36"72E87775-1DF6-4C91-899F-8FE94693A6A8-
-b4D027B58-9872-4473-9C61-CDF7E3E28827
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLU.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib
+oduplicate symbol __Z12resourcePathv in:
+o    /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-B97527B250692C93.o
+o    /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-4FF10A33BC00FC90.o
+old: 1 duplicate symbol for architecture x86_64
+oclang: error: linker command failed with exit code 1 (use -v to see invocation)
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection237"Link /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapMotionOculusKeyboard137"Ld build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapMotionOculusKeyboard normal x86_6404e7f4bf7a32b841^a5be24c07a32b841^-655"duplicate symbol __Z12resourcePathv in:    /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-B97527B250692C93.o    /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/ResourcePath-4FF10A33BC00FC90.old: 1 duplicate symbol for architecture x86_64clang: error: linker command failed with exit code 1 (use -v to see invocation)2(21%IDEActivityLogMessage2@42"1 duplicate symbol for architecture x86_64-405961408#528#47#-0#-23%DVTTextDocumentLocation3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#31"Apple Mach-O Linker (ld) Notice--2@65"Linker command failed with exit code 1 (use -v to see invocation)-405961408#575#80#-2#-3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#30"Apple Mach-O Linker (ld) Error--0#0#1#--1879"Ld build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapMotionOculusKeyboard normal x86_64    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv MACOSX_DEPLOYMENT_TARGET 10.9    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -L/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -L/usr/local/lib -LLibs/LeapDeveloperKit_release_mac_1.0.8+7665/LeapSDK/lib -F/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug -F/Library/Frameworks -filelist /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapMotionOculusKeyboard.LinkFileList -mmacosx-version-min=10.9 -framework sfml-system -framework sfml-window -framework sfml-graphics -framework sfml-audio -framework sfml-network -stdlib=libc++ -fobjc-link-runtime -lLeap -framework OpenGL -Xlinker -dependency_info -Xlinker /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapMotionOculusKeyboard_dependency_info.dat -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapMotionOculusKeyboard36"2312EF1F-B5C8-4EF8-9CE5-77CC082ADE08-
+b5EC084ED-26EC-400C-A97E-B2773D68DBF9
 
 CPhaseScriptExecution Run\ Script /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Script-43A7E8F418228B6C00710A8C.sh
-s404917111.162996
-e404917111.710868
-r1
-xPhaseScriptExecution
-xRun Script
-x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Script-43A7E8F418228B6C00710A8C.sh
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection36"Run custom shell script 'Run Script'141"PhaseScriptExecution Run\ Script build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Script-43A7E8F418228B6C00710A8C.sha4ff2d778b22b841^3bfcb5778b22b841^---0#0#1#--25700"PhaseScriptExecution Run\ Script build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Script-43A7E8F418228B6C00710A8C.sh    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv ACTION build    setenv ALTERNATE_GROUP staff    setenv ALTERNATE_MODE u+w,go-w,a+rX    setenv ALTERNATE_OWNER fredflugge    setenv ALWAYS_SEARCH_USER_PATHS YES    setenv ALWAYS_USE_SEPARATE_HEADERMAPS YES    setenv APPLE_INTERNAL_DEVELOPER_DIR /AppleInternal/Developer    setenv APPLE_INTERNAL_DIR /AppleInternal    setenv APPLE_INTERNAL_DOCUMENTATION_DIR /AppleInternal/Documentation    setenv APPLE_INTERNAL_LIBRARY_DIR /AppleInternal/Library    setenv APPLE_INTERNAL_TOOLS /AppleInternal/Developer/Tools    setenv APPLY_RULES_IN_COPY_FILES NO    setenv ARCHS "x86_64 i386"    setenv ARCHS_STANDARD x86_64    setenv ARCHS_STANDARD_32_64_BIT "x86_64 i386"    setenv ARCHS_STANDARD_32_BIT i386    setenv ARCHS_STANDARD_64_BIT x86_64    setenv ARCHS_STANDARD_INCLUDING_64_BIT x86_64    setenv AVAILABLE_PLATFORMS "iphonesimulator macosx iphoneos"    setenv BUILD_COMPONENTS "headers build"    setenv BUILD_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build"    setenv BUILD_ROOT "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build"    setenv BUILD_STYLE     setenv BUILD_VARIANTS normal    setenv BUILT_PRODUCTS_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug"    setenv CACHE_ROOT /var/folders/xj/3ycj8n414833p7xvyqp22wl00000gn/C/com.apple.DeveloperTools/5.0.1-5A2053/Xcode    setenv CCHROOT /var/folders/xj/3ycj8n414833p7xvyqp22wl00000gn/C/com.apple.DeveloperTools/5.0.1-5A2053/Xcode    setenv CHMOD /bin/chmod    setenv CHOWN /usr/sbin/chown    setenv CLANG_CXX_LANGUAGE_STANDARD c++0x    setenv CLANG_CXX_LIBRARY libc++    setenv CLANG_WARN_EMPTY_BODY YES    setenv CLANG_WARN__DUPLICATE_METHOD_MATCH YES    setenv CLASS_FILE_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/JavaClasses"    setenv CLEAN_PRECOMPS YES    setenv CLONE_HEADERS NO    setenv CODESIGNING_FOLDER_PATH "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app"    setenv CODE_SIGNING_ALLOWED YES    setenv COLOR_DIAGNOSTICS NO    setenv COMBINE_HIDPI_IMAGES NO    setenv COMMAND_MODE legacy    setenv COMPOSITE_SDK_DIRS /var/folders/xj/3ycj8n414833p7xvyqp22wl00000gn/C/com.apple.DeveloperTools/5.0.1-5A2053/Xcode/CompositeSDKs    setenv CONFIGURATION Debug    setenv CONFIGURATION_BUILD_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug"    setenv CONFIGURATION_TEMP_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug"    setenv CONTENTS_FOLDER_PATH LeapMotionOculusKeyboard.app/Contents    setenv COPYING_PRESERVES_HFS_DATA NO    setenv COPY_PHASE_STRIP YES    setenv COPY_RESOURCES_FROM_STATIC_FRAMEWORKS YES    setenv CP /bin/cp    setenv CREATE_INFOPLIST_SECTION_IN_BINARY NO    setenv CURRENT_ARCH i386    setenv CURRENT_VARIANT normal    setenv DEAD_CODE_STRIPPING NO    setenv DEBUGGING_SYMBOLS YES    setenv DEBUG_INFORMATION_FORMAT dwarf    setenv DEFAULT_COMPILER com.apple.compilers.llvm.clang.1_0    setenv DEFAULT_KEXT_INSTALL_PATH /Library/Extensions    setenv DEPLOYMENT_LOCATION NO    setenv DEPLOYMENT_POSTPROCESSING NO    setenv DERIVED_FILES_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources"    setenv DERIVED_FILE_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources"    setenv DERIVED_SOURCES_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/DerivedSources"    setenv DEVELOPER_APPLICATIONS_DIR /Applications/Xcode.app/Contents/Developer/Applications    setenv DEVELOPER_BIN_DIR /Applications/Xcode.app/Contents/Developer/usr/bin    setenv DEVELOPER_DIR /Applications/Xcode.app/Contents/Developer    setenv DEVELOPER_FRAMEWORKS_DIR /Applications/Xcode.app/Contents/Developer/Library/Frameworks    setenv DEVELOPER_FRAMEWORKS_DIR_QUOTED /Applications/Xcode.app/Contents/Developer/Library/Frameworks    setenv DEVELOPER_LIBRARY_DIR /Applications/Xcode.app/Contents/Developer/Library    setenv DEVELOPER_SDK_DIR /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs    setenv DEVELOPER_TOOLS_DIR /Applications/Xcode.app/Contents/Developer/Tools    setenv DEVELOPER_USR_DIR /Applications/Xcode.app/Contents/Developer/usr    setenv DEVELOPMENT_LANGUAGE English    setenv DOCUMENTATION_FOLDER_PATH LeapMotionOculusKeyboard.app/Contents/Resources/English.lproj/Documentation    setenv DO_HEADER_SCANNING_IN_JAM NO    setenv DSTROOT /tmp/LeapMotionOculusKeyboard.dst    setenv DT_TOOLCHAIN_DIR /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain    setenv DWARF_DSYM_FILE_NAME LeapMotionOculusKeyboard.app.dSYM    setenv DWARF_DSYM_FILE_SHOULD_ACCOMPANY_PRODUCT NO    setenv DWARF_DSYM_FOLDER_PATH "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug"    setenv EMBEDDED_PROFILE_NAME embedded.provisionprofile    setenv ENABLE_HEADER_DEPENDENCIES YES    setenv EXCLUDED_INSTALLSRC_SUBDIRECTORY_PATTERNS ".DS_Store .svn .git .hg CVS"    setenv EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES "*.nib *.lproj *.framework *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj"    setenv EXECUTABLES_FOLDER_PATH LeapMotionOculusKeyboard.app/Contents/Executables    setenv EXECUTABLE_FOLDER_PATH LeapMotionOculusKeyboard.app/Contents/MacOS    setenv EXECUTABLE_NAME LeapMotionOculusKeyboard    setenv EXECUTABLE_PATH LeapMotionOculusKeyboard.app/Contents/MacOS/LeapMotionOculusKeyboard    setenv FILE_LIST "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects/LinkFileList"    setenv FIXED_FILES_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/FixedFiles"    setenv FRAMEWORKS_FOLDER_PATH LeapMotionOculusKeyboard.app/Contents/Frameworks    setenv FRAMEWORK_FLAG_PREFIX -framework    setenv FRAMEWORK_SEARCH_PATHS "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug  /Library/Frameworks/  "    setenv FRAMEWORK_VERSION A    setenv FULL_PRODUCT_NAME LeapMotionOculusKeyboard.app    setenv GCC3_VERSION 3.3    setenv GCC_DYNAMIC_NO_PIC NO    setenv GCC_INLINES_ARE_PRIVATE_EXTERN YES    setenv GCC_OPTIMIZATION_LEVEL 0    setenv GCC_PFE_FILE_C_DIALECTS "c objective-c c++ objective-c++"    setenv GCC_PREPROCESSOR_DEFINITIONS "DEBUG=1 "    setenv GCC_SYMBOLS_PRIVATE_EXTERN YES    setenv GCC_TREAT_WARNINGS_AS_ERRORS NO    setenv GCC_VERSION com.apple.compilers.llvm.clang.1_0    setenv GCC_VERSION_IDENTIFIER com_apple_compilers_llvm_clang_1_0    setenv GCC_WARN_ABOUT_RETURN_TYPE YES    setenv GCC_WARN_UNINITIALIZED_AUTOS YES    setenv GCC_WARN_UNUSED_VARIABLE YES    setenv GENERATE_MASTER_OBJECT_FILE NO    setenv GENERATE_PKGINFO_FILE YES    setenv GENERATE_PROFILING_CODE NO    setenv GID 20    setenv GROUP staff    setenv HEADERMAP_INCLUDES_FLAT_ENTRIES_FOR_TARGET_BEING_BUILT YES    setenv HEADERMAP_INCLUDES_FRAMEWORK_ENTRIES_FOR_ALL_PRODUCT_TYPES YES    setenv HEADERMAP_INCLUDES_NONPUBLIC_NONPRIVATE_HEADERS YES    setenv HEADERMAP_INCLUDES_PROJECT_HEADERS YES    setenv HEADER_SEARCH_PATHS "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/include  /usr/local/include/  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "    setenv ICONV /usr/bin/iconv    setenv INFOPLIST_EXPAND_BUILD_SETTINGS YES    setenv INFOPLIST_FILE LeapMotionOculusKeyboard/LeapMotionOculusKeyboard-Info.plist    setenv INFOPLIST_OUTPUT_FORMAT same-as-input    setenv INFOPLIST_PATH LeapMotionOculusKeyboard.app/Contents/Info.plist    setenv INFOPLIST_PREPROCESS NO    setenv INFOSTRINGS_PATH LeapMotionOculusKeyboard.app/Contents/Resources/English.lproj/InfoPlist.strings    setenv INSTALL_DIR /tmp/LeapMotionOculusKeyboard.dst/Applications    setenv INSTALL_GROUP staff    setenv INSTALL_MODE_FLAG u+w,go-w,a+rX    setenv INSTALL_OWNER fredflugge    setenv INSTALL_PATH /Applications    setenv INSTALL_ROOT /tmp/LeapMotionOculusKeyboard.dst    setenv JAVAC_DEFAULT_FLAGS "-J-Xms64m -J-XX:NewSize=4M -J-Dfile.encoding=UTF8"    setenv JAVA_APP_STUB /System/Library/Frameworks/JavaVM.framework/Resources/MacOS/JavaApplicationStub    setenv JAVA_ARCHIVE_CLASSES YES    setenv JAVA_ARCHIVE_TYPE JAR    setenv JAVA_COMPILER /usr/bin/javac    setenv JAVA_FOLDER_PATH LeapMotionOculusKeyboard.app/Contents/Resources/Java    setenv JAVA_FRAMEWORK_RESOURCES_DIRS Resources    setenv JAVA_JAR_FLAGS cv    setenv JAVA_SOURCE_SUBDIR .    setenv JAVA_USE_DEPENDENCIES YES    setenv JAVA_ZIP_FLAGS -urg    setenv JIKES_DEFAULT_FLAGS "+E +OLDCSO"    setenv KEEP_PRIVATE_EXTERNS NO    setenv LD_DEPENDENCY_INFO_FILE "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard_dependency_info.dat"    setenv LD_GENERATE_MAP_FILE NO    setenv LD_MAP_FILE_PATH "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/LeapMotionOculusKeyboard-LinkMap-normal-i386.txt"    setenv LD_NO_PIE NO    setenv LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER YES    setenv LEGACY_DEVELOPER_DIR /Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer    setenv LEX lex    setenv LIBRARY_FLAG_NOSPACE YES    setenv LIBRARY_FLAG_PREFIX -l    setenv LIBRARY_KEXT_INSTALL_PATH /Library/Extensions    setenv LIBRARY_SEARCH_PATHS "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug  /usr/local/lib/  "    setenv LINKER_DISPLAYS_MANGLED_NAMES NO    setenv LINK_FILE_LIST_normal_i386 "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/i386/LeapMotionOculusKeyboard.LinkFileList"    setenv LINK_FILE_LIST_normal_x86_64 "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal/x86_64/LeapMotionOculusKeyboard.LinkFileList"    setenv LINK_WITH_STANDARD_LIBRARIES YES    setenv LOCALIZED_RESOURCES_FOLDER_PATH LeapMotionOculusKeyboard.app/Contents/Resources/English.lproj    setenv LOCAL_ADMIN_APPS_DIR /Applications/Utilities    setenv LOCAL_APPS_DIR /Applications    setenv LOCAL_DEVELOPER_DIR /Library/Developer    setenv LOCAL_LIBRARY_DIR /Library    setenv MACH_O_TYPE mh_execute    setenv MACOSX_DEPLOYMENT_TARGET 10.9    setenv MAC_OS_X_PRODUCT_BUILD_VERSION 13A603    setenv MAC_OS_X_VERSION_ACTUAL 1090    setenv MAC_OS_X_VERSION_MAJOR 1090    setenv MAC_OS_X_VERSION_MINOR 0900    setenv MODULE_CACHE_DIR /Users/fredflugge/Library/Developer/Xcode/DerivedData/ModuleCache    setenv NATIVE_ARCH i386    setenv NATIVE_ARCH_32_BIT i386    setenv NATIVE_ARCH_64_BIT x86_64    setenv NATIVE_ARCH_ACTUAL x86_64    setenv NO_COMMON YES    setenv OBJECT_FILE_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects"    setenv OBJECT_FILE_DIR_normal "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Objects-normal"    setenv OBJROOT "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build"    setenv ONLY_ACTIVE_ARCH NO    setenv OPTIMIZATION_LEVEL 0    setenv OS MACOS    setenv OSAC /usr/bin/osacompile    setenv OTHER_LDFLAGS " -framework sfml-system -framework sfml-window -framework sfml-graphics -framework sfml-audio -framework sfml-network"    setenv PACKAGE_TYPE com.apple.package-type.wrapper.application    setenv PASCAL_STRINGS YES    setenv PATH "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/usr/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Tools:/usr/bin:/bin:/usr/sbin:/sbin"    setenv PATH_PREFIXES_EXCLUDED_FROM_HEADER_DEPENDENCIES "/usr/include /usr/local/include /System/Library/Frameworks /System/Library/PrivateFrameworks /Applications/Xcode.app/Contents/Developer/Headers /Applications/Xcode.app/Contents/Developer/SDKs /Applications/Xcode.app/Contents/Developer/Platforms"    setenv PBDEVELOPMENTPLIST_PATH LeapMotionOculusKeyboard.app/Contents/pbdevelopment.plist    setenv PFE_FILE_C_DIALECTS "c++ objective-c++"    setenv PKGINFO_FILE_PATH "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/PkgInfo"    setenv PKGINFO_PATH LeapMotionOculusKeyboard.app/Contents/PkgInfo    setenv PLATFORM_DEVELOPER_APPLICATIONS_DIR /Applications/Xcode.app/Contents/Developer/Applications    setenv PLATFORM_DEVELOPER_BIN_DIR /Applications/Xcode.app/Contents/Developer/usr/bin    setenv PLATFORM_DEVELOPER_LIBRARY_DIR /Applications/Xcode.app/Contents/Developer/Library    setenv PLATFORM_DEVELOPER_SDK_DIR /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs    setenv PLATFORM_DEVELOPER_TOOLS_DIR /Applications/Xcode.app/Contents/Developer/Tools    setenv PLATFORM_DEVELOPER_USR_DIR /Applications/Xcode.app/Contents/Developer/usr    setenv PLATFORM_DIR /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform    setenv PLATFORM_NAME macosx    setenv PLATFORM_PREFERRED_ARCH x86_64    setenv PLATFORM_PRODUCT_BUILD_VERSION 5A2053    setenv PLIST_FILE_OUTPUT_FORMAT same-as-input    setenv PLUGINS_FOLDER_PATH LeapMotionOculusKeyboard.app/Contents/PlugIns    setenv PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR YES    setenv PRECOMP_DESTINATION_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/PrefixHeaders"    setenv PRESERVE_DEAD_CODE_INITS_AND_TERMS NO    setenv PRIVATE_HEADERS_FOLDER_PATH LeapMotionOculusKeyboard.app/Contents/PrivateHeaders    setenv PRODUCT_NAME LeapMotionOculusKeyboard    setenv PRODUCT_SETTINGS_PATH "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard-Info.plist"    setenv PRODUCT_TYPE com.apple.product-type.application    setenv PROFILING_CODE NO    setenv PROJECT LeapMotionOculusKeyboard    setenv PROJECT_DERIVED_FILE_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/DerivedSources"    setenv PROJECT_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv PROJECT_FILE_PATH "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard.xcodeproj"    setenv PROJECT_NAME LeapMotionOculusKeyboard    setenv PROJECT_TEMP_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build"    setenv PROJECT_TEMP_ROOT "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build"    setenv PUBLIC_HEADERS_FOLDER_PATH LeapMotionOculusKeyboard.app/Contents/Headers    setenv RECURSIVE_SEARCH_PATHS_FOLLOW_SYMLINKS YES    setenv REMOVE_CVS_FROM_RESOURCES YES    setenv REMOVE_GIT_FROM_RESOURCES YES    setenv REMOVE_HG_FROM_RESOURCES YES    setenv REMOVE_SVN_FROM_RESOURCES YES    setenv REZ_COLLECTOR_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/ResourceManagerResources"    setenv REZ_OBJECTS_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/ResourceManagerResources/Objects"    setenv REZ_SEARCH_PATHS "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug "    setenv SCAN_ALL_SOURCE_FILES_FOR_INCLUDES NO    setenv SCRIPTS_FOLDER_PATH LeapMotionOculusKeyboard.app/Contents/Resources/Scripts    setenv SCRIPT_INPUT_FILE_COUNT 0    setenv SCRIPT_OUTPUT_FILE_COUNT 0    setenv SDKROOT /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk    setenv SDK_DIR /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk    setenv SDK_NAME macosx10.9    setenv SDK_PRODUCT_BUILD_VERSION 13A595    setenv SED /usr/bin/sed    setenv SEPARATE_STRIP NO    setenv SEPARATE_SYMBOL_EDIT NO    setenv SET_DIR_MODE_OWNER_GROUP YES    setenv SET_FILE_MODE_OWNER_GROUP NO    setenv SFML_AUDIO "-framework sfml-audio"    setenv SFML_BINARY_TYPE FRAMEWORKS    setenv SFML_GRAPHICS "-framework sfml-graphics"    setenv SFML_LINK_DYLIBS_PREFIX -l    setenv SFML_LINK_FRAMEWORKS_PREFIX -framework    setenv SFML_LINK_PREFIX -framework    setenv SFML_NETWORK "-framework sfml-network"    setenv SFML_SYSTEM "-framework sfml-system"    setenv SFML_WINDOW "-framework sfml-window"    setenv SHARED_DERIVED_FILE_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/DerivedSources"    setenv SHARED_FRAMEWORKS_FOLDER_PATH LeapMotionOculusKeyboard.app/Contents/SharedFrameworks    setenv SHARED_PRECOMPS_DIR /var/folders/xj/3ycj8n414833p7xvyqp22wl00000gn/C/com.apple.DeveloperTools/5.0.1-5A2053/Xcode/SharedPrecompiledHeaders    setenv SHARED_SUPPORT_FOLDER_PATH LeapMotionOculusKeyboard.app/Contents/SharedSupport    setenv SKIP_INSTALL NO    setenv SOURCE_ROOT "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv SRCROOT "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    setenv STRINGS_FILE_OUTPUT_ENCODING UTF-16    setenv STRIP_INSTALLED_PRODUCT YES    setenv STRIP_STYLE all    setenv SUPPORTED_PLATFORMS macosx    setenv SYMROOT "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build"    setenv SYSTEM_ADMIN_APPS_DIR /Applications/Utilities    setenv SYSTEM_APPS_DIR /Applications    setenv SYSTEM_CORE_SERVICES_DIR /System/Library/CoreServices    setenv SYSTEM_DEMOS_DIR /Applications/Extras    setenv SYSTEM_DEVELOPER_APPS_DIR /Applications/Xcode.app/Contents/Developer/Applications    setenv SYSTEM_DEVELOPER_BIN_DIR /Applications/Xcode.app/Contents/Developer/usr/bin    setenv SYSTEM_DEVELOPER_DEMOS_DIR "/Applications/Xcode.app/Contents/Developer/Applications/Utilities/Built Examples"    setenv SYSTEM_DEVELOPER_DIR /Applications/Xcode.app/Contents/Developer    setenv SYSTEM_DEVELOPER_DOC_DIR "/Applications/Xcode.app/Contents/Developer/ADC Reference Library"    setenv SYSTEM_DEVELOPER_GRAPHICS_TOOLS_DIR "/Applications/Xcode.app/Contents/Developer/Applications/Graphics Tools"    setenv SYSTEM_DEVELOPER_JAVA_TOOLS_DIR "/Applications/Xcode.app/Contents/Developer/Applications/Java Tools"    setenv SYSTEM_DEVELOPER_PERFORMANCE_TOOLS_DIR "/Applications/Xcode.app/Contents/Developer/Applications/Performance Tools"    setenv SYSTEM_DEVELOPER_RELEASENOTES_DIR "/Applications/Xcode.app/Contents/Developer/ADC Reference Library/releasenotes"    setenv SYSTEM_DEVELOPER_TOOLS /Applications/Xcode.app/Contents/Developer/Tools    setenv SYSTEM_DEVELOPER_TOOLS_DOC_DIR "/Applications/Xcode.app/Contents/Developer/ADC Reference Library/documentation/DeveloperTools"    setenv SYSTEM_DEVELOPER_TOOLS_RELEASENOTES_DIR "/Applications/Xcode.app/Contents/Developer/ADC Reference Library/releasenotes/DeveloperTools"    setenv SYSTEM_DEVELOPER_USR_DIR /Applications/Xcode.app/Contents/Developer/usr    setenv SYSTEM_DEVELOPER_UTILITIES_DIR /Applications/Xcode.app/Contents/Developer/Applications/Utilities    setenv SYSTEM_DOCUMENTATION_DIR /Library/Documentation    setenv SYSTEM_KEXT_INSTALL_PATH /System/Library/Extensions    setenv SYSTEM_LIBRARY_DIR /System/Library    setenv TARGETNAME LeapMotionOculusKeyboard    setenv TARGET_BUILD_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug"    setenv TARGET_NAME LeapMotionOculusKeyboard    setenv TARGET_TEMP_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build"    setenv TEMP_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build"    setenv TEMP_FILES_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build"    setenv TEMP_FILE_DIR "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build"    setenv TEMP_ROOT "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build"    setenv TOOLCHAINS com.apple.dt.toolchain.XcodeDefault    setenv UID 501    setenv UNLOCALIZED_RESOURCES_FOLDER_PATH LeapMotionOculusKeyboard.app/Contents/Resources    setenv UNSTRIPPED_PRODUCT NO    setenv USER fredflugge    setenv USER_APPS_DIR /Users/fredflugge/Applications    setenv USER_LIBRARY_DIR /Users/fredflugge/Library    setenv USE_DYNAMIC_NO_PIC YES    setenv USE_HEADERMAP YES    setenv USE_HEADER_SYMLINKS NO    setenv VALIDATE_PRODUCT NO    setenv VALID_ARCHS "i386 x86_64"    setenv VERBOSE_PBXCP NO    setenv VERSIONPLIST_PATH LeapMotionOculusKeyboard.app/Contents/version.plist    setenv VERSION_INFO_BUILDER fredflugge    setenv VERSION_INFO_FILE LeapMotionOculusKeyboard_vers.c    setenv VERSION_INFO_STRING "\"@(#)PROGRAM:LeapMotionOculusKeyboard  PROJECT:LeapMotionOculusKeyboard-\""    setenv WRAPPER_EXTENSION app    setenv WRAPPER_NAME LeapMotionOculusKeyboard.app    setenv WRAPPER_SUFFIX .app    setenv XCODE_APP_SUPPORT_DIR /Applications/Xcode.app/Contents/Developer/Library/Xcode    setenv XCODE_PRODUCT_BUILD_VERSION 5A2053    setenv XCODE_VERSION_ACTUAL 0501    setenv XCODE_VERSION_MAJOR 0500    setenv XCODE_VERSION_MINOR 0500    setenv XPCSERVICES_FOLDER_PATH LeapMotionOculusKeyboard.app/Contents/XPCServices    setenv YACC yacc    setenv arch i386    setenv variant normal    /bin/sh -c \"/Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/LeapMotionOculusKeyboard.build/Debug/LeapMotionOculusKeyboard.build/Script-43A7E8F418228B6C00710A8C.sh\"36"736C5502-7EB0-444B-897E-B154019367DA-
-b4D027B58-9872-4473-9C61-CDF7E3E28827
+r0
 
 CProcessInfoPlistFile /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/Info.plist /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard-Info.plist
-s404917104.491909
-e404917104.496921
+s405961395.107327
+e405961395.128163
 r1
 xProcessInfoPlistFile
 x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/Info.plist
 x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard-Info.plist
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection180"Process /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard-Info.plist142"ProcessInfoPlistFile build/Debug/LeapMotionOculusKeyboard.app/Contents/Info.plist LeapMotionOculusKeyboard/LeapMotionOculusKeyboard-Info.plist7ec57e708b22b841^ab427f708b22b841^---0#0#1#-19%DVTDocumentLocation2@189"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard-Info.plist0000000000000000^877"ProcessInfoPlistFile build/Debug/LeapMotionOculusKeyboard.app/Contents/Info.plist LeapMotionOculusKeyboard/LeapMotionOculusKeyboard-Info.plist    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    builtin-infoPlistUtility /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard-Info.plist -genpkginfo /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/Info.plist36"A0B340F8-47B3-4457-8EE0-1D03599674E5-
-b4D027B58-9872-4473-9C61-CDF7E3E28827
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection180"Process /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard-Info.plist142"ProcessInfoPlistFile build/Debug/LeapMotionOculusKeyboard.app/Contents/Info.plist LeapMotionOculusKeyboard/LeapMotionOculusKeyboard-Info.plist338c1bb37a32b841^e1cf2cb37a32b841^---0#0#1#-19%DVTDocumentLocation2@189"file:///Users/fredflugge/Documents/Informatik/Aktuell%20belegt/COGR%20-%20%20Computer%20Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard-Info.plist0000000000000000^877"ProcessInfoPlistFile build/Debug/LeapMotionOculusKeyboard.app/Contents/Info.plist LeapMotionOculusKeyboard/LeapMotionOculusKeyboard-Info.plist    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    builtin-infoPlistUtility /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard-Info.plist -genpkginfo /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app/Contents/Info.plist36"85C1C616-3AAA-4216-92FF-0349B37A8779-
+b5EC084ED-26EC-400C-A97E-B2773D68DBF9
 
 CTouch /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app
-s404917111.712367
-e404917111.723108
-r1
-xTouch
-x/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection158"Touch /Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app46"Touch build/Debug/LeapMotionOculusKeyboard.app0d6fb6778b22b841^9432b9778b22b841^---0#0#1#--348"Touch build/Debug/LeapMotionOculusKeyboard.app    cd "/Users/fredflugge/Documents/Informatik/Aktuell belegt/COGR -  Computer Graphik/projekt/LeapMotionOculusKeyboard"    /usr/bin/touch -c /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/build/Debug/LeapMotionOculusKeyboard.app36"521011CA-B608-417A-884A-85A7C1C38C13-
-b4D027B58-9872-4473-9C61-CDF7E3E28827
+r0
 

@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/Cam.cpp \
-  /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/Cam.h \
+  /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.cpp \
+  /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.h \
   /usr/local/include/SFML/Window.hpp /usr/local/include/SFML/System.hpp \
   /usr/local/include/SFML/Config.hpp \
   /usr/local/include/SFML/System/Clock.hpp \
