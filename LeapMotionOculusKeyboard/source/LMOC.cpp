@@ -75,11 +75,11 @@ void lookAt(const Vector3& pos, const Vector3& dir, const Vector3& up)
 	mat[14] = (dirN.dot(pos));
 	mat[15] = 1.0;
 	
-	glMultMatrixf(&mat[0]);
+	//glMultMatrixf(&mat[0]);
+    glLoadMatrixf(&mat[0]);
 }
 
 LMOC::LMOC(){
-	firstRun=false;
     // Create the main window
     Eyes.initCam(0,0,120);
     objectCount=-1;
@@ -111,11 +111,13 @@ LMOC::LMOC(){
     std::cout << "stencil bits:" << settings.stencilBits << std::endl;
     std::cout << "antialiasing level:" << settings.antialiasingLevel << std::endl;
     std::cout << "version:" << settings.majorVersion << "." << settings.minorVersion << std::endl;
+#ifdef WIN32
 	GLenum err = glewInit();
 	if (GLEW_OK != err)
 	{
 		fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
 	}
+#endif
     
     
     //LEAP***************************************
@@ -129,6 +131,7 @@ LMOC::LMOC(){
     
     running=true;
     rendering=true;
+	firstRun=true;
 }
 
 LMOC::~LMOC(){
@@ -398,29 +401,30 @@ void LMOC::renderThread()
         glLoadMatrixf(matProject.getTranspose());
     }
     
-    
-    ///////////////////////////////////////////////////////////// SETUP VBO'S
-    
-    glGenBuffers(NUM_VBO, VBO);
-    
-    glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
-    glBufferData(GL_ARRAY_BUFFER, keyboardVert_data.size()*sizeof(Vertex),&(keyboardVert_data[0]),GL_STATIC_DRAW);
-    
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, keyboardInd_data.size()*sizeof(unsigned int),&(keyboardInd_data[0]),GL_STATIC_DRAW);
-    
-    glBindBuffer(GL_ARRAY_BUFFER, VBO[2]);
-    glBufferData(GL_ARRAY_BUFFER, palmVert_data.size()*sizeof(Vertex),&(palmVert_data[0]),GL_STATIC_DRAW);
-    
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[3]);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, palmInd_data.size()*sizeof(unsigned int),&(palmInd_data[0]),GL_STATIC_DRAW);
-    
-    glBindBuffer(GL_ARRAY_BUFFER, VBO[4]);
-    glBufferData(GL_ARRAY_BUFFER, fingerVert_data.size()*sizeof(Vertex),&(fingerVert_data[0]),GL_STATIC_DRAW);
-    
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[5]);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, fingerInd_data.size()*sizeof(unsigned int),&(fingerInd_data[0]),GL_STATIC_DRAW);
-    
+        
+        ///////////////////////////////////////////////////////////// SETUP VBO'S
+        window.setActive(true);
+        
+        glGenBuffers(NUM_VBO, VBO);
+        
+        glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
+        glBufferData(GL_ARRAY_BUFFER, keyboardVert_data.size()*sizeof(Vertex),&(keyboardVert_data[0]),GL_STATIC_DRAW);
+        
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, keyboardInd_data.size()*sizeof(unsigned int),&(keyboardInd_data[0]),GL_STATIC_DRAW);
+        
+        glBindBuffer(GL_ARRAY_BUFFER, VBO[2]);
+        glBufferData(GL_ARRAY_BUFFER, palmVert_data.size()*sizeof(Vertex),&(palmVert_data[0]),GL_STATIC_DRAW);
+        
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[3]);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, palmInd_data.size()*sizeof(unsigned int),&(palmInd_data[0]),GL_STATIC_DRAW);
+        
+        glBindBuffer(GL_ARRAY_BUFFER, VBO[4]);
+        glBufferData(GL_ARRAY_BUFFER, fingerVert_data.size()*sizeof(Vertex),&(fingerVert_data[0]),GL_STATIC_DRAW);
+        
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[5]);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, fingerInd_data.size()*sizeof(unsigned int),&(fingerInd_data[0]),GL_STATIC_DRAW);
+        
 	}
     ///////////////////////////////////////////////////////////// RENDERLOOP
 	while (rendering)
@@ -447,10 +451,10 @@ void LMOC::renderThread()
 		//lookAt(camPos,playerPos,upVec);
         gluLookAt(Eyes.getCam().x+playerPos.x, Eyes.getCam().y+playerPos.y, Eyes.getCam().z+playerPos.z, playerPos.x, playerPos.y, playerPos.z, 0.0, 1.0, 0.0);
         
-		glBegin(GL_LINE);
-		glVertex3f(0.0,0.0,0.0);
-		glVertex3f(5.0,5.0,0.0);
-		glEnd();
+//		glBegin(GL_LINE);
+//		glVertex3f(0.0,0.0,0.0);
+//		glVertex3f(5.0,5.0,0.0);
+//		glEnd();
 
         ///////////////////////////////////////////////////////// UPDATE SHADER PARAMETERS
         if (keyCaps) {
