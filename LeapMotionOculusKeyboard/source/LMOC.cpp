@@ -429,6 +429,11 @@ void LMOC::renderThread()
     ///////////////////////////////////////////////////////////// RENDERLOOP
 	while (rendering)
     {
+		///////////////////////////////////////////////////////// WINDOWS WANTS EVENTS AND RENDERING IN MAIN THREAD... OK...
+		#ifdef WIN32
+        checkEvents();
+		#endif
+
         ///////////////////////////////////////////////////////// EX MATRIXTHREAD, TO MUCH OVERHEAD NOW IN RENDERTHREAD
         matrixThread();
         
@@ -559,7 +564,28 @@ void LMOC::run(){
     while (running)
     {
         // Process events
-        sf::Event event;
+#ifdef __APPLE__
+        checkEvents();
+#endif
+
+        //rotate 3rd Person cam on mouse left button
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+            sf::Vector2i mousePos= sf::Mouse::getPosition();
+            Eyes.mouseMove(mousePos.x, mousePos.y);
+            Eyes.setDown(true);
+        }
+        if (!sf::Mouse::isButtonPressed(sf::Mouse::Left) && Eyes.isDown()){
+            Eyes.mouseRelease();
+            Eyes.setDown(false);
+        }
+    }
+    window.close();
+    
+    std::cout << "run done"<< std::endl;
+}
+
+void LMOC::checkEvents(){
+	sf::Event event;
         while (window.pollEvent(event))
         {
             // Close window : exit
@@ -589,18 +615,4 @@ void LMOC::run(){
                 stab=!stab;
             }
         }
-        //rotate 3rd Person cam on mouse left button
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-            sf::Vector2i mousePos= sf::Mouse::getPosition();
-            Eyes.mouseMove(mousePos.x, mousePos.y);
-            Eyes.setDown(true);
-        }
-        if (!sf::Mouse::isButtonPressed(sf::Mouse::Left) && Eyes.isDown()){
-            Eyes.mouseRelease();
-            Eyes.setDown(false);
-        }
-    }
-    window.close();
-    
-    std::cout << "run done"<< std::endl;
 }

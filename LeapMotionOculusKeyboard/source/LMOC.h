@@ -71,6 +71,8 @@ public:
     void textThread();
 public:
     void matrixThread();
+private:
+	void checkEvents();
 
 private:
     bool loadResources();
