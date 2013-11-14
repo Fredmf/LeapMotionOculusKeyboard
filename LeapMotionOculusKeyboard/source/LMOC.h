@@ -13,16 +13,24 @@
 #define NUM_VBO 6
 #define BUFFER_OFFSET(i) ((void*)(i))
 
+#ifdef __APPLE__
+#include <SFML/OpenGL.hpp>
+#elif WIN32
+#include <GL/glew.h>
+#include <GL/gl.h>
+#endif
+
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
-#include <SFML/OpenGL.hpp>
 
 #include <LeapMath.h>
 
 #include <string>
 #include <iostream>
 #include <string>
+
+#include "Vectors.h"
 
 //leap
 #include "LeapListener.h"
@@ -34,9 +42,7 @@
 #ifdef __APPLE__
 #include "ResourcePath.hpp"
 #elif WIN32
-std::string resourcePath(void){
-	return "";
-}
+#include "ResourcePath.h"
 #endif
 
 
@@ -58,7 +64,7 @@ public:
     ~LMOC();
     
 public:
-    int run();
+    void run();
 public:
     void renderThread();
 public:
@@ -76,7 +82,8 @@ private:
     LeapListener listener;
 private:
     Controller controller;
-    
+private:
+	bool firstRun;
     //sfml
 private:
     sf::ContextSettings settings;
@@ -140,7 +147,7 @@ private:
     float ambient;
     
 private:
-    sf::Vector3f playerPos;
+    Vector3 playerPos;
     float viewanchor;
 private:
     int objectCount;

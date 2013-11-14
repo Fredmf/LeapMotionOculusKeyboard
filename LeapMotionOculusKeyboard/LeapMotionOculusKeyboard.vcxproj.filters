@@ -5,10 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -18,33 +14,63 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="source\LeapListener.cpp">
+      <Filter>Source Files\LeapStuff</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Cam.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\LMOC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Matrices.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ResourcePath.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="sansation.ttf">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="nice_music.ogg">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="icon.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="cute_image.jpg">
-      <Filter>Resource Files</Filter>
-    </None>
+    <ClInclude Include="source\Leap.h">
+      <Filter>Source Files\LeapStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="source\LeapListener.h">
+      <Filter>Source Files\LeapStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Vectors.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Cam.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\LeapMath.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\LMOC.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Matrices.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ResourcePath.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Leap.h">
-      <Filter>Source Files\LeapStuff</Filter>
-    </ClInclude>
-    <ClInclude Include="LeapListener.h">
-      <Filter>Source Files\LeapStuff</Filter>
-    </ClInclude>
-    <ClInclude Include="LeapMath.h">
-      <Filter>Source Files\LeapStuff</Filter>
-    </ClInclude>
+    <None Include="assets\handS.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="assets\handS.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="assets\keyboardS.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="assets\keyboardS.vert">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

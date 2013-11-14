@@ -1,3 +1,4 @@
+
 #include "LMOC.h"
 #include <SFML/System.hpp>
 #include <iostream>
@@ -8,12 +9,19 @@ int main(int, char const**)
     LMOC lmoc;
     
     sf::Thread tThread(&LMOC::textThread,&lmoc);
-    sf::Thread rThread(&LMOC::renderThread,&lmoc);
-    //sf::Thread mThread(&LMOC::matrixThread,&lmoc);
-    
     tThread.launch();
-    rThread.launch();
-    //mThread.launch();
-    
-    return lmoc.run();
+	
+	#ifdef __APPLE__
+	sf::Thread rThread(&LMOC::renderThread,&lmoc);
+	rThread.launch();
+    lmoc.run();
+	#endif
+
+	#ifdef WIN32
+	sf::Thread rThread(&LMOC::run,&lmoc);
+	rThread.launch();
+	lmoc.renderThread();
+	#endif
+
+	return EXIT_SUCCESS;
 }

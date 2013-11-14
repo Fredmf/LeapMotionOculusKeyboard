@@ -2,7 +2,7 @@
 #define Cam_h Cam_h
 
 #include <math.h>
-#include <SFML/Window.hpp>
+#include "Vectors.h"
 
 class Cam {                            // 3. Person
 public:
@@ -12,7 +12,7 @@ public:
     
     void initCam(float H,float V, float R);
     // getter
-    sf::Vector3f getCam();
+    Vector3 getCam();
     bool isDown(void);
     
     // setter
@@ -39,7 +39,7 @@ private:
     float v;
     
     // Kartesische Koordinaten
-    sf::Vector3f pos;
+    Vector3 pos;
     
     // Backup
     float resetval[3];

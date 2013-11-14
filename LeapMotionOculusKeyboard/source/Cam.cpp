@@ -25,7 +25,7 @@ void Cam::initCam(float H, float V, float R){
     down = false;
 }
 
-sf::Vector3f Cam::getCam(){
+Vector3 Cam::getCam(){
     return pos;
 }
 
@@ -64,8 +64,8 @@ void Cam::zoomCam(int value){
 
 void Cam::mouseMove(int x, int y){
     if (oldx != 0 && oldy != 0) {
-        moveCamUp((y-oldy));
-        moveCamRight(x-oldx);
+        moveCamUp((float)(y-oldy));
+        moveCamRight((float)(x-oldx));
         oldx=x;
         oldy=y;
     }else{

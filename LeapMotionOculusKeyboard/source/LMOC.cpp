@@ -7,10 +7,8 @@
 //
 
 #include "LMOC.h"
-
 #include <sstream>
 #include <fstream>
-#include <sfml/OpenGL.hpp>
 
 #include "Matrices.h"
 
@@ -38,7 +36,50 @@ Matrix4 setFrustum(float fovY, float aspectRatio, float front, float back)
     return setFrustum(-width, width, -height, height, front, back);
 }
 
+void lookAt(const Vector3& pos, const Vector3& dir, const Vector3& up)
+{
+	Vector3 dirN;
+	Vector3 upN;
+	Vector3 rightN;
+
+	dirN = dir;
+	dirN.normalize();
+
+	upN = up;
+	upN.normalize();
+
+	rightN = dirN.cross(upN);
+	rightN.normalize();
+
+	upN = rightN.cross(dirN);
+	upN.normalize();
+
+        float mat[16];
+	mat[ 0] = rightN.x;
+	mat[ 1] = upN.x;
+	mat[ 2] = -dirN.x;
+	mat[ 3] = 0.0;
+
+	mat[ 4] = rightN.y;
+	mat[ 5] = upN.y;
+	mat[ 6] = -dirN.y;
+	mat[ 7] = 0.0;
+
+	mat[ 8] = rightN.z;
+	mat[ 9] = upN.z;
+	mat[10] = -dirN.z;
+	mat[11] = 0.0;
+
+	mat[12] = -(rightN.dot(pos));
+	mat[13] = -(upN.dot(pos));
+	mat[14] = (dirN.dot(pos));
+	mat[15] = 1.0;
+	
+	glMultMatrixf(&mat[0]);
+}
+
 LMOC::LMOC(){
+	firstRun=false;
     // Create the main window
     Eyes.initCam(0,0,120);
     objectCount=-1;
@@ -70,6 +111,11 @@ LMOC::LMOC(){
     std::cout << "stencil bits:" << settings.stencilBits << std::endl;
     std::cout << "antialiasing level:" << settings.antialiasingLevel << std::endl;
     std::cout << "version:" << settings.majorVersion << "." << settings.minorVersion << std::endl;
+	GLenum err = glewInit();
+	if (GLEW_OK != err)
+	{
+		fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
+	}
     
     
     //LEAP***************************************
@@ -135,7 +181,7 @@ bool LMOC::loadResources(){
         texts[i].setFont(font);
         texts[i].setCharacterSize(8);
         texts[i].setString(s);
-        texts[i].setPosition(1,(i*(texts[i].getCharacterSize()+1))+1);
+        texts[i].setPosition(1,((float)i*(texts[i].getCharacterSize()+1))+1);
     }
     
     // Load a music to play
@@ -165,7 +211,7 @@ bool LMOC::loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector
     std::vector<sf::Vector3f> vn_data;
     std::vector<Face> f_data;
     
-    std::ifstream file(path);
+	std::ifstream file(path.toAnsiString());
     if (!file.is_open()) {
         std::cerr << "MODEL NOT FOUND!" << std::endl;
     }
@@ -222,7 +268,7 @@ bool LMOC::loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector
         }
     }
     file.close();
-    for (int i=0; i<f_data.size(); i++) {
+    for (unsigned int i=0; i<f_data.size(); i++) {
         Vertex vert;
         vert.objId=f_data[i].objId;
         vert.v=v_data[f_data[i].vertInd.x-1];
@@ -237,6 +283,7 @@ bool LMOC::loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector
 }
 
 void LMOC::textThread(){
+	
     while(rendering){
         
         std::stringstream sstext[TEXTCNT];
@@ -326,6 +373,7 @@ void LMOC::matrixThread(){ /////////////////////////// TO MUCH OVERHEAD AS A THR
 
 void LMOC::renderThread()
 {
+	if (firstRun){
     //////////////////////////////////////////////////// SETUP OPENGL STATES
     window.setActive();
     glEnable(GL_DEPTH_TEST);
@@ -373,10 +421,9 @@ void LMOC::renderThread()
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[5]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, fingerInd_data.size()*sizeof(unsigned int),&(fingerInd_data[0]),GL_STATIC_DRAW);
     
-    
+	}
     ///////////////////////////////////////////////////////////// RENDERLOOP
-    bool firstRun=true;
-    while (rendering)
+	while (rendering)
     {
         ///////////////////////////////////////////////////////// EX MATRIXTHREAD, TO MUCH OVERHEAD NOW IN RENDERTHREAD
         matrixThread();
@@ -385,15 +432,26 @@ void LMOC::renderThread()
         
         window.setActive(true);
         window.clear();
-        
+                
+
         ///////////////////////////////////////////////////////// UPDATE CAM
         
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
         //todo: replace gluLookAt with something not deprecated
+		Vector3 upVec;
+		upVec.set(0.0,1.0,0.0);
+		Vector3 camPos;
+		camPos.set(Eyes.getCam().x+playerPos.x, Eyes.getCam().y+playerPos.y, Eyes.getCam().z+playerPos.z);
+		//lookAt(camPos,playerPos,upVec);
         gluLookAt(Eyes.getCam().x+playerPos.x, Eyes.getCam().y+playerPos.y, Eyes.getCam().z+playerPos.z, playerPos.x, playerPos.y, playerPos.z, 0.0, 1.0, 0.0);
         
+		glBegin(GL_LINE);
+		glVertex3f(0.0,0.0,0.0);
+		glVertex3f(5.0,5.0,0.0);
+		glEnd();
+
         ///////////////////////////////////////////////////////// UPDATE SHADER PARAMETERS
         if (keyCaps) {
             keyboardS.setParameter("texture", keyboardTCaps);
@@ -439,7 +497,7 @@ void LMOC::renderThread()
         sf::Texture::bind(&palmT);
         
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[3]);
-        for (int i=0; i<matrixVectorHands.size(); i++) {
+        for (unsigned int i=0; i<matrixVectorHands.size(); i++) {
             glPushMatrix();
             glMultMatrixf(matrixVectorHands[i].toArray4x4().m_array);
             glDrawElements(GL_TRIANGLES, palmInd_data.size(), GL_UNSIGNED_INT, 0);
@@ -459,7 +517,7 @@ void LMOC::renderThread()
         sf::Texture::bind(&fingerT);
         
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[5]);
-        for (int i=0; i<matrixVectorFingers.size(); i++) {
+        for (unsigned int i=0; i<matrixVectorFingers.size(); i++) {
             glPushMatrix();
             glMultMatrixf(matrixVectorFingers[i].toArray4x4().m_array);
             glDrawElements(GL_TRIANGLES, fingerInd_data.size(), GL_UNSIGNED_INT, 0);
@@ -473,7 +531,6 @@ void LMOC::renderThread()
         glDisableClientState(GL_NORMAL_ARRAY);
         glDisableClientState(GL_VERTEX_ARRAY);
         sf::Shader::bind(NULL);
-        
         
         ////////////////////////////////////////////////////////// SFML POSTPROCESS (Draw Text)
         glFlush();
@@ -494,7 +551,7 @@ void LMOC::renderThread()
     std::cout << "renderingThread done"<< std::endl;
 }
 
-int LMOC::run(){
+void LMOC::run(){
     while (running)
     {
         // Process events
@@ -528,7 +585,6 @@ int LMOC::run(){
                 stab=!stab;
             }
         }
-        
         //rotate 3rd Person cam on mouse left button
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
             sf::Vector2i mousePos= sf::Mouse::getPosition();
@@ -543,5 +599,4 @@ int LMOC::run(){
     window.close();
     
     std::cout << "run done"<< std::endl;
-    return EXIT_SUCCESS;
 }
