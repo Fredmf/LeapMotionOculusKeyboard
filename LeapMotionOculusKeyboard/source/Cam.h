@@ -31,6 +31,7 @@ public:
     // Hilfsfunktionen
     void camReset();
     inline void camCalculate();
+	void printData();
     
 private:
     // Kugelkoordinaten

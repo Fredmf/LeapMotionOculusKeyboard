@@ -81,7 +81,9 @@ void lookAt(const Vector3& pos, const Vector3& dir, const Vector3& up)
 
 LMOC::LMOC(){
     // Create the main window
-    Eyes.initCam(0,0,120);
+    Eyes.initCam(0,50,40);
+	Eyes.mouseMove(0,0);
+	Eyes.mouseRelease();
     objectCount=-1;
     viewanchor = 45.0;
     playerPos.x=0.0;
@@ -543,7 +545,7 @@ void LMOC::renderThread()
         
         ////////////////////////////////////////////////////////// SFML POSTPROCESS (Draw Text)
         glFlush();
-        window.pushGLStates();
+		window.pushGLStates();
         
         textsMu.lock();
         for (int i=0; i<TEXTCNT; i++) {

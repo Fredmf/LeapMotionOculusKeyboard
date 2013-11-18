@@ -13,6 +13,7 @@ Cam::Cam(float H, float V, float R)
     resetval[2]=r;
     camCalculate();
     down = false;
+    camCalculate();
 }
 void Cam::initCam(float H, float V, float R){
     h=H;
@@ -23,6 +24,7 @@ void Cam::initCam(float H, float V, float R){
     resetval[2]=r;
     camCalculate();
     down = false;
+    camCalculate();
 }
 
 Vector3 Cam::getCam(){
@@ -92,3 +94,6 @@ inline void Cam::camCalculate(){
     pos.z=sinf(v/180*PI)*cosf(h/180*PI)*r;
 }
 
+void Cam::printData(){
+	std::cout << "h: " << h << " v: " << v << " r: " << r << std::endl;
+}
