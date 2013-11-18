@@ -57,6 +57,13 @@ class LMOC {
         sf::Vector3i vertInd;
         int objId;
     };
+
+	struct GraphObj{
+		sf::Vector3f min;
+		sf::Vector3f max;
+		int objId;
+		std::string name;
+	};
     
 public:
     LMOC();
@@ -73,11 +80,14 @@ public:
     void matrixThread();
 private:
 	void checkEvents();
+private:
+	std::vector<std::string> touchedObjects(Leap::Vector tipP);
+	void touchedObjectsV(Leap::Vector tipP);
 
 private:
     bool loadResources();
 private:
-    bool loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector<unsigned int> *ind_data);
+    bool loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector<unsigned int> *ind_data, bool withBounds);
     
     //leap
 private:
@@ -153,6 +163,8 @@ private:
     float viewanchor;
 private:
     int objectCount;
+	std::vector<GraphObj> objBounds;
+	unsigned int objDraw;
 };
 #endif /* defined(__LeapMotionOculusKeyboard__LMOC__) */
 

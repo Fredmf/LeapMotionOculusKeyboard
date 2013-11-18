@@ -81,6 +81,7 @@ void lookAt(const Vector3& pos, const Vector3& dir, const Vector3& up)
 
 LMOC::LMOC(){
     // Create the main window
+	objDraw=0;
     Eyes.initCam(0,50,40);
 	Eyes.mouseMove(0,0);
 	Eyes.mouseRelease();
@@ -139,6 +140,35 @@ LMOC::LMOC(){
 LMOC::~LMOC(){
     std::cout << "~LMOC()" << std::endl;
     controller.removeListener(listener);
+}
+
+std::vector<std::string> LMOC::touchedObjects(Leap::Vector tipP){
+	std::vector<std::string> output;
+	for(unsigned int i=0;i<objBounds.size();i++){
+		if(tipP.x>=objBounds[i].min.x && 
+			tipP.x<=objBounds[i].max.x &&
+			tipP.y>=objBounds[i].min.y && 
+			tipP.y<=objBounds[i].max.y &&
+			tipP.z>=objBounds[i].min.z && 
+			tipP.z<=objBounds[i].max.z){
+				std::cout << objBounds[i].name << std::endl;
+		}
+	}
+	return output;
+}
+
+void LMOC::touchedObjectsV(Leap::Vector tipP){
+	std::vector<std::string> output;
+	for(unsigned int i=0;i<objBounds.size();i++){
+		if(tipP.x>=objBounds[i].min.x && 
+			tipP.x<=objBounds[i].max.x &&
+			tipP.y>=objBounds[i].min.y && 
+			tipP.y<=objBounds[i].max.y &&
+			tipP.z>=objBounds[i].min.z && 
+			tipP.z<=objBounds[i].max.z){
+				std::cout << objBounds[i].name << std::endl;
+		}
+	}
 }
 
 bool LMOC::loadResources(){
@@ -204,18 +234,20 @@ bool LMOC::loadResources(){
         return false;
     }
     
-    loadModel(resourcePath() + "keyboard.obj",&keyboardVert_data,&keyboardInd_data);
-    loadModel(resourcePath() + "fingertip.obj",&fingerVert_data,&fingerInd_data);
-    loadModel(resourcePath() + "palm.obj",&palmVert_data,&palmInd_data);
+    loadModel(resourcePath() + "keyboard.obj",&keyboardVert_data,&keyboardInd_data,true);
+    loadModel(resourcePath() + "fingertip.obj",&fingerVert_data,&fingerInd_data,false);
+    loadModel(resourcePath() + "palm.obj",&palmVert_data,&palmInd_data,false);
     return true;
 }
 
-bool LMOC::loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector<unsigned int> *ind_data){
+bool LMOC::loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector<unsigned int> *ind_data,bool withBounds){
     std::vector<sf::Vector3f> v_data;
     std::vector<sf::Vector2f> vt_data;
     std::vector<sf::Vector3f> vn_data;
     std::vector<Face> f_data;
-    
+
+	bool newObj = true;
+
 	std::ifstream file(path.toAnsiString());
     if (!file.is_open()) {
         std::cerr << "MODEL NOT FOUND!" << std::endl;
@@ -223,15 +255,24 @@ bool LMOC::loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector
     char prefix[50];
     while (file.good()) {
         file >> prefix;
-        switch (prefix[0]) {
+        switch (prefix[0]) {                    
+			case 'o':
+                    {
+						if(withBounds){
+							std::string dataStr;
+							file >> dataStr;
+							objectCount++;
+							GraphObj tmp;
+							tmp.objId=objectCount;
+							tmp.name=dataStr;
+							newObj=true;
+							objBounds.push_back(tmp);
+						}
+                    }
+                    break;
             case 'v': //point normal or texcoord
             {
                 switch (prefix[1]) {
-                    case 'o':
-                    {
-                        objectCount++;
-                    }
-                        break;
                     case 't': //texcoord
                     {
                         sf::Vector2f vt;
@@ -250,6 +291,30 @@ bool LMOC::loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector
                     {
                         sf::Vector3f v;
                         file >> v.x >> v.y >> v.z;
+						if (withBounds){
+						if(newObj){
+						objBounds[objectCount].max.x=v.x;
+						objBounds[objectCount].max.y=v.y;
+						objBounds[objectCount].max.z=v.z;
+						objBounds[objectCount].min.x=v.x;
+						objBounds[objectCount].min.y=v.y;
+						objBounds[objectCount].min.z=v.z;
+						newObj=false;
+						}else{
+							if(objBounds[objectCount].max.x < v.x){
+								objBounds[objectCount].max.x=v.x;}
+							if(objBounds[objectCount].max.y < v.y){
+								objBounds[objectCount].max.y=v.y;}
+							if(objBounds[objectCount].max.z < v.z){
+								objBounds[objectCount].max.z=v.z;}
+							if(objBounds[objectCount].min.x > v.x){
+								objBounds[objectCount].min.x=v.x;}
+							if(objBounds[objectCount].min.y > v.y){
+								objBounds[objectCount].min.y=v.y;}
+							if(objBounds[objectCount].min.z > v.z){
+								objBounds[objectCount].min.z=v.z;}
+						}
+						}
                         v_data.push_back(v);
                     }
                         break;
@@ -363,7 +428,11 @@ void LMOC::matrixThread(){ /////////////////////////// TO MUCH OVERHEAD AS A THR
                 fingerOrigin = leapFinger.tipPosition();
             fingerOrigin *= scale;
             fingerOrigin.y -= yOffset;
-            Leap::Matrix fingerTransform = Leap::Matrix(fingerXBasis, fingerYBasis, fingerZBasis, fingerOrigin);
+
+			//COLLISSION
+			touchedObjectsV(fingerOrigin);
+            
+			Leap::Matrix fingerTransform = Leap::Matrix(fingerXBasis, fingerYBasis, fingerZBasis, fingerOrigin);
             matrixVectorFingers.push_back(fingerTransform);
         }
     }
@@ -457,11 +526,6 @@ void LMOC::renderThread()
 		camPos.set(Eyes.getCam().x+playerPos.x, Eyes.getCam().y+playerPos.y, Eyes.getCam().z+playerPos.z);
 		//lookAt(camPos,playerPos,upVec);
         gluLookAt(Eyes.getCam().x+playerPos.x, Eyes.getCam().y+playerPos.y, Eyes.getCam().z+playerPos.z, playerPos.x, playerPos.y, playerPos.z, 0.0, 1.0, 0.0);
-        
-//		glBegin(GL_LINE);
-//		glVertex3f(0.0,0.0,0.0);
-//		glVertex3f(5.0,5.0,0.0);
-//		glEnd();
 
         ///////////////////////////////////////////////////////// UPDATE SHADER PARAMETERS
         if (keyCaps) {
@@ -536,13 +600,14 @@ void LMOC::renderThread()
         }
         
         ////////////////////////////////////////////////////////// disable states,buffers,shaders
+
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
         glDisableClientState(GL_TEXTURE_COORD_ARRAY);
         glDisableClientState(GL_NORMAL_ARRAY);
         glDisableClientState(GL_VERTEX_ARRAY);
         sf::Shader::bind(NULL);
-        
+
         ////////////////////////////////////////////////////////// SFML POSTPROCESS (Draw Text)
         glFlush();
 		window.pushGLStates();
@@ -615,6 +680,12 @@ void LMOC::checkEvents(){
             //switch leap stability with button S
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::S) {
                 stab=!stab;
+            }            //switch leap stability with button S
+			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::O) {
+                //stab=!stab;
+				if(objDraw < objBounds.size()){
+					objDraw++;
+				}
             }
         }
 }
