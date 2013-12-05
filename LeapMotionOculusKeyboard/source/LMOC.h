@@ -83,6 +83,7 @@ private:
 private:
 	std::vector<std::string> touchedObjects(Leap::Vector tipP);
 	void touchedObjectsV(Leap::Vector tipP);
+	void touchedObjectsPil(Leap::Vector tipP);
 
 private:
     bool loadResources();

@@ -171,6 +171,18 @@ void LMOC::touchedObjectsV(Leap::Vector tipP){
 	}
 }
 
+void LMOC::touchedObjectsPil(Leap::Vector tipP){
+	std::vector<std::string> output;
+	for(unsigned int i=0;i<objBounds.size();i++){
+		if(tipP.x>=objBounds[i].min.x && 
+			tipP.x<=objBounds[i].max.x &&
+			tipP.z>=objBounds[i].min.z && 
+			tipP.z<=objBounds[i].max.z){
+				std::cout << objBounds[i].name << " using Keytap in Pillar" << std::endl;
+		}
+	}
+}
+
 bool LMOC::loadResources(){
     // Set the Icon
     if (!icon.loadFromFile(resourcePath() + "icon.png")) {
@@ -384,6 +396,7 @@ void LMOC::matrixThread(){ /////////////////////////// TO MUCH OVERHEAD AS A THR
     float yOffset=8;
     
     Leap::HandList handList = listener.frame.hands();
+	Leap::GestureList gestList = listener.frame.gestures();
     matrixVectorHands.clear();
     matrixVectorFingers.clear();
     //    std::vector<Leap::Matrix> m_matrixVectorHands;
@@ -436,6 +449,16 @@ void LMOC::matrixThread(){ /////////////////////////// TO MUCH OVERHEAD AS A THR
             matrixVectorFingers.push_back(fingerTransform);
         }
     }
+	for (unsigned int i=0;i<gestList.count();i++){
+		if (gestList[i].type() == Gesture::TYPE_KEY_TAP){
+            Leap::Vector tapPos;
+            tapPos *= scale;
+            tapPos.y -= yOffset;
+			KeyTapGesture tap = gestList[i];
+			touchedObjectsPil(tapPos);
+			std::cout << "tap " << tapPos() << std::endl;
+		}
+	}
     //MatrixMu.lock();
     //        matrixVectorHands.swap(m_matrixVectorHands);
     //        matrixVectorFingers.swap(m_matrixVectorFingers);
