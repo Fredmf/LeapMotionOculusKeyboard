@@ -36,6 +36,8 @@
 #include "LeapListener.h"
 //#include <Leap.h>
 
+//oculus
+#include <OVR.h>
 
 #include "Cam.h"
 
@@ -166,6 +168,12 @@ private:
     int objectCount;
 	std::vector<GraphObj> objBounds;
 	unsigned int objDraw;
+//oculus
+private:
+	OVR::Ptr<OVR::DeviceManager> pManager;
+	OVR::Ptr<OVR::HMDDevice> pHMD;
+	OVR::Ptr<OVR::SensorDevice> pSensor;
+	OVR::HMDInfo hmd;
 };
 #endif /* defined(__LeapMotionOculusKeyboard__LMOC__) */
 

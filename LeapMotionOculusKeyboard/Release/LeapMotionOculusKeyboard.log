@@ -1,14 +1,17 @@
-﻿Build started 30.11.2013 01:12:54.
+﻿Build started 10.12.2013 02:28:23.
      1>Project "E:\GitHub\LeapMotionOculusKeyboard\LeapMotionOculusKeyboard\LeapMotionOculusKeyboard.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Creating "Release\LeapMotionOculusKeyboard.unsuccessfulbuild" because "AlwaysCreate" was specified.
+         Touching "Release\LeapMotionOculusKeyboard.unsuccessfulbuild".
        ClCompile:
-         d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"E:\GitHub\LeapMotionOculusKeyboard\\Libs\glew-1.10.0\include" /I"E:\GitHub\LeapMotionOculusKeyboard\\Libs\SFML-2.1\include" /IE:\GitHub\LeapMotionOculusKeyboard\\Libs\LeapDeveloperKit_release_win_1.0.8+7665\LeapSDK\include /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt source\LMOC.cpp
-         LMOC.cpp
-     1>source\LMOC.cpp(452): warning C4018: '<' : signed/unsigned mismatch
-     1>source\LMOC.cpp(459): error C2064: term does not evaluate to a function taking 0 arguments
-     1>Done Building Project "E:\GitHub\LeapMotionOculusKeyboard\LeapMotionOculusKeyboard\LeapMotionOculusKeyboard.vcxproj" (build target(s)) -- FAILED.
+         All outputs are up-to-date.
+       Link:
+         All outputs are up-to-date.
+         LeapMotionOculusKeyboard.vcxproj -> E:\GitHub\LeapMotionOculusKeyboard\Release\LeapMotionOculusKeyboard.exe
+       FinalizeBuildStatus:
+         Deleting file "Release\LeapMotionOculusKeyboard.unsuccessfulbuild".
+         Touching "Release\LeapMotionOculusKeyboard.lastbuildstate".
+     1>Done Building Project "E:\GitHub\LeapMotionOculusKeyboard\LeapMotionOculusKeyboard\LeapMotionOculusKeyboard.vcxproj" (build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:00.47
+Time Elapsed 00:00:00.04

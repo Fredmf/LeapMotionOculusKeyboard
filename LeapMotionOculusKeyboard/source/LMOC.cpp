@@ -6,6 +6,13 @@
 //  Copyright (c) 2013 Fachbereich Informatik. All rights reserved.
 //
 
+//HMD Variables (Head Mounted Display) size in meters
+//149.76 x 93,6 mm
+#define HSCREENSIZE 0.14976
+#define VSCREENSIZE 0.0935
+//center vertival 93,6 mm /2  in meters
+#define VSCREENCENTER 0,04675
+
 #include "LMOC.h"
 #include <sstream>
 #include <fstream>
@@ -80,6 +87,24 @@ void lookAt(const Vector3& pos, const Vector3& dir, const Vector3& up)
 }
 
 LMOC::LMOC(){
+	//init oculus
+	OVR::System::Init(OVR::Log::ConfigureDefaultLog(OVR::LogMask_All));
+	pManager = *OVR::DeviceManager::Create();
+	pHMD = *pManager->EnumerateDevices<OVR::HMDDevice>().CreateDevice();
+
+	if (pHMD->GetDeviceInfo(&hmd))
+	{	
+		std::cout << "\n--- HMD INFO ---" << 
+		"\nMonitorName: " << hmd.DisplayDeviceName <<
+		"\nEyeDistance: " << hmd.InterpupillaryDistance <<
+		"\nDistortionK[0]: " << hmd.DistortionK[0] <<
+		"\nDistortionK[1]: " << hmd.DistortionK[1] <<
+		"\nDistortionK[2]: " << hmd.DistortionK[2] <<
+		"\nDistortionK[3]: " << hmd.DistortionK[3] << std::endl << std::endl;
+	}
+	
+	
+
     // Create the main window
 	objDraw=0;
     Eyes.initCam(0,50,40);
@@ -102,7 +127,8 @@ LMOC::LMOC(){
     settings.majorVersion = 4;
     settings.minorVersion = 0;
     
-    window.create(sf::VideoMode(1280, 800), "Leap Motion (Oculus) Keyboard", sf::Style::Default, settings);
+    //window.create(sf::VideoMode(1920, 1080), "Leap Motion Oculus Keyboard", sf::Style::Fullscreen, settings);
+	window.create(sf::VideoMode(1920, 1080), "Leap Motion Oculus Keyboard", sf::Style::Default, settings);
     window.setVerticalSyncEnabled(true);
     
     // activate the window's context
@@ -366,27 +392,27 @@ bool LMOC::loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector
 
 void LMOC::textThread(){
 	
-    while(rendering){
+    //while(rendering){
         
         std::stringstream sstext[TEXTCNT];
-        myFrameMu.lock();
+        //myFrameMu.lock();
         myFrame = listener.frame;
         sstext[0] << "Frame ID: " << myFrame.id();
-        myFrameMu.unlock();
+        //myFrameMu.unlock();
         sstext[1] << "Timestamp: " << myFrame.timestamp();
         sstext[2] << "Hands Count: " << myFrame.hands().count();
         sstext[3] << "Fingers Count: " << myFrame.fingers().count();
         sstext[4] << "Tools Count: " << myFrame.tools().count();
         sstext[5] << "Gestures Count: " << myFrame.gestures().count();
         sstext[8] << "stab: " << stab;
-        textsMu.lock();
+        //textsMu.lock();
         for (int i = 0; i<TEXTCNT; i++) {
             texts[i].setString(sstext[i].str());
         }
-        textsMu.unlock();
-    }
+        //textsMu.unlock();
+    //}
     
-    std::cout << "textThread done" << std::endl;
+    //std::cout << "textThread done" << std::endl;
 }
 
 void LMOC::matrixThread(){ /////////////////////////// TO MUCH OVERHEAD AS A THREAD
@@ -449,14 +475,14 @@ void LMOC::matrixThread(){ /////////////////////////// TO MUCH OVERHEAD AS A THR
             matrixVectorFingers.push_back(fingerTransform);
         }
     }
-	for (unsigned int i=0;i<gestList.count();i++){
+	for (int i=0;i<gestList.count();i++){
 		if (gestList[i].type() == Gesture::TYPE_KEY_TAP){
             Leap::Vector tapPos;
             tapPos *= scale;
             tapPos.y -= yOffset;
 			KeyTapGesture tap = gestList[i];
 			touchedObjectsPil(tapPos);
-			std::cout << "tap " << tapPos() << std::endl;
+			std::cout << "tap " << tapPos.x << " " << tapPos.y << std::endl;
 		}
 	}
     //MatrixMu.lock();
@@ -470,6 +496,9 @@ void LMOC::matrixThread(){ /////////////////////////// TO MUCH OVERHEAD AS A THR
 
 void LMOC::renderThread()
 {
+	run();
+	textThread();
+	sf::Vector2u windowSize = window.getSize();
 	if (firstRun){
     //////////////////////////////////////////////////// SETUP OPENGL STATES
     window.setActive();
@@ -486,15 +515,12 @@ void LMOC::renderThread()
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glLoadIdentity();
     {
-        sf::Vector2u windowSize = window.getSize();
-        
         ///////// set perspective matrix without the deprecated function gluPerspective
         //gluPerspective(viewanchor,(float)windowSize.x/(float)windowSize.y, 0.1f, 10000.f);
         Matrix4 matProject = setFrustum(viewanchor,(float)windowSize.x/(float)windowSize.y, 0.1f, 10000.f);
         glMatrixMode(GL_PROJECTION);
         glLoadMatrixf(matProject.getTranspose());
     }
-    
         
         ///////////////////////////////////////////////////////////// SETUP VBO'S
         window.setActive(true);
@@ -538,7 +564,35 @@ void LMOC::renderThread()
                 
 
         ///////////////////////////////////////////////////////// UPDATE CAM
-        
+            /////////////////////////////////////////////////////////////////// OCULUS STUFF
+		OVR::SensorFusion SFusion;
+		pSensor = pHMD->GetSensor();
+		if (pSensor){
+			SFusion.AttachToSensor(pSensor);
+		}
+		OVR::Matrix4f viewCenterMatrix;
+		// Compute Aspect Ratio. Stereo mode cuts width in half.
+		float aspectRatio = float(hmd.HResolution * 0.5f) / float(hmd.VResolution);
+		// Compute Vertical FOV based on distance.
+		float halfScreenDistance = (hmd.VScreenSize / 2);
+		float yfov = 2.0f * atan(halfScreenDistance/hmd.EyeToScreenDistance);
+		// Post-projection viewport coordinates range from (-1.0, 1.0), with the
+		// center of the left viewport falling at (1/4) of horizontal screen size.
+		// We need to shift this projection center to match with the lens center.
+		// We compute this shift in physical units (meters) to correct
+		// for different screen sizes and then rescale to viewport coordinates.
+		float viewCenter = hmd.HScreenSize * 0.25f;
+		float eyeProjectionShift = viewCenter - hmd.LensSeparationDistance*0.5f;
+		float projectionCenterOffset = 4.0f * eyeProjectionShift / hmd.HScreenSize;
+		// Projection matrix for the "center eye", which the left/right matrices are based on.
+		OVR::Matrix4f projCenter = OVR::Matrix4f::PerspectiveRH(yfov, aspectRatio, 0.3f, 1000.0f);
+		OVR::Matrix4f projLeft = OVR::Matrix4f::Translation(projectionCenterOffset, 0, 0) * projCenter;
+		OVR::Matrix4f projRight = OVR::Matrix4f::Translation(-projectionCenterOffset, 0, 0) * projCenter;
+		// View transformation translation in world units.
+		float halfIPD = hmd.InterpupillaryDistance * 0.5f;
+		OVR::Matrix4f viewLeft = OVR::Matrix4f::Translation(halfIPD, 0, 0) * viewCenter;
+		OVR::Matrix4f viewRight= OVR::Matrix4f::Translation(-halfIPD, 0, 0) * viewCenter;
+		////////////////////////////////////////////// myStuff
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
@@ -582,6 +636,14 @@ void LMOC::renderThread()
         }
         
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
+		
+		//leftEye
+        glViewport(0,0,windowSize.x/2,windowSize.y);
+		//glLoadMatrixf(&viewLeft.Transposed().M[0][0]);
+        glDrawElements(GL_TRIANGLES, keyboardInd_data.size(), GL_UNSIGNED_INT, 0);
+		//rightEye
+        glViewport(windowSize.x/2,0,windowSize.x/2,windowSize.y);
+		//glLoadMatrixf(&viewRight.Transposed().M[0][0]);
         glDrawElements(GL_TRIANGLES, keyboardInd_data.size(), GL_UNSIGNED_INT, 0);
         
         //////////////////////////////////////////////////// Haende
@@ -594,13 +656,24 @@ void LMOC::renderThread()
         
         sf::Texture::bind(&palmT);
         
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[3]);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[3]);		
+		//leftEye
+        glViewport(0,0,windowSize.x/2,windowSize.y);
         for (unsigned int i=0; i<matrixVectorHands.size(); i++) {
             glPushMatrix();
             glMultMatrixf(matrixVectorHands[i].toArray4x4().m_array);
             glDrawElements(GL_TRIANGLES, palmInd_data.size(), GL_UNSIGNED_INT, 0);
             glPopMatrix();
         }
+		//rightEye
+        glViewport(windowSize.x/2,0,windowSize.x/2,windowSize.y);
+        for (unsigned int i=0; i<matrixVectorHands.size(); i++) {
+            glPushMatrix();
+            glMultMatrixf(matrixVectorHands[i].toArray4x4().m_array);
+            glDrawElements(GL_TRIANGLES, palmInd_data.size(), GL_UNSIGNED_INT, 0);
+            glPopMatrix();
+        }
+
         
         //////////////////////////////////////////////////// Finger
         
@@ -614,7 +687,17 @@ void LMOC::renderThread()
         
         sf::Texture::bind(&fingerT);
         
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[5]);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[5]);	
+		//leftEye
+        glViewport(0,0,windowSize.x/2,windowSize.y);
+        for (unsigned int i=0; i<matrixVectorFingers.size(); i++) {
+            glPushMatrix();
+            glMultMatrixf(matrixVectorFingers[i].toArray4x4().m_array);
+            glDrawElements(GL_TRIANGLES, fingerInd_data.size(), GL_UNSIGNED_INT, 0);
+            glPopMatrix();
+        }
+		//rightEye
+        glViewport(windowSize.x/2,0,windowSize.x/2,windowSize.y);
         for (unsigned int i=0; i<matrixVectorFingers.size(); i++) {
             glPushMatrix();
             glMultMatrixf(matrixVectorFingers[i].toArray4x4().m_array);
@@ -635,11 +718,11 @@ void LMOC::renderThread()
         glFlush();
 		window.pushGLStates();
         
-        textsMu.lock();
+        //textsMu.lock();
         for (int i=0; i<TEXTCNT; i++) {
             window.draw(texts[i]);
         }
-        textsMu.unlock();
+        //textsMu.unlock();
         window.popGLStates();
         
         // Update the window
@@ -651,8 +734,8 @@ void LMOC::renderThread()
 }
 
 void LMOC::run(){
-    while (running)
-    {
+    //while (running)
+    //{
         // Process events
 #ifdef __APPLE__
         checkEvents();
@@ -668,10 +751,10 @@ void LMOC::run(){
             Eyes.mouseRelease();
             Eyes.setDown(false);
         }
-    }
-    window.close();
+    //}
+    //window.close();
     
-    std::cout << "run done"<< std::endl;
+    //std::cout << "run done"<< std::endl;
 }
 
 void LMOC::checkEvents(){

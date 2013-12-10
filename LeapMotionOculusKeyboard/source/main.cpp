@@ -7,19 +7,18 @@
 int main(int, char const**)
 {
     LMOC lmoc;
-    
-    sf::Thread tThread(&LMOC::textThread,&lmoc);
-    tThread.launch();
-	
-	#ifdef __APPLE__
+
+    #ifdef __APPLE__
+    //sf::Thread tThread(&LMOC::textThread,&lmoc);
+    //tThread.launch();
 	sf::Thread rThread(&LMOC::renderThread,&lmoc);
 	rThread.launch();
     lmoc.run();
 	#endif
 
 	#ifdef WIN32
-	sf::Thread rThread(&LMOC::run,&lmoc);
-	rThread.launch();
+	//sf::Thread rThread(&LMOC::run,&lmoc);
+	//rThread.launch();
 	lmoc.renderThread();
 	#endif
 
