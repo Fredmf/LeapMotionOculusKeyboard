@@ -78,5 +78,31 @@ dependencies: \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Vectors.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Leap.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/OVR.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/Kernel/OVR_Allocator.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/Kernel/OVR_Types.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/Kernel/OVR_Log.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/Kernel/OVR_Math.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/Kernel/OVR_RefCount.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/Kernel/OVR_Std.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/Kernel/OVR_System.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/OVR_Device.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Src/OVR_DeviceConstants.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Src/OVR_DeviceHandle.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Src/OVR_DeviceMessages.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Src/Kernel/OVR_Array.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/Kernel/OVR_ContainerAllocator.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Src/Kernel/OVR_Color.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Src/OVR_HIDDeviceBase.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Src/Kernel/OVR_Atomic.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Src/Kernel/OVR_String.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/Kernel/OVR_UTF8Util.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/Kernel/OVR_Alg.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/OVR_SensorFusion.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Src/OVR_SensorFilter.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/OVR_Profile.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/Util/Util_LatencyTest.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/Util/../Kernel/OVR_List.h \
+  Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/Util/Util_Render_Stereo.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.hpp

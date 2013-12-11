@@ -91,7 +91,8 @@ LMOC::LMOC(){
 	OVR::System::Init(OVR::Log::ConfigureDefaultLog(OVR::LogMask_All));
 	pManager = *OVR::DeviceManager::Create();
 	pHMD = *pManager->EnumerateDevices<OVR::HMDDevice>().CreateDevice();
-
+    
+    if (pHMD) {
 	if (pHMD->GetDeviceInfo(&hmd))
 	{	
 		std::cout << "\n--- HMD INFO ---" << 
@@ -102,6 +103,7 @@ LMOC::LMOC(){
 		"\nDistortionK[2]: " << hmd.DistortionK[2] <<
 		"\nDistortionK[3]: " << hmd.DistortionK[3] << std::endl << std::endl;
 	}
+    }
 	
 	
 
@@ -638,7 +640,7 @@ void LMOC::renderThread()
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
 		
 		//leftEye
-        glViewport(0,0,windowSize.x/2,windowSize.y);
+        glViewport(0,0,windowSize.x/2,windowSize.y-123);
 		//glLoadMatrixf(&viewLeft.Transposed().M[0][0]);
         glDrawElements(GL_TRIANGLES, keyboardInd_data.size(), GL_UNSIGNED_INT, 0);
 		//rightEye
