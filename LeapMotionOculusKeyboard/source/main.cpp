@@ -13,7 +13,7 @@ int main(int, char const**)
     //tThread.launch();
 	sf::Thread rThread(&LMOC::renderThread,&lmoc);
 	rThread.launch();
-    lmoc.run();
+    lmoc.checkInput();
 	#endif
 
 	#ifdef WIN32

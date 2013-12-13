@@ -25,6 +25,7 @@
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Matrices.cpp" />
     <ClCompile Include="source\ResourcePath.cpp" />
+    <ClCompile Include="source\shaders.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Cam.h" />
@@ -34,6 +35,7 @@
     <ClInclude Include="source\LMOC.h" />
     <ClInclude Include="source\Matrices.h" />
     <ClInclude Include="source\ResourcePath.h" />
+    <ClInclude Include="source\shaders.h" />
     <ClInclude Include="source\Vectors.h" />
   </ItemGroup>
   <ItemGroup>

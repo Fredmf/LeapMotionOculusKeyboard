@@ -73,9 +73,11 @@ public:
     ~LMOC();
     
 public:
-    void run();
+    void checkInput();
 public:
-    void renderThread();
+    void render();
+public:
+    void renderInit();
 public:
     void textThread();
 public:

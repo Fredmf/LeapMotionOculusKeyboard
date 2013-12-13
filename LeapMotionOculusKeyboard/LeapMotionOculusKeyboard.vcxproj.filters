@@ -32,6 +32,9 @@
     <ClCompile Include="source\ResourcePath.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\shaders.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Leap.h">
@@ -58,6 +61,7 @@
     <ClInclude Include="source\ResourcePath.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="source\shaders.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\handS.frag">

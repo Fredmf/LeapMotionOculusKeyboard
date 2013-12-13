@@ -495,11 +495,8 @@ void LMOC::matrixThread(){ /////////////////////////// TO MUCH OVERHEAD AS A THR
     //    std::cout << "MatrixThread done";
 }
 
-
-void LMOC::renderThread()
+void LMOC::renderInit()
 {
-	run();
-	textThread();
 	sf::Vector2u windowSize = window.getSize();
 	if (firstRun){
     //////////////////////////////////////////////////// SETUP OPENGL STATES
@@ -548,6 +545,10 @@ void LMOC::renderThread()
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, fingerInd_data.size()*sizeof(unsigned int),&(fingerInd_data[0]),GL_STATIC_DRAW);
         
 	}
+
+}
+void LMOC::render()
+{
     ///////////////////////////////////////////////////////////// RENDERLOOP
 	while (rendering)
     {
@@ -735,14 +736,7 @@ void LMOC::renderThread()
     std::cout << "renderingThread done"<< std::endl;
 }
 
-void LMOC::run(){
-    //while (running)
-    //{
-        // Process events
-#ifdef __APPLE__
-        checkEvents();
-#endif
-
+void LMOC::checkInput(){
         //rotate 3rd Person cam on mouse left button
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
             sf::Vector2i mousePos= sf::Mouse::getPosition();
@@ -753,10 +747,6 @@ void LMOC::run(){
             Eyes.mouseRelease();
             Eyes.setDown(false);
         }
-    //}
-    //window.close();
-    
-    //std::cout << "run done"<< std::endl;
 }
 
 void LMOC::checkEvents(){
