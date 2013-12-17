@@ -18,6 +18,7 @@
 #include <fstream>
 
 #include "Matrices.h"
+#include "Shader.h"
 
 Matrix4 setFrustum(float l, float r, float b, float t, float n, float f)
 {
@@ -265,14 +266,22 @@ bool LMOC::loadResources(){
         return false;
     }
     
-    if (!keyboardS.loadFromFile(resourcePath() + "keyboardS.vert", resourcePath() + "keyboardS.frag")){
+    if (!loadShader(keyboardS,resourcePath() + "keyboardS.vert",resourcePath() + "keyboardS.frag") ||
+        !loadShader(handS,resourcePath() + "handS.vert",resourcePath() + "handS.frag") ){
 		std::cerr << "shaders not found" << std::endl;
         return false;
+    }else{
+        std::cout << "shaders found" << std::endl;
     }
-    if (!handS.loadFromFile(resourcePath() + "handS.vert", resourcePath() + "handS.frag")){
-		std::cerr << "shaders not found" << std::endl;
-        return false;
-    }
+    
+//    if (!keyboardS.loadFromFile(resourcePath() + "keyboardS.vert", resourcePath() + "keyboardS.frag")){
+//		std::cerr << "shaders not found" << std::endl;
+//        return false;
+//    }
+//    if (!handS.loadFromFile(resourcePath() + "handS.vert", resourcePath() + "handS.frag")){
+//		std::cerr << "shaders not found" << std::endl;
+//        return false;
+//    }
     
     loadModel(resourcePath() + "keyboard.obj",&keyboardVert_data,&keyboardInd_data,true);
     loadModel(resourcePath() + "fingertip.obj",&fingerVert_data,&fingerInd_data,false);
@@ -549,9 +558,9 @@ void LMOC::renderInit()
 }
 void LMOC::render()
 {
-    ///////////////////////////////////////////////////////////// RENDERLOOP
-	while (rendering)
-    {
+    ///////////////////////////////////////////////////////////// RENDERLOOP (not anymore)
+	//while (rendering)
+    //{
 		///////////////////////////////////////////////////////// WINDOWS WANTS EVENTS AND RENDERING IN MAIN THREAD... OK...
 		#ifdef WIN32
         checkEvents();
@@ -569,7 +578,9 @@ void LMOC::render()
         ///////////////////////////////////////////////////////// UPDATE CAM
             /////////////////////////////////////////////////////////////////// OCULUS STUFF
 		OVR::SensorFusion SFusion;
-		pSensor = pHMD->GetSensor();
+        if (pHMD) {
+            pSensor = pHMD->GetSensor();
+        }
 		if (pSensor){
 			SFusion.AttachToSensor(pSensor);
 		}
@@ -608,15 +619,16 @@ void LMOC::render()
         gluLookAt(Eyes.getCam().x+playerPos.x, Eyes.getCam().y+playerPos.y, Eyes.getCam().z+playerPos.z, playerPos.x, playerPos.y, playerPos.z, 0.0, 1.0, 0.0);
 
         ///////////////////////////////////////////////////////// UPDATE SHADER PARAMETERS
-        if (keyCaps) {
-            keyboardS.setParameter("texture", keyboardTCaps);
-        }else{
-            keyboardS.setParameter("texture", keyboardT);
-        }
-        handS.setParameter("texture", palmT);
-        handS.setParameter("edgefalloff", edgefalloff);
-        handS.setParameter("intensity", intensity);
-        handS.setParameter("ambient", ambient);
+        //TODO: change for the new Shader loading procedure
+//        if (keyCaps) {
+//            keyboardS.setParameter("texture", keyboardTCaps);
+//        }else{
+//            keyboardS.setParameter("texture", keyboardT);
+//        }
+//        handS.setParameter("texture", palmT);
+//        handS.setParameter("edgefalloff", edgefalloff);
+//        handS.setParameter("intensity", intensity);
+//        handS.setParameter("ambient", ambient);
         
         /////////////////////////////////////////////////// Enable States
         
@@ -625,8 +637,8 @@ void LMOC::render()
         glEnableClientState(GL_TEXTURE_COORD_ARRAY);
         
         /////////////////////////////////////////////////// Keyboard
-        
-        sf::Shader::bind(&keyboardS);
+        //TODO: SHADER
+        //sf::Shader::bind(&keyboardS);
         glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
         glVertexPointer(3, GL_FLOAT,sizeof(Vertex), 0);
         glNormalPointer(GL_FLOAT, sizeof(Vertex), (char*)NULL + 12);
@@ -640,18 +652,20 @@ void LMOC::render()
         
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
 		
+        
+        ///////////////////////////// note: glViewport is NOT DEPRECATED
 		//leftEye
-        glViewport(0,0,windowSize.x/2,windowSize.y-123);
+        glViewport(0,0,window.getSize().x/2,window.getSize().y);
 		//glLoadMatrixf(&viewLeft.Transposed().M[0][0]);
         glDrawElements(GL_TRIANGLES, keyboardInd_data.size(), GL_UNSIGNED_INT, 0);
 		//rightEye
-        glViewport(windowSize.x/2,0,windowSize.x/2,windowSize.y);
+        glViewport(window.getSize().x/2,0,window.getSize().x/2,window.getSize().y);
 		//glLoadMatrixf(&viewRight.Transposed().M[0][0]);
         glDrawElements(GL_TRIANGLES, keyboardInd_data.size(), GL_UNSIGNED_INT, 0);
         
         //////////////////////////////////////////////////// Haende
-        
-        sf::Shader::bind(&handS);
+        //TODO: SHADER
+        //sf::Shader::bind(&handS);
         glBindBuffer(GL_ARRAY_BUFFER, VBO[2]);
         glVertexPointer(3, GL_FLOAT,sizeof(Vertex), 0);
         glNormalPointer(GL_FLOAT, sizeof(Vertex), (char*)NULL + 12);
@@ -661,7 +675,7 @@ void LMOC::render()
         
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[3]);		
 		//leftEye
-        glViewport(0,0,windowSize.x/2,windowSize.y);
+        glViewport(0,0,window.getSize().x/2,window.getSize().y);
         for (unsigned int i=0; i<matrixVectorHands.size(); i++) {
             glPushMatrix();
             glMultMatrixf(matrixVectorHands[i].toArray4x4().m_array);
@@ -669,7 +683,7 @@ void LMOC::render()
             glPopMatrix();
         }
 		//rightEye
-        glViewport(windowSize.x/2,0,windowSize.x/2,windowSize.y);
+        glViewport(window.getSize().x/2,0,window.getSize().x/2,window.getSize().y);
         for (unsigned int i=0; i<matrixVectorHands.size(); i++) {
             glPushMatrix();
             glMultMatrixf(matrixVectorHands[i].toArray4x4().m_array);
@@ -680,9 +694,10 @@ void LMOC::render()
         
         //////////////////////////////////////////////////// Finger
         
-        handS.setParameter("texture", fingerT);
+        //TODO: SHADER
+        //handS.setParameter("texture", fingerT);
+        //sf::Shader::bind(&handS);
         
-        sf::Shader::bind(&handS);
         glBindBuffer(GL_ARRAY_BUFFER, VBO[4]);
         glVertexPointer(3, GL_FLOAT,sizeof(Vertex), 0);
         glNormalPointer(GL_FLOAT, sizeof(Vertex), (char*)NULL + 12);
@@ -692,7 +707,7 @@ void LMOC::render()
         
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[5]);	
 		//leftEye
-        glViewport(0,0,windowSize.x/2,windowSize.y);
+        glViewport(0,0,window.getSize().x/2,window.getSize().y);
         for (unsigned int i=0; i<matrixVectorFingers.size(); i++) {
             glPushMatrix();
             glMultMatrixf(matrixVectorFingers[i].toArray4x4().m_array);
@@ -700,7 +715,7 @@ void LMOC::render()
             glPopMatrix();
         }
 		//rightEye
-        glViewport(windowSize.x/2,0,windowSize.x/2,windowSize.y);
+        glViewport(window.getSize().x/2,0,window.getSize().x/2,window.getSize().y);
         for (unsigned int i=0; i<matrixVectorFingers.size(); i++) {
             glPushMatrix();
             glMultMatrixf(matrixVectorFingers[i].toArray4x4().m_array);
@@ -731,9 +746,9 @@ void LMOC::render()
         // Update the window
         window.display();
         window.setActive(false);
-    }
-    running=false;
-    std::cout << "renderingThread done"<< std::endl;
+    //}
+    //running=false;
+    //std::cout << "renderingThread done"<< std::endl;
 }
 
 void LMOC::checkInput(){
@@ -786,4 +801,15 @@ void LMOC::checkEvents(){
 				}
             }
         }
+}
+
+void LMOC::runLoop(){
+    renderInit();
+    while (rendering) {
+        checkInput();
+        checkEvents();
+        textThread();
+        matrixThread();
+        render();
+    }
 }

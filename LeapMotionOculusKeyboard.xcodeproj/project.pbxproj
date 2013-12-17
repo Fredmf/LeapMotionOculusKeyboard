@@ -40,6 +40,7 @@
 		43BAAA711832744700DAAADF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 43BAAA691832744700DAAADF /* main.cpp */; };
 		43BAAA731832744700DAAADF /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 43BAAA6D1832744700DAAADF /* ResourcePath.mm */; };
 		43BAAA771832764900DAAADF /* libLeap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 43BAAA741832753B00DAAADF /* libLeap.dylib */; };
+		43E3B6BE18605BCF0038FC75 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 43E3B6BC18605BCF0038FC75 /* Shader.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,8 @@
 		43BAAA6C1832744700DAAADF /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ResourcePath.hpp; path = source/ResourcePath.hpp; sourceTree = "<group>"; };
 		43BAAA6D1832744700DAAADF /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ResourcePath.mm; path = source/ResourcePath.mm; sourceTree = "<group>"; };
 		43BAAA741832753B00DAAADF /* libLeap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libLeap.dylib; path = "Libs/LeapDeveloperKit_release_mac_1.0.8+7665/LeapSDK/lib/libc++/libLeap.dylib"; sourceTree = "<group>"; };
+		43E3B6BC18605BCF0038FC75 /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Shader.cpp; path = source/Shader.cpp; sourceTree = "<group>"; };
+		43E3B6BD18605BCF0038FC75 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Shader.h; path = source/Shader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +193,8 @@
 		43DD4EF2182DD8E7005DA23B /* System */ = {
 			isa = PBXGroup;
 			children = (
+				43E3B6BC18605BCF0038FC75 /* Shader.cpp */,
+				43E3B6BD18605BCF0038FC75 /* Shader.h */,
 				4338751C1832B9CA00133FB0 /* Vectors.h */,
 				433875191832AC8700133FB0 /* Matrices.cpp */,
 				4338751A1832AC8700133FB0 /* Matrices.h */,
@@ -307,6 +312,7 @@
 				43BAAA731832744700DAAADF /* ResourcePath.mm in Sources */,
 				43BAAA711832744700DAAADF /* main.cpp in Sources */,
 				43BAAA701832744700DAAADF /* LMOC.cpp in Sources */,
+				43E3B6BE18605BCF0038FC75 /* Shader.cpp in Sources */,
 				4338751B1832AC8700133FB0 /* Matrices.cpp in Sources */,
 				43BAAA6E1832744700DAAADF /* Cam.cpp in Sources */,
 			);

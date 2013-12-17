@@ -11,9 +11,10 @@ int main(int, char const**)
     #ifdef __APPLE__
     //sf::Thread tThread(&LMOC::textThread,&lmoc);
     //tThread.launch();
-	sf::Thread rThread(&LMOC::renderThread,&lmoc);
-	rThread.launch();
-    lmoc.checkInput();
+//	sf::Thread rThread(&LMOC::renderThread,&lmoc);
+//	rThread.launch();
+//    lmoc.checkInput();
+	lmoc.runLoop();
 	#endif
 
 	#ifdef WIN32

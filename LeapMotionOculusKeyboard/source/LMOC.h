@@ -71,7 +71,9 @@ public:
     LMOC();
 public:
     ~LMOC();
-    
+
+public:
+    void runLoop();
 public:
     void checkInput();
 public:
@@ -107,8 +109,8 @@ private:
 private:
     sf::RenderWindow window;
 private:
-    sf::Shader keyboardS;
-    sf::Shader handS;
+    GLuint keyboardS;
+    GLuint handS;
     
 private:
     std::vector<Leap::Matrix> matrixVectorHands;
