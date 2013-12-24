@@ -1,5 +1,9 @@
+// This software is provided 'as-is', without any express or implied warranty.
+// In no event will the authors be held liable for any damages arising from the use of this software.
+
 #include "Cam.h"
 #include <cmath>
+#include <iostream>
 
 #define PI  3.1415f
 
@@ -27,7 +31,7 @@ void Cam::initCam(float H, float V, float R){
     camCalculate();
 }
 
-Vector3 Cam::getCam(){
+glm::vec3 Cam::getCam(){
     return pos;
 }
 

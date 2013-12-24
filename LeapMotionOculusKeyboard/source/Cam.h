@@ -1,8 +1,11 @@
+// This software is provided 'as-is', without any express or implied warranty.
+// In no event will the authors be held liable for any damages arising from the use of this software.
+
 #ifndef Cam_h
 #define Cam_h Cam_h
 
 #include <math.h>
-#include "Vectors.h"
+#include <glm/glm.hpp>
 
 class Cam {                            // 3. Person
 public:
@@ -12,7 +15,7 @@ public:
     
     void initCam(float H,float V, float R);
     // getter
-    Vector3 getCam();
+    glm::vec3 getCam();
     bool isDown(void);
     
     // setter
@@ -40,7 +43,7 @@ private:
     float v;
     
     // Kartesische Koordinaten
-    Vector3 pos;
+    glm::vec3 pos;
     
     // Backup
     float resetval[3];

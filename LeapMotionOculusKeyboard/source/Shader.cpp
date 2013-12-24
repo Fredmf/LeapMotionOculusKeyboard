@@ -27,6 +27,7 @@
 
 #include <fstream>
 #include <string>
+#include <iostream>
 using std::ifstream;
 
 static char *loadFile(const char *filename)
@@ -89,8 +90,11 @@ bool loadShader(GLuint &program, std::string vertexFile, std::string fragmentFil
 	
 	if (!vSrc || !fSrc)
 		return false;
-
+    
+    std::cout << "compile vs" << std::endl;
 	GLuint vShader = compileShader(GL_VERTEX_SHADER, vSrc);
+    
+    std::cout << "compile fs" << std::endl;
 	GLuint fShader = compileShader(GL_FRAGMENT_SHADER, fSrc);
 	delete[] vSrc;
 	delete[] fSrc;
@@ -110,7 +114,7 @@ bool loadShader(GLuint &program, std::string vertexFile, std::string fragmentFil
 		
 	GLint linked;
 	glGetProgramiv(program, GL_LINK_STATUS, &linked);
-	
+    
 	if (!linked)
 	{
 		GLint infoLen = 0;

@@ -17,6 +17,8 @@ void main()
     opac = ambient + intensity*(1.0-pow(opac, edgefalloff));
     //opac = 1.0 - opac;
     vec4 pixel = texture2D(texture, gl_TexCoord[0].xy);
-    gl_FragColor =  opac * pixel;
-    gl_FragColor.a = opac;
+    //gl_FragColor =  opac * pixel;
+    //gl_FragColor.a = opac;
+    
+    gl_FragColor=vec4(1.0,0.0,0.0,0.0);
 }

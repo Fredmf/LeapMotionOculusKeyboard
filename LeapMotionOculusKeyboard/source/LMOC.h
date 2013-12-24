@@ -5,6 +5,8 @@
 //  Created by Grin on 09.11.13.
 //  Copyright (c) 2013 Fachbereich Informatik. All rights reserved.
 //
+// This software is provided 'as-is', without any express or implied warranty.
+// In no event will the authors be held liable for any damages arising from the use of this software.
 
 #ifndef __LeapMotionOculusKeyboard__LMOC__
 #define __LeapMotionOculusKeyboard__LMOC__
@@ -30,6 +32,8 @@
 #include <iostream>
 #include <string>
 
+#include <glm/glm.hpp>
+
 #include "Vectors.h"
 
 //leap
@@ -41,6 +45,8 @@
 
 #include "Cam.h"
 
+#include "Texture.h"
+
 #ifdef __APPLE__
 #include "ResourcePath.hpp"
 #elif WIN32
@@ -49,6 +55,8 @@
 
 
 class LMOC {
+    //GLuint textures
+///////////////////////////////////DATA TYPES
     struct Vertex{
         sf::Vector3f v;
         sf::Vector3f n;
@@ -67,13 +75,19 @@ class LMOC {
 		std::string name;
 	};
     
+///////////////////////////////////KON//DEST
 public:
     LMOC();
 public:
     ~LMOC();
 
+    
+///////////////////////////////////MAIN LOOP
 public:
     void runLoop();
+
+    
+///////////////////////////////////MODULES
 public:
     void checkInput();
 public:
@@ -86,21 +100,33 @@ public:
     void matrixThread();
 private:
 	void checkEvents();
+//PHYSICS
 private:
 	std::vector<std::string> touchedObjects(Leap::Vector tipP);
 	void touchedObjectsV(Leap::Vector tipP);
 	void touchedObjectsPil(Leap::Vector tipP);
-
+//LOAD UTILS
 private:
     bool loadResources();
 private:
     bool loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector<unsigned int> *ind_data, bool withBounds);
     
-    //leap
+private:
+    void renderMinimal();
+public:
+    void renderMinimalInit();
+    
+//////////////////////////////////LEAP MOTION
 private:
     LeapListener listener;
 private:
     Controller controller;
+    
+    
+    
+///////////////////////////////////ATRIBUTES
+private:
+    Texture tex;
 private:
 	bool firstRun;
     //sfml
@@ -117,7 +143,9 @@ private:
     std::vector<Leap::Matrix> matrixVectorFingers;
     sf::Mutex MatrixMu;
     
+    sf::Shader myshader;
     //resources
+    //TEXTURES
 private:
     sf::Image icon;
 private:
@@ -128,14 +156,10 @@ private:
     bool keyCaps;
     bool stab;
     bool fast;
-//private:
-//    sf::Sprite sprite;
 private:
     sf::Font font;
 private:
     sf::Music music;
-//private:
-//    sf::Text text;
     
 private:
     bool running;
@@ -166,7 +190,7 @@ private:
     float ambient;
     
 private:
-    Vector3 playerPos;
+    glm::vec3 playerPos;
     float viewanchor;
 private:
     int objectCount;
