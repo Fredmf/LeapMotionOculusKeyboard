@@ -13,10 +13,8 @@
 		4300D660185728FD00D8F7CE /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4300D65F185728FD00D8F7CE /* IOKit.framework */; };
 		4300D6621857290400D8F7CE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4300D6611857290400D8F7CE /* Cocoa.framework */; };
 		432F337D18306BD7001016B4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432F337C18306BD7001016B4 /* OpenGL.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		433875121832A48900133FB0 /* handS.frag in Resources */ = {isa = PBXBuildFile; fileRef = 4338750E1832A48900133FB0 /* handS.frag */; };
-		433875131832A48900133FB0 /* handS.vert in Resources */ = {isa = PBXBuildFile; fileRef = 4338750F1832A48900133FB0 /* handS.vert */; };
-		433875141832A48900133FB0 /* keyboardS.frag in Resources */ = {isa = PBXBuildFile; fileRef = 433875101832A48900133FB0 /* keyboardS.frag */; };
-		433875151832A48900133FB0 /* keyboardS.vert in Resources */ = {isa = PBXBuildFile; fileRef = 433875111832A48900133FB0 /* keyboardS.vert */; };
+		433875141832A48900133FB0 /* lmocShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 433875101832A48900133FB0 /* lmocShader.frag */; };
+		433875151832A48900133FB0 /* lmocShader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 433875111832A48900133FB0 /* lmocShader.vert */; };
 		4338751B1832AC8700133FB0 /* Matrices.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 433875191832AC8700133FB0 /* Matrices.cpp */; };
 		4338751F1832BD8000133FB0 /* fingerTex.png in Resources */ = {isa = PBXBuildFile; fileRef = 4338751D1832BD8000133FB0 /* fingerTex.png */; };
 		433875201832BD8000133FB0 /* palmTex.png in Resources */ = {isa = PBXBuildFile; fileRef = 4338751E1832BD8000133FB0 /* palmTex.png */; };
@@ -50,10 +48,8 @@
 		4300D65F185728FD00D8F7CE /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		4300D6611857290400D8F7CE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		432F337C18306BD7001016B4 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		4338750E1832A48900133FB0 /* handS.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = handS.frag; path = assets/handS.frag; sourceTree = "<group>"; };
-		4338750F1832A48900133FB0 /* handS.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = handS.vert; path = assets/handS.vert; sourceTree = "<group>"; };
-		433875101832A48900133FB0 /* keyboardS.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = keyboardS.frag; path = assets/keyboardS.frag; sourceTree = "<group>"; };
-		433875111832A48900133FB0 /* keyboardS.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = keyboardS.vert; path = assets/keyboardS.vert; sourceTree = "<group>"; };
+		433875101832A48900133FB0 /* lmocShader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = lmocShader.frag; path = assets/lmocShader.frag; sourceTree = "<group>"; };
+		433875111832A48900133FB0 /* lmocShader.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = lmocShader.vert; path = assets/lmocShader.vert; sourceTree = "<group>"; };
 		433875191832AC8700133FB0 /* Matrices.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Matrices.cpp; path = source/Matrices.cpp; sourceTree = "<group>"; };
 		4338751A1832AC8700133FB0 /* Matrices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Matrices.h; path = source/Matrices.h; sourceTree = "<group>"; };
 		4338751C1832B9CA00133FB0 /* Vectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vectors.h; path = source/Vectors.h; sourceTree = "<group>"; };
@@ -169,10 +165,8 @@
 			children = (
 				4338751D1832BD8000133FB0 /* fingerTex.png */,
 				4338751E1832BD8000133FB0 /* palmTex.png */,
-				4338750E1832A48900133FB0 /* handS.frag */,
-				4338750F1832A48900133FB0 /* handS.vert */,
-				433875101832A48900133FB0 /* keyboardS.frag */,
-				433875111832A48900133FB0 /* keyboardS.vert */,
+				433875101832A48900133FB0 /* lmocShader.frag */,
+				433875111832A48900133FB0 /* lmocShader.vert */,
 				43BAAA411832741600DAAADF /* cute_image.jpg */,
 				43BAAA421832741600DAAADF /* fingertip.obj */,
 				43BAAA431832741600DAAADF /* Gbuffer.fsh */,
@@ -264,10 +258,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				433875141832A48900133FB0 /* keyboardS.frag in Resources */,
-				433875121832A48900133FB0 /* handS.frag in Resources */,
-				433875151832A48900133FB0 /* keyboardS.vert in Resources */,
-				433875131832A48900133FB0 /* handS.vert in Resources */,
+				433875141832A48900133FB0 /* lmocShader.frag in Resources */,
+				433875151832A48900133FB0 /* lmocShader.vert in Resources */,
 				43BAAA5F1832741600DAAADF /* Screen.vsh in Resources */,
 				43BAAA541832741600DAAADF /* Gbuffer.vsh in Resources */,
 				43BAAA5E1832741600DAAADF /* Screen.fsh in Resources */,

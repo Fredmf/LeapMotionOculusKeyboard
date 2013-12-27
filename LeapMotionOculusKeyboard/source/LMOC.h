@@ -69,7 +69,7 @@ class LMOC {
 	struct GraphObj{
         glm::vec3 min;
 		glm::vec3 max;
-		int objId;
+		float objId;
 		std::string name;
 	};
     
@@ -95,7 +95,7 @@ public:
 public:
     void textThread();
 public:
-    void matrixThread();
+    void leapMatrix();
 private:
 	void checkEvents();
 //PHYSICS
@@ -131,8 +131,7 @@ private:
 private:
     sf::RenderWindow window;
 private:
-    GLuint keyboardS;
-    GLuint handS;
+    GLuint lmocShader;
     
 private:
     std::vector<Leap::Matrix> matrixVectorHands;
@@ -180,9 +179,7 @@ private:
     std::vector<unsigned int> palmInd_data;
     std::vector<Vertex> fingerVert_data;
     std::vector<unsigned int> fingerInd_data;
-    float edgefalloff;
-    float intensity;
-    float ambient;
+    GLint attribute_u_keyId;
     
 private:
     glm::vec3 playerPos;

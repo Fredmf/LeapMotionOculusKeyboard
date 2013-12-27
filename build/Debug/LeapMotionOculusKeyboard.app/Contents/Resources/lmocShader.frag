@@ -5,7 +5,7 @@ void main()
 {
     // lookup the pixel in the texture
     vec4 pixel = texture2D(texture, v_texCoord);
-    // multiply it by the color
-    //and visualize texCoords for debug
-    gl_FragColor = vec4(pixel.xyz,0.5);
+    
+    //and draw the texture color, no lighting
+    gl_FragColor = pixel;
 }
