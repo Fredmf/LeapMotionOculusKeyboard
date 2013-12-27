@@ -18,19 +18,24 @@
 #include <sstream>
 #include <fstream>
 
+#include "ran.h"
+
 // vec3, vec4, ivec4, mat4
 #include <glm/glm.hpp>
 
 // translate, rotate, scale, perspective
 #include <glm/gtc/matrix_transform.hpp>
 
-//#include <glm/gtc/type_ptr.hpp>
+#include <glm/gtc/type_ptr.hpp>
 ////__for
 //glVertex3fv(glm::value_ptr(v))
 //glLoadMatrixfv(glm::value_ptr(m));
-////__better without
+////__alternative without
 //glVertex3fv(&v[0]);
 //glLoadMatrixfv(&m[0][0]);
+
+//#include <gli/gli.hpp>
+
 
 #include "Matrices.h"
 #include "Shader.h"
@@ -70,7 +75,7 @@ LMOC::LMOC(){
     // Create the main window
 	objDraw=0;
     Eyes.initCam(0,50,40);
-	Eyes.mouseMove(0,0);
+	Eyes.mouseMove(glm::ivec2(0,0));
 	Eyes.mouseRelease();
     objectCount=-1;
     viewanchor = 45.0;
@@ -187,11 +192,23 @@ bool LMOC::loadResources(){
     }
     
     /////////////////////////////////////////////////////////TEXTURES
-    tex.gen();
-    tex.loadFromFile(resourcePath() + "keyboardTex.png", tex.TEX_KEY);
-    tex.loadFromFile(resourcePath() + "keyboardTexCaps.png", tex.TEX_KEYS);
-    tex.loadFromFile(resourcePath() + "fingerTex.png", tex.TEX_FINGER);
-    tex.loadFromFile(resourcePath() + "palmTex.png", tex.TEX_HAND);
+    
+    sf::Image img;
+    img.loadFromFile(resourcePath() + "keyboardTex.png");
+    img.flipVertically();
+    keyboardT.loadFromImage(img);
+    
+    img.loadFromFile(resourcePath() + "keyboardTexCaps.png");
+    img.flipVertically();
+    keyboardTCaps.loadFromImage(img);
+    
+    img.loadFromFile(resourcePath() + "fingerTex.png");
+    img.flipVertically();
+    palmT.loadFromImage(img);
+    
+    img.loadFromFile(resourcePath() + "palmTex.png");
+    img.flipVertically();
+    fingerT.loadFromImage(img);
     
     
     //FONT
@@ -222,9 +239,9 @@ bool LMOC::loadResources(){
 }
 
 bool LMOC::loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector<unsigned int> *ind_data,bool withBounds){
-    std::vector<sf::Vector3f> v_data;
-    std::vector<sf::Vector2f> vt_data;
-    std::vector<sf::Vector3f> vn_data;
+    std::vector<glm::vec3> v_data;
+    std::vector<glm::vec2> vt_data;
+    std::vector<glm::vec3> vn_data;
     std::vector<Face> f_data;
     
 	bool newObj = true;
@@ -256,21 +273,21 @@ bool LMOC::loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector
                 switch (prefix[1]) {
                     case 't': //texcoord
                     {
-                        sf::Vector2f vt;
+                        glm::vec2 vt;
                         file >> vt.x >> vt.y;
                         vt_data.push_back(vt);
                     }
                         break;
                     case 'n': //normal
                     {
-                        sf::Vector3f vn;
+                        glm::vec3 vn;
                         file >> vn.x >> vn.y >> vn.z;
                         vn_data.push_back(vn);
                     }
                         break;
                     default: //points
                     {
-                        sf::Vector3f v;
+                        glm::vec3 v;
                         file >> v.x >> v.y >> v.z;
 						if (withBounds){
                             if(newObj){
@@ -420,67 +437,67 @@ void LMOC::matrixThread(){
 
 void LMOC::renderInit()
 {
-    checkGLError("render init");
-	sf::Vector2u windowSize = window.getSize();
-	if (firstRun){
-        //////////////////////////////////////////////////// SETUP OPENGL STATES
-        window.setActive();
-        glEnable(GL_DEPTH_TEST);
-        checkGLError("render test1");
-        glDepthMask(GL_TRUE);
-        checkGLError("render test2");
-        //glEnable(GL_DOUBLE);
-        checkGLError("render test3");
-        //glEnable(GL_SMOOTH);
-        checkGLError("render test4");
-        glEnable(GL_TEXTURE_2D);
-        checkGLError("render test5");
-        glDisable(GL_COLOR_MATERIAL);
-        checkGLError("render test6");
-        glEnable(GL_BLEND);
-        checkGLError("render test7");
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-        glClearDepth(1.0f);
-        glClearColor(0.0, 0.0, 0.0, 0.0);
-        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-        glLoadIdentity();
-//        {
-//            ///////// set perspective matrix without the deprecated function gluPerspective
-//            //gluPerspective(viewanchor,(float)windowSize.x/(float)windowSize.y, 0.1f, 10000.f);
-//            Matrix4 matProject = setFrustum(viewanchor,(float)windowSize.x/(float)windowSize.y, 0.1f, 10000.f);
-//            glMatrixMode(GL_PROJECTION);
-//            glLoadMatrixf(matProject.getTranspose());
-//        }
-        
-        checkGLError("post renderI2");
-        
-        ///////////////////////////////////////////////////////////// SETUP VBO'S
-        window.setActive(true);
-        
-        glGenBuffers(NUM_VBO, VBO);
-        
-        glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
-        glBufferData(GL_ARRAY_BUFFER, keyboardVert_data.size()*sizeof(Vertex),&(keyboardVert_data[0]),GL_STATIC_DRAW);
-        
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, keyboardInd_data.size()*sizeof(unsigned int),&(keyboardInd_data[0]),GL_STATIC_DRAW);
-        
-        glBindBuffer(GL_ARRAY_BUFFER, VBO[2]);
-        glBufferData(GL_ARRAY_BUFFER, palmVert_data.size()*sizeof(Vertex),&(palmVert_data[0]),GL_STATIC_DRAW);
-        
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[3]);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, palmInd_data.size()*sizeof(unsigned int),&(palmInd_data[0]),GL_STATIC_DRAW);
-        
-        glBindBuffer(GL_ARRAY_BUFFER, VBO[4]);
-        glBufferData(GL_ARRAY_BUFFER, fingerVert_data.size()*sizeof(Vertex),&(fingerVert_data[0]),GL_STATIC_DRAW);
-        
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[5]);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, fingerInd_data.size()*sizeof(unsigned int),&(fingerInd_data[0]),GL_STATIC_DRAW);
-        
-        checkGLError("post renderI3");
-        
-	}
-    
+//    checkGLError("render init");
+//	sf::Vector2u windowSize = window.getSize();
+//	if (firstRun){
+//        //////////////////////////////////////////////////// SETUP OPENGL STATES
+//        window.setActive();
+//        glEnable(GL_DEPTH_TEST);
+//        checkGLError("render test1");
+//        glDepthMask(GL_TRUE);
+//        checkGLError("render test2");
+//        //glEnable(GL_DOUBLE);
+//        checkGLError("render test3");
+//        //glEnable(GL_SMOOTH);
+//        checkGLError("render test4");
+//        glEnable(GL_TEXTURE_2D);
+//        checkGLError("render test5");
+//        glDisable(GL_COLOR_MATERIAL);
+//        checkGLError("render test6");
+//        glEnable(GL_BLEND);
+//        checkGLError("render test7");
+//        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+//        glClearDepth(1.0f);
+//        glClearColor(0.0, 0.0, 0.0, 0.0);
+//        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+//        glLoadIdentity();
+////        {
+////            ///////// set perspective matrix without the deprecated function gluPerspective
+////            //gluPerspective(viewanchor,(float)windowSize.x/(float)windowSize.y, 0.1f, 10000.f);
+////            Matrix4 matProject = setFrustum(viewanchor,(float)windowSize.x/(float)windowSize.y, 0.1f, 10000.f);
+////            glMatrixMode(GL_PROJECTION);
+////            glLoadMatrixf(matProject.getTranspose());
+////        }
+//        
+//        checkGLError("post renderI2");
+//        
+//        ///////////////////////////////////////////////////////////// SETUP VBO'S
+//        window.setActive(true);
+//        
+//        glGenBuffers(NUM_VBO, VBO);
+//        
+//        glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
+//        glBufferData(GL_ARRAY_BUFFER, keyboardVert_data.size()*sizeof(Vertex),&(keyboardVert_data[0]),GL_STATIC_DRAW);
+//        
+//        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
+//        glBufferData(GL_ELEMENT_ARRAY_BUFFER, keyboardInd_data.size()*sizeof(unsigned int),&(keyboardInd_data[0]),GL_STATIC_DRAW);
+//        
+//        glBindBuffer(GL_ARRAY_BUFFER, VBO[2]);
+//        glBufferData(GL_ARRAY_BUFFER, palmVert_data.size()*sizeof(Vertex),&(palmVert_data[0]),GL_STATIC_DRAW);
+//        
+//        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[3]);
+//        glBufferData(GL_ELEMENT_ARRAY_BUFFER, palmInd_data.size()*sizeof(unsigned int),&(palmInd_data[0]),GL_STATIC_DRAW);
+//        
+//        glBindBuffer(GL_ARRAY_BUFFER, VBO[4]);
+//        glBufferData(GL_ARRAY_BUFFER, fingerVert_data.size()*sizeof(Vertex),&(fingerVert_data[0]),GL_STATIC_DRAW);
+//        
+//        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[5]);
+//        glBufferData(GL_ELEMENT_ARRAY_BUFFER, fingerInd_data.size()*sizeof(unsigned int),&(fingerInd_data[0]),GL_STATIC_DRAW);
+//        
+//        checkGLError("post renderI3");
+//        
+//	}
+//    
 }
 
 void LMOC::renderMinimalInit()
@@ -499,64 +516,62 @@ void LMOC::renderMinimalInit()
         
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, keyboardInd_data.size()*sizeof(unsigned int),&(keyboardInd_data[0]),GL_STATIC_DRAW);
-    
 }
 
 void LMOC::renderMinimal(){
-    
-    //prepare window
+    /////////////////////////////////////////////////// PREPERATION
     window.setActive(true);
     window.clear();
     
+    /////////////////////////////// GET WINDOW SIZE
     glm::vec2 windowSize = glm::vec2(window.getSize().x,window.getSize().y);
     
-	//sf::Vector2u windowSize = window.getSize();
+    //////////////////////////////// CALC MATRICES
     glm::mat4 modelMatrix = glm::mat4(1.0f);
     glm::mat4 perspectiveMatrix=glm::perspective(viewanchor, windowSize.x/windowSize.y, 0.1f, 10000.0f);
     glm::mat4 lookAtMatrix=glm::lookAt(Eyes.getCam()+playerPos, playerPos, glm::vec3(0.0f, 1.0, 0.0f));
-
-	glUniformMatrix4fv(glGetUniformLocation(keyboardS, "u_modelMatrix"), 1, GL_FALSE, &modelMatrix[0][0]);
-	glUniformMatrix4fv(glGetUniformLocation(keyboardS, "u_lookAtMatrix"), 1, GL_FALSE, &lookAtMatrix[0][0]);
-	glUniformMatrix4fv(glGetUniformLocation(keyboardS, "u_perspectiveMatrix"), 1, GL_FALSE, &perspectiveMatrix[0][0]);
     
-    //////////////////////////////////////////////// DRAW
-    //reset
+    //////////////////////////////// PASS MATRICES
+	glUniformMatrix4fv(glGetUniformLocation(keyboardS, "u_modelMatrix"), 1, GL_FALSE, glm::value_ptr(modelMatrix));
+	glUniformMatrix4fv(glGetUniformLocation(keyboardS, "u_lookAtMatrix"), 1, GL_FALSE, glm::value_ptr(lookAtMatrix));
+	glUniformMatrix4fv(glGetUniformLocation(keyboardS, "u_perspectiveMatrix"), 1, GL_FALSE, glm::value_ptr(perspectiveMatrix));
+    
+    /////////////////////////////////////////////////// DRAW
+    //////////////////////////////// RESET
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
-    /////////////////////////////////////////////////// Enable States
+    //////////////////////////////// ENABLE STATES
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_NORMAL_ARRAY);
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-    /////////////////////////////////////////////////// Keyboard
     
-//    glLinkProgram(keyboardS);
-//    GLint texLoc = glGetUniformLocation(keyboardS, "texture");
-    
+    ////////////////////////////////////////////// DRAW KEYBOARD
     glUseProgram(keyboardS);
     
-//    glUniform1i(texLoc, tex.TEX_KEY);
-//    
-//    
-//    glActiveTexture(GL_TEXTURE0 + 0);
-//    glBindTexture(GL_TEXTURE_2D, tex.textures[tex.TEX_KEY]);
-    //tex.bind(tex.TEX_KEY);
+    //////////////////////////////// BIND TEXTURE
+    //sadly i dont know why it does work... but it does and i have no time to do it the right way
+    if(keyCaps)
+        sf::Texture::bind(&keyboardT);
+    else
+        sf::Texture::bind(&keyboardTCaps);
     
+    //////////////////////////////// BIND VERTEX DATA
     glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
     glVertexPointer(3, GL_FLOAT,sizeof(Vertex), 0);
     glNormalPointer(GL_FLOAT, sizeof(Vertex), (char*)NULL + 12);
     glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), (char*)NULL + 24);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
     
-    ///////////////////////////// RENDER ACTION
+    //////////////////////////////// RENDER ACTION
     glDrawElements(GL_TRIANGLES, keyboardInd_data.size(), GL_UNSIGNED_INT, 0);
     
-    /////////////////////////////////////////////////// Disable States
+    //////////////////////////////// DISABLE STATES
     glDisableClientState(GL_TEXTURE_COORD_ARRAY);
     glDisableClientState(GL_NORMAL_ARRAY);
     glDisableClientState(GL_VERTEX_ARRAY);
-    //////////////////////////////////////////////// END DRAW
+    /////////////////////////////////////////////////// END DRAW
     
-    //swap buffers and display
+    //////////////////////////////// SWAP BUFFERS AND DISPLAY
     window.display();
 }
 
@@ -623,15 +638,15 @@ void LMOC::render()
     //TODO: change for the new Shader loading procedure
     glUseProgram(keyboardS);
     checkGLError("pre pre uniforms");
-    if (keyCaps) {
-        tex.bind(tex.TEX_KEYS);
-        glUniform1i(glGetUniformLocation(keyboardS, "texture"), tex.TEX_KEYS);
-        checkGLError("tex uniforms");
-    }else{
-        tex.bind(tex.TEX_KEY);
-        glUniform1i(glGetUniformLocation(keyboardS, "texture"), tex.TEX_KEY);
-        checkGLError("tex uniforms1");
-    }
+//    if (keyCaps) {
+//        tex.bind(tex.TEX_KEYS);
+//        glUniform1i(glGetUniformLocation(keyboardS, "texture"), tex.TEX_KEYS);
+//        checkGLError("tex uniforms");
+//    }else{
+//        tex.bind(tex.TEX_KEY);
+//        glUniform1i(glGetUniformLocation(keyboardS, "texture"), tex.TEX_KEY);
+//        checkGLError("tex uniforms1");
+//    }
    // glUniformMatrix4fv(glGetUniformLocation(keyboardS, "projectionMatrix"), 1, GL_FALSE, lookAtMat.getTranspose());
 
     
@@ -766,8 +781,8 @@ void LMOC::render()
 void LMOC::checkInput(){
     //rotate 3rd Person cam on mouse left button
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-        sf::Vector2i mousePos= sf::Mouse::getPosition();
-        Eyes.mouseMove(mousePos.x, mousePos.y);
+        glm::ivec2 mousePos= glm::ivec2(sf::Mouse::getPosition().x,sf::Mouse::getPosition().y);
+        Eyes.mouseMove(mousePos);
         Eyes.setDown(true);
     }
     if (!sf::Mouse::isButtonPressed(sf::Mouse::Left) && Eyes.isDown()){
@@ -795,7 +810,6 @@ void LMOC::checkEvents(){
         //mouse wheel
         if (event.type == sf::Event::MouseWheelMoved){
             Eyes.zoomCam(event.mouseWheel.delta);
-            std::cout << "wheeee" << std::endl;
         }
         
         //switch keyboard texture to caps with button C
@@ -820,13 +834,15 @@ void LMOC::checkEvents(){
 
 void LMOC::runLoop(){
     renderMinimalInit();
-    //renderInit();
     while (rendering) {
         checkInput();
         checkEvents();
-        //textThread();
-        //matrixThread();
-        //render();
         renderMinimal();
     }
+    
+    
+    //renderInit();
+    //textThread();
+    //matrixThread();
+    //render();
 }

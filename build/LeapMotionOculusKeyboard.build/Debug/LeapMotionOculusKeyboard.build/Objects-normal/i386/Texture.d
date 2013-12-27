@@ -63,4 +63,5 @@ dependencies: \
   /usr/local/include/SFML/Graphics/RectangleShape.hpp \
   /usr/local/include/SFML/Graphics/ConvexShape.hpp \
   /usr/local/include/SFML/Graphics/Sprite.hpp \
-  /usr/local/include/SFML/Graphics/Text.hpp
+  /usr/local/include/SFML/Graphics/Text.hpp \
+  /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ran.h

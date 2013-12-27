@@ -45,8 +45,6 @@
 
 #include "Cam.h"
 
-#include "Texture.h"
-
 #ifdef __APPLE__
 #include "ResourcePath.hpp"
 #elif WIN32
@@ -58,19 +56,19 @@ class LMOC {
     //GLuint textures
 ///////////////////////////////////DATA TYPES
     struct Vertex{
-        sf::Vector3f v;
-        sf::Vector3f n;
-        sf::Vector2f t;
+        glm::vec3 v;
+        glm::vec3 n;
+        glm::vec2 t;
         int objId;
     };
     struct Face{
-        sf::Vector3i vertInd;
+        glm::ivec3 vertInd;
         int objId;
     };
 
 	struct GraphObj{
-		sf::Vector3f min;
-		sf::Vector3f max;
+        glm::vec3 min;
+		glm::vec3 max;
 		int objId;
 		std::string name;
 	};
@@ -126,8 +124,6 @@ private:
     
 ///////////////////////////////////ATRIBUTES
 private:
-    Texture tex;
-private:
 	bool firstRun;
     //sfml
 private:
@@ -178,7 +174,6 @@ private:
     Cam Eyes;
     
 private:
-    
     std::vector<Vertex> keyboardVert_data;
     std::vector<unsigned int> keyboardInd_data;
     std::vector<Vertex> palmVert_data;

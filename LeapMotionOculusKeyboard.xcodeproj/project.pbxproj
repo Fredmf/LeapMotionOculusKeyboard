@@ -20,7 +20,6 @@
 		4338751B1832AC8700133FB0 /* Matrices.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 433875191832AC8700133FB0 /* Matrices.cpp */; };
 		4338751F1832BD8000133FB0 /* fingerTex.png in Resources */ = {isa = PBXBuildFile; fileRef = 4338751D1832BD8000133FB0 /* fingerTex.png */; };
 		433875201832BD8000133FB0 /* palmTex.png in Resources */ = {isa = PBXBuildFile; fileRef = 4338751E1832BD8000133FB0 /* palmTex.png */; };
-		4383CFB81863EE8F00BDA126 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4383CFB61863EE8E00BDA126 /* Texture.cpp */; };
 		43BAAA511832741600DAAADF /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA411832741600DAAADF /* cute_image.jpg */; };
 		43BAAA521832741600DAAADF /* fingertip.obj in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA421832741600DAAADF /* fingertip.obj */; };
 		43BAAA531832741600DAAADF /* Gbuffer.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA431832741600DAAADF /* Gbuffer.fsh */; };
@@ -60,8 +59,7 @@
 		4338751C1832B9CA00133FB0 /* Vectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vectors.h; path = source/Vectors.h; sourceTree = "<group>"; };
 		4338751D1832BD8000133FB0 /* fingerTex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fingerTex.png; path = assets/fingerTex.png; sourceTree = "<group>"; };
 		4338751E1832BD8000133FB0 /* palmTex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = palmTex.png; path = assets/palmTex.png; sourceTree = "<group>"; };
-		4383CFB61863EE8E00BDA126 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Texture.cpp; path = source/Texture.cpp; sourceTree = "<group>"; };
-		4383CFB71863EE8F00BDA126 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Texture.h; path = source/Texture.h; sourceTree = "<group>"; };
+		43539FDF186CF0C500A115D1 /* ran.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ran.h; sourceTree = "<group>"; };
 		43A7E8F618228B6C00710A8C /* LeapMotionOculusKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeapMotionOculusKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43A7E8FA18228B6C00710A8C /* LeapMotionOculusKeyboard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LeapMotionOculusKeyboard-Info.plist"; sourceTree = "<group>"; };
 		43BAAA411832741600DAAADF /* cute_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cute_image.jpg; path = assets/cute_image.jpg; sourceTree = "<group>"; };
@@ -196,8 +194,7 @@
 		43DD4EF2182DD8E7005DA23B /* System */ = {
 			isa = PBXGroup;
 			children = (
-				4383CFB61863EE8E00BDA126 /* Texture.cpp */,
-				4383CFB71863EE8F00BDA126 /* Texture.h */,
+				43539FDF186CF0C500A115D1 /* ran.h */,
 				43E3B6BC18605BCF0038FC75 /* Shader.cpp */,
 				43E3B6BD18605BCF0038FC75 /* Shader.h */,
 				4338751C1832B9CA00133FB0 /* Vectors.h */,
@@ -318,7 +315,6 @@
 				43BAAA711832744700DAAADF /* main.cpp in Sources */,
 				43BAAA701832744700DAAADF /* LMOC.cpp in Sources */,
 				43E3B6BE18605BCF0038FC75 /* Shader.cpp in Sources */,
-				4383CFB81863EE8F00BDA126 /* Texture.cpp in Sources */,
 				4338751B1832AC8700133FB0 /* Matrices.cpp in Sources */,
 				43BAAA6E1832744700DAAADF /* Cam.cpp in Sources */,
 			);
@@ -354,6 +350,7 @@
 					"$(inherited)",
 					Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include,
 					Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Src,
+					Libs/gli,
 					Libs/glm,
 					Libs/glm/glc,
 				);
@@ -410,6 +407,7 @@
 					"$(inherited)",
 					Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include,
 					Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Src,
+					Libs/gli,
 					Libs/glm,
 					Libs/glm/glc,
 				);
@@ -451,6 +449,7 @@
 					"$(inherited)",
 					Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include,
 					Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Src,
+					Libs/gli,
 					Libs/glm,
 					Libs/glm/glc,
 				);
@@ -472,6 +471,7 @@
 					"$(inherited)",
 					Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include,
 					Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Src,
+					Libs/gli,
 					Libs/glm,
 					Libs/glm/glc,
 				);

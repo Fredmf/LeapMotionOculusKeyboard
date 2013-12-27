@@ -141,9 +141,13 @@ dependencies: \
   Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/Util/../Kernel/OVR_List.h \
   Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/Util/Util_Render_Stereo.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.h \
-  /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Texture.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.hpp \
+  /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ran.h \
   Libs/glm/glm/gtc/matrix_transform.hpp \
-  Libs/glm/glm/gtc/matrix_transform.inl \
+  Libs/glm/glm/gtc/matrix_transform.inl Libs/glm/glm/gtc/type_ptr.hpp \
+  Libs/glm/glm/gtc/../gtc/half_float.hpp Libs/glm/glm/gtc/half_float.inl \
+  Libs/glm/glm/gtc/../gtc/quaternion.hpp \
+  Libs/glm/glm/gtc/../gtc/constants.hpp Libs/glm/glm/gtc/constants.inl \
+  Libs/glm/glm/gtc/quaternion.inl Libs/glm/glm/gtc/type_ptr.inl \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Matrices.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Shader.h

@@ -61,6 +61,27 @@ inline void Cam::moveCamUp(float value){
     camCalculate();
 }
 
+inline void Cam::moveCam(glm::ivec2 mPosDelta){
+    glm::ivec2 hvTmp(h,v);
+    hvTmp-=mPosDelta;
+    
+    if (hvTmp.x>360.0f)
+        hvTmp.x-=360.0f;
+    if (hvTmp.x<-360.0f)
+        hvTmp.x+=360.0f;
+    camCalculate();
+    
+    if (hvTmp.y>177.0f)
+        hvTmp.y=177.0f;
+    if (hvTmp.y<1.0f)
+        hvTmp.y=1.0f;
+    
+    h=hvTmp.x;
+    v=hvTmp.y;
+    
+    camCalculate();
+}
+
 void Cam::zoomCam(int value){
     r-=value;
     if (r <= 0.01)
@@ -68,15 +89,12 @@ void Cam::zoomCam(int value){
     camCalculate();
 }
 
-void Cam::mouseMove(int x, int y){
-    if (oldx != 0 && oldy != 0) {
-        moveCamUp((float)(y-oldy));
-        moveCamRight((float)(x-oldx));
-        oldx=x;
-        oldy=y;
+void Cam::mouseMove(glm::ivec2 mPos){
+    if (oldMPos.x != 0 && oldMPos.y != 0) {
+        moveCam(mPos-oldMPos);
+        oldMPos=mPos;
     }else{
-        oldx=x;
-        oldy=y;
+        oldMPos=mPos;
     }
 }
 
@@ -88,8 +106,7 @@ void Cam::camReset(){
 }
 
 void Cam::mouseRelease(){
-        oldy=0;
-        oldx=0;
+    oldMPos=glm::ivec2(0,0);
 }
 
 inline void Cam::camCalculate(){

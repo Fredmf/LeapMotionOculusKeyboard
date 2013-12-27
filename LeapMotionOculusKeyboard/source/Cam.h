@@ -24,10 +24,11 @@ public:
     // bewegungsmethoden
     inline void moveCamRight(float value);
     inline void moveCamUp(float value);
+    inline void moveCam(glm::ivec2 mPosDelta);
     void zoomCam(int value);
     
     // Mausschnitstelle
-    void mouseMove(int x, int y);
+    void mouseMove(glm::ivec2 mPos);
     void mouseRelease(void);
     void mouseReset();
     
@@ -49,8 +50,7 @@ private:
     float resetval[3];
         
     // Mausvariablen
-    int oldx;
-    int oldy;
+    glm::ivec2 oldMPos;
     bool  down;
 };
 #endif
