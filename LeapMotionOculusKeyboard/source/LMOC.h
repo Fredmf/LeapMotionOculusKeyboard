@@ -109,11 +109,6 @@ private:
 private:
     bool loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector<unsigned int> *ind_data, bool withBounds);
     
-private:
-    void renderMinimal();
-public:
-    void renderMinimalInit();
-    
 //////////////////////////////////LEAP MOTION
 private:
     LeapListener listener;

@@ -7,18 +7,10 @@
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
 
-//HMD Variables (Head Mounted Display) size in meters
-//149.76 x 93,6 mm
-#define HSCREENSIZE 0.14976
-#define VSCREENSIZE 0.0935
-//center vertival 93,6 mm /2  in meters
-#define VSCREENCENTER 0,04675
-
 #include "LMOC.h"
+
 #include <sstream>
 #include <fstream>
-
-#include "ran.h"
 
 // vec3, vec4, ivec4, mat4
 #include <glm/glm.hpp>
@@ -37,6 +29,7 @@
 //#include <gli/gli.hpp>
 
 
+#include "ran.h"
 #include "Matrices.h"
 #include "Shader.h"
 
@@ -52,26 +45,6 @@ void checkGLError(const char* prefix = "")
 }
 
 LMOC::LMOC(){
-	//init oculus
-//	OVR::System::Init(OVR::Log::ConfigureDefaultLog(OVR::LogMask_All));
-//	pManager = *OVR::DeviceManager::Create();
-//	pHMD = *pManager->EnumerateDevices<OVR::HMDDevice>().CreateDevice();
-//    
-//    if (pHMD) {
-//        if (pHMD->GetDeviceInfo(&hmd))
-//        {
-//            std::cout << "\n--- HMD INFO ---" <<
-//            "\nMonitorName: " << hmd.DisplayDeviceName <<
-//            "\nEyeDistance: " << hmd.InterpupillaryDistance <<
-//            "\nDistortionK[0]: " << hmd.DistortionK[0] <<
-//            "\nDistortionK[1]: " << hmd.DistortionK[1] <<
-//            "\nDistortionK[2]: " << hmd.DistortionK[2] <<
-//            "\nDistortionK[3]: " << hmd.DistortionK[3] << std::endl << std::endl;
-//        }
-//    }
-	
-	
-    
     // Create the main window
 	objDraw=0;
     Eyes.initCam(0,50,40);
@@ -91,28 +64,12 @@ LMOC::LMOC(){
     settings.majorVersion = 4;
     settings.minorVersion = 0;
     
-    //window.create(sf::VideoMode(1920, 1080), "Leap Motion Oculus Keyboard", sf::Style::Fullscreen, settings);
 	window.create(sf::VideoMode(1920, 1080), "Leap Motion Oculus Keyboard", sf::Style::Default, settings);
     window.setVerticalSyncEnabled(true);
     
     // activate the window's context
     window.setActive(true);
-//    
-//    // get information about window (to check if everything is ok)
-//    settings = window.getSettings();
-//    std::cout << "depth bits:" << settings.depthBits << std::endl;
-//    std::cout << "stencil bits:" << settings.stencilBits << std::endl;
-//    std::cout << "antialiasing level:" << settings.antialiasingLevel << std::endl;
-//    std::cout << "version:" << settings.majorVersion << "." << settings.minorVersion << std::endl;
-//#ifdef WIN32
-//	GLenum err = glewInit();
-//	if (GLEW_OK != err)
-//	{
-//		fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
-//	}
-//#endif
-    
-    
+
     //LEAP***************************************
     controller.addListener(listener);
     //LEAP***************************************
@@ -438,75 +395,17 @@ void LMOC::leapMatrix(){
 	}
 }
 
-void LMOC::renderInit()
-{
-//    checkGLError("render init");
-//	sf::Vector2u windowSize = window.getSize();
-//	if (firstRun){
-//        //////////////////////////////////////////////////// SETUP OPENGL STATES
-//        window.setActive();
-//        glEnable(GL_DEPTH_TEST);
-//        checkGLError("render test1");
-//        glDepthMask(GL_TRUE);
-//        checkGLError("render test2");
-//        //glEnable(GL_DOUBLE);
-//        checkGLError("render test3");
-//        //glEnable(GL_SMOOTH);
-//        checkGLError("render test4");
-//        glEnable(GL_TEXTURE_2D);
-//        checkGLError("render test5");
-//        glDisable(GL_COLOR_MATERIAL);
-//        checkGLError("render test6");
-//        glEnable(GL_BLEND);
-//        checkGLError("render test7");
-//        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-//        glClearDepth(1.0f);
-//        glClearColor(0.0, 0.0, 0.0, 0.0);
-//        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-//        glLoadIdentity();
-////        {
-////            ///////// set perspective matrix without the deprecated function gluPerspective
-////            //gluPerspective(viewanchor,(float)windowSize.x/(float)windowSize.y, 0.1f, 10000.f);
-////            Matrix4 matProject = setFrustum(viewanchor,(float)windowSize.x/(float)windowSize.y, 0.1f, 10000.f);
-////            glMatrixMode(GL_PROJECTION);
-////            glLoadMatrixf(matProject.getTranspose());
-////        }
-//        
-//        checkGLError("post renderI2");
-//        
-//        ///////////////////////////////////////////////////////////// SETUP VBO'S
-//        window.setActive(true);
-//        
-//        glGenBuffers(NUM_VBO, VBO);
-//        
-//        glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
-//        glBufferData(GL_ARRAY_BUFFER, keyboardVert_data.size()*sizeof(Vertex),&(keyboardVert_data[0]),GL_STATIC_DRAW);
-//        
-//        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
-//        glBufferData(GL_ELEMENT_ARRAY_BUFFER, keyboardInd_data.size()*sizeof(unsigned int),&(keyboardInd_data[0]),GL_STATIC_DRAW);
-//        
-//        glBindBuffer(GL_ARRAY_BUFFER, VBO[2]);
-//        glBufferData(GL_ARRAY_BUFFER, palmVert_data.size()*sizeof(Vertex),&(palmVert_data[0]),GL_STATIC_DRAW);
-//        
-//        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[3]);
-//        glBufferData(GL_ELEMENT_ARRAY_BUFFER, palmInd_data.size()*sizeof(unsigned int),&(palmInd_data[0]),GL_STATIC_DRAW);
-//        
-//        glBindBuffer(GL_ARRAY_BUFFER, VBO[4]);
-//        glBufferData(GL_ARRAY_BUFFER, fingerVert_data.size()*sizeof(Vertex),&(fingerVert_data[0]),GL_STATIC_DRAW);
-//        
-//        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[5]);
-//        glBufferData(GL_ELEMENT_ARRAY_BUFFER, fingerInd_data.size()*sizeof(unsigned int),&(fingerInd_data[0]),GL_STATIC_DRAW);
-//        
-//        checkGLError("post renderI3");
-//        
-//	}
-//    
-}
 
-void LMOC::renderMinimalInit()
+void LMOC::renderInit()
 {
     ////////////////////////////////////////// SETUP VBO'S
     window.setActive(true);
+    
+    //DEBUG INFORMATION
+    std::cout << "render Init, OpenGL Overview" << std::endl;
+    std::cout << "OpenGL Version: " << glGetString(GL_VERSION)<< std::endl;
+    std::cout << "GLSL Version: " << glGetString(GL_SHADING_LANGUAGE_VERSION)<< std::endl;
+    
     
     glGenBuffers(NUM_VBO, VBO);
     
@@ -532,7 +431,7 @@ void LMOC::renderMinimalInit()
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, fingerInd_data.size()*sizeof(unsigned int),&(fingerInd_data[0]),GL_STATIC_DRAW);
 }
 
-void LMOC::renderMinimal(){
+void LMOC::render(){
     /////////////////////////////////////////////////// PREPERATION
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_TEXTURE_2D);
@@ -589,7 +488,7 @@ void LMOC::renderMinimal(){
     glNormalPointer(GL_FLOAT, sizeof(Vertex), (char*)NULL + 12);
     glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), (char*)NULL + 24);
     //////////////////////////////// BIND VERTEX ATTRIBUTES (KEYBOARD ONLY)
-    glVertexAttribPointer(attribute_u_keyId, 1, GL_FLOAT, GL_FALSE, sizeof(Vertex), (char*)NULL + 32);
+    glVertexAttribPointer(attribute_u_keyId, 1, GL_FLOAT, GL_FALSE, sizeof(Vertex), (char*)NULL + 38);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
     
     //////////////////////////////// RENDER ACTION KEYBOARD
@@ -639,6 +538,7 @@ void LMOC::renderMinimal(){
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     
+    glDisableVertexAttribArray(attribute_u_keyId);
     glDisableClientState(GL_TEXTURE_COORD_ARRAY);
     glDisableClientState(GL_NORMAL_ARRAY);
     glDisableClientState(GL_VERTEX_ARRAY);
@@ -660,209 +560,6 @@ void LMOC::renderMinimal(){
     window.popGLStates();
     window.display();
     window.setActive(false);
-}
-
-void LMOC::render()
-{
-//    ///////////////////////////////////////////////////////// ACTIVATE CONTEXT
-//    
-//    window.setActive(true);
-//    window.clear();
-//    
-//    
-//    ///////////////////////////////////////////////////////// UPDATE CAM
-//    /////////////////////////////////////////////////////////////////// OCULUS STUFF
-////    OVR::SensorFusion SFusion;
-////    if (pHMD) {
-////        pSensor = pHMD->GetSensor();
-////    }
-////    if (pSensor){
-////        SFusion.AttachToSensor(pSensor);
-////    }
-////    OVR::Matrix4f viewCenterMatrix;
-////    // Compute Aspect Ratio. Stereo mode cuts width in half.
-////    float aspectRatio = float(hmd.HResolution * 0.5f) / float(hmd.VResolution);
-////    // Compute Vertical FOV based on distance.
-////    float halfScreenDistance = (hmd.VScreenSize / 2);
-////    float yfov = 2.0f * atan(halfScreenDistance/hmd.EyeToScreenDistance);
-////    // Post-projection viewport coordinates range from (-1.0, 1.0), with the
-////    // center of the left viewport falling at (1/4) of horizontal screen size.
-////    // We need to shift this projection center to match with the lens center.
-////    // We compute this shift in physical units (meters) to correct
-////    // for different screen sizes and then rescale to viewport coordinates.
-////    float viewCenter = hmd.HScreenSize * 0.25f;
-////    float eyeProjectionShift = viewCenter - hmd.LensSeparationDistance*0.5f;
-////    float projectionCenterOffset = 4.0f * eyeProjectionShift / hmd.HScreenSize;
-////    // Projection matrix for the "center eye", which the left/right matrices are based on.
-////    OVR::Matrix4f projCenter = OVR::Matrix4f::PerspectiveRH(yfov, aspectRatio, 0.3f, 1000.0f);
-////    OVR::Matrix4f projLeft = OVR::Matrix4f::Translation(projectionCenterOffset, 0, 0) * projCenter;
-////    OVR::Matrix4f projRight = OVR::Matrix4f::Translation(-projectionCenterOffset, 0, 0) * projCenter;
-////    // View transformation translation in world units.
-////    float halfIPD = hmd.InterpupillaryDistance * 0.5f;
-////    OVR::Matrix4f viewLeft = OVR::Matrix4f::Translation(halfIPD, 0, 0) * viewCenter;
-////    OVR::Matrix4f viewRight= OVR::Matrix4f::Translation(-halfIPD, 0, 0) * viewCenter;
-//    ////////////////////////////////////////////// myStuff
-//    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-//    glMatrixMode(GL_MODELVIEW);
-//    //glLoadIdentity();
-//    //todo: replace gluLookAt with something not deprecated
-//    Vector3 upVec;
-//    upVec.set(0.0,1.0,0.0);
-//    Vector3 camPos;
-//    camPos.set(Eyes.getCam().x+playerPos.x, Eyes.getCam().y+playerPos.y, Eyes.getCam().z+playerPos.z);
-//    //LookAt(camPos,playerPos,upVec);
-//    //Matrix4 lookAtMat = LookAt(playerPos, playerPos, upVec);
-//    //gluLookAt(Eyes.getCam().x+playerPos.x, Eyes.getCam().y+playerPos.y, Eyes.getCam().z+playerPos.z, playerPos.x, playerPos.y, playerPos.z, 0.0, 1.0, 0.0);
-//    
-//
-//    /////////////////////////////////////////////////// Enable States
-//    
-//    glEnableClientState(GL_VERTEX_ARRAY);
-//    glEnableClientState(GL_NORMAL_ARRAY);
-//    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-//    
-//    ///////////////////////////////////////////////////////// UPDATE SHADER PARAMETERS
-//    //TODO: change for the new Shader loading procedure
-//    glUseProgram(keyboardS);
-//    checkGLError("pre pre uniforms");
-////    if (keyCaps) {
-////        tex.bind(tex.TEX_KEYS);
-////        glUniform1i(glGetUniformLocation(keyboardS, "texture"), tex.TEX_KEYS);
-////        checkGLError("tex uniforms");
-////    }else{
-////        tex.bind(tex.TEX_KEY);
-////        glUniform1i(glGetUniformLocation(keyboardS, "texture"), tex.TEX_KEY);
-////        checkGLError("tex uniforms1");
-////    }
-//   // glUniformMatrix4fv(glGetUniformLocation(keyboardS, "projectionMatrix"), 1, GL_FALSE, lookAtMat.getTranspose());
-//
-//    
-//    checkGLError("uniforms");
-//    
-//    /////////////////////////////////////////////////// Keyboard
-//    
-//    checkGLError("keyboard");
-//    //TODO: SHADER
-//    glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
-//    glVertexPointer(3, GL_FLOAT,sizeof(Vertex), 0);
-//    glNormalPointer(GL_FLOAT, sizeof(Vertex), (char*)NULL + 12);
-//    glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), (char*)NULL + 24);
-//    
-//    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
-//    
-//    Matrix4 identM;
-//    glUniformMatrix4fv(glGetUniformLocation(keyboardS, "modelMatrix"), 1, GL_FALSE, &
-//                       identM.identity().tm[0]);
-//    ///////////////////////////// note: glViewport is NOT DEPRECATED
-//    //leftEye
-//    glViewport(0,0,window.getSize().x/2,window.getSize().y);
-//    //glLoadMatrixf(&viewLeft.Transposed().M[0][0]);
-//    glDrawElements(GL_TRIANGLES, keyboardInd_data.size(), GL_UNSIGNED_INT, 0);
-//    //rightEye
-//    glViewport(window.getSize().x/2,0,window.getSize().x/2,window.getSize().y);
-//    //glLoadMatrixf(&viewRight.Transposed().M[0][0]);
-//    glDrawElements(GL_TRIANGLES, keyboardInd_data.size(), GL_UNSIGNED_INT, 0);
-////    glBegin(GL_POINTS);
-////    for (int local_x=-500; local_x<500; local_x++) {
-////        for (int local_y=-500;local_y<500;local_y++){
-////            for (int local_z=-500; local_z<500; local_z++) {
-////                glColor3f(1.0f, 1.0f, 1.0f);
-////                glVertex3f((float)local_x/10.0f, (float)local_y/10.0f, (float)local_z/10.0f);
-////            }
-////        }
-////    }
-////    glEnd();
-//    //////////////////////////////////////////////////// Haende
-//    
-////    checkGLError("haende");
-////    glUseProgram(handS);
-////    checkGLError("pre uniforms");
-////    glUniform1f(glGetUniformLocation(handS, "edgefalloff"), edgefalloff);
-////    checkGLError("uniforms1");
-////    glUniform1f(glGetUniformLocation(handS, "intensity"), intensity);
-////    checkGLError("uniforms2");
-////    glUniform1f(glGetUniformLocation(handS, "ambient"), ambient);
-////    
-////    glBindBuffer(GL_ARRAY_BUFFER, VBO[2]);
-////    glVertexPointer(3, GL_FLOAT,sizeof(Vertex), 0);
-////    glNormalPointer(GL_FLOAT, sizeof(Vertex), (char*)NULL + 12);
-////    glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), (char*)NULL + 24);
-////    
-////    sf::Texture::bind(&palmT);
-////    
-////    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[3]);
-////    //leftEye
-////    glViewport(0,0,window.getSize().x/2,window.getSize().y);
-////    for (unsigned int i=0; i<matrixVectorHands.size(); i++) {
-////        glPushMatrix();
-////        glMultMatrixf(matrixVectorHands[i].toArray4x4().m_array);
-////        glDrawElements(GL_TRIANGLES, palmInd_data.size(), GL_UNSIGNED_INT, 0);
-////        glPopMatrix();
-////    }
-////    //rightEye
-////    glViewport(window.getSize().x/2,0,window.getSize().x/2,window.getSize().y);
-////    for (unsigned int i=0; i<matrixVectorHands.size(); i++) {
-////        glPushMatrix();
-////        glMultMatrixf(matrixVectorHands[i].toArray4x4().m_array);
-////        glDrawElements(GL_TRIANGLES, palmInd_data.size(), GL_UNSIGNED_INT, 0);
-////        glPopMatrix();
-////    }
-//    
-//    
-//    //////////////////////////////////////////////////// Finger
-//    
-////    glUseProgram(handS);
-////    
-////    checkGLError("finger");
-////    
-////    glBindBuffer(GL_ARRAY_BUFFER, VBO[4]);
-////    glVertexPointer(3, GL_FLOAT,sizeof(Vertex), 0);
-////    glNormalPointer(GL_FLOAT, sizeof(Vertex), (char*)NULL + 12);
-////    glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), (char*)NULL + 24);
-////    
-////    sf::Texture::bind(&fingerT);
-////    
-////    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[5]);
-////    //leftEye
-////    glViewport(0,0,window.getSize().x/2,window.getSize().y);
-////    for (unsigned int i=0; i<matrixVectorFingers.size(); i++) {
-////        glPushMatrix();
-////        glMultMatrixf(matrixVectorFingers[i].toArray4x4().m_array);
-////        glDrawElements(GL_TRIANGLES, fingerInd_data.size(), GL_UNSIGNED_INT, 0);
-////        glPopMatrix();
-////    }
-////    //rightEye
-////    glViewport(window.getSize().x/2,0,window.getSize().x/2,window.getSize().y);
-////    for (unsigned int i=0; i<matrixVectorFingers.size(); i++) {
-////        glPushMatrix();
-////        glMultMatrixf(matrixVectorFingers[i].toArray4x4().m_array);
-////        glDrawElements(GL_TRIANGLES, fingerInd_data.size(), GL_UNSIGNED_INT, 0);
-////        glPopMatrix();
-////    }
-//    
-//    ////////////////////////////////////////////////////////// disable states,buffers,shaders
-//    
-//    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-//    glBindBuffer(GL_ARRAY_BUFFER, 0);
-//    glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-//    glDisableClientState(GL_NORMAL_ARRAY);
-//    glDisableClientState(GL_VERTEX_ARRAY);
-//    glUseProgram(0);
-//    
-//    ////////////////////////////////////////////////////////// SFML POSTPROCESS (Draw Text)
-////    glFlush();
-////    window.pushGLStates();
-////    
-////    for (int i=0; i<TEXTCNT; i++) {
-////        window.draw(texts[i]);
-////    }
-////    window.popGLStates();
-////    
-////    // Update the window
-//    window.display();
-////    window.setActive(false);
-//    
-//    checkGLError("end render");
 }
 
 void LMOC::checkInput(){
@@ -920,12 +617,12 @@ void LMOC::checkEvents(){
 
 
 void LMOC::runLoop(){
-    renderMinimalInit();
+    renderInit();
     while (rendering) {
         checkInput();
         checkEvents();
         leapMatrix();
         textThread();
-        renderMinimal();
+        render();
     }
 }
