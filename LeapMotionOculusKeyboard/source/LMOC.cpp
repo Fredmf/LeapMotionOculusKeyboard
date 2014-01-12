@@ -58,6 +58,13 @@ LMOC::LMOC(){
     keyCaps=false;
     stab = false;
     
+    for (int x=0;x<4;x++){
+        for (int y=0;y<4;y++){
+            zeroMat[x][y]=0.0;
+        }
+    }
+    touchedOMat=zeroMat;
+    
     settings.depthBits = 24;
     settings.stencilBits = 8;
     settings.antialiasingLevel = 4;
@@ -89,8 +96,22 @@ LMOC::~LMOC(){
     controller.removeListener(listener);
 }
 
-std::vector<std::string> LMOC::touchedObjects(Leap::Vector tipP){
-	std::vector<std::string> output;
+//std::vector<std::string> LMOC::touchedObjects(Leap::Vector tipP){
+//	std::vector<std::string> output;
+//	for(unsigned int i=0;i<objBounds.size();i++){
+//		if(tipP.x>=objBounds[i].min.x &&
+//           tipP.x<=objBounds[i].max.x &&
+//           tipP.y>=objBounds[i].min.y &&
+//           tipP.y<=objBounds[i].max.y &&
+//           tipP.z>=objBounds[i].min.z &&
+//           tipP.z<=objBounds[i].max.z){
+//            std::cout << objBounds[i].name << std::endl;
+//		}
+//	}
+//	return output;
+//}
+
+void LMOC::touchedObjects(Leap::Vector tipP){
 	for(unsigned int i=0;i<objBounds.size();i++){
 		if(tipP.x>=objBounds[i].min.x &&
            tipP.x<=objBounds[i].max.x &&
@@ -98,37 +119,43 @@ std::vector<std::string> LMOC::touchedObjects(Leap::Vector tipP){
            tipP.y<=objBounds[i].max.y &&
            tipP.z>=objBounds[i].min.z &&
            tipP.z<=objBounds[i].max.z){
-            std::cout << objBounds[i].name << std::endl;
-		}
-	}
-	return output;
-}
-
-void LMOC::touchedObjectsV(Leap::Vector tipP){
-	std::vector<std::string> output;
-	for(unsigned int i=0;i<objBounds.size();i++){
-		if(tipP.x>=objBounds[i].min.x &&
-           tipP.x<=objBounds[i].max.x &&
-           tipP.y>=objBounds[i].min.y &&
-           tipP.y<=objBounds[i].max.y &&
-           tipP.z>=objBounds[i].min.z &&
-           tipP.z<=objBounds[i].max.z){
-            std::cout << objBounds[i].name << std::endl;
-		}
+            toucedFingers.push_back((float)i);
+        }
 	}
 }
 
-void LMOC::touchedObjectsPil(Leap::Vector tipP){
-	std::vector<std::string> output;
-	for(unsigned int i=0;i<objBounds.size();i++){
-		if(tipP.x>=objBounds[i].min.x &&
-           tipP.x<=objBounds[i].max.x &&
-           tipP.z>=objBounds[i].min.z &&
-           tipP.z<=objBounds[i].max.z){
-            std::cout << objBounds[i].name << " using Keytap in Pillar" << std::endl;
-		}
-	}
+void LMOC::calcColMat(void){
+    
+    touchedOMat=zeroMat;
+    std::cout << toucedFingers.size();
+    bool done=false;
+    int outputIndex=0;
+    if (toucedFingers.size() != 0) {
+        for (int x=0; x<4; x++) {
+            for (int y=0; y<4; y++) {
+                if (!done) {
+                    touchedOMat[x][y]=toucedFingers[outputIndex];
+                    outputIndex++;
+                    if (outputIndex==toucedFingers.size()) {
+                        done=true;
+                    }
+                }
+            }
+        }
+    }
+    toucedFingers.clear();
 }
+//void LMOC::touchedObjectsPil(Leap::Vector tipP){
+//	std::vector<std::string> output;
+//	for(unsigned int i=0;i<objBounds.size();i++){
+//		if(tipP.x>=objBounds[i].min.x &&
+//           tipP.x<=objBounds[i].max.x &&
+//           tipP.z>=objBounds[i].min.z &&
+//           tipP.z<=objBounds[i].max.z){
+//            std::cout << objBounds[i].name << " using Keytap in Pillar" << std::endl;
+//		}
+//	}
+//}
 
 bool LMOC::loadResources(){
     //ICON
@@ -377,22 +404,23 @@ void LMOC::leapMatrix(){
             fingerOrigin.y -= yOffset;
             
 			//COLLISSION
-			touchedObjectsV(fingerOrigin);
+			touchedObjects(fingerOrigin);
             
 			Leap::Matrix fingerTransform = Leap::Matrix(fingerXBasis, fingerYBasis, fingerZBasis, fingerOrigin);
             matrixVectorFingers.push_back(fingerTransform);
         }
     }
-	for (int i=0;i<gestList.count();i++){
-		if (gestList[i].type() == Gesture::TYPE_KEY_TAP){
-            Leap::Vector tapPos;
-            tapPos *= scale;
-            tapPos.y -= yOffset;
-			KeyTapGesture tap = gestList[i];
-			touchedObjectsPil(tapPos);
-			std::cout << "tap " << tapPos.x << " " << tapPos.y << std::endl;
-		}
-	}
+    //gestures
+//	for (int i=0;i<gestList.count();i++){
+//		if (gestList[i].type() == Gesture::TYPE_KEY_TAP){
+//            Leap::Vector tapPos;
+//            tapPos *= scale;
+//            tapPos.y -= yOffset;
+//			KeyTapGesture tap = gestList[i];
+//			touchedObjectsPil(tapPos);
+//			std::cout << "tap " << tapPos.x << " " << tapPos.y << std::endl;
+//		}
+//	}
 }
 
 
@@ -441,8 +469,6 @@ void LMOC::render(){
     window.setActive(true);
     window.clear();
     
-    
-    
     /////////////////////////////// GET WINDOW SIZE
     glm::vec2 windowSize = glm::vec2(window.getSize().x,window.getSize().y);
     
@@ -454,7 +480,7 @@ void LMOC::render(){
     /////////////////////////////// ENABLE SHADER
     glUseProgram(lmocShader);
     
-    //////////////////////////////// PASS MATRICES
+    //////////////////////////////// PASS MATRICES AND PRESSED BUTTONS
 	glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_modelMatrix"), 1, GL_FALSE, glm::value_ptr(modelMatrix));
 	glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_lookAtMatrix"), 1, GL_FALSE, glm::value_ptr(lookAtMatrix));
 	glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_perspectiveMatrix"), 1, GL_FALSE, glm::value_ptr(perspectiveMatrix));
@@ -462,6 +488,9 @@ void LMOC::render(){
     glUniform1i(glGetUniformLocation(lmocShader, "isKeyboard"), 1);
     
 	glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_perspectiveMatrix"), 1, GL_FALSE, glm::value_ptr(perspectiveMatrix));
+    
+    
+	glUniformMatrix4fv(glGetUniformLocation(lmocShader, "pressedButtons"), 1, GL_FALSE, glm::value_ptr(touchedOMat));
     
     /////////////////////////////////////////////////// DRAW
     //////////////////////////////// RESET
@@ -488,13 +517,14 @@ void LMOC::render(){
     glNormalPointer(GL_FLOAT, sizeof(Vertex), (char*)NULL + 12);
     glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), (char*)NULL + 24);
     //////////////////////////////// BIND VERTEX ATTRIBUTES (KEYBOARD ONLY)
-    glVertexAttribPointer(attribute_u_keyId, 1, GL_FLOAT, GL_FALSE, sizeof(Vertex), (char*)NULL + 38);
+    glVertexAttribPointer(attribute_u_keyId, 1, GL_FLOAT, GL_FALSE, sizeof(Vertex), (char*)NULL + 32);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
     
     //////////////////////////////// RENDER ACTION KEYBOARD
     glDrawElements(GL_TRIANGLES, keyboardInd_data.size(), GL_UNSIGNED_INT, 0);
     
     ////////////////////////////////////////////// DRAW HANDS
+    //deactivate keyboard routines
     glUniform1i(glGetUniformLocation(lmocShader, "isKeyboard"), 0);
     //////////////////////////////// BIND TEXTURE
     //sadly i dont know why it does work... but it does and i have no time to do it the right way
@@ -601,6 +631,11 @@ void LMOC::checkEvents(){
             keyCaps=!keyCaps;
         }
         
+        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space) {
+            touchedOMat[0][0]+=1.0;
+        }
+        
+        
         //switch leap stability with button S
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::S) {
             stab=!stab;
@@ -619,10 +654,11 @@ void LMOC::checkEvents(){
 void LMOC::runLoop(){
     renderInit();
     while (rendering) {
-        checkInput();
-        checkEvents();
-        leapMatrix();
-        textThread();
-        render();
+        checkInput();//check for input
+        checkEvents();//check for input events
+        leapMatrix();//calculate transformation matrix for the fingers and collect colission
+        calcColMat();//calculate the colission mat4
+        textThread();//update text with new information
+        render();//draw the scene
     }
 }

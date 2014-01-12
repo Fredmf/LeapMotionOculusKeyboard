@@ -59,11 +59,11 @@ class LMOC {
         glm::vec3 v;
         glm::vec3 n;
         glm::vec2 t;
-        int objId;
+        float objId;
     };
     struct Face{
         glm::ivec3 vertInd;
-        int objId;
+        float objId;
     };
 
 	struct GraphObj{
@@ -100,9 +100,11 @@ private:
 	void checkEvents();
 //PHYSICS
 private:
-	std::vector<std::string> touchedObjects(Leap::Vector tipP);
-	void touchedObjectsV(Leap::Vector tipP);
-	void touchedObjectsPil(Leap::Vector tipP);
+	void touchedObjects(Leap::Vector tipP);
+    glm::mat4 zeroMat;
+    glm::mat4 touchedOMat;
+    void calcColMat(void);
+    std::vector<float> toucedFingers;
 //LOAD UTILS
 private:
     bool loadResources();
