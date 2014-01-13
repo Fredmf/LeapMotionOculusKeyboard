@@ -67,10 +67,10 @@ LMOC::LMOC(){
     }
     touchedOMat=zeroMat;
     
-    settings.depthBits = 24;
+    settings.depthBits = 32;
     settings.stencilBits = 8;
     settings.antialiasingLevel = 4;
-    settings.majorVersion = 4;
+    settings.majorVersion = 3;
     settings.minorVersion = 0;
     
     //LEAP***************************************
@@ -126,7 +126,9 @@ LMOC::LMOC(){
     window.setActive(true);
     fullscreen=false;
     
-    
+    GLint zdeph=0;
+    glGetIntegerv(GL_DEPTH_BITS,&zdeph);
+    std::cout << "dephbuffer: " << zdeph << std::endl;
     
     loadResources();
     
@@ -473,13 +475,19 @@ void LMOC::renderInit()
 
 void LMOC::render(){
     /////////////////////////////////////////////////// PREPERATION
-	glEnable(GL_DEPTH_TEST);
+    glEnable(GL_CULL_FACE);
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_STENCIL_TEST);
 	glEnable(GL_TEXTURE_2D);
-	glEnable(GL_CULL_FACE);
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    //glDepthFunc(GL_LEQUAL);
+    //glDepthRange(0.0f, 1.0f);
     
     window.setActive(true);
     window.clear();
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);// | GL_STENCIL_BUFFER_BIT);
     
     /////////////////////////////// GET WINDOW SIZE
     glm::vec2 windowSize = glm::vec2(window.getSize().x,window.getSize().y);
@@ -504,11 +512,11 @@ void LMOC::render(){
         float eyeProjectionShift = viewCenter - hmd.LensSeparationDistance*0.5f;
         float projectionCenterOffset = 4.0f * eyeProjectionShift / hmd.HScreenSize;
         
-        glm::mat4 centerPerspectiveMatrix=glm::perspective(yfov, aspectRatio, 0.1f, 10000.0f);
+        glm::mat4 centerPerspectiveMatrix=glm::perspective(yfov, aspectRatio, 0.1f, 5000.0f);
         perspectiveMatrixL=glm::translate(projectionCenterOffset, 0.0f, 0.0f)*centerPerspectiveMatrix;
         perspectiveMatrixR=glm::translate(-projectionCenterOffset, 0.0f, 0.0f)*centerPerspectiveMatrix;
         
-        float halfIPD = hmd.InterpupillaryDistance * 0.5f;
+        float halfIPD = (hmd.InterpupillaryDistance * 0.5f)+debugVal;
         glm::mat4 leftView = glm::translate(halfIPD, 0.0f, 0.0f) * viewCenter;
         glm::mat4 rightView = glm::translate(-halfIPD, 0.0f, 0.0f) * viewCenter;
         //WHERE TO USE THEM?????
@@ -523,10 +531,10 @@ void LMOC::render(){
     }else{
         float aspectRatio = windowSize.x/windowSize.y;
         
-        perspectiveMatrixL=glm::perspective(viewanchor, aspectRatio, 0.1f, 10000.0f);
+        perspectiveMatrixL=glm::perspective(viewanchor, aspectRatio, 0.1f, 5000.0f);
         lookAtMatrixL=glm::lookAt(Eyes.getCam()+playerPos, playerPos, glm::vec3(0.0f, 1.0, 0.0f));
         
-        perspectiveMatrixR=glm::perspective(viewanchor, aspectRatio, 0.1f, 10000.0f);
+        perspectiveMatrixR=glm::perspective(viewanchor, aspectRatio, 0.1f, 5000.0f);
         lookAtMatrixR=glm::lookAt(Eyes.getCam()+playerPos, playerPos, glm::vec3(0.0f, 1.0, 0.0f));
     }
     
@@ -546,8 +554,8 @@ void LMOC::render(){
 	glUniformMatrix4fv(glGetUniformLocation(lmocShader, "pressedButtons"), 1, GL_FALSE, glm::value_ptr(touchedOMat));
     
     /////////////////////////////////////////////////// DRAW
-    //////////////////////////////// RESETt
-    glMatrixMode(GL_MODELVIEW);
+    //////////////////////////////// RESET
+    //glMatrixMode(GL_MODELVIEW);
     //////////////////////////////// ENABLE STATES
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_NORMAL_ARRAY);
@@ -683,16 +691,12 @@ void LMOC::render(){
     
     ////////////////////////////////////////////////////////// SFML POSTPROCESS
     //////////////////////////////// TEXT
-    for (int i=0; i<TEXTCNT; i++) {
-        window.draw(texts[i]);
-    }
-    
-    //////////////////////////////// SWAP BUFFERS AND DISPLAY
     window.pushGLStates();
     for (int i=0; i<TEXTCNT; i++) {
         window.draw(texts[i]);
     }
     window.popGLStates();
+    //////////////////////////////// SWAP BUFFERS AND DISPLAY
     window.display();
     window.setActive(false);
 }
@@ -757,11 +761,17 @@ void LMOC::checkEvents(){
             }
         }
         
+        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Up) {
+            debugVal+=0.1;
+        }
+        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down) {
+            debugVal-=0.1;
+        }
         
         //switch leap stability with button S
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::S) {
             stab=!stab;
-        }            //switch leap stability with button S
+        }
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::O) {
             //stab=!stab;
             if(objDraw < objBounds.size()){
