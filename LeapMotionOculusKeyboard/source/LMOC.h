@@ -33,6 +33,7 @@
 #include <string>
 
 #include <glm/glm.hpp>
+#include <glm/gtx/transform.hpp>
 
 #include "Vectors.h"
 
@@ -91,6 +92,8 @@ public:
 public:
     void render();
 public:
+    void renderDebugText();
+public:
     void renderInit();
 public:
     void textThread();
@@ -110,6 +113,10 @@ private:
     bool loadResources();
 private:
     bool loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector<unsigned int> *ind_data, bool withBounds);
+//////////////////////////////////OCULUS
+private:
+    bool renderLeftEye;
+    
     
 //////////////////////////////////LEAP MOTION
 private:
@@ -122,6 +129,7 @@ private:
 ///////////////////////////////////ATRIBUTES
 private:
 	bool firstRun;
+    bool fullscreen;
     //sfml
 private:
     sf::ContextSettings settings;
@@ -187,10 +195,12 @@ private:
 	unsigned int objDraw;
 //oculus
 private:
+    OVR::System pOVRSystem;
 	OVR::Ptr<OVR::DeviceManager> pManager;
 	OVR::Ptr<OVR::HMDDevice> pHMD;
 	OVR::Ptr<OVR::SensorDevice> pSensor;
 	OVR::HMDInfo hmd;
+    bool oculusConnected;
 };
 #endif /* defined(__LeapMotionOculusKeyboard__LMOC__) */
 

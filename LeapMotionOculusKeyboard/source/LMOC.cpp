@@ -33,6 +33,7 @@
 #include "Matrices.h"
 #include "Shader.h"
 
+float debugVal;
 
 
 void checkGLError(const char* prefix = "")
@@ -45,6 +46,7 @@ void checkGLError(const char* prefix = "")
 }
 
 LMOC::LMOC(){
+    debugVal=0;
     // Create the main window
 	objDraw=0;
     Eyes.initCam(0,50,40);
@@ -71,15 +73,60 @@ LMOC::LMOC(){
     settings.majorVersion = 4;
     settings.minorVersion = 0;
     
-	window.create(sf::VideoMode(1920, 1080), "Leap Motion Oculus Keyboard", sf::Style::Default, settings);
-    window.setVerticalSyncEnabled(true);
-    
-    // activate the window's context
-    window.setActive(true);
-
     //LEAP***************************************
     controller.addListener(listener);
     //LEAP***************************************
+    
+    //OCULUS*************************************
+    //comments for oculus are numbered acoording to the 5 steps in the OculusSDK Documentation Page 16. Part 5.1
+    
+    //step 1, initialize LibOVR, OVR.h is already included in the header -OVR Doc 5.2
+    //initialization is done by using an OVR::System object as class member
+    pManager = *OVR::DeviceManager::Create();
+    pHMD = *pManager->EnumerateDevices<OVR::HMDDevice>().CreateDevice();
+    
+    unsigned int xRes,yRes;
+    
+    //print information about Device Found, if found
+    if(pHMD && pManager){
+        if(pHMD->GetDeviceInfo(&hmd)){
+            std::cout << "\tDevice Name " << hmd.DisplayDeviceName
+            << "\n\tEyeDistance " << hmd.InterpupillaryDistance
+            << "\n\tDistortionK[0] " << hmd.DistortionK[0]
+            << "\n\tDistortionK[1] " << hmd.DistortionK[1]
+            << "\n\tDistortionK[2] " << hmd.DistortionK[2]
+            << "\n\tDistortionK[3] " << hmd.DistortionK[3]
+            << "\n\tHResolution " << hmd.HResolution
+            << "\n\tVResolution " << hmd.VResolution
+            << "\n\tHScreenSize " << hmd.HScreenSize
+            << "\n\tVScreenSize " << hmd.VScreenSize
+            << "\n\tEyeToScreenDistance " << hmd.EyeToScreenDistance
+            << "\n\tLensSeparationDistance " << hmd.LensSeparationDistance
+            << "\n\tInterpupillaryDistance " << hmd.InterpupillaryDistance
+            << std::endl;
+            oculusConnected = true;
+            xRes=hmd.HResolution;
+            yRes=hmd.VResolution;
+        }else{
+            xRes=1280;
+            yRes=800;
+        }
+    }else{
+        std::cout << "!!! Oculus Rift not connected !!!" << std::endl;
+        oculusConnected = false;
+        xRes=1280;
+        yRes=800;
+    }
+    
+    
+    //OCULUS*************************************
+    
+    window.create(sf::VideoMode(xRes,yRes), "Leap Motion Oculus Keyboard", sf::Style::Default, settings);
+    window.setVerticalSyncEnabled(true);
+    window.setActive(true);
+    fullscreen=false;
+    
+    
     
     loadResources();
     
@@ -94,22 +141,10 @@ LMOC::LMOC(){
 LMOC::~LMOC(){
     std::cout << "~LMOC()" << std::endl;
     controller.removeListener(listener);
+    
+    //obsolet, using OVR::System object as member, destructor does the work.
+    //OVR::System::Destroy(); //LibOVR Doc 5.2
 }
-
-//std::vector<std::string> LMOC::touchedObjects(Leap::Vector tipP){
-//	std::vector<std::string> output;
-//	for(unsigned int i=0;i<objBounds.size();i++){
-//		if(tipP.x>=objBounds[i].min.x &&
-//           tipP.x<=objBounds[i].max.x &&
-//           tipP.y>=objBounds[i].min.y &&
-//           tipP.y<=objBounds[i].max.y &&
-//           tipP.z>=objBounds[i].min.z &&
-//           tipP.z<=objBounds[i].max.z){
-//            std::cout << objBounds[i].name << std::endl;
-//		}
-//	}
-//	return output;
-//}
 
 void LMOC::touchedObjects(Leap::Vector tipP){
 	for(unsigned int i=0;i<objBounds.size();i++){
@@ -127,7 +162,6 @@ void LMOC::touchedObjects(Leap::Vector tipP){
 void LMOC::calcColMat(void){
     
     touchedOMat=zeroMat;
-    std::cout << toucedFingers.size();
     bool done=false;
     int outputIndex=0;
     if (toucedFingers.size() != 0) {
@@ -145,17 +179,6 @@ void LMOC::calcColMat(void){
     }
     toucedFingers.clear();
 }
-//void LMOC::touchedObjectsPil(Leap::Vector tipP){
-//	std::vector<std::string> output;
-//	for(unsigned int i=0;i<objBounds.size();i++){
-//		if(tipP.x>=objBounds[i].min.x &&
-//           tipP.x<=objBounds[i].max.x &&
-//           tipP.z>=objBounds[i].min.z &&
-//           tipP.z<=objBounds[i].max.z){
-//            std::cout << objBounds[i].name << " using Keytap in Pillar" << std::endl;
-//		}
-//	}
-//}
 
 bool LMOC::loadResources(){
     //ICON
@@ -319,7 +342,6 @@ bool LMOC::loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector
     for (unsigned int i=0; i<f_data.size(); i++) {
         Vertex vert;
         vert.objId=f_data[i].objId;
-        std::cout << vert.objId << std::endl;
         vert.v=v_data[f_data[i].vertInd.x-1];
         vert.t=vt_data[f_data[i].vertInd.y-1];
         vert.n=vn_data[f_data[i].vertInd.z-1];
@@ -328,6 +350,7 @@ bool LMOC::loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector
     for (unsigned int i=0;i<vert_data->size()*3;i++){
         ind_data->push_back(i);
     }
+    std::cout << path.toAnsiString() << " loaded\n\tvert_data size: " << vert_data->size() << " f_data size:" << f_data.size() << std::endl;
     return true;
 }
 
@@ -410,17 +433,6 @@ void LMOC::leapMatrix(){
             matrixVectorFingers.push_back(fingerTransform);
         }
     }
-    //gestures
-//	for (int i=0;i<gestList.count();i++){
-//		if (gestList[i].type() == Gesture::TYPE_KEY_TAP){
-//            Leap::Vector tapPos;
-//            tapPos *= scale;
-//            tapPos.y -= yOffset;
-//			KeyTapGesture tap = gestList[i];
-//			touchedObjectsPil(tapPos);
-//			std::cout << "tap " << tapPos.x << " " << tapPos.y << std::endl;
-//		}
-//	}
 }
 
 
@@ -440,7 +452,7 @@ void LMOC::renderInit()
     //keyboard
     glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
     glBufferData(GL_ARRAY_BUFFER, keyboardVert_data.size()*sizeof(Vertex),&(keyboardVert_data[0]),GL_STATIC_DRAW);
-        
+    
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, keyboardInd_data.size()*sizeof(unsigned int),&(keyboardInd_data[0]),GL_STATIC_DRAW);
     
@@ -474,27 +486,67 @@ void LMOC::render(){
     
     //////////////////////////////// CALC MATRICES
     glm::mat4 modelMatrix = glm::mat4(1.0f);
-    glm::mat4 perspectiveMatrix=glm::perspective(viewanchor, windowSize.x/windowSize.y, 0.1f, 10000.0f);
-    glm::mat4 lookAtMatrix=glm::lookAt(Eyes.getCam()+playerPos, playerPos, glm::vec3(0.0f, 1.0, 0.0f));
+    
+    //mouse controlled matrices and oculus matrices
+    
+    glm::mat4 perspectiveMatrixL;
+    glm::mat4 lookAtMatrixL;
+    glm::mat4 perspectiveMatrixR;
+    glm::mat4 lookAtMatrixR;
+    
+    
+    
+    if(oculusConnected){
+        float aspectRatio = float(hmd.HResolution * 0.5f)/float(hmd.VResolution);
+        float halfScreenDistance = (hmd.VScreenSize/2.0f);
+        float yfov = 2.0f * atan(halfScreenDistance/hmd.EyeToScreenDistance);
+        float viewCenter = hmd.HScreenSize*0.25f;
+        float eyeProjectionShift = viewCenter - hmd.LensSeparationDistance*0.5f;
+        float projectionCenterOffset = 4.0f * eyeProjectionShift / hmd.HScreenSize;
+        
+        glm::mat4 centerPerspectiveMatrix=glm::perspective(yfov, aspectRatio, 0.1f, 10000.0f);
+        perspectiveMatrixL=glm::translate(projectionCenterOffset, 0.0f, 0.0f)*centerPerspectiveMatrix;
+        perspectiveMatrixR=glm::translate(-projectionCenterOffset, 0.0f, 0.0f)*centerPerspectiveMatrix;
+        
+        float halfIPD = hmd.InterpupillaryDistance * 0.5f;
+        glm::mat4 leftView = glm::translate(halfIPD, 0.0f, 0.0f) * viewCenter;
+        glm::mat4 rightView = glm::translate(-halfIPD, 0.0f, 0.0f) * viewCenter;
+        //WHERE TO USE THEM?????
+        
+        
+        lookAtMatrixL=glm::lookAt(Eyes.getCam()+playerPos, playerPos, glm::vec3(0.0f, 1.0, 0.0f));
+        lookAtMatrixR=glm::lookAt(Eyes.getCam()+playerPos, playerPos, glm::vec3(0.0f, 1.0, 0.0f));
+        
+        
+        lookAtMatrixL=leftView*lookAtMatrixL;
+        lookAtMatrixR=rightView*lookAtMatrixL;
+    }else{
+        float aspectRatio = windowSize.x/windowSize.y;
+        
+        perspectiveMatrixL=glm::perspective(viewanchor, aspectRatio, 0.1f, 10000.0f);
+        lookAtMatrixL=glm::lookAt(Eyes.getCam()+playerPos, playerPos, glm::vec3(0.0f, 1.0, 0.0f));
+        
+        perspectiveMatrixR=glm::perspective(viewanchor, aspectRatio, 0.1f, 10000.0f);
+        lookAtMatrixR=glm::lookAt(Eyes.getCam()+playerPos, playerPos, glm::vec3(0.0f, 1.0, 0.0f));
+    }
     
     /////////////////////////////// ENABLE SHADER
     glUseProgram(lmocShader);
     
     //////////////////////////////// PASS MATRICES AND PRESSED BUTTONS
 	glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_modelMatrix"), 1, GL_FALSE, glm::value_ptr(modelMatrix));
-	glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_lookAtMatrix"), 1, GL_FALSE, glm::value_ptr(lookAtMatrix));
-	glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_perspectiveMatrix"), 1, GL_FALSE, glm::value_ptr(perspectiveMatrix));
     
-    glUniform1i(glGetUniformLocation(lmocShader, "isKeyboard"), 1);
+	glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_ViewMatrixL"), 1, GL_FALSE, glm::value_ptr(lookAtMatrixL));
+	glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_ProjectionMatrixL"), 1, GL_FALSE, glm::value_ptr(perspectiveMatrixL));
     
-	glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_perspectiveMatrix"), 1, GL_FALSE, glm::value_ptr(perspectiveMatrix));
+	glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_ViewMatrixR"), 1, GL_FALSE, glm::value_ptr(lookAtMatrixR));
+	glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_ProjectionMatrixR"), 1, GL_FALSE, glm::value_ptr(perspectiveMatrixR));
     
-    
+    //for the visualization of pressed buttons (violet light and translation)
 	glUniformMatrix4fv(glGetUniformLocation(lmocShader, "pressedButtons"), 1, GL_FALSE, glm::value_ptr(touchedOMat));
     
     /////////////////////////////////////////////////// DRAW
-    //////////////////////////////// RESET
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    //////////////////////////////// RESETt
     glMatrixMode(GL_MODELVIEW);
     //////////////////////////////// ENABLE STATES
     glEnableClientState(GL_VERTEX_ARRAY);
@@ -504,6 +556,7 @@ void LMOC::render(){
     glEnableVertexAttribArray(attribute_u_keyId);
     
     ////////////////////////////////////////////// DRAW KEYBOARD
+    glUniform1i(glGetUniformLocation(lmocShader, "isKeyboard"), 1);
     //////////////////////////////// BIND TEXTURE
     //sadly i dont know why it does work... but it does and i have no time to do it the right way
     if(keyCaps)
@@ -521,7 +574,21 @@ void LMOC::render(){
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
     
     //////////////////////////////// RENDER ACTION KEYBOARD
-    glDrawElements(GL_TRIANGLES, keyboardInd_data.size(), GL_UNSIGNED_INT, 0);
+    
+    if(oculusConnected){
+        //L
+        glViewport(0, 0, window.getSize().x/2, window.getSize().y);
+        glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 1);
+        glDrawElements(GL_TRIANGLES, keyboardInd_data.size(), GL_UNSIGNED_INT, 0);
+        //R
+        glViewport(window.getSize().x/2, 0, window.getSize().x/2, window.getSize().y);
+        glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 0);
+        glDrawElements(GL_TRIANGLES, keyboardInd_data.size(), GL_UNSIGNED_INT, 0);
+    }else{
+        glViewport(0, 0, window.getSize().x, window.getSize().y);
+        glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 1);
+        glDrawElements(GL_TRIANGLES, keyboardInd_data.size(), GL_UNSIGNED_INT, 0);
+    }
     
     ////////////////////////////////////////////// DRAW HANDS
     //deactivate keyboard routines
@@ -538,9 +605,29 @@ void LMOC::render(){
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[3]);
     
     //////////////////////////////// RENDER ACTION HANDS
-    for(int i=0;i<matrixVectorHands.size();i++){
-        glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_modelMatrix"), 1, GL_FALSE, matrixVectorHands[i].toArray4x4().m_array);
-        glDrawElements(GL_TRIANGLES, palmInd_data.size(), GL_UNSIGNED_INT, 0);
+    
+    if(oculusConnected){
+        //L
+        glViewport(0, 0, window.getSize().x/2, window.getSize().y);
+        glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 1);
+        for(int i=0;i<matrixVectorHands.size();i++){
+            glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_modelMatrix"), 1, GL_FALSE, matrixVectorHands[i].toArray4x4().m_array);
+            glDrawElements(GL_TRIANGLES, palmInd_data.size(), GL_UNSIGNED_INT, 0);
+        }
+        //R
+        glViewport(window.getSize().x/2, 0, window.getSize().x/2, window.getSize().y);
+        glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 0);
+        for(int i=0;i<matrixVectorHands.size();i++){
+            glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_modelMatrix"), 1, GL_FALSE, matrixVectorHands[i].toArray4x4().m_array);
+            glDrawElements(GL_TRIANGLES, palmInd_data.size(), GL_UNSIGNED_INT, 0);
+        }
+    }else{
+        glViewport(0, 0, window.getSize().x, window.getSize().y);
+        glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 1);
+        for(int i=0;i<matrixVectorHands.size();i++){
+            glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_modelMatrix"), 1, GL_FALSE, matrixVectorHands[i].toArray4x4().m_array);
+            glDrawElements(GL_TRIANGLES, palmInd_data.size(), GL_UNSIGNED_INT, 0);
+        }
     }
     
     ////////////////////////////////////////////// DRAW FINGERS
@@ -556,12 +643,30 @@ void LMOC::render(){
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[5]);
     
     //////////////////////////////// RENDER ACTION FINGERS
-    for(int i=0;i<matrixVectorFingers.size();i++){
-        glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_modelMatrix"), 1, GL_FALSE, matrixVectorFingers[i].toArray4x4().m_array);
-        glDrawElements(GL_TRIANGLES, fingerInd_data.size(), GL_UNSIGNED_INT, 0);
+    if(oculusConnected){
+        //L
+        glViewport(0, 0, window.getSize().x/2, window.getSize().y);
+        glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 1);
+        for(int i=0;i<matrixVectorFingers.size();i++){
+            glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_modelMatrix"), 1, GL_FALSE, matrixVectorFingers[i].toArray4x4().m_array);
+            glDrawElements(GL_TRIANGLES, fingerInd_data.size(), GL_UNSIGNED_INT, 0);
+        }
+        
+        //R
+        glViewport(window.getSize().x/2, 0, window.getSize().x/2, window.getSize().y);
+        glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 0);
+        for(int i=0;i<matrixVectorFingers.size();i++){
+            glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_modelMatrix"), 1, GL_FALSE, matrixVectorFingers[i].toArray4x4().m_array);
+            glDrawElements(GL_TRIANGLES, fingerInd_data.size(), GL_UNSIGNED_INT, 0);
+        }
+    }else{
+        glViewport(0, 0, window.getSize().x, window.getSize().y);
+        glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 1);
+        for(int i=0;i<matrixVectorFingers.size();i++){
+            glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_modelMatrix"), 1, GL_FALSE, matrixVectorFingers[i].toArray4x4().m_array);
+            glDrawElements(GL_TRIANGLES, fingerInd_data.size(), GL_UNSIGNED_INT, 0);
+        }
     }
-    
-    
     
     //////////////////////////////// DISABLE STATES
     glUseProgram(NULL);
@@ -581,7 +686,7 @@ void LMOC::render(){
     for (int i=0; i<TEXTCNT; i++) {
         window.draw(texts[i]);
     }
-
+    
     //////////////////////////////// SWAP BUFFERS AND DISPLAY
     window.pushGLStates();
     for (int i=0; i<TEXTCNT; i++) {
@@ -632,7 +737,24 @@ void LMOC::checkEvents(){
         }
         
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space) {
-            touchedOMat[0][0]+=1.0;
+            oculusConnected=!oculusConnected;
+        }
+        
+        
+        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::F) {
+            fullscreen=!fullscreen;
+            sf::Vector2u winSize = window.getSize();
+            if(fullscreen){
+                window.setActive(false);
+                window.create(sf::VideoMode(winSize.x,winSize.y), "Leap Motion Oculus Keyboard", sf::Style::Fullscreen, settings);
+                window.setVerticalSyncEnabled(true);
+                window.setActive(true);
+            }else{
+                window.setActive(false);
+                window.create(sf::VideoMode(winSize.x,winSize.y), "Leap Motion Oculus Keyboard", sf::Style::Default, settings);
+                window.setVerticalSyncEnabled(true);
+                window.setActive(true);
+            }
         }
         
         

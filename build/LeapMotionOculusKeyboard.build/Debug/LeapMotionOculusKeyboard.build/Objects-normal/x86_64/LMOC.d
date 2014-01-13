@@ -110,7 +110,10 @@ dependencies: \
   Libs/glm/glm/core/func_vector_relational.inl \
   Libs/glm/glm/./core/func_integer.hpp \
   Libs/glm/glm/core/func_integer.inl Libs/glm/glm/./core/func_noise.hpp \
-  Libs/glm/glm/core/func_noise.inl \
+  Libs/glm/glm/core/func_noise.inl Libs/glm/glm/gtx/transform.hpp \
+  Libs/glm/glm/gtx/../gtc/matrix_transform.hpp \
+  Libs/glm/glm/gtx/../gtc/matrix_transform.inl \
+  Libs/glm/glm/gtx/transform.inl \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Vectors.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Leap.h \
@@ -142,12 +145,14 @@ dependencies: \
   Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/Util/Util_Render_Stereo.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.hpp \
-  Libs/glm/glm/gtc/matrix_transform.hpp \
-  Libs/glm/glm/gtc/matrix_transform.inl Libs/glm/glm/gtc/type_ptr.hpp \
-  Libs/glm/glm/gtc/../gtc/half_float.hpp Libs/glm/glm/gtc/half_float.inl \
-  Libs/glm/glm/gtc/../gtc/quaternion.hpp \
-  Libs/glm/glm/gtc/../gtc/constants.hpp Libs/glm/glm/gtc/constants.inl \
-  Libs/glm/glm/gtc/quaternion.inl Libs/glm/glm/gtc/type_ptr.inl \
+  Libs/glm/glm/gtc/type_ptr.hpp \
+  Libs/glm/glm/gtx/../gtc/../gtc/half_float.hpp \
+  Libs/glm/glm/gtx/../gtc/half_float.inl \
+  Libs/glm/glm/gtx/../gtc/../gtc/quaternion.hpp \
+  Libs/glm/glm/gtx/../gtc/../gtc/constants.hpp \
+  Libs/glm/glm/gtx/../gtc/constants.inl \
+  Libs/glm/glm/gtx/../gtc/quaternion.inl \
+  Libs/glm/glm/gtx/../gtc/type_ptr.inl \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ran.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Matrices.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Shader.h

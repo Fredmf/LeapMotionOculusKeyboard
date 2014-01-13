@@ -110,7 +110,10 @@ dependencies: \
   Libs/glm/glm/core/func_vector_relational.inl \
   Libs/glm/glm/./core/func_integer.hpp \
   Libs/glm/glm/core/func_integer.inl Libs/glm/glm/./core/func_noise.hpp \
-  Libs/glm/glm/core/func_noise.inl \
+  Libs/glm/glm/core/func_noise.inl Libs/glm/glm/gtx/transform.hpp \
+  Libs/glm/glm/gtx/../gtc/matrix_transform.hpp \
+  Libs/glm/glm/gtx/../gtc/matrix_transform.inl \
+  Libs/glm/glm/gtx/transform.inl \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Vectors.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Leap.h \
