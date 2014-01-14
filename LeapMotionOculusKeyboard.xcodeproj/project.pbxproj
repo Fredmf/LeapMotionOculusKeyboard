@@ -18,6 +18,7 @@
 		4338751B1832AC8700133FB0 /* Matrices.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 433875191832AC8700133FB0 /* Matrices.cpp */; };
 		4338751F1832BD8000133FB0 /* fingerTex.png in Resources */ = {isa = PBXBuildFile; fileRef = 4338751D1832BD8000133FB0 /* fingerTex.png */; };
 		433875201832BD8000133FB0 /* palmTex.png in Resources */ = {isa = PBXBuildFile; fileRef = 4338751E1832BD8000133FB0 /* palmTex.png */; };
+		4376140A1884C4AE009F80C7 /* CamOVR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 437614081884C4AE009F80C7 /* CamOVR.cpp */; };
 		43BAAA511832741600DAAADF /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA411832741600DAAADF /* cute_image.jpg */; };
 		43BAAA521832741600DAAADF /* fingertip.obj in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA421832741600DAAADF /* fingertip.obj */; };
 		43BAAA531832741600DAAADF /* Gbuffer.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA431832741600DAAADF /* Gbuffer.fsh */; };
@@ -56,6 +57,8 @@
 		4338751D1832BD8000133FB0 /* fingerTex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fingerTex.png; path = assets/fingerTex.png; sourceTree = "<group>"; };
 		4338751E1832BD8000133FB0 /* palmTex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = palmTex.png; path = assets/palmTex.png; sourceTree = "<group>"; };
 		43539FDF186CF0C500A115D1 /* ran.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ran.h; sourceTree = "<group>"; };
+		437614081884C4AE009F80C7 /* CamOVR.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CamOVR.cpp; sourceTree = "<group>"; };
+		437614091884C4AE009F80C7 /* CamOVR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamOVR.h; sourceTree = "<group>"; };
 		43A7E8F618228B6C00710A8C /* LeapMotionOculusKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeapMotionOculusKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43A7E8FA18228B6C00710A8C /* LeapMotionOculusKeyboard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LeapMotionOculusKeyboard-Info.plist"; sourceTree = "<group>"; };
 		43BAAA411832741600DAAADF /* cute_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cute_image.jpg; path = assets/cute_image.jpg; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 				4338751A1832AC8700133FB0 /* Matrices.h */,
 				43BAAA611832744700DAAADF /* Cam.cpp */,
 				43BAAA621832744700DAAADF /* Cam.h */,
+				437614081884C4AE009F80C7 /* CamOVR.cpp */,
+				437614091884C4AE009F80C7 /* CamOVR.h */,
 				43BAAA671832744700DAAADF /* LMOC.cpp */,
 				43BAAA681832744700DAAADF /* LMOC.h */,
 				43BAAA691832744700DAAADF /* main.cpp */,
@@ -305,6 +310,7 @@
 				43BAAA6F1832744700DAAADF /* LeapListener.cpp in Sources */,
 				43BAAA731832744700DAAADF /* ResourcePath.mm in Sources */,
 				43BAAA711832744700DAAADF /* main.cpp in Sources */,
+				4376140A1884C4AE009F80C7 /* CamOVR.cpp in Sources */,
 				43BAAA701832744700DAAADF /* LMOC.cpp in Sources */,
 				43E3B6BE18605BCF0038FC75 /* Shader.cpp in Sources */,
 				4338751B1832AC8700133FB0 /* Matrices.cpp in Sources */,

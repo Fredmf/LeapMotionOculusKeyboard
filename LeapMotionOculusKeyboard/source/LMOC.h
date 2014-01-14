@@ -45,13 +45,13 @@
 #include <OVR.h>
 
 #include "Cam.h"
+#include "CamOVR.h"
 
 #ifdef __APPLE__
 #include "ResourcePath.hpp"
 #elif WIN32
 #include "ResourcePath.h"
 #endif
-
 
 class LMOC {
     //GLuint textures
@@ -176,6 +176,7 @@ private:
 private:
     GLuint VBO[NUM_VBO];
     Cam Eyes;
+    CamOVR EyesOVR;
     
 private:
     std::vector<Vertex> keyboardVert_data;

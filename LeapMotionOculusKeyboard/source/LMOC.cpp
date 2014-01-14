@@ -28,10 +28,10 @@
 
 //#include <gli/gli.hpp>
 
-
-#include "ran.h"
 #include "Matrices.h"
 #include "Shader.h"
+#include <ctime>
+#include <chrono>
 
 float debugVal;
 
@@ -107,12 +107,12 @@ LMOC::LMOC(){
             oculusConnected = true;
             xRes=hmd.HResolution;
             yRes=hmd.VResolution;
+            EyesOVR.setIPD(hmd.InterpupillaryDistance);
         }else{
             xRes=1280;
             yRes=800;
         }
     }else{
-        std::cout << "!!! Oculus Rift not connected !!!" << std::endl;
         oculusConnected = false;
         xRes=1280;
         yRes=800;
@@ -121,7 +121,7 @@ LMOC::LMOC(){
     
     //OCULUS*************************************
     
-    window.create(sf::VideoMode(xRes,yRes), "Leap Motion Oculus Keyboard", sf::Style::Default, settings);
+    window.create(sf::VideoMode(xRes,yRes), "Leap Motion Oculus RIFT Keyboard", sf::Style::Default, settings);
     window.setVerticalSyncEnabled(true);
     window.setActive(true);
     fullscreen=false;
@@ -357,24 +357,52 @@ bool LMOC::loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector
 }
 
 void LMOC::textThread(){
-    std::stringstream sstext[TEXTCNT];
-    myFrame = listener.frame;
-    sstext[0].str(std::string());
-    sstext[0] << "Frame ID: " << myFrame.id();
-    sstext[1].str(std::string());
-    sstext[1] << "Timestamp: " << myFrame.timestamp();
-    sstext[2].str(std::string());
-    sstext[2] << "Hands Count: " << myFrame.hands().count();
-    sstext[3].str(std::string());
-    sstext[3] << "Fingers Count: " << myFrame.fingers().count();
-    sstext[4].str(std::string());
-    sstext[4] << "Tools Count: " << myFrame.tools().count();
-    sstext[5].str(std::string());
-    sstext[5] << "Gestures Count: " << myFrame.gestures().count();
-    sstext[8].str(std::string());
-    sstext[8] << "stab: " << stab;
-    for (int i = 0; i<TEXTCNT; i++) {
-        texts[i].setString(sstext[i].str());
+    static unsigned int frameCnt;
+    static unsigned int oldFrameCnt;
+    static time_t oldTimer;
+    
+    std::stringstream text;
+    
+    time_t timer;
+    std::time(&timer);
+    
+    if (oldTimer == timer) {
+        frameCnt++;
+    }else{
+        oldFrameCnt=frameCnt;
+        oldTimer=timer;
+        frameCnt=0;
+    }
+    text << oldFrameCnt << " fps";
+    texts[0].setString(text.str());
+    
+    if(pHMD && pManager){
+        texts[1].setString("RIFT - OK");
+    }else{
+        texts[1].setString("RIFT - MISSING");
+    }
+    if (listener.isConnected) {
+        texts[2].setString("LEAP - OK");
+    }else{
+        texts[2].setString("LEAP - MISSING");
+    }
+//    text.str("");
+//    text.clear();
+//    text << EyesOVR.getEye().x << " " << EyesOVR.getEye().y << " " << EyesOVR.getEye().z;
+    texts[3].setString(EyesOVR.getData());
+//    
+//    text.str("");
+//    text.clear();
+//    text << EyesOVR.getCenter().x << " " << EyesOVR.getCenter().y << " " << EyesOVR.getCenter().z;
+//    texts[4].setString(text.str());
+//    
+//    text.str("");
+//    text.clear();
+//    text << EyesOVR.getUp().x << " " << EyesOVR.getUp().y << " " << EyesOVR.getUp().z;
+//    texts[5].setString(text.str());
+    
+    for (int i = 4; i<TEXTCNT; i++) {
+        texts[i].setString("");
     }
 }
 
@@ -477,6 +505,9 @@ void LMOC::render(){
     /////////////////////////////////////////////////// PREPERATION
     glEnable(GL_CULL_FACE);
     glEnable(GL_DEPTH_TEST);
+    glClearDepth(1.0f);
+    glDepthMask(GL_TRUE);
+    glEnable(GL_DOUBLE);
     glEnable(GL_STENCIL_TEST);
 	glEnable(GL_TEXTURE_2D);
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
@@ -516,18 +547,18 @@ void LMOC::render(){
         perspectiveMatrixL=glm::translate(projectionCenterOffset, 0.0f, 0.0f)*centerPerspectiveMatrix;
         perspectiveMatrixR=glm::translate(-projectionCenterOffset, 0.0f, 0.0f)*centerPerspectiveMatrix;
         
-        float halfIPD = (hmd.InterpupillaryDistance * 0.5f)+debugVal;
-        glm::mat4 leftView = glm::translate(halfIPD, 0.0f, 0.0f) * viewCenter;
-        glm::mat4 rightView = glm::translate(-halfIPD, 0.0f, 0.0f) * viewCenter;
+        //float halfIPD = (hmd.InterpupillaryDistance * 0.5f)+debugVal;
+        //glm::mat4 leftView = glm::translate(halfIPD, 0.0f, 0.0f) * viewCenter;
+        //glm::mat4 rightView = glm::translate(-halfIPD, 0.0f, 0.0f) * viewCenter;
         //WHERE TO USE THEM?????
         
         
-        lookAtMatrixL=glm::lookAt(Eyes.getCam()+playerPos, playerPos, glm::vec3(0.0f, 1.0, 0.0f));
-        lookAtMatrixR=glm::lookAt(Eyes.getCam()+playerPos, playerPos, glm::vec3(0.0f, 1.0, 0.0f));
+        lookAtMatrixL=EyesOVR.getLookAtL();
+        lookAtMatrixR=EyesOVR.getLookAtR();
         
         
-        lookAtMatrixL=leftView*lookAtMatrixL;
-        lookAtMatrixR=rightView*lookAtMatrixL;
+        //lookAtMatrixL=leftView*lookAtMatrixL;
+        //lookAtMatrixR=rightView*lookAtMatrixL;
     }else{
         float aspectRatio = windowSize.x/windowSize.y;
         
@@ -703,14 +734,24 @@ void LMOC::render(){
 
 void LMOC::checkInput(){
     //rotate 3rd Person cam on mouse left button
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-        glm::ivec2 mousePos= glm::ivec2(sf::Mouse::getPosition().x,sf::Mouse::getPosition().y);
-        Eyes.mouseMove(mousePos);
-        Eyes.setDown(true);
-    }
-    if (!sf::Mouse::isButtonPressed(sf::Mouse::Left) && Eyes.isDown()){
-        Eyes.mouseRelease();
-        Eyes.setDown(false);
+    if(oculusConnected){
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+            EyesOVR.mouseMove(glm::vec2((float)sf::Mouse::getPosition().x,(float)sf::Mouse::getPosition().y));
+            EyesOVR.setMouseDown(true);
+        }
+        if (!sf::Mouse::isButtonPressed(sf::Mouse::Left) && EyesOVR.isMouseDown()){
+            EyesOVR.setMouseDown(false);
+        }
+    }else{
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+            glm::ivec2 mousePos= glm::ivec2(sf::Mouse::getPosition().x,sf::Mouse::getPosition().y);
+            Eyes.mouseMove(mousePos);
+            Eyes.setDown(true);
+        }
+        if (!sf::Mouse::isButtonPressed(sf::Mouse::Left) && Eyes.isDown()){
+            Eyes.mouseRelease();
+            Eyes.setDown(false);
+        }
     }
 }
 
@@ -740,7 +781,7 @@ void LMOC::checkEvents(){
             keyCaps=!keyCaps;
         }
         
-        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space) {
+        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::O) {
             oculusConnected=!oculusConnected;
         }
         
@@ -760,12 +801,25 @@ void LMOC::checkEvents(){
                 window.setActive(true);
             }
         }
-        
-        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Up) {
-            debugVal+=0.1;
+        if(oculusConnected){
+        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::W) {
+            EyesOVR.move(glm::vec3(0.0f,0.0f,-0.1f));
         }
-        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down) {
-            debugVal-=0.1;
+        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::S) {
+            EyesOVR.move(glm::vec3(0.0f,0.0f,0.1f));
+        }
+        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::A) {
+            EyesOVR.move(glm::vec3(-0.1f,0.0f,0.0f));
+        }
+        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::D) {
+            EyesOVR.move(glm::vec3(0.1f,0.0f,0.0f));
+        }
+        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space) {
+            EyesOVR.move(glm::vec3(0.0f,0.1f,0.0f));
+        }
+        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::LShift) {
+            EyesOVR.move(glm::vec3(0.0f,-0.1f,0.0f));
+        }
         }
         
         //switch leap stability with button S

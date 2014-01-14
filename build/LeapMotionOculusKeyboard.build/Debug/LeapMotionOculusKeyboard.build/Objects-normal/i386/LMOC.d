@@ -144,6 +144,7 @@ dependencies: \
   Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/Util/../Kernel/OVR_List.h \
   Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/../Src/Util/Util_Render_Stereo.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Cam.h \
+  /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/CamOVR.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/ResourcePath.hpp \
   Libs/glm/glm/gtc/type_ptr.hpp \
   Libs/glm/glm/gtx/../gtc/../gtc/half_float.hpp \
@@ -153,6 +154,5 @@ dependencies: \
   Libs/glm/glm/gtx/../gtc/constants.inl \
   Libs/glm/glm/gtx/../gtc/quaternion.inl \
   Libs/glm/glm/gtx/../gtc/type_ptr.inl \
-  /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/ran.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Matrices.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Shader.h
