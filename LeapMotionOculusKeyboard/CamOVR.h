@@ -48,6 +48,8 @@ private:
     glm::vec2 hv;
     float r;
     
+    glm::mat4 rot_cw;
+    glm::mat4 rot_ccw;
     
     glm::vec2 oldMPos;
     bool mouseIsDown;

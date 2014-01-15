@@ -202,6 +202,12 @@ private:
 	OVR::Ptr<OVR::SensorDevice> pSensor;
 	OVR::HMDInfo hmd;
     bool oculusConnected;
+    
+    
+//offscreen rendering and postprocessing stuff
+    unsigned int renderTextureID;
+    unsigned int fbo;
+    unsigned int rbo;
 };
 #endif /* defined(__LeapMotionOculusKeyboard__LMOC__) */
 

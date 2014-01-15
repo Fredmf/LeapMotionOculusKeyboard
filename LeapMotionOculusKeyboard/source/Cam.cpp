@@ -83,7 +83,7 @@ inline void Cam::moveCam(glm::ivec2 mPosDelta){
 }
 
 void Cam::zoomCam(int value){
-    r-=value;
+    r-=((float)value/10.0f);
     if (r <= 0.01)
         r=0.01f;
     camCalculate();

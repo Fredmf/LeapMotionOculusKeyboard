@@ -14,7 +14,7 @@ uniform int isKeyboard;
 uniform int isLeft;
 
 varying vec2 v_texCoord;
-varying vec4 v_debugTest;
+varying vec4 v_buttonColor;
 
 void main() {
     //change button color while pressen (keyboard only)
@@ -24,9 +24,9 @@ void main() {
         for (int i = 0; i<4; i++) {
             for (int j = 0; j<4; j++) {
                 if (pressedButtons[i][j] != 0.0 && u_keyId > pressedButtons[i][j]-0.5 && u_keyId < pressedButtons[i][j]+0.5) {
-                    v_debugTest=vec4(0.56,0.0,1.0,0.0);
+                    v_buttonColor=vec4(0.56,0.0,1.0,0.0);
                     mat4 newModelMatrix = u_modelMatrix;
-                    newModelMatrix[3][1]=-0.3;
+                    newModelMatrix[3][1]=-0.005; //push 5 mm down
                     if (isLeft==1) {
                         gl_Position = u_ProjectionMatrixL * u_ViewMatrixL * newModelMatrix * gl_Vertex;
                     }else{
@@ -38,7 +38,7 @@ void main() {
         }
     }
     if (buttonFound == 0) {
-        v_debugTest=vec4(0.0,0.0,0.0,0.0);
+        v_buttonColor=vec4(0.0,0.0,0.0,0.0);
         if (isLeft==1) {
             gl_Position = u_ProjectionMatrixL * u_ViewMatrixL * u_modelMatrix * gl_Vertex;
         }else{

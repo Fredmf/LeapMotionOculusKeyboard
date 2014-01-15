@@ -49,7 +49,7 @@ LMOC::LMOC(){
     debugVal=0;
     // Create the main window
 	objDraw=0;
-    Eyes.initCam(0,50,40);
+    Eyes.initCam(0,1,1);
 	Eyes.mouseMove(glm::ivec2(0,0));
 	Eyes.mouseRelease();
     objectCount=-1;
@@ -143,6 +143,10 @@ LMOC::LMOC(){
 LMOC::~LMOC(){
     std::cout << "~LMOC()" << std::endl;
     controller.removeListener(listener);
+    
+    glDeleteTextures(1, &renderTextureID);
+    glDeleteFramebuffers(1, &fbo);
+    glDeleteRenderbuffers(1, &rbo);
     
     //obsolet, using OVR::System object as member, destructor does the work.
     //OVR::System::Destroy(); //LibOVR Doc 5.2
@@ -240,6 +244,57 @@ bool LMOC::loadResources(){
     loadModel(resourcePath() + "keyboard.obj",&keyboardVert_data,&keyboardInd_data,true);
     loadModel(resourcePath() + "fingertip.obj",&fingerVert_data,&fingerInd_data,false);
     loadModel(resourcePath() + "palm.obj",&palmVert_data,&palmInd_data,false);
+    
+    //SCALE EVERYTHING
+    glm::mat4 keyboardScale = glm::scale(0.015f, 0.015f, 0.015f);
+    glm::mat4 handScale = glm::scale(0.015f, 0.015f, 0.015f);
+    glm::mat4 fingerScale = glm::scale(0.015f, 0.015f, 0.015f);
+    for (int i =0;i<objBounds.size();i++){
+        glm::vec4 tmp;
+        tmp=keyboardScale*glm::vec4(objBounds[i].max.x,objBounds[i].max.y,objBounds[i].max.z,0.0f);
+        objBounds[i].max=glm::vec3(tmp.x,tmp.y,tmp.z);
+        tmp=keyboardScale*glm::vec4(objBounds[i].min.x,objBounds[i].min.y,objBounds[i].min.z,0.0f);
+        objBounds[i].min=glm::vec3(tmp.x,tmp.y,tmp.z);
+    }
+    for (int i=0; i<keyboardVert_data.size(); i++) {
+        glm::vec4 tmp=glm::vec4(keyboardVert_data[i].v.x,keyboardVert_data[i].v.y,keyboardVert_data[i].v.z,0.0f);
+        tmp=keyboardScale*tmp;
+        keyboardVert_data[i].v=glm::vec3(tmp.x,tmp.y,tmp.z);
+    }
+    for (int i=0; i<palmVert_data.size(); i++) {
+        glm::vec4 tmp=glm::vec4(palmVert_data[i].v.x,palmVert_data[i].v.y,palmVert_data[i].v.z,0.0f);
+        tmp=handScale*tmp;
+        palmVert_data[i].v=glm::vec3(tmp.x,tmp.y,tmp.z);
+    }
+    for (int i=0; i<fingerVert_data.size(); i++) {
+        glm::vec4 tmp=glm::vec4(fingerVert_data[i].v.x,fingerVert_data[i].v.y,fingerVert_data[i].v.z,0.0f);
+        std::cout << tmp.x;
+        tmp=fingerScale*tmp;
+        std::cout << " " << tmp.x << std::endl;
+        
+        fingerVert_data[i].v=glm::vec3(tmp.x,tmp.y,tmp.z);
+    }
+    
+    //offscreen rendering stuff and postprocessing stuff
+    glGenTextures(1, &renderTextureID);
+    
+    glGenFramebuffers(1, &fbo);
+    glBindFramebuffer(GL_FRAMEBUFFER, fbo);
+    
+    glBindTexture(GL_TEXTURE_2D, renderTextureID);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F_ARB, 1920, 1080, 0, GL_RGBA, GL_FLOAT, NULL);
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, renderTextureID, 0);
+    
+    glGenRenderbuffers(1, &rbo);
+    glBindRenderbuffer(GL_RENDERBUFFER, rbo);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, 1920, 1080);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, rbo);
+    
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    
+    
     return true;
 }
 
@@ -407,10 +462,11 @@ void LMOC::textThread(){
 }
 
 void LMOC::leapMatrix(){
-    /////////////////////////// TO MUCH OVERHEAD AS A THREAD
+    //// LEAP gives all coordinates in mm, Oculus in m, and my Models work in cm space, to go with physics standarts this program works in meters, so i have to scale the leap outputs
+    
     /////////////////// CALCULATE THE TRANSFORM MATRICES FOR THE HANDS AND FINGERS
-    float scale=0.0625f;  //1.0f/16.0f;
-    float yOffset=8;
+    float scale=1.0f/1000.0f;  //mm to m
+    float yOffset=0.15; //15cm
     
     Leap::HandList handList = listener.frame.hands();
 	Leap::GestureList gestList = listener.frame.gestures();
@@ -424,12 +480,15 @@ void LMOC::leapMatrix(){
         Leap::Vector handYBasis = -leapHand.palmNormal();
         Leap::Vector handZBasis = -leapHand.direction();
         Leap::Vector handOrigin;
+       
         if(stab)
             handOrigin = leapHand.stabilizedPalmPosition();
         else
             handOrigin = leapHand.palmPosition();
+        
         handOrigin *= scale;
-        handOrigin.y -= yOffset;
+        handOrigin.y-=yOffset;
+        std::cout << handOrigin.x << " " << handOrigin.y << " " << handOrigin.z << std::endl;
         Leap::Matrix handTransform = Leap::Matrix(handXBasis, handYBasis, handZBasis, handOrigin);
         
         matrixVectorHands.push_back(handTransform);
@@ -454,7 +513,7 @@ void LMOC::leapMatrix(){
             else
                 fingerOrigin = leapFinger.tipPosition();
             fingerOrigin *= scale;
-            fingerOrigin.y -= yOffset;
+            fingerOrigin.y-=yOffset;
             
 			//COLLISSION
 			touchedObjects(fingerOrigin);
@@ -524,6 +583,7 @@ void LMOC::render(){
     glm::vec2 windowSize = glm::vec2(window.getSize().x,window.getSize().y);
     
     //////////////////////////////// CALC MATRICES
+    //Model is 1.0  = 1cm, Oculus works with 1.0 = 1m, so scale the Model down
     glm::mat4 modelMatrix = glm::mat4(1.0f);
     
     //mouse controlled matrices and oculus matrices
@@ -547,25 +607,15 @@ void LMOC::render(){
         perspectiveMatrixL=glm::translate(projectionCenterOffset, 0.0f, 0.0f)*centerPerspectiveMatrix;
         perspectiveMatrixR=glm::translate(-projectionCenterOffset, 0.0f, 0.0f)*centerPerspectiveMatrix;
         
-        //float halfIPD = (hmd.InterpupillaryDistance * 0.5f)+debugVal;
-        //glm::mat4 leftView = glm::translate(halfIPD, 0.0f, 0.0f) * viewCenter;
-        //glm::mat4 rightView = glm::translate(-halfIPD, 0.0f, 0.0f) * viewCenter;
-        //WHERE TO USE THEM?????
-        
-        
         lookAtMatrixL=EyesOVR.getLookAtL();
         lookAtMatrixR=EyesOVR.getLookAtR();
-        
-        
-        //lookAtMatrixL=leftView*lookAtMatrixL;
-        //lookAtMatrixR=rightView*lookAtMatrixL;
     }else{
         float aspectRatio = windowSize.x/windowSize.y;
         
-        perspectiveMatrixL=glm::perspective(viewanchor, aspectRatio, 0.1f, 5000.0f);
+        perspectiveMatrixL=glm::perspective(viewanchor, aspectRatio, 0.01f, 5000.0f);
         lookAtMatrixL=glm::lookAt(Eyes.getCam()+playerPos, playerPos, glm::vec3(0.0f, 1.0, 0.0f));
         
-        perspectiveMatrixR=glm::perspective(viewanchor, aspectRatio, 0.1f, 5000.0f);
+        perspectiveMatrixR=glm::perspective(viewanchor, aspectRatio, 0.01f, 5000.0f);
         lookAtMatrixR=glm::lookAt(Eyes.getCam()+playerPos, playerPos, glm::vec3(0.0f, 1.0, 0.0f));
     }
     
@@ -670,6 +720,7 @@ void LMOC::render(){
     }
     
     ////////////////////////////////////////////// DRAW FINGERS
+    glUniform1i(glGetUniformLocation(lmocShader, "isKeyboard"), 0);
     //////////////////////////////// BIND TEXTURE
     //sadly i dont know why it does work... but it does and i have no time to do it the right way
     sf::Texture::bind(&fingerT);
@@ -803,22 +854,22 @@ void LMOC::checkEvents(){
         }
         if(oculusConnected){
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::W) {
-            EyesOVR.move(glm::vec3(0.0f,0.0f,-0.1f));
+            EyesOVR.move(glm::vec3(0.0f,0.0f,-0.01f));
         }
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::S) {
-            EyesOVR.move(glm::vec3(0.0f,0.0f,0.1f));
+            EyesOVR.move(glm::vec3(0.0f,0.0f,0.01f));
         }
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::A) {
-            EyesOVR.move(glm::vec3(-0.1f,0.0f,0.0f));
+            EyesOVR.move(glm::vec3(-0.01f,0.0f,0.0f));
         }
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::D) {
-            EyesOVR.move(glm::vec3(0.1f,0.0f,0.0f));
+            EyesOVR.move(glm::vec3(0.01f,0.0f,0.0f));
         }
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space) {
-            EyesOVR.move(glm::vec3(0.0f,0.1f,0.0f));
+            EyesOVR.move(glm::vec3(0.0f,0.01f,0.0f));
         }
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::LShift) {
-            EyesOVR.move(glm::vec3(0.0f,-0.1f,0.0f));
+            EyesOVR.move(glm::vec3(0.0f,-0.01f,0.0f));
         }
         }
         

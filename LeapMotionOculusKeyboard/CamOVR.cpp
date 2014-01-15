@@ -15,19 +15,19 @@
 #include <glm/gtx/transform.hpp>
 
 CamOVR::CamOVR(){
-    eye=glm::vec3(0.0f,800.0f,800.0f);
-    center=glm::vec3(0.01f,2.01f,0.01f);
+    eye=glm::vec3(0.0f,10.0f,10.0f); //initial value, player is 1m 80cm tall and stands 1m away from origin
+    center=glm::vec3(0.0f,0.0f,0.0f);
     up=glm::vec3(0.0f,1.0f,0.0f);
-    hv=glm::vec2(180.0f,135.0f);
+    hv=glm::vec2(180.0f,135.0f);//and he is looking straingt forward, slightly down
     r=1.0f;
+    
+    rot_cw=glm::rotate(90.0f, 0.0f, 1.0f, 0.0f);
+    rot_ccw=glm::rotate(-90.0f, 0.0f, 1.0f, 0.0f);
 }
 CamOVR::~CamOVR(){
 }
 
 void CamOVR::move(glm::vec3 in){
-    in.x=in.x*5;
-    in.y=in.y*5;
-    in.z=in.z*5;
     eye+=in;
 }
 void CamOVR::orientation(glm::vec2 in){
@@ -35,24 +35,24 @@ void CamOVR::orientation(glm::vec2 in){
     hv=glm::vec2(std::fmodf(hv.x, 360.0f),std::fmodf(hv.y, 360.0f));
 }
 void CamOVR::mouseMove(glm::vec2 in){
-    float sensitivity = 2.0f;
+    in.x=in.x*(-1);
+    float sensitivity = 3.0f;
     in.x=in.x/sensitivity;
     in.y=in.y/sensitivity;
     
     if (oldMPos!=glm::vec2(0.0f,0.0f)) {
-        in.x=in.x*(-1);
-        orientation(in-oldMPos);
+        orientation(glm::vec2(in.x-oldMPos.x,in.y-oldMPos.y));
         oldMPos=in;
     }else{
         oldMPos=in;
+        std::cout << "start " << in.x << " " << in.y << std::endl;
     }
 }
 void CamOVR::yaw(float in){
     
 }
 void CamOVR::setIPD(float in){
-    float IPDScale=40.0f;//ipd scale to world, or 3d effect scale
-    IPD=in*IPDScale;
+    IPD=in;
 }
 
 glm::vec3 CamOVR::getEye(){
@@ -70,8 +70,7 @@ glm::mat4 CamOVR::getLookAt(){
 }
 glm::mat4 CamOVR::getLookAtL(){
     glm::vec4 direction(center.x,0.0f,center.z,0.0f);
-    glm::mat4 rotMat=glm::rotate(-90.0f, 0.0f, 1.0f, 0.0f);
-    glm::vec4 offset=rotMat*direction;
+    glm::vec4 offset=rot_ccw*direction;
     float scale=((IPD*0.5)/sqrtf(offset.x*offset.x+offset.z*offset.z));
     offset=glm::scale(scale, 0.0f, scale)*offset;
     
@@ -79,8 +78,7 @@ glm::mat4 CamOVR::getLookAtL(){
 }
 glm::mat4 CamOVR::getLookAtR(){
     glm::vec4 direction(center.x,0.0f,center.z,0.0f);
-    glm::mat4 rotMat=glm::rotate(90.0f, 0.0f, 1.0f, 0.0f);
-    glm::vec4 offset=rotMat*direction;
+    glm::vec4 offset=rot_cw*direction;
     float scale=((IPD*0.5)/sqrtf(offset.x*offset.x+offset.z*offset.z));
     offset=glm::scale(scale, 0.0f, scale)*offset;
     
