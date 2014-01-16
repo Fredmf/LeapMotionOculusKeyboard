@@ -26,13 +26,35 @@ CamOVR::CamOVR(){
     
     fix=hv;
     first=true;
-    std::cout << ".";
+    moveScale= glm::scale(0.01f, 0.01f, 0.01f);
 }
 CamOVR::~CamOVR(){
 }
 
 void CamOVR::move(glm::vec3 in){
-    eye+=in;
+    if (in.x==0 && in.z ==0) { //up and down
+        eye+=in;
+    }else{
+        glm::vec4 direction(center.x,0.0f,center.z,0.0f);
+        std::cout << direction.x << std::endl;
+        direction=moveScale*glm::normalize(direction);
+        std::cout << direction.x << std::endl;
+        glm::vec3 direction_three=glm::vec3(direction.x,direction.y,direction.z);
+        if (in.z>0) {
+            eye-=direction_three;
+        }
+        if (in.z<0) {
+            eye+=direction_three;
+        }
+        direction=rot_cw*direction;
+        direction_three=glm::vec3(direction.x,direction.y,direction.z);
+        if (in.x>0) {//forward
+            eye-=direction_three;
+        }
+        if (in.x<0) {
+            eye+=direction_three;
+        }
+    }
 }
 void CamOVR::ovrInput(glm::vec3 yawPitchRoll){
     if (first){
@@ -117,6 +139,19 @@ void CamOVR::calculateCenter(void){
     center.x=std::sinf(hv.y/180.0*M_PI)*std::sinf(hv.x/180*M_PI)*r;
     center.y=std::cosf(hv.y/180.0*M_PI)*r;
     center.z=std::sinf(hv.y/180.0*M_PI)*std::cosf(hv.x/180*M_PI)*r;
+}
+
+float CamOVR::getOrientationAngle(void){
+    glm::vec3 globalUpVec(0.0f,1.0f,0.0f);
+    float theta = glm::dot(center, globalUpVec)/1;
+    
+    return acosf(theta);
+}
+glm::vec3 CamOVR::getOrientationVector(void){
+    glm::vec3 globalUpVec(0.0f,1.0f,0.0f);
+    glm::vec3 dir=glm::normalize(glm::cross(center, globalUpVec));
+    
+    return dir;
 }
 
 std::string CamOVR::getData(){

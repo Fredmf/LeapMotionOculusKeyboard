@@ -12,7 +12,7 @@
 #define __LeapMotionOculusKeyboard__LMOC__
 
 #define TEXTCNT 20
-#define NUM_VBO 8
+#define NUM_VBO 12
 //#define RAD_TO_DEG 57.2957795
 #define BUFFER_OFFSET(i) ((void*)(i))
 
@@ -137,7 +137,11 @@ private:
     LeapListener listener;
 private:
     Controller controller;
+    bool wandMode;
     
+    glm::vec3 tipPos;
+    bool toolAvaliable;
+    Leap::Matrix toolTransform;
     
     
 ///////////////////////////////////ATRIBUTES
@@ -167,6 +171,8 @@ private:
     sf::Texture keyboardTCaps;
     sf::Texture palmT;
     sf::Texture fingerT;
+    sf::Texture tableT;
+    sf::Texture wandT;
     bool keyCaps;
     bool stab;
     bool fast;
@@ -199,6 +205,10 @@ private:
     std::vector<unsigned int> palmInd_data;
     std::vector<Vertex> fingerVert_data;
     std::vector<unsigned int> fingerInd_data;
+    std::vector<Vertex> tableVert_data;
+    std::vector<unsigned int> tableInd_data;
+    std::vector<Vertex> wandVert_data;
+    std::vector<unsigned int> wandInd_data;
     GLint attribute_u_keyId;
     
 private:

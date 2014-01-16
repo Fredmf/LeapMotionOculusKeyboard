@@ -18,6 +18,10 @@
 		4338751B1832AC8700133FB0 /* Matrices.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 433875191832AC8700133FB0 /* Matrices.cpp */; };
 		4338751F1832BD8000133FB0 /* fingerTex.png in Resources */ = {isa = PBXBuildFile; fileRef = 4338751D1832BD8000133FB0 /* fingerTex.png */; };
 		433875201832BD8000133FB0 /* palmTex.png in Resources */ = {isa = PBXBuildFile; fileRef = 4338751E1832BD8000133FB0 /* palmTex.png */; };
+		434031561887BCA80036034C /* wand.obj in Resources */ = {isa = PBXBuildFile; fileRef = 434031541887BCA80036034C /* wand.obj */; };
+		434031571887BCA80036034C /* wandTex.png in Resources */ = {isa = PBXBuildFile; fileRef = 434031551887BCA80036034C /* wandTex.png */; };
+		4351CED81887890100FF802A /* table.obj in Resources */ = {isa = PBXBuildFile; fileRef = 4351CED61887890100FF802A /* table.obj */; };
+		4351CED91887890100FF802A /* tableTex.png in Resources */ = {isa = PBXBuildFile; fileRef = 4351CED71887890100FF802A /* tableTex.png */; };
 		4376140A1884C4AE009F80C7 /* CamOVR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 437614081884C4AE009F80C7 /* CamOVR.cpp */; };
 		438B0F3B1886B7410064D010 /* postShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 438B0F391886B7410064D010 /* postShader.frag */; };
 		438B0F3C1886B7410064D010 /* postShader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 438B0F3A1886B7410064D010 /* postShader.vert */; };
@@ -56,6 +60,10 @@
 		4338751C1832B9CA00133FB0 /* Vectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vectors.h; path = source/Vectors.h; sourceTree = "<group>"; };
 		4338751D1832BD8000133FB0 /* fingerTex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fingerTex.png; path = assets/fingerTex.png; sourceTree = "<group>"; };
 		4338751E1832BD8000133FB0 /* palmTex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = palmTex.png; path = assets/palmTex.png; sourceTree = "<group>"; };
+		434031541887BCA80036034C /* wand.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = wand.obj; path = assets/wand.obj; sourceTree = "<group>"; };
+		434031551887BCA80036034C /* wandTex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wandTex.png; path = assets/wandTex.png; sourceTree = "<group>"; };
+		4351CED61887890100FF802A /* table.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = table.obj; path = assets/table.obj; sourceTree = "<group>"; };
+		4351CED71887890100FF802A /* tableTex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tableTex.png; path = assets/tableTex.png; sourceTree = "<group>"; };
 		43539FDF186CF0C500A115D1 /* ran.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ran.h; sourceTree = "<group>"; };
 		437614081884C4AE009F80C7 /* CamOVR.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CamOVR.cpp; sourceTree = "<group>"; };
 		437614091884C4AE009F80C7 /* CamOVR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamOVR.h; sourceTree = "<group>"; };
@@ -166,6 +174,10 @@
 		43A7E90018228B6C00710A8C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				434031541887BCA80036034C /* wand.obj */,
+				434031551887BCA80036034C /* wandTex.png */,
+				4351CED61887890100FF802A /* table.obj */,
+				4351CED71887890100FF802A /* tableTex.png */,
 				438B0F391886B7410064D010 /* postShader.frag */,
 				438B0F3A1886B7410064D010 /* postShader.vert */,
 				4338751D1832BD8000133FB0 /* fingerTex.png */,
@@ -263,14 +275,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4351CED91887890100FF802A /* tableTex.png in Resources */,
 				433875141832A48900133FB0 /* lmocShader.frag in Resources */,
 				438B0F3C1886B7410064D010 /* postShader.vert in Resources */,
+				434031561887BCA80036034C /* wand.obj in Resources */,
 				438B0F3B1886B7410064D010 /* postShader.frag in Resources */,
+				4351CED81887890100FF802A /* table.obj in Resources */,
 				433875151832A48900133FB0 /* lmocShader.vert in Resources */,
 				43BAAA541832741600DAAADF /* Gbuffer.vsh in Resources */,
 				43BAAA531832741600DAAADF /* Gbuffer.fsh in Resources */,
 				43BAAA5C1832741600DAAADF /* palm.obj in Resources */,
 				433875201832BD8000133FB0 /* palmTex.png in Resources */,
+				434031571887BCA80036034C /* wandTex.png in Resources */,
 				43BAAA5B1832741600DAAADF /* nice_music.ogg in Resources */,
 				43BAAA571832741600DAAADF /* keyboardTex.png in Resources */,
 				43BAAA521832741600DAAADF /* fingertip.obj in Resources */,

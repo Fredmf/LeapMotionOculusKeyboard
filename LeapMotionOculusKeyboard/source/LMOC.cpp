@@ -43,7 +43,7 @@ void checkGLError(const char* prefix = "")
 	GLenum err = glGetError();
 	if (err != GL_NO_ERROR)
 	{
-		std::cout << prefix << " GL_ERROR: " << gluErrorString(err) << " (0x" << std::hex << err << ")" << std::endl;
+		std::cout << prefix << " GL_ERROR:  (0x" << std::hex << err << ")" << std::endl;
 	}
 }
 
@@ -63,6 +63,7 @@ LMOC::LMOC(){
     playerPos.z=0.0;
     keyCaps=false;
     stab = false;
+    wandMode=false;
     
     for (int x=0;x<4;x++){
         for (int y=0;y<4;y++){
@@ -167,9 +168,6 @@ LMOC::~LMOC(){
     glDeleteTextures(1, &renderTextureID);
     glDeleteFramebuffers(1, &fbo);
     glDeleteRenderbuffers(1, &rbo);
-    
-    //obsolet, using OVR::System object as member, destructor does the work.
-    //OVR::System::Destroy(); //LibOVR Doc 5.2
 }
 
 void LMOC::touchedObjects(Leap::Vector tipP){
@@ -250,6 +248,14 @@ bool LMOC::loadResources(){
     img.flipVertically();
     fingerT.loadFromImage(img);
     
+    img.loadFromFile(resourcePath() + "tableTex.png");
+    img.flipVertically();
+    tableT.loadFromImage(img);
+    
+    img.loadFromFile(resourcePath() + "wandTex.png");
+    img.flipVertically();
+    wandT.loadFromImage(img);
+    
     
     //FONT
     if (!font.loadFromFile(resourcePath() + "stan0757.ttf")) {
@@ -275,11 +281,20 @@ bool LMOC::loadResources(){
     loadModel(resourcePath() + "keyboard.obj",&keyboardVert_data,&keyboardInd_data,true);
     loadModel(resourcePath() + "fingertip.obj",&fingerVert_data,&fingerInd_data,false);
     loadModel(resourcePath() + "palm.obj",&palmVert_data,&palmInd_data,false);
+    loadModel(resourcePath() + "table.obj",&tableVert_data,&tableInd_data,false);
+    loadModel(resourcePath() + "wand.obj",&wandVert_data,&wandInd_data,false);
+    
+    std::cout << "keyboard " << keyboardInd_data.size() << " " << keyboardVert_data.size() << std::endl;
+    std::cout << "fingertip " << fingerInd_data.size() << " " << fingerVert_data.size() << std::endl;
+    std::cout << "palm " << palmInd_data.size() << " " << palmVert_data.size() << std::endl;
+    std::cout << "table " << tableInd_data.size() << " " << tableVert_data.size() << std::endl;
     
     //SCALE EVERYTHING
     glm::mat4 keyboardScale = glm::scale(0.015f, 0.015f, 0.015f);
     glm::mat4 handScale = glm::scale(0.015f, 0.015f, 0.015f);
     glm::mat4 fingerScale = glm::scale(0.015f, 0.015f, 0.015f);
+    glm::mat4 tableScale = glm::scale(2.0f, 2.0f,2.0f);
+    glm::mat4 wandScale = glm::scale(0.7f, 0.7f,0.7f);
     for (int i =0;i<objBounds.size();i++){
         glm::vec4 tmp;
         tmp=keyboardScale*glm::vec4(objBounds[i].max.x,objBounds[i].max.y,objBounds[i].max.z,0.0f);
@@ -304,6 +319,19 @@ bool LMOC::loadResources(){
         fingerVert_data[i].v=glm::vec3(tmp.x,tmp.y,tmp.z);
     }
     
+    for (int i=0; i<tableVert_data.size(); i++) {
+        glm::vec4 tmp=glm::vec4(tableVert_data[i].v.x,tableVert_data[i].v.y,tableVert_data[i].v.z,0.0f);
+        tmp=tableScale*tmp;
+        
+        tableVert_data[i].v=glm::vec3(tmp.x,tmp.y,tmp.z);
+    }
+    for (int i=0; i<wandVert_data.size(); i++) {
+        glm::vec4 tmp=glm::vec4(wandVert_data[i].v.x,wandVert_data[i].v.y,wandVert_data[i].v.z,0.0f);
+        tmp=wandScale*tmp;
+        
+        wandVert_data[i].v=glm::vec3(tmp.x,tmp.y,tmp.z);
+    }
+    
     //offscreen rendering stuff and postprocessing stuff
     glGenTextures(1, &renderTextureID);
     
@@ -322,6 +350,34 @@ bool LMOC::loadResources(){
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, rbo);
     
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    
+//    
+//    //check bounds, to compare actual size
+//    float minx=0.0f,maxx=0.0f,miny=0.0f,maxy=0.0f,minz=0.0f,maxz=0.0f;
+//    for(int i=0;i<keyboardVert_data.size();i++){
+//        glm::vec3 tmpVertex=keyboardVert_data[i].v;
+//        if (tmpVertex.x<minx) minx=tmpVertex.x;
+//        if (tmpVertex.x>maxx) maxx=tmpVertex.x;
+//        if (tmpVertex.y<miny) miny=tmpVertex.y;
+//        if (tmpVertex.y>maxy) maxy=tmpVertex.y;
+//        if (tmpVertex.z<minz) minz=tmpVertex.z;
+//        if (tmpVertex.z>maxz) maxz=tmpVertex.z;
+//    }
+//    std::cout << "keyboard " << minx << " " << maxx << " " << miny << " " << maxy << " " << minz << " " << maxz << std::endl;
+//    
+//    minx=0.0f;maxx=0.0f;miny=0.0f;maxy=0.0f;minz=0.0f;maxz=0.0f;
+//    for(int i=0;i<tableVert_data.size();i++){
+//        glm::vec3 tmpVertex=tableVert_data[i].v;
+//        if (tmpVertex.x<minx) minx=tmpVertex.x;
+//        if (tmpVertex.x>maxx) maxx=tmpVertex.x;
+//        if (tmpVertex.y<miny) miny=tmpVertex.y;
+//        if (tmpVertex.y>maxy) maxy=tmpVertex.y;
+//        if (tmpVertex.z<minz) minz=tmpVertex.z;
+//        if (tmpVertex.z>maxz) maxz=tmpVertex.z;
+//    }
+//    std::cout << "table " << minx << " " << maxx << " " << miny << " " << maxy << " " << minz << " " <<maxz << std::endl;
+    
+    
     return true;
 }
 
@@ -494,9 +550,53 @@ void LMOC::leapMatrix(){
     /////////////////// CALCULATE THE TRANSFORM MATRICES FOR THE HANDS AND FINGERS
     float scale=1.0f/1000.0f;  //mm to m
     float yOffset=0.15; //15cm
-    
+    if (wandMode&&oculusConnected) {
+        Leap::ToolList toolList = listener.frame.tools();
+        if (toolList.count()>0) {
+            Leap::Tool leapTool = toolList[0];
+            
+            Leap::Vector toolDirection=leapTool.direction();
+            Leap::Vector toolNormal;
+            toolNormal.x = toolDirection.x;
+            toolNormal.y = toolDirection.z;
+            toolNormal.z = -toolDirection.y;
+            toolNormal.normalized();
+            
+            Leap::Vector toolXBasis = toolNormal.cross(toolDirection).normalized();
+            Leap::Vector toolYBasis = -toolNormal;
+            Leap::Vector toolZBasis = -toolDirection;
+            
+            Leap::Vector toolOrigin;
+            if(stab)
+                toolOrigin = leapTool.stabilizedTipPosition();
+            else
+                toolOrigin = leapTool.tipPosition();
+            toolOrigin*=scale;
+			
+			toolTransform = Leap::Matrix(toolXBasis, toolYBasis, toolZBasis, toolOrigin);
+            
+            toolOrigin.x*=(-1);
+            toolOrigin.z*=(-1);
+            Leap::Matrix tipTransMat;
+            Leap::Vector tmpLVec(EyesOVR.getOrientationVector().x,EyesOVR.getOrientationVector().y,EyesOVR.getOrientationVector().z);
+            tipTransMat.setRotation(tmpLVec, EyesOVR.getOrientationAngle());
+            
+            
+            toolOrigin=tipTransMat.transformDirection(toolOrigin);
+            Leap::Vector eyePos(EyesOVR.getEye().x,EyesOVR.getEye().y,EyesOVR.getEye().z);
+            toolOrigin=eyePos+toolOrigin;
+            
+            //COLLISSION
+			touchedObjects(toolOrigin);
+            
+            tipPos=glm::vec3(toolOrigin.x,toolOrigin.y,toolOrigin.z);
+            toolAvaliable=true;
+        }else{
+            toolAvaliable=false;
+        }
+    }else{
     Leap::HandList handList = listener.frame.hands();
-	Leap::GestureList gestList = listener.frame.gestures();
+	//Leap::GestureList gestList = listener.frame.gestures();
     matrixVectorHands.clear();
     matrixVectorFingers.clear();
     
@@ -548,6 +648,7 @@ void LMOC::leapMatrix(){
             matrixVectorFingers.push_back(fingerTransform);
         }
     }
+    }
 }
 
 
@@ -585,6 +686,20 @@ void LMOC::renderInit()
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[5]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, fingerInd_data.size()*sizeof(unsigned int),&(fingerInd_data[0]),GL_STATIC_DRAW);
     
+    //finger
+    glBindBuffer(GL_ARRAY_BUFFER, VBO[6]);
+    glBufferData(GL_ARRAY_BUFFER, tableVert_data.size()*sizeof(Vertex),&(tableVert_data[0]),GL_STATIC_DRAW);
+    
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[7]);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, tableInd_data.size()*sizeof(unsigned int),&(tableInd_data[0]),GL_STATIC_DRAW);
+    
+    //wand
+    glBindBuffer(GL_ARRAY_BUFFER, VBO[10]);
+    glBufferData(GL_ARRAY_BUFFER, wandVert_data.size()*sizeof(Vertex),&(wandVert_data[0]),GL_STATIC_DRAW);
+    
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[11]);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, wandInd_data.size()*sizeof(unsigned int),&(wandInd_data[0]),GL_STATIC_DRAW);
+    
     ///////////////////////////////////////////////////////FOR POSTPROCESSING
     
     static const float VERTS[] =
@@ -603,41 +718,34 @@ void LMOC::renderInit()
         0,1,2,3
     };
     
-    glBindBuffer(GL_ARRAY_BUFFER, VBO[6]);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO[8]);
     glBufferData(GL_ARRAY_BUFFER, 20*sizeof(float),&(VERTS[0]),GL_STATIC_DRAW);
     
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[7]);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[9]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, 4*sizeof(unsigned int),&(VERTS_IND[0]),GL_STATIC_DRAW);
     
     checkGLError("end render init");
 }
 
 void LMOC::render(){
+    sf::Color ClearColor;
+    window.clear(sf::Color::Blue);
     /////////////////////////////////////////////////// PREPERATION
     glEnable(GL_CULL_FACE);
     glEnable(GL_DEPTH_TEST);
     glClearDepth(1.0f);
     glDepthMask(GL_TRUE);
-    
-    glClearColor(0.2f, 0.3f, 0.5f, 1.0f);
-    
-    //glEnable(GL_DOUBLE);
     glEnable(GL_STENCIL_TEST);
 	glEnable(GL_TEXTURE_2D);
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    //glDepthFunc(GL_LEQUAL);
-    //glDepthRange(0.0f, 1.0f);
     
     window.setActive(true);
     window.clear();
     
     //////////////////////////////// CALC MATRICES
-    //Model is 1.0  = 1cm, Oculus works with 1.0 = 1m, so scale the Model down
     glm::mat4 modelMatrix = glm::mat4(1.0f);
-    
-    //mouse controlled matrices and oculus matrices
     
     glm::mat4 perspectiveMatrixL;
     glm::mat4 lookAtMatrixL;
@@ -646,22 +754,6 @@ void LMOC::render(){
     
     if(oculusConnected){
         stereo.SetHMDInfo(hmd);
-        
-        //float aspectRatio = float(hmd.HResolution * 0.5f)/float(hmd.VResolution);
-        //float aspectRatio = stereo.GetAspect();
-        
-        
-        //float halfScreenDistance = (hmd.VScreenSize/2.0f);
-        //float yfov = (2.0f * atan(halfScreenDistance/hmd.EyeToScreenDistance))+18;
-        //float yfov = stereo.GetYFOVDegrees();
-        //float viewCenter = hmd.HScreenSize*0.25f;
-        //float eyeProjectionShift = viewCenter - hmd.LensSeparationDistance*0.5f;
-        //float projectionCenterOffset = 4.0f * eyeProjectionShift / hmd.HScreenSize;
-        
-        //glm::mat4 centerPerspectiveMatrix=glm::perspective(yfov, aspectRatio, 0.1f, 5000.0f);
-        //perspectiveMatrixL=glm::translate(projectionCenterOffset, 0.0f, 0.0f)*centerPerspectiveMatrix;
-        //perspectiveMatrixR=glm::translate(-projectionCenterOffset, 0.0f, 0.0f)*centerPerspectiveMatrix;
-        
         lookAtMatrixL=EyesOVR.getLookAtL();
         lookAtMatrixR=EyesOVR.getLookAtR();
     }else{
@@ -713,6 +805,7 @@ void LMOC::render(){
     
     ////////////////////////////////////////////// DRAW KEYBOARD
     glUniform1i(glGetUniformLocation(lmocShader, "isKeyboard"), 1);
+    glUniform1i(glGetUniformLocation(lmocShader, "isTransparent"), 0);
     //////////////////////////////// BIND TEXTURE
     //sadly i dont know why it does work... but it does and i have no time to do it the right way
     if(keyCaps)
@@ -746,9 +839,98 @@ void LMOC::render(){
         glDrawElements(GL_TRIANGLES, keyboardInd_data.size(), GL_UNSIGNED_INT, 0);
     }
     
+    ////////////////////////////////////////////// DRAW TABLE
+    //deactivate keyboard routines
+    glm::mat4 tableTransMat = glm::translate(0.0f, -0.008f ,-0.119f);
+    glUniform1i(glGetUniformLocation(lmocShader, "isKeyboard"), 0);
+    glUniform1i(glGetUniformLocation(lmocShader, "isTransparent"), 0);
+	glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_modelMatrix"), 1, GL_FALSE, glm::value_ptr(tableTransMat));
+    //////////////////////////////// BIND TEXTURE
+    //sadly i dont know why it does work... but it does and i have no time to do it the right way
+    sf::Texture::bind(&tableT);
+    
+    //////////////////////////////// BIND VERTEX DATA
+    glBindBuffer(GL_ARRAY_BUFFER, VBO[6]);
+    glVertexPointer(3, GL_FLOAT,sizeof(Vertex), 0);
+    glNormalPointer(GL_FLOAT, sizeof(Vertex), (char*)NULL + 12);
+    glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), (char*)NULL + 24);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[7]);
+    
+    //////////////////////////////// RENDER ACTION TABLE
+    
+    if(oculusConnected){
+        //L
+        glViewport(0, 0, BUFFER_WIDTH/2, BUFFER_HEIGHT);
+        glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 1);
+        glDrawElements(GL_TRIANGLES, tableInd_data.size(), GL_UNSIGNED_INT, 0);
+        //R
+        glViewport(BUFFER_WIDTH/2, 0, BUFFER_WIDTH/2, BUFFER_HEIGHT);
+        glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 0);
+        glDrawElements(GL_TRIANGLES, tableInd_data.size(), GL_UNSIGNED_INT, 0);
+    }else{
+        glViewport(0, 0, BUFFER_WIDTH, BUFFER_HEIGHT);
+        glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 1);
+        glDrawElements(GL_TRIANGLES, tableInd_data.size(), GL_UNSIGNED_INT, 0);
+    }
+    
+    if (wandMode) {
+        if (toolAvaliable) {
+        ////////////////////////////////////////////// DRAW WAND
+        //deactivate keyboard routines
+            Leap::Matrix wandTransMat=toolTransform;
+            Leap::Vector tmpLVec(EyesOVR.getOrientationVector().x,EyesOVR.getOrientationVector().y,EyesOVR.getOrientationVector().z);
+            Leap::Matrix wandTransMatbeta;
+            wandTransMatbeta.setRotation(tmpLVec, EyesOVR.getOrientationAngle());
+            wandTransMat=wandTransMat*wandTransMatbeta;
+            
+            glm::mat4 dummy = glm::translate(tipPos.x, tipPos.y, tipPos.z);
+            glm::mat4 dummy2(wandTransMat.toArray4x4().m_array[0],wandTransMat.toArray4x4().m_array[1],
+                             wandTransMat.toArray4x4().m_array[2],wandTransMat.toArray4x4().m_array[3],
+                             wandTransMat.toArray4x4().m_array[4],wandTransMat.toArray4x4().m_array[5],
+                             wandTransMat.toArray4x4().m_array[6],wandTransMat.toArray4x4().m_array[7],
+                             wandTransMat.toArray4x4().m_array[8],wandTransMat.toArray4x4().m_array[9],
+                             wandTransMat.toArray4x4().m_array[10],wandTransMat.toArray4x4().m_array[11],
+                             wandTransMat.toArray4x4().m_array[12],wandTransMat.toArray4x4().m_array[13],
+                             wandTransMat.toArray4x4().m_array[14],wandTransMat.toArray4x4().m_array[15]);
+            dummy=dummy*dummy2;;
+            
+        glUniform1i(glGetUniformLocation(lmocShader, "isKeyboard"), 0);
+        glUniform1i(glGetUniformLocation(lmocShader, "isTransparent"), 1);
+            glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_modelMatrix"), 1, GL_FALSE, glm::value_ptr(dummy));//wandTransMat.toArray4x4().m_array);
+        //////////////////////////////// BIND TEXTURE
+        //sadly i dont know why it does work... but it does and i have no time to do it the right way
+        sf::Texture::bind(&wandT);
+        
+        //////////////////////////////// BIND VERTEX DATA
+        glBindBuffer(GL_ARRAY_BUFFER, VBO[10]);
+        glVertexPointer(3, GL_FLOAT,sizeof(Vertex), 0);
+        glNormalPointer(GL_FLOAT, sizeof(Vertex), (char*)NULL + 12);
+        glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), (char*)NULL + 24);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[11]);
+        
+        //////////////////////////////// RENDER ACTION WAND
+        
+        if(oculusConnected){
+            //L
+            glViewport(0, 0, BUFFER_WIDTH/2, BUFFER_HEIGHT);
+            glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 1);
+            glDrawElements(GL_TRIANGLES, wandInd_data.size(), GL_UNSIGNED_INT, 0);
+            //R
+            glViewport(BUFFER_WIDTH/2, 0, BUFFER_WIDTH/2, BUFFER_HEIGHT);
+            glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 0);
+            glDrawElements(GL_TRIANGLES, wandInd_data.size(), GL_UNSIGNED_INT, 0);
+        }else{
+            glViewport(0, 0, BUFFER_WIDTH, BUFFER_HEIGHT);
+            glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 1);
+            glDrawElements(GL_TRIANGLES, wandInd_data.size(), GL_UNSIGNED_INT, 0);
+        }
+        }
+    }else{
+
     ////////////////////////////////////////////// DRAW HANDS
     //deactivate keyboard routines
     glUniform1i(glGetUniformLocation(lmocShader, "isKeyboard"), 0);
+    glUniform1i(glGetUniformLocation(lmocShader, "isTransparent"), 1);
     //////////////////////////////// BIND TEXTURE
     //sadly i dont know why it does work... but it does and i have no time to do it the right way
     sf::Texture::bind(&palmT);
@@ -788,6 +970,7 @@ void LMOC::render(){
     
     ////////////////////////////////////////////// DRAW FINGERS
     glUniform1i(glGetUniformLocation(lmocShader, "isKeyboard"), 0);
+    glUniform1i(glGetUniformLocation(lmocShader, "isTransparent"), 1);
     //////////////////////////////// BIND TEXTURE
     //sadly i dont know why it does work... but it does and i have no time to do it the right way
     sf::Texture::bind(&fingerT);
@@ -823,6 +1006,7 @@ void LMOC::render(){
             glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_modelMatrix"), 1, GL_FALSE, matrixVectorFingers[i].toArray4x4().m_array);
             glDrawElements(GL_TRIANGLES, fingerInd_data.size(), GL_UNSIGNED_INT, 0);
         }
+    }
     }
     
     //////////////////////////////// DISABLE STATES
@@ -864,7 +1048,7 @@ void LMOC::render(){
         glUniform2f(glGetUniformLocation(postShader, "LensCenterR"), 0.5f+lensCenterOffset, 0.5);
         glUniform2f(glGetUniformLocation(postShader, "ScreenCenterR"), 0.75, 0.5f);
         glUniform2f(glGetUniformLocation(postShader, "Scale"), 0.25f, aspectRatio*0.5f);
-        glUniform2f(glGetUniformLocation(postShader, "ScaleIn"), 3.1f+debugVala, 2.0f/aspectRatio);
+        glUniform2f(glGetUniformLocation(postShader, "ScaleIn"), 3.1f, 2.0f/aspectRatio);
         glUniform4f(glGetUniformLocation(postShader, "HmdWarpParam"), hmd.DistortionK[0], hmd.DistortionK[1], hmd.DistortionK[2], hmd.DistortionK[3]);
     }else{
         glUniform1i(glGetUniformLocation(postShader, "riftMode"), 0);
@@ -882,10 +1066,10 @@ void LMOC::render(){
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     
-    glBindBuffer(GL_ARRAY_BUFFER, VBO[6]);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO[8]);
     glVertexPointer(3, GL_FLOAT,5*sizeof(float), 0);
     glTexCoordPointer(2, GL_FLOAT,5*sizeof(float), (char*)NULL + 12);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[7]);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[9]);
     
     glDrawElements(GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, 0);
     
@@ -919,6 +1103,25 @@ void LMOC::checkInput(){
         if (!sf::Mouse::isButtonPressed(sf::Mouse::Left) && EyesOVR.isMouseDown()){
             EyesOVR.setMouseDown(false);
         }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+                EyesOVR.move(glm::vec3(0.0f,0.0f,-0.01f));
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+                EyesOVR.move(glm::vec3(0.0f,0.0f,0.01f));
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+                EyesOVR.move(glm::vec3(-0.01f,0.0f,0.0f));
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+                EyesOVR.move(glm::vec3(0.01f,0.0f,0.0f));
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+                EyesOVR.move(glm::vec3(0.0f,0.01f,0.0f));
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)) {
+                EyesOVR.move(glm::vec3(0.0f,-0.01f,0.0f));
+            }
+        
     }else{
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
             glm::ivec2 mousePos= glm::ivec2(sf::Mouse::getPosition().x,sf::Mouse::getPosition().y);
@@ -965,12 +1168,12 @@ void LMOC::checkEvents(){
             oculusConnected=!oculusConnected;
         }
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Up) {
-            debugVala+=0.01;
+            debugVala+=0.001;
             std::cout << "a: " << debugVala <<std::endl;
         }
         
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down) {
-            debugVala-=0.01;
+            debugVala-=0.001;
             std::cout << "a: " << debugVala <<std::endl;
         }
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Left) {
@@ -992,6 +1195,10 @@ void LMOC::checkEvents(){
             std::cout << "c: " << debugValc <<std::endl;
         }
         
+        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Return) {
+            wandMode=!wandMode;
+        }
+        
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::F) {
             fullscreen=!fullscreen;
             sf::Vector2u winSize = window.getSize();
@@ -1006,26 +1213,6 @@ void LMOC::checkEvents(){
                 window.setVerticalSyncEnabled(true);
                 window.setActive(true);
             }
-        }
-        if(oculusConnected){
-        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::W) {
-            EyesOVR.move(glm::vec3(0.0f,0.0f,-0.01f));
-        }
-        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::S) {
-            EyesOVR.move(glm::vec3(0.0f,0.0f,0.01f));
-        }
-        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::A) {
-            EyesOVR.move(glm::vec3(-0.01f,0.0f,0.0f));
-        }
-        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::D) {
-            EyesOVR.move(glm::vec3(0.01f,0.0f,0.0f));
-        }
-        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space) {
-            EyesOVR.move(glm::vec3(0.0f,0.01f,0.0f));
-        }
-        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::LShift) {
-            EyesOVR.move(glm::vec3(0.0f,-0.01f,0.0f));
-        }
         }
         
         //switch leap stability with button S

@@ -33,6 +33,8 @@ public:
     glm::mat4 getLookAt(void);
     glm::mat4 getLookAtL(void);
     glm::mat4 getLookAtR(void);
+    float getOrientationAngle(void);
+    glm::vec3 getOrientationVector(void);
     
 public:
     void ovrInput(glm::vec3 yawPitchRoll);
@@ -53,7 +55,7 @@ private:
     float r;
     
     bool first;
-    
+    glm::mat4 moveScale;
     glm::vec3 oculusZero;
     
     glm::mat4 rot_cw;

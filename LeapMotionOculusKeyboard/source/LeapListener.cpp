@@ -8,7 +8,7 @@ void LeapListener::onInit(const Controller& controller) {
 
 void LeapListener::onConnect(const Controller& controller) {
     isConnected=true;
-	controller.enableGesture(Gesture::TYPE_KEY_TAP);
+	//controller.enableGesture(Gesture::TYPE_KEY_TAP);
 }
 
 void LeapListener::onDisconnect(const Controller& controller) {
