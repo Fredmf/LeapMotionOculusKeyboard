@@ -12,7 +12,8 @@
 #define __LeapMotionOculusKeyboard__LMOC__
 
 #define TEXTCNT 20
-#define NUM_VBO 6
+#define NUM_VBO 8
+//#define RAD_TO_DEG 57.2957795
 #define BUFFER_OFFSET(i) ((void*)(i))
 
 #ifdef __APPLE__
@@ -115,8 +116,21 @@ private:
     bool loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector<unsigned int> *ind_data, bool withBounds);
 //////////////////////////////////OCULUS
 private:
-    bool renderLeftEye;
+    OVR::System pOVRSystem;
+	OVR::Ptr<OVR::DeviceManager> pManager;
+	OVR::Ptr<OVR::HMDDevice> pHMD;
+	OVR::Ptr<OVR::SensorDevice> pSensor;
+    OVR::SensorFusion SFusion;
+	OVR::HMDInfo hmd;
+    OVR::Util::Render::StereoConfig stereo;
+    float renderScale;
     
+    bool renderLeftEye;
+    bool oculusConnected;
+    
+    float yaw;
+    float roll;
+    float pitch;
     
 //////////////////////////////////LEAP MOTION
 private:
@@ -194,20 +208,17 @@ private:
     int objectCount;
 	std::vector<GraphObj> objBounds;
 	unsigned int objDraw;
-//oculus
-private:
-    OVR::System pOVRSystem;
-	OVR::Ptr<OVR::DeviceManager> pManager;
-	OVR::Ptr<OVR::HMDDevice> pHMD;
-	OVR::Ptr<OVR::SensorDevice> pSensor;
-	OVR::HMDInfo hmd;
-    bool oculusConnected;
-    
     
 //offscreen rendering and postprocessing stuff
+    
+private:
     unsigned int renderTextureID;
     unsigned int fbo;
     unsigned int rbo;
+    GLuint postShader;
+    unsigned int BUFFER_WIDTH;
+    unsigned int BUFFER_HEIGHT;
+
 };
 #endif /* defined(__LeapMotionOculusKeyboard__LMOC__) */
 

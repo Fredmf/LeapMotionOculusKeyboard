@@ -13,9 +13,9 @@ void main()
     
     //and draw the texture color, no lighting
     if (isKeyboard==1) {
-        gl_FragColor = pixel+v_buttonColor*0.3;
+        gl_FragData[0] = pixel+v_buttonColor*0.3;
     }else{
-        gl_FragColor = pixel*0.6;
+        gl_FragData[0] = pixel*0.6;
     }
     //gl_FragColor = v_debugTest;
 }

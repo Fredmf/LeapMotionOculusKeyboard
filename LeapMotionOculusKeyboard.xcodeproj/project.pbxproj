@@ -19,6 +19,8 @@
 		4338751F1832BD8000133FB0 /* fingerTex.png in Resources */ = {isa = PBXBuildFile; fileRef = 4338751D1832BD8000133FB0 /* fingerTex.png */; };
 		433875201832BD8000133FB0 /* palmTex.png in Resources */ = {isa = PBXBuildFile; fileRef = 4338751E1832BD8000133FB0 /* palmTex.png */; };
 		4376140A1884C4AE009F80C7 /* CamOVR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 437614081884C4AE009F80C7 /* CamOVR.cpp */; };
+		438B0F3B1886B7410064D010 /* postShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 438B0F391886B7410064D010 /* postShader.frag */; };
+		438B0F3C1886B7410064D010 /* postShader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 438B0F3A1886B7410064D010 /* postShader.vert */; };
 		43BAAA511832741600DAAADF /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA411832741600DAAADF /* cute_image.jpg */; };
 		43BAAA521832741600DAAADF /* fingertip.obj in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA421832741600DAAADF /* fingertip.obj */; };
 		43BAAA531832741600DAAADF /* Gbuffer.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA431832741600DAAADF /* Gbuffer.fsh */; };
@@ -30,8 +32,6 @@
 		43BAAA5B1832741600DAAADF /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA4B1832741600DAAADF /* nice_music.ogg */; };
 		43BAAA5C1832741600DAAADF /* palm.obj in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA4C1832741600DAAADF /* palm.obj */; };
 		43BAAA5D1832741600DAAADF /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA4D1832741600DAAADF /* sansation.ttf */; };
-		43BAAA5E1832741600DAAADF /* Screen.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA4E1832741600DAAADF /* Screen.fsh */; };
-		43BAAA5F1832741600DAAADF /* Screen.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA4F1832741600DAAADF /* Screen.vsh */; };
 		43BAAA601832741600DAAADF /* stan0757.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA501832741600DAAADF /* stan0757.ttf */; };
 		43BAAA6E1832744700DAAADF /* Cam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 43BAAA611832744700DAAADF /* Cam.cpp */; };
 		43BAAA6F1832744700DAAADF /* LeapListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 43BAAA641832744700DAAADF /* LeapListener.cpp */; };
@@ -59,6 +59,8 @@
 		43539FDF186CF0C500A115D1 /* ran.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ran.h; sourceTree = "<group>"; };
 		437614081884C4AE009F80C7 /* CamOVR.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CamOVR.cpp; sourceTree = "<group>"; };
 		437614091884C4AE009F80C7 /* CamOVR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamOVR.h; sourceTree = "<group>"; };
+		438B0F391886B7410064D010 /* postShader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = postShader.frag; path = assets/postShader.frag; sourceTree = "<group>"; };
+		438B0F3A1886B7410064D010 /* postShader.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = postShader.vert; path = assets/postShader.vert; sourceTree = "<group>"; };
 		43A7E8F618228B6C00710A8C /* LeapMotionOculusKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeapMotionOculusKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43A7E8FA18228B6C00710A8C /* LeapMotionOculusKeyboard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LeapMotionOculusKeyboard-Info.plist"; sourceTree = "<group>"; };
 		43BAAA411832741600DAAADF /* cute_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cute_image.jpg; path = assets/cute_image.jpg; sourceTree = "<group>"; };
@@ -72,8 +74,6 @@
 		43BAAA4B1832741600DAAADF /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = nice_music.ogg; path = assets/nice_music.ogg; sourceTree = "<group>"; };
 		43BAAA4C1832741600DAAADF /* palm.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = palm.obj; path = assets/palm.obj; sourceTree = "<group>"; };
 		43BAAA4D1832741600DAAADF /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = sansation.ttf; path = assets/sansation.ttf; sourceTree = "<group>"; };
-		43BAAA4E1832741600DAAADF /* Screen.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Screen.fsh; path = assets/Screen.fsh; sourceTree = "<group>"; };
-		43BAAA4F1832741600DAAADF /* Screen.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Screen.vsh; path = assets/Screen.vsh; sourceTree = "<group>"; };
 		43BAAA501832741600DAAADF /* stan0757.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = stan0757.ttf; path = assets/stan0757.ttf; sourceTree = "<group>"; };
 		43BAAA611832744700DAAADF /* Cam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Cam.cpp; path = source/Cam.cpp; sourceTree = "<group>"; };
 		43BAAA621832744700DAAADF /* Cam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cam.h; path = source/Cam.h; sourceTree = "<group>"; };
@@ -166,6 +166,8 @@
 		43A7E90018228B6C00710A8C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				438B0F391886B7410064D010 /* postShader.frag */,
+				438B0F3A1886B7410064D010 /* postShader.vert */,
 				4338751D1832BD8000133FB0 /* fingerTex.png */,
 				4338751E1832BD8000133FB0 /* palmTex.png */,
 				433875101832A48900133FB0 /* lmocShader.frag */,
@@ -181,8 +183,6 @@
 				43BAAA4B1832741600DAAADF /* nice_music.ogg */,
 				43BAAA4C1832741600DAAADF /* palm.obj */,
 				43BAAA4D1832741600DAAADF /* sansation.ttf */,
-				43BAAA4E1832741600DAAADF /* Screen.fsh */,
-				43BAAA4F1832741600DAAADF /* Screen.vsh */,
 				43BAAA501832741600DAAADF /* stan0757.ttf */,
 			);
 			name = Resources;
@@ -264,10 +264,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				433875141832A48900133FB0 /* lmocShader.frag in Resources */,
+				438B0F3C1886B7410064D010 /* postShader.vert in Resources */,
+				438B0F3B1886B7410064D010 /* postShader.frag in Resources */,
 				433875151832A48900133FB0 /* lmocShader.vert in Resources */,
-				43BAAA5F1832741600DAAADF /* Screen.vsh in Resources */,
 				43BAAA541832741600DAAADF /* Gbuffer.vsh in Resources */,
-				43BAAA5E1832741600DAAADF /* Screen.fsh in Resources */,
 				43BAAA531832741600DAAADF /* Gbuffer.fsh in Resources */,
 				43BAAA5C1832741600DAAADF /* palm.obj in Resources */,
 				433875201832BD8000133FB0 /* palmTex.png in Resources */,

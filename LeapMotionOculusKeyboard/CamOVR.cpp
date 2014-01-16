@@ -10,19 +10,23 @@
 #include <cmath>
 #define _USE_MATH_DEFINES
 #include <glm/gtc/matrix_transform.hpp>
-#include <iostream>
 #include <sstream>
 #include <glm/gtx/transform.hpp>
+#include <iostream>
 
 CamOVR::CamOVR(){
-    eye=glm::vec3(0.0f,10.0f,10.0f); //initial value, player is 1m 80cm tall and stands 1m away from origin
+    eye=glm::vec3(0.0f,0.17f, 0.1f); //initial value, player is 1m 80cm tall and stands 1m away from origin
     center=glm::vec3(0.0f,0.0f,0.0f);
     up=glm::vec3(0.0f,1.0f,0.0f);
-    hv=glm::vec2(180.0f,135.0f);//and he is looking straingt forward, slightly down
+    hv=glm::vec2(180.0f,90.0f);//and he is looking straingt forward, slightly down
     r=1.0f;
     
     rot_cw=glm::rotate(90.0f, 0.0f, 1.0f, 0.0f);
     rot_ccw=glm::rotate(-90.0f, 0.0f, 1.0f, 0.0f);
+    
+    fix=hv;
+    first=true;
+    std::cout << ".";
 }
 CamOVR::~CamOVR(){
 }
@@ -30,9 +34,35 @@ CamOVR::~CamOVR(){
 void CamOVR::move(glm::vec3 in){
     eye+=in;
 }
+void CamOVR::ovrInput(glm::vec3 yawPitchRoll){
+    if (first){
+        oculusZero=yawPitchRoll;
+        first=false;
+    }
+    //std::cout << yawPitchRoll.x << std::endl;
+    yawPitchRoll-=oculusZero;
+    yawPitchRoll.x*=(-1.0);
+    yawPitchRoll.z*=(-1.0);
+    hv.x=fix.x+yawPitchRoll.x;
+    hv.y=fix.y+yawPitchRoll.y;
+    
+    float tmp = yawPitchRoll.z;
+    static float lastZ;
+    yawPitchRoll.z-=lastZ;
+    lastZ=tmp;
+    glm::mat4 rMat=glm::rotate(yawPitchRoll.z, 0.0f, 0.0f, 1.0f);
+    
+    glm::vec4 tUp(up.x,up.y,up.z,0.0f);
+    tUp=rMat*tUp;
+    up=glm::vec3(tUp.x,tUp.y,tUp.z);
+    
+}
 void CamOVR::orientation(glm::vec2 in){
     hv+=in;
     hv=glm::vec2(std::fmodf(hv.x, 360.0f),std::fmodf(hv.y, 360.0f));
+    
+    fix+=in;
+    fix=glm::vec2(std::fmodf(fix.x, 360.0f),std::fmodf(fix.y, 360.0f));
 }
 void CamOVR::mouseMove(glm::vec2 in){
     in.x=in.x*(-1);
@@ -45,7 +75,6 @@ void CamOVR::mouseMove(glm::vec2 in){
         oldMPos=in;
     }else{
         oldMPos=in;
-        std::cout << "start " << in.x << " " << in.y << std::endl;
     }
 }
 void CamOVR::yaw(float in){
