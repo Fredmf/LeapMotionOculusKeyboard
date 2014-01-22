@@ -1,11 +1,10 @@
+//Fred Fluegge 2014
+//Everyone is permitted to copy and distribute verbatim or modified
+//copies of this document, and changing it is allowed as long
+//as the name is changed.
 //
-//  LMOC.cpp
-//  LeapMotionOculusKeyboard
-//
-//  Created by FredMF on 09.11.13.
-//
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
+//This software is provided 'as-is', without any express or implied warranty.
+//In no event will the authors be held liable for any damages arising from the use of this software.
 
 #include "LMOC.h"
 
@@ -28,10 +27,8 @@
 
 //#include <gli/gli.hpp>
 
-#include "Matrices.h"
 #include "Shader.h"
 #include <ctime>
-#include <chrono>
 
 float debugVala;
 float debugValb;
@@ -153,9 +150,6 @@ LMOC::LMOC(){
     
     loadResources();
     
-    // Play the music
-    music.play();
-    
     running=true;
     rendering=true;
 	firstRun=true;
@@ -212,13 +206,6 @@ void LMOC::calcColMat(void){
 }
 
 bool LMOC::loadResources(){
-    //ICON
-    if (!icon.loadFromFile(resourcePath() + "icon.png")) {
-		std::cerr << "icon not found" << std::endl;
-        return false;
-    }
-    window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
-    
     //SHADERS
     if (!loadShader(lmocShader,resourcePath() + "lmocShader.vert",resourcePath() + "lmocShader.frag")){
 		std::cerr << "shaders not found under: " << resourcePath() << std::endl;
@@ -270,12 +257,6 @@ bool LMOC::loadResources(){
         texts[i].setCharacterSize(8);
         texts[i].setString(s);
         texts[i].setPosition(1,((float)i*(texts[i].getCharacterSize()+1))+1);
-    }
-    
-    // Load a music to play
-    if (!music.openFromFile(resourcePath() + "nice_music.ogg")) {
-		std::cerr << "music not found" << std::endl;
-        return false;
     }
     
     loadModel(resourcePath() + "keyboard.obj",&keyboardVert_data,&keyboardInd_data,true);

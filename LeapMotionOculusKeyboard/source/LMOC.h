@@ -1,12 +1,10 @@
+//Fred Fluegge 2014
+//Everyone is permitted to copy and distribute verbatim or modified
+//copies of this document, and changing it is allowed as long
+//as the name is changed.
 //
-//  LMOC.h
-//  LeapMotionOculusKeyboard
-//
-//  Created by Grin on 09.11.13.
-//  Copyright (c) 2013 Fachbereich Informatik. All rights reserved.
-//
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
+//This software is provided 'as-is', without any express or implied warranty.
+//In no event will the authors be held liable for any damages arising from the use of this software.
 
 #ifndef __LeapMotionOculusKeyboard__LMOC__
 #define __LeapMotionOculusKeyboard__LMOC__
@@ -35,8 +33,6 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtx/transform.hpp>
-
-#include "Vectors.h"
 
 //leap
 #include "LeapListener.h"
@@ -165,8 +161,6 @@ private:
     //resources
     //TEXTURES
 private:
-    sf::Image icon;
-private:
     sf::Texture keyboardT;
     sf::Texture keyboardTCaps;
     sf::Texture palmT;
@@ -178,8 +172,6 @@ private:
     bool fast;
 private:
     sf::Font font;
-private:
-    sf::Music music;
     
 private:
     bool running;

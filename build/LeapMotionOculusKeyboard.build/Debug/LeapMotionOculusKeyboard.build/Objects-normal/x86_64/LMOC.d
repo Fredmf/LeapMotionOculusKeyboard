@@ -114,7 +114,6 @@ dependencies: \
   Libs/glm/glm/gtx/../gtc/matrix_transform.hpp \
   Libs/glm/glm/gtx/../gtc/matrix_transform.inl \
   Libs/glm/glm/gtx/transform.inl \
-  /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Vectors.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/LeapListener.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Leap.h \
   Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Include/OVR.h \
@@ -154,5 +153,4 @@ dependencies: \
   Libs/glm/glm/gtx/../gtc/constants.inl \
   Libs/glm/glm/gtx/../gtc/quaternion.inl \
   Libs/glm/glm/gtx/../gtc/type_ptr.inl \
-  /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Matrices.h \
   /Users/fredflugge/Documents/Informatik/Aktuell\ belegt/COGR\ -\ \ Computer\ Graphik/projekt/LeapMotionOculusKeyboard/LeapMotionOculusKeyboard/source/Shader.h
