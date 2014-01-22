@@ -21,7 +21,7 @@
 		434031571887BCA80036034C /* wandTex.png in Resources */ = {isa = PBXBuildFile; fileRef = 434031551887BCA80036034C /* wandTex.png */; };
 		4351CED81887890100FF802A /* table.obj in Resources */ = {isa = PBXBuildFile; fileRef = 4351CED61887890100FF802A /* table.obj */; };
 		4351CED91887890100FF802A /* tableTex.png in Resources */ = {isa = PBXBuildFile; fileRef = 4351CED71887890100FF802A /* tableTex.png */; };
-		4376140A1884C4AE009F80C7 /* CamOVR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 437614081884C4AE009F80C7 /* CamOVR.cpp */; };
+		435D4C0018907C1900187319 /* CamOVR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 435D4BFE18907C1900187319 /* CamOVR.cpp */; };
 		438B0F3B1886B7410064D010 /* postShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 438B0F391886B7410064D010 /* postShader.frag */; };
 		438B0F3C1886B7410064D010 /* postShader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 438B0F3A1886B7410064D010 /* postShader.vert */; };
 		43BAAA521832741600DAAADF /* fingertip.obj in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA421832741600DAAADF /* fingertip.obj */; };
@@ -56,8 +56,8 @@
 		434031551887BCA80036034C /* wandTex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wandTex.png; path = assets/wandTex.png; sourceTree = "<group>"; };
 		4351CED61887890100FF802A /* table.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = table.obj; path = assets/table.obj; sourceTree = "<group>"; };
 		4351CED71887890100FF802A /* tableTex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tableTex.png; path = assets/tableTex.png; sourceTree = "<group>"; };
-		437614081884C4AE009F80C7 /* CamOVR.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CamOVR.cpp; sourceTree = "<group>"; };
-		437614091884C4AE009F80C7 /* CamOVR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamOVR.h; sourceTree = "<group>"; };
+		435D4BFE18907C1900187319 /* CamOVR.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CamOVR.cpp; path = source/CamOVR.cpp; sourceTree = "<group>"; };
+		435D4BFF18907C1900187319 /* CamOVR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CamOVR.h; path = source/CamOVR.h; sourceTree = "<group>"; };
 		438B0F391886B7410064D010 /* postShader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = postShader.frag; path = assets/postShader.frag; sourceTree = "<group>"; };
 		438B0F3A1886B7410064D010 /* postShader.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = postShader.vert; path = assets/postShader.vert; sourceTree = "<group>"; };
 		43A7E8F618228B6C00710A8C /* LeapMotionOculusKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeapMotionOculusKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,12 +185,12 @@
 		43DD4EF2182DD8E7005DA23B /* System */ = {
 			isa = PBXGroup;
 			children = (
+				435D4BFE18907C1900187319 /* CamOVR.cpp */,
+				435D4BFF18907C1900187319 /* CamOVR.h */,
 				43E3B6BC18605BCF0038FC75 /* Shader.cpp */,
 				43E3B6BD18605BCF0038FC75 /* Shader.h */,
 				43BAAA611832744700DAAADF /* Cam.cpp */,
 				43BAAA621832744700DAAADF /* Cam.h */,
-				437614081884C4AE009F80C7 /* CamOVR.cpp */,
-				437614091884C4AE009F80C7 /* CamOVR.h */,
 				43BAAA671832744700DAAADF /* LMOC.cpp */,
 				43BAAA681832744700DAAADF /* LMOC.h */,
 				43BAAA691832744700DAAADF /* main.cpp */,
@@ -299,10 +299,10 @@
 				43BAAA6F1832744700DAAADF /* LeapListener.cpp in Sources */,
 				43BAAA731832744700DAAADF /* ResourcePath.mm in Sources */,
 				43BAAA711832744700DAAADF /* main.cpp in Sources */,
-				4376140A1884C4AE009F80C7 /* CamOVR.cpp in Sources */,
 				43BAAA701832744700DAAADF /* LMOC.cpp in Sources */,
 				43E3B6BE18605BCF0038FC75 /* Shader.cpp in Sources */,
 				43BAAA6E1832744700DAAADF /* Cam.cpp in Sources */,
+				435D4C0018907C1900187319 /* CamOVR.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,8 +442,8 @@
 				INFOPLIST_FILE = "LeapMotionOculusKeyboard/LeapMotionOculusKeyboard-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/fredflugge/Documents/Informatik/Aktuell\\ belegt/COGR\\ -\\ \\ Computer\\ Graphik/projekt/LeapMotionOculusKeyboard/Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Lib/MacOS/Debug",
-					"/Users/fredflugge/Documents/Informatik/Aktuell\\ belegt/COGR\\ -\\ \\ Computer\\ Graphik/projekt/LeapMotionOculusKeyboard/Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Lib/MacOS/Release",
+					"Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Lib/MacOS/Debug",
+					"Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Lib/MacOS/Release",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -464,8 +464,8 @@
 				INFOPLIST_FILE = "LeapMotionOculusKeyboard/LeapMotionOculusKeyboard-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/fredflugge/Documents/Informatik/Aktuell\\ belegt/COGR\\ -\\ \\ Computer\\ Graphik/projekt/LeapMotionOculusKeyboard/Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Lib/MacOS/Debug",
-					"/Users/fredflugge/Documents/Informatik/Aktuell\\ belegt/COGR\\ -\\ \\ Computer\\ Graphik/projekt/LeapMotionOculusKeyboard/Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Lib/MacOS/Release",
+					"Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Lib/MacOS/Debug",
+					"Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Lib/MacOS/Release",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
