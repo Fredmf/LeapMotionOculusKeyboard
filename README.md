@@ -1,6 +1,8 @@
 LeapMotionOculusKeyboard
 ========================
 
+http://www.youtube.com/watch?v=H08EVNUoAzE
+
 Educational Demonstrator, to research the use of the Leap Motion in Conjunction with the Oculus Rift to interact with virtual keyboard like interfaces.
 
 just clone and compile with xcode
