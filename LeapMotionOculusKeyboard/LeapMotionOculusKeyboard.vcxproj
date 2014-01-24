@@ -158,6 +158,30 @@ xcopy /y  $(SolutionDir)Libs\SFML-2.1\bin\sfml-graphics-d-2.dll $(OutDir)</Comma
       <AdditionalLibraryDirectories>$(SolutionDir)\Libs\glew-1.10.0\lib\Release\Win32;$(SolutionDir)\Libs\SFML-2.1\lib;$(SolutionDir)\Libs\ovr_sdk_win_0.2.5c\OculusSDK\LibOVR\Lib\Win32;$(SolutionDir)\Libs\LeapDeveloperKit_release_win_1.0.8+7665\LeapSDK\lib\x86</AdditionalLibraryDirectories>
       <AdditionalDependencies>winmm.lib;libovr.lib;glu32.lib;opengl32.lib;glew32.lib;Leap.lib;sfml-network.lib;sfml-system.lib;sfml-main.lib;sfml-audio.lib;sfml-graphics.lib;sfml-window.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y  $(SolutionDir)Libs\glew-1.10.0\bin\Release\Win32\glew32.dll $(OutDir)
+xcopy /y  $(SolutionDir)Libs\LeapDeveloperKit_release_win_1.0.8+7665\LeapSDK\lib\x86\Leap.dll $(OutDir)
+xcopy /y  $(SolutionDir)Libs\SFML-2.1\bin\sfml-window-2.dll $(OutDir)
+xcopy /y  $(SolutionDir)Libs\SFML-2.1\bin\sfml-system-2.dll $(OutDir)
+xcopy /y  $(SolutionDir)Libs\SFML-2.1\bin\sfml-graphics-2.dll $(OutDir)
+mkdir $(OutDir)assets
+xcopy /y $(SolutionDir)LeapMotionOculusKeyboard\assets\fingerTex.png $(OutDir)assets
+xcopy /y $(SolutionDir)LeapMotionOculusKeyboard\assets\fingertip.obj $(OutDir)assets
+xcopy /y $(SolutionDir)LeapMotionOculusKeyboard\assets\keyboard.obj $(OutDir)assets
+xcopy /y $(SolutionDir)LeapMotionOculusKeyboard\assets\keyboardTex.png $(OutDir)assets
+xcopy /y $(SolutionDir)LeapMotionOculusKeyboard\assets\keyboardTexCaps.png $(OutDir)assets
+xcopy /y $(SolutionDir)LeapMotionOculusKeyboard\assets\lmocShader.frag $(OutDir)assets
+xcopy /y $(SolutionDir)LeapMotionOculusKeyboard\assets\lmocShader.vert $(OutDir)assets
+xcopy /y $(SolutionDir)LeapMotionOculusKeyboard\assets\palm.obj $(OutDir)assets
+xcopy /y $(SolutionDir)LeapMotionOculusKeyboard\assets\palmTex.png $(OutDir)assets
+xcopy /y $(SolutionDir)LeapMotionOculusKeyboard\assets\postShader.frag $(OutDir)assets
+xcopy /y $(SolutionDir)LeapMotionOculusKeyboard\assets\postShader.vert $(OutDir)assets
+xcopy /y $(SolutionDir)LeapMotionOculusKeyboard\assets\stan0757.ttf $(OutDir)assets
+xcopy /y $(SolutionDir)LeapMotionOculusKeyboard\assets\table.obj $(OutDir)assets
+xcopy /y $(SolutionDir)LeapMotionOculusKeyboard\assets\tableTex.png $(OutDir)assets
+xcopy /y $(SolutionDir)LeapMotionOculusKeyboard\assets\wand.obj $(OutDir)assets
+xcopy /y $(SolutionDir)LeapMotionOculusKeyboard\assets\wandTex.png $(OutDir)assets</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
