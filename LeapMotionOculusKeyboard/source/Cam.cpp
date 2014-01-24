@@ -10,7 +10,7 @@
 #include <cmath>
 #include <iostream>
 
-#define PI  3.1415f
+#define CAM_PI  3.1415f
 
 Cam::Cam(){
     
@@ -115,9 +115,9 @@ void Cam::mouseRelease(){
 }
 
 inline void Cam::camCalculate(){
-    pos.x=sinf(v/180*PI)*sinf(h/180*PI)*r;
-    pos.y=cosf(v/180*PI)*r;
-    pos.z=sinf(v/180*PI)*cosf(h/180*PI)*r;
+    pos.x=sinf(v/180*CAM_PI)*sinf(h/180*CAM_PI)*r;
+    pos.y=cosf(v/180*CAM_PI)*r;
+    pos.z=sinf(v/180*CAM_PI)*cosf(h/180*CAM_PI)*r;
 }
 
 void Cam::printData(){

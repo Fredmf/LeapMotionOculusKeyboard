@@ -128,8 +128,8 @@ LMOC::LMOC(){
                 else
                     stereo.SetDistortionFitPointVP(0.0f, 1.0f);
             }
-            BUFFER_HEIGHT=yRes*stereo.GetDistortionScale();
-            BUFFER_WIDTH=xRes*stereo.GetDistortionScale();
+            BUFFER_HEIGHT=(unsigned int)((float)yRes*stereo.GetDistortionScale());
+            BUFFER_WIDTH=(unsigned int)((float)xRes*stereo.GetDistortionScale());
             
         }
     }else{
@@ -143,11 +143,23 @@ LMOC::LMOC(){
     
     //OCULUS*************************************
     
-    window.create(sf::VideoMode(xRes,yRes), "Leap Motion Oculus RIFT Keyboard", sf::Style::Default, settings);
+    window.create(sf::VideoMode(xRes,yRes), "Leap Motion Oculus RIFT Keyboard", sf::Style::Fullscreen, settings);
     window.setVerticalSyncEnabled(true);
     window.setActive(true);
-    fullscreen=false;
+    fullscreen=true;
     
+
+	//INIT GLEW
+#ifdef WIN32
+	GLenum err = glewInit();
+	if (GLEW_OK != err)
+	{
+		std::cout << "GLEW Error: " << glewGetErrorString(err) << std::endl;
+	}
+	std::cout << "Status: Using GLEW " << glewGetString(GLEW_VERSION) << std::endl;
+#endif
+
+
     loadResources();
     
     running=true;
@@ -276,37 +288,37 @@ bool LMOC::loadResources(){
     glm::mat4 fingerScale = glm::scale(0.015f, 0.015f, 0.015f);
     glm::mat4 tableScale = glm::scale(2.0f, 2.0f,2.0f);
     glm::mat4 wandScale = glm::scale(0.7f, 0.7f,0.7f);
-    for (int i =0;i<objBounds.size();i++){
+    for (unsigned int i =0;i<objBounds.size();i++){
         glm::vec4 tmp;
         tmp=keyboardScale*glm::vec4(objBounds[i].max.x,objBounds[i].max.y,objBounds[i].max.z,0.0f);
         objBounds[i].max=glm::vec3(tmp.x,tmp.y,tmp.z);
         tmp=keyboardScale*glm::vec4(objBounds[i].min.x,objBounds[i].min.y,objBounds[i].min.z,0.0f);
         objBounds[i].min=glm::vec3(tmp.x,tmp.y,tmp.z);
     }
-    for (int i=0; i<keyboardVert_data.size(); i++) {
+    for (unsigned int i=0; i<keyboardVert_data.size(); i++) {
         glm::vec4 tmp=glm::vec4(keyboardVert_data[i].v.x,keyboardVert_data[i].v.y,keyboardVert_data[i].v.z,0.0f);
         tmp=keyboardScale*tmp;
         keyboardVert_data[i].v=glm::vec3(tmp.x,tmp.y,tmp.z);
     }
-    for (int i=0; i<palmVert_data.size(); i++) {
+    for (unsigned int i=0; i<palmVert_data.size(); i++) {
         glm::vec4 tmp=glm::vec4(palmVert_data[i].v.x,palmVert_data[i].v.y,palmVert_data[i].v.z,0.0f);
         tmp=handScale*tmp;
         palmVert_data[i].v=glm::vec3(tmp.x,tmp.y,tmp.z);
     }
-    for (int i=0; i<fingerVert_data.size(); i++) {
+    for (unsigned int i=0; i<fingerVert_data.size(); i++) {
         glm::vec4 tmp=glm::vec4(fingerVert_data[i].v.x,fingerVert_data[i].v.y,fingerVert_data[i].v.z,0.0f);
         tmp=fingerScale*tmp;
         
         fingerVert_data[i].v=glm::vec3(tmp.x,tmp.y,tmp.z);
     }
     
-    for (int i=0; i<tableVert_data.size(); i++) {
+    for (unsigned int i=0; i<tableVert_data.size(); i++) {
         glm::vec4 tmp=glm::vec4(tableVert_data[i].v.x,tableVert_data[i].v.y,tableVert_data[i].v.z,0.0f);
         tmp=tableScale*tmp;
         
         tableVert_data[i].v=glm::vec3(tmp.x,tmp.y,tmp.z);
     }
-    for (int i=0; i<wandVert_data.size(); i++) {
+    for (unsigned int i=0; i<wandVert_data.size(); i++) {
         glm::vec4 tmp=glm::vec4(wandVert_data[i].v.x,wandVert_data[i].v.y,wandVert_data[i].v.z,0.0f);
         tmp=wandScale*tmp;
         
@@ -385,7 +397,7 @@ bool LMOC::loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector
                     file >> dataStr;
                     objectCount++;
                     GraphObj tmp;
-                    tmp.objId=objectCount;
+                    tmp.objId=(float)objectCount;
                     tmp.name=dataStr;
                     newObj=true;
                     objBounds.push_back(tmp);
@@ -446,7 +458,7 @@ bool LMOC::loadModel(sf::String path,std::vector<Vertex> *vert_data, std::vector
             case 'f':
             {
                 Face face;
-                face.objId=objectCount;
+                face.objId=(float)objectCount;
                 file >> face.vertInd.x >> face.vertInd.y >> face.vertInd.z;
                 f_data.push_back(face);
                 file >> face.vertInd.x >> face.vertInd.y >> face.vertInd.z;
@@ -530,7 +542,7 @@ void LMOC::leapMatrix(){
     
     /////////////////// CALCULATE THE TRANSFORM MATRICES FOR THE HANDS AND FINGERS
     float scale=1.0f/1000.0f;  //mm to m
-    float yOffset=0.15; //15cm
+    float yOffset=0.15f; //15cm
     if (wandMode&&oculusConnected) {
         Leap::ToolList toolList = listener.frame.tools();
         if (toolList.count()>0) {
@@ -929,21 +941,21 @@ void LMOC::render(){
         //L
         glViewport(0, 0, BUFFER_WIDTH/2, BUFFER_HEIGHT);
         glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 1);
-        for(int i=0;i<matrixVectorHands.size();i++){
+        for(unsigned int i=0;i<matrixVectorHands.size();i++){
             glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_modelMatrix"), 1, GL_FALSE, matrixVectorHands[i].toArray4x4().m_array);
             glDrawElements(GL_TRIANGLES, palmInd_data.size(), GL_UNSIGNED_INT, 0);
         }
         //R
         glViewport(BUFFER_WIDTH/2, 0, BUFFER_WIDTH/2, BUFFER_HEIGHT);
         glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 0);
-        for(int i=0;i<matrixVectorHands.size();i++){
+        for(unsigned int i=0;i<matrixVectorHands.size();i++){
             glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_modelMatrix"), 1, GL_FALSE, matrixVectorHands[i].toArray4x4().m_array);
             glDrawElements(GL_TRIANGLES, palmInd_data.size(), GL_UNSIGNED_INT, 0);
         }
     }else{
         glViewport(0, 0, BUFFER_WIDTH, BUFFER_HEIGHT);
         glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 1);
-        for(int i=0;i<matrixVectorHands.size();i++){
+        for(unsigned int i=0;i<matrixVectorHands.size();i++){
             glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_modelMatrix"), 1, GL_FALSE, matrixVectorHands[i].toArray4x4().m_array);
             glDrawElements(GL_TRIANGLES, palmInd_data.size(), GL_UNSIGNED_INT, 0);
         }
@@ -968,7 +980,7 @@ void LMOC::render(){
         //L
         glViewport(0, 0, BUFFER_WIDTH/2, BUFFER_HEIGHT);
         glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 1);
-        for(int i=0;i<matrixVectorFingers.size();i++){
+        for(unsigned int i=0;i<matrixVectorFingers.size();i++){
             glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_modelMatrix"), 1, GL_FALSE, matrixVectorFingers[i].toArray4x4().m_array);
             glDrawElements(GL_TRIANGLES, fingerInd_data.size(), GL_UNSIGNED_INT, 0);
         }
@@ -976,14 +988,14 @@ void LMOC::render(){
         //R
         glViewport(BUFFER_WIDTH/2, 0, BUFFER_WIDTH/2, BUFFER_HEIGHT);
         glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 0);
-        for(int i=0;i<matrixVectorFingers.size();i++){
+        for(unsigned int i=0;i<matrixVectorFingers.size();i++){
             glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_modelMatrix"), 1, GL_FALSE, matrixVectorFingers[i].toArray4x4().m_array);
             glDrawElements(GL_TRIANGLES, fingerInd_data.size(), GL_UNSIGNED_INT, 0);
         }
     }else{
         glViewport(0, 0, BUFFER_WIDTH, BUFFER_HEIGHT);
         glUniform1i(glGetUniformLocation(lmocShader, "isLeft"), 1);
-        for(int i=0;i<matrixVectorFingers.size();i++){
+        for(unsigned int i=0;i<matrixVectorFingers.size();i++){
             glUniformMatrix4fv(glGetUniformLocation(lmocShader, "u_modelMatrix"), 1, GL_FALSE, matrixVectorFingers[i].toArray4x4().m_array);
             glDrawElements(GL_TRIANGLES, fingerInd_data.size(), GL_UNSIGNED_INT, 0);
         }
@@ -1149,30 +1161,30 @@ void LMOC::checkEvents(){
             oculusConnected=!oculusConnected;
         }
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Up) {
-            debugVala+=0.001;
+            debugVala+=0.001f;
             std::cout << "a: " << debugVala <<std::endl;
         }
         
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down) {
-            debugVala-=0.001;
+            debugVala-=0.001f;
             std::cout << "a: " << debugVala <<std::endl;
         }
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Left) {
-            debugValb+=0.01;
+            debugValb+=0.01f;
             std::cout << "b: " << debugValb <<std::endl;
         }
         
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Right) {
-            debugValb-=0.01;
+            debugValb-=0.01f;
             std::cout << "b: " << debugValb <<std::endl;
         }
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::T) {
-            debugValc+=0.01;
+            debugValc+=0.01f;
             std::cout << "c: " << debugValc <<std::endl;
         }
         
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Z) {
-            debugValc-=0.01;
+            debugValc-=0.01f;
             std::cout << "c: " << debugValc <<std::endl;
         }
         

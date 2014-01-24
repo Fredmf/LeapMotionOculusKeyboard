@@ -14,6 +14,8 @@
 #include <glm/gtx/transform.hpp>
 #include <iostream>
 
+#define CAMOVR_PI  3.1415f
+
 CamOVR::CamOVR(){
     eye=glm::vec3(0.0f,0.17f, 0.1f); //initial value, player is 1m 80cm tall and stands 1m away from origin
     center=glm::vec3(0.0f,0.0f,0.0f);
@@ -122,7 +124,7 @@ glm::mat4 CamOVR::getLookAt(){
 glm::mat4 CamOVR::getLookAtL(){
     glm::vec4 direction(center.x,0.0f,center.z,0.0f);
     glm::vec4 offset=rot_ccw*direction;
-    float scale=((IPD*0.5)/sqrtf(offset.x*offset.x+offset.z*offset.z));
+    float scale=((IPD*0.5f)/sqrtf(offset.x*offset.x+offset.z*offset.z));
     offset=glm::scale(scale, 0.0f, scale)*offset;
     
     return glm::translate(offset.x, offset.y, offset.z)*getLookAt();
@@ -130,15 +132,15 @@ glm::mat4 CamOVR::getLookAtL(){
 glm::mat4 CamOVR::getLookAtR(){
     glm::vec4 direction(center.x,0.0f,center.z,0.0f);
     glm::vec4 offset=rot_cw*direction;
-    float scale=((IPD*0.5)/sqrtf(offset.x*offset.x+offset.z*offset.z));
+    float scale=((IPD*0.5f)/sqrtf(offset.x*offset.x+offset.z*offset.z));
     offset=glm::scale(scale, 0.0f, scale)*offset;
     
     return glm::translate(offset.x, offset.y, offset.z)*getLookAt();
 }
 void CamOVR::calculateCenter(void){
-    center.x=std::sinf(hv.y/180.0*M_PI)*std::sinf(hv.x/180*M_PI)*r;
-    center.y=std::cosf(hv.y/180.0*M_PI)*r;
-    center.z=std::sinf(hv.y/180.0*M_PI)*std::cosf(hv.x/180*M_PI)*r;
+    center.x=std::sinf(hv.y/180.0f*CAMOVR_PI)*std::sinf(hv.x/180.0f*CAMOVR_PI)*r;
+    center.y=std::cosf(hv.y/180.0f*CAMOVR_PI)*r;
+    center.z=std::sinf(hv.y/180.0f*CAMOVR_PI)*std::cosf(hv.x/180.0f*CAMOVR_PI)*r;
 }
 
 float CamOVR::getOrientationAngle(void){

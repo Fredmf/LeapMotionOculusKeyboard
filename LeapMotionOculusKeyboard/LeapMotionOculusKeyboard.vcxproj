@@ -20,22 +20,22 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Cam.cpp" />
+    <ClCompile Include="source\CamOVR.cpp" />
     <ClCompile Include="source\LeapListener.cpp" />
     <ClCompile Include="source\LMOC.cpp" />
     <ClCompile Include="source\main.cpp" />
-    <ClCompile Include="source\Matrices.cpp" />
     <ClCompile Include="source\ResourcePath.cpp" />
-    <ClCompile Include="source\shaders.cpp" />
+    <ClCompile Include="source\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Cam.h" />
+    <ClInclude Include="source\CamOVR.h" />
     <ClInclude Include="source\Leap.h" />
     <ClInclude Include="source\LeapListener.h" />
     <ClInclude Include="source\LeapMath.h" />
     <ClInclude Include="source\LMOC.h" />
-    <ClInclude Include="source\Matrices.h" />
     <ClInclude Include="source\ResourcePath.h" />
-    <ClInclude Include="source\shaders.h" />
+    <ClInclude Include="source\Shader.h" />
     <ClInclude Include="source\Vectors.h" />
   </ItemGroup>
   <ItemGroup>
@@ -107,7 +107,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Libs\glew-1.10.0\include;$(SolutionDir)\Libs\SFML-2.1\include;$(SolutionDir)\Libs\LeapDeveloperKit_release_win_1.0.8+7665\LeapSDK\include;$(SolutionDir)\Libs\ovr_sdk_win_0.2.5c\OculusSDK\LibOVR\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Libs\glew-1.10.0\include;$(SolutionDir)\Libs\SFML-2.1\include;$(SolutionDir)\Libs\LeapDeveloperKit_release_win_1.0.8+7665\LeapSDK\include;$(SolutionDir)\Libs\glm;$(SolutionDir)\Libs\ovr_sdk_win_0.2.5c\OculusSDK\LibOVR\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -115,6 +115,13 @@
       <AdditionalLibraryDirectories>$(SolutionDir)\Libs\ovr_sdk_win_0.2.5c\OculusSDK\LibOVR\Lib\Win32;$(SolutionDir)\Libs\glew-1.10.0\lib\Debug\Win32;$(SolutionDir)\Libs\SFML-2.1\lib;$(SolutionDir)\Libs\LeapDeveloperKit_release_win_1.0.8+7665\LeapSDK\lib\x86</AdditionalLibraryDirectories>
       <AdditionalDependencies>winmm.lib;libovrd.lib;glu32.lib;opengl32.lib;glew32d.lib;Leapd.lib;sfml-network-d.lib;sfml-system-d.lib;sfml-main-d.lib;sfml-audio-d.lib;sfml-graphics-d.lib;sfml-window-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y  $(SolutionDir)Libs\glew-1.10.0\bin\Debug\Win32\glew32d.dll $(OutDir)
+xcopy /y  $(SolutionDir)Libs\LeapDeveloperKit_release_win_1.0.8+7665\LeapSDK\lib\x86\Leapd.dll $(OutDir)
+xcopy /y  $(SolutionDir)Libs\SFML-2.1\bin\sfml-window-d-2.dll $(OutDir)
+xcopy /y  $(SolutionDir)Libs\SFML-2.1\bin\sfml-system-d-2.dll $(OutDir)
+xcopy /y  $(SolutionDir)Libs\SFML-2.1\bin\sfml-graphics-d-2.dll $(OutDir)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -141,7 +148,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Libs\glew-1.10.0\include;$(SolutionDir)\Libs\SFML-2.1\include;$(SolutionDir)\Libs\LeapDeveloperKit_release_win_1.0.8+7665\LeapSDK\include;$(SolutionDir)\Libs\ovr_sdk_win_0.2.5c\OculusSDK\LibOVR\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Libs\glm;$(SolutionDir)\Libs\glew-1.10.0\include;$(SolutionDir)\Libs\SFML-2.1\include;$(SolutionDir)\Libs\LeapDeveloperKit_release_win_1.0.8+7665\LeapSDK\include;$(SolutionDir)\Libs\ovr_sdk_win_0.2.5c\OculusSDK\LibOVR\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
