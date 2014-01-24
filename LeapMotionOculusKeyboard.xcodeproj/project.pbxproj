@@ -25,8 +25,6 @@
 		438B0F3B1886B7410064D010 /* postShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 438B0F391886B7410064D010 /* postShader.frag */; };
 		438B0F3C1886B7410064D010 /* postShader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 438B0F3A1886B7410064D010 /* postShader.vert */; };
 		43BAAA521832741600DAAADF /* fingertip.obj in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA421832741600DAAADF /* fingertip.obj */; };
-		43BAAA531832741600DAAADF /* Gbuffer.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA431832741600DAAADF /* Gbuffer.fsh */; };
-		43BAAA541832741600DAAADF /* Gbuffer.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA441832741600DAAADF /* Gbuffer.vsh */; };
 		43BAAA561832741600DAAADF /* keyboard.obj in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA461832741600DAAADF /* keyboard.obj */; };
 		43BAAA571832741600DAAADF /* keyboardTex.png in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA471832741600DAAADF /* keyboardTex.png */; };
 		43BAAA581832741600DAAADF /* keyboardTexCaps.png in Resources */ = {isa = PBXBuildFile; fileRef = 43BAAA481832741600DAAADF /* keyboardTexCaps.png */; };
@@ -63,8 +61,6 @@
 		43A7E8F618228B6C00710A8C /* LeapMotionOculusKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeapMotionOculusKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43A7E8FA18228B6C00710A8C /* LeapMotionOculusKeyboard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LeapMotionOculusKeyboard-Info.plist"; sourceTree = "<group>"; };
 		43BAAA421832741600DAAADF /* fingertip.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fingertip.obj; path = assets/fingertip.obj; sourceTree = "<group>"; };
-		43BAAA431832741600DAAADF /* Gbuffer.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Gbuffer.fsh; path = assets/Gbuffer.fsh; sourceTree = "<group>"; };
-		43BAAA441832741600DAAADF /* Gbuffer.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Gbuffer.vsh; path = assets/Gbuffer.vsh; sourceTree = "<group>"; };
 		43BAAA461832741600DAAADF /* keyboard.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = keyboard.obj; path = assets/keyboard.obj; sourceTree = "<group>"; };
 		43BAAA471832741600DAAADF /* keyboardTex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = keyboardTex.png; path = assets/keyboardTex.png; sourceTree = "<group>"; };
 		43BAAA481832741600DAAADF /* keyboardTexCaps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = keyboardTexCaps.png; path = assets/keyboardTexCaps.png; sourceTree = "<group>"; };
@@ -171,8 +167,6 @@
 				433875101832A48900133FB0 /* lmocShader.frag */,
 				433875111832A48900133FB0 /* lmocShader.vert */,
 				43BAAA421832741600DAAADF /* fingertip.obj */,
-				43BAAA431832741600DAAADF /* Gbuffer.fsh */,
-				43BAAA441832741600DAAADF /* Gbuffer.vsh */,
 				43BAAA461832741600DAAADF /* keyboard.obj */,
 				43BAAA471832741600DAAADF /* keyboardTex.png */,
 				43BAAA481832741600DAAADF /* keyboardTexCaps.png */,
@@ -259,8 +253,6 @@
 				438B0F3B1886B7410064D010 /* postShader.frag in Resources */,
 				4351CED81887890100FF802A /* table.obj in Resources */,
 				433875151832A48900133FB0 /* lmocShader.vert in Resources */,
-				43BAAA541832741600DAAADF /* Gbuffer.vsh in Resources */,
-				43BAAA531832741600DAAADF /* Gbuffer.fsh in Resources */,
 				43BAAA5C1832741600DAAADF /* palm.obj in Resources */,
 				433875201832BD8000133FB0 /* palmTex.png in Resources */,
 				434031571887BCA80036034C /* wandTex.png in Resources */,
@@ -442,8 +434,8 @@
 				INFOPLIST_FILE = "LeapMotionOculusKeyboard/LeapMotionOculusKeyboard-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Lib/MacOS/Debug",
-					"Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Lib/MacOS/Release",
+					Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Lib/MacOS/Debug,
+					Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Lib/MacOS/Release,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -464,8 +456,8 @@
 				INFOPLIST_FILE = "LeapMotionOculusKeyboard/LeapMotionOculusKeyboard-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Lib/MacOS/Debug",
-					"Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Lib/MacOS/Release",
+					Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Lib/MacOS/Debug,
+					Libs/ovr_sdk_macos_0.2.5c/OculusSDK/LibOVR/Lib/MacOS/Release,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
