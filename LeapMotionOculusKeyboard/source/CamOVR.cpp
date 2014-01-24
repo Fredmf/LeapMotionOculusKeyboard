@@ -122,20 +122,22 @@ glm::mat4 CamOVR::getLookAt(){
     return glm::lookAt(getEye(), getCenter(), getUp());
 }
 glm::mat4 CamOVR::getLookAtL(){
-    glm::vec4 direction(center.x,0.0f,center.z,0.0f);
-    glm::vec4 offset=rot_ccw*direction;
-    float scale=((IPD*0.5f)/sqrtf(offset.x*offset.x+offset.z*offset.z));
-    offset=glm::scale(scale, 0.0f, scale)*offset;
+    //glm::vec4 direction(center.x,0.0f,center.z,0.0f);
+    //glm::vec4 offset=rot_ccw*direction;
+    //float scale=((IPD*0.5f)/sqrtf(offset.x*offset.x+offset.z*offset.z));
+    //offset=glm::scale(scale, 0.0f, scale)*offset;
     
-    return glm::translate(offset.x, offset.y, offset.z)*getLookAt();
+    //return glm::translate(offset.x, offset.y, offset.z)*getLookAt();
+	return glm::translate(IPD*0.5f, 0.0f, 0.0f)*getLookAt();
 }
 glm::mat4 CamOVR::getLookAtR(){
-    glm::vec4 direction(center.x,0.0f,center.z,0.0f);
-    glm::vec4 offset=rot_cw*direction;
-    float scale=((IPD*0.5f)/sqrtf(offset.x*offset.x+offset.z*offset.z));
-    offset=glm::scale(scale, 0.0f, scale)*offset;
+    //glm::vec4 direction(center.x,0.0f,center.z,0.0f);
+    //glm::vec4 offset=rot_cw*direction;
+    //float scale=((IPD*0.5f)/sqrtf(offset.x*offset.x+offset.z*offset.z));
+    //offset=glm::scale(scale, 0.0f, scale)*offset;
     
-    return glm::translate(offset.x, offset.y, offset.z)*getLookAt();
+    //return glm::translate(offset.x, offset.y, offset.z)*getLookAt();
+	return glm::translate(-IPD*0.5f, 0.0f, 0.0f)*getLookAt();
 }
 void CamOVR::calculateCenter(void){
     center.x=std::sinf(hv.y/180.0f*CAMOVR_PI)*std::sinf(hv.x/180.0f*CAMOVR_PI)*r;
