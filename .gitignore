@@ -26,3 +26,4 @@ build
 # visual
 LeapMotionOculusKeyboard.sdf
 LeapMotionOculusKeyboard/LeapMotionOculusKeyboard.vcxproj.user
+LeapMotionOculusKeyboard/LeapMotionOculusKeyboard.opensdf
