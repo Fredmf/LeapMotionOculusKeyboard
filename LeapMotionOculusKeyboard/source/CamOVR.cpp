@@ -67,9 +67,11 @@ void CamOVR::ovrInput(glm::vec3 yawPitchRoll){
     yawPitchRoll-=oculusZero;
     yawPitchRoll.x*=(-1.0);
     yawPitchRoll.z*=(-1.0);
-    hv.x=fix.x+yawPitchRoll.x;
-    hv.y=fix.y+yawPitchRoll.y;
+    //yawPitchRoll.y*=(-1.0);
+    hv.x=fix.x+yawPitchRoll.x;//YAW
+    hv.y=fix.y+yawPitchRoll.y;//PITCH
     
+	//ROLL
     float tmp = yawPitchRoll.z;
     static float lastZ;
     yawPitchRoll.z-=lastZ;
