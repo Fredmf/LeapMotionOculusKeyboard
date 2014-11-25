@@ -1,6 +1,8 @@
 LeapMotionOculusKeyboard
 ========================
 
+(onetime project, Oculus DK1 and Leap Motion, no further development)
+
 http://www.youtube.com/watch?v=H08EVNUoAzE
 
 Educational Demonstrator, to research the use of the Leap Motion in Conjunction with the Oculus Rift to interact with virtual keyboard like interfaces.
