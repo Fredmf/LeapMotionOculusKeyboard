@@ -1,6 +1,8 @@
 LeapMotionOculusKeyboard
 ========================
 
+stuff for university
+
 (onetime project, Oculus DK1 and Leap Motion, no further development)
 
 http://www.youtube.com/watch?v=H08EVNUoAzE
